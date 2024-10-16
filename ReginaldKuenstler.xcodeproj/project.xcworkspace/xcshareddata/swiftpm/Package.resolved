@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "swift-vibrantium",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ruipfcosta/swift-vibrantium",
+      "state" : {
+        "branch" : "master",
+        "revision" : "7549af4481ffa4c7bc18101c876c432798a2ea62"
+      }
+    }
+  ],
+  "version" : 2
+}

@@ -14,6 +14,7 @@
 		16ED0D342CBED1C700ADCA3B /* ReginaldKuenstlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D332CBED1C700ADCA3B /* ReginaldKuenstlerTests.swift */; };
 		16ED0D3E2CBED1C700ADCA3B /* ReginaldKuenstlerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D3D2CBED1C700ADCA3B /* ReginaldKuenstlerUITests.swift */; };
 		16ED0D402CBED1C700ADCA3B /* ReginaldKuenstlerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D3F2CBED1C700ADCA3B /* ReginaldKuenstlerUITestsLaunchTests.swift */; };
+		16ED0D4E2CBED8B500ADCA3B /* SwiftVibrantium in Frameworks */ = {isa = PBXBuildFile; productRef = 16ED0D4D2CBED8B500ADCA3B /* SwiftVibrantium */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16ED0D4E2CBED8B500ADCA3B /* SwiftVibrantium in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +145,9 @@
 			dependencies = (
 			);
 			name = ReginaldKuenstler;
+			packageProductDependencies = (
+				16ED0D4D2CBED8B500ADCA3B /* SwiftVibrantium */,
+			);
 			productName = ReginaldKuenstler;
 			productReference = 16ED0D1F2CBED1C500ADCA3B /* ReginaldKuenstler.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +220,9 @@
 				Base,
 			);
 			mainGroup = 16ED0D162CBED1C400ADCA3B;
+			packageReferences = (
+				16ED0D4C2CBED8B500ADCA3B /* XCRemoteSwiftPackageReference "swift-vibrantium" */,
+			);
 			productRefGroup = 16ED0D202CBED1C500ADCA3B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -588,6 +596,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		16ED0D4C2CBED8B500ADCA3B /* XCRemoteSwiftPackageReference "swift-vibrantium" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ruipfcosta/swift-vibrantium";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		16ED0D4D2CBED8B500ADCA3B /* SwiftVibrantium */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16ED0D4C2CBED8B500ADCA3B /* XCRemoteSwiftPackageReference "swift-vibrantium" */;
+			productName = SwiftVibrantium;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 16ED0D172CBED1C400ADCA3B /* Project object */;
 }
