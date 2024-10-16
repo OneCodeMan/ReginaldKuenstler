@@ -15,6 +15,7 @@
 		16ED0D3E2CBED1C700ADCA3B /* ReginaldKuenstlerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D3D2CBED1C700ADCA3B /* ReginaldKuenstlerUITests.swift */; };
 		16ED0D402CBED1C700ADCA3B /* ReginaldKuenstlerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D3F2CBED1C700ADCA3B /* ReginaldKuenstlerUITestsLaunchTests.swift */; };
 		16ED0D4E2CBED8B500ADCA3B /* SwiftVibrantium in Frameworks */ = {isa = PBXBuildFile; productRef = 16ED0D4D2CBED8B500ADCA3B /* SwiftVibrantium */; };
+		16ED0D512CBFFAC100ADCA3B /* ColourMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D502CBFFAC100ADCA3B /* ColourMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		16ED0D392CBED1C700ADCA3B /* ReginaldKuenstlerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReginaldKuenstlerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		16ED0D3D2CBED1C700ADCA3B /* ReginaldKuenstlerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReginaldKuenstlerUITests.swift; sourceTree = "<group>"; };
 		16ED0D3F2CBED1C700ADCA3B /* ReginaldKuenstlerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReginaldKuenstlerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		16ED0D502CBFFAC100ADCA3B /* ColourMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		16ED0D212CBED1C500ADCA3B /* ReginaldKuenstler */ = {
 			isa = PBXGroup;
 			children = (
+				16ED0D4F2CBFFAB800ADCA3B /* Data */,
 				16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */,
 				16ED0D242CBED1C500ADCA3B /* ContentView.swift */,
 				16ED0D262CBED1C700ADCA3B /* Assets.xcassets */,
@@ -127,6 +130,14 @@
 				16ED0D3F2CBED1C700ADCA3B /* ReginaldKuenstlerUITestsLaunchTests.swift */,
 			);
 			path = ReginaldKuenstlerUITests;
+			sourceTree = "<group>";
+		};
+		16ED0D4F2CBFFAB800ADCA3B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				16ED0D502CBFFAC100ADCA3B /* ColourMapper.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16ED0D512CBFFAC100ADCA3B /* ColourMapper.swift in Sources */,
 				16ED0D252CBED1C500ADCA3B /* ContentView.swift in Sources */,
 				16ED0D232CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift in Sources */,
 			);
