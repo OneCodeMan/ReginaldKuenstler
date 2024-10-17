@@ -36,7 +36,7 @@ final class ColourConverter {
     }
     
     static private func colourDistance(rgb1: (r: Int, g: Int, b: Int), rgb2: (r: Int, g: Int, b: Int)) -> Double {
-        print("--ColourConverter Calculating distance between \(rgb1) and \(rgb2)")
+        // print("--ColourConverter Calculating distance between \(rgb1) and \(rgb2)")
         let dr = rgb1.r - rgb2.r
         let dg = rgb1.g - rgb2.g
         let db = rgb1.b - rgb2.b
@@ -61,7 +61,7 @@ final class ColourConverter {
             }
             
         }
-        print("--ColourConverter nearestColourInMap for rgb\(inputRGBTuple) is: \(nearestColour)\n")
+        print("--ColourConverter nearestColourInMap for rgb\(inputRGBTuple) is: \(nearestColour.name) \(nearestColour.rgbCode)\n")
         return nearestColour
     }
     

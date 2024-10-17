@@ -9,10 +9,11 @@ import SwiftUI
 import SwiftVibrantium
 
 struct ColourComparisonView: View {
-    @StateObject var viewModel = KuenstlerViewModel()
+    @ObservedObject var viewModel = KuenstlerViewModel()
     @State var imgTitle = "Calum from Aftersun"
-    @State var imgName = "monet"
+    @State var imgName = "starz"
     @State var infoString = "Title of Image"
+    @State var paletteString = ""
     
     // real colours
     @State var realColours: [UIColor] = Array(repeating: .clear, count: 6)
@@ -49,14 +50,17 @@ struct ColourComparisonView: View {
                 // Estimated colours
                 Divider()
                 Text("Estimated Colours")
-                HStack {
-                    ForEach(0..<estimatedColours.count, id: \.self) { index in
-                        Rectangle()
-                            .fill(Color(estimatedColours[index]))
-                            .frame(width: 20, height: 20)
+                VStack {
+                    HStack {
+                        ForEach(0..<estimatedColours.count, id: \.self) { index in
+                            Rectangle()
+                                .fill(Color(estimatedColours[index]))
+                                .frame(width: 20, height: 20)
+                        }
                     }
+                    .padding()
+                    Text(paletteString)
                 }
-                .padding()
                 
                 Divider()
                     .background(.white)
@@ -81,6 +85,7 @@ struct ColourComparisonView: View {
                 for i in 0..<min(colourPairs.count, realColours.count) {
                     realColours[i] = colourPairs[i].actualColourInfo.uiColour
                     estimatedColours[i] = colourPairs[i].estimatedColourInfo.uiColour
+                    paletteString += "\(colourPairs[i].name), "
                 }
             }
         }

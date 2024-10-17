@@ -14,13 +14,13 @@ import SwiftVibrantium
  */
 class KuenstlerViewModel: ObservableObject {
     
-    @State var colourMap: [VColour] = []
+    @Published var colourMap: [VColour] = []
     
     init() {
         self.generateColourMapping()
     }
     
-    func generateColourMapping(completion: (([VColour]) -> Void)? = nil) {
+    private func generateColourMapping(completion: (([VColour]) -> Void)? = nil) {
         // Check if the colourMap is already populated
         if !self.colourMap.isEmpty {
             completion?([])  // No need to regenerate
@@ -77,7 +77,7 @@ class KuenstlerViewModel: ObservableObject {
                         let actualColourInfo = ColourInfo(hexCode: actualHex, rgbCode: actualRGBCode, uiColour: actualUIColour)
                         
                         // Find nearest colour in the map
-                        print("passing colourMap of \(self.colourMap.count) items to converter..")
+                        // print("passing colourMap of \(self.colourMap.count) items to converter..")
                         let currentVColour: VColour = ColourConverter.findNearestColourInMap(withRgbValue: actualRGBCode, colourMap: self.colourMap)
                         let estimatedHexCode: String = currentVColour.hexCode
                         let estimatedUIColour: UIColor = currentVColour.uiColour
