@@ -9,8 +9,9 @@ import SwiftUI
 import SwiftVibrantium
 
 struct ColourComparisonView: View {
+    @StateObject var viewModel = KuenstlerViewModel()
     @State var imgTitle = "Calum from Aftersun"
-    @State var imgName = "starz"
+    @State var imgName = "monet"
     @State var infoString = "Title of Image"
     
     // real colours
@@ -71,11 +72,10 @@ struct ColourComparisonView: View {
     }
     
     func performColourAnalysis() {
-        let vm = KuenstlerViewModel()
         let image = UIImage(named: imgName)!
         let artwork = Artwork(image: image, title: imgTitle)
         
-        vm.performAnalOnImage(artwork: artwork) { colourPairs in
+        viewModel.performAnalOnImage(artwork: artwork) { colourPairs in
             DispatchQueue.main.async {
                 // Loop through the colourPairs and assign to real and estimated colours
                 for i in 0..<min(colourPairs.count, realColours.count) {

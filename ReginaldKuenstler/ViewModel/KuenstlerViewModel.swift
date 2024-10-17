@@ -12,7 +12,7 @@ import SwiftVibrantium
 /**
  ViewModel responsible for taking image as input and producing a swatch as output
  */
-class KuenstlerViewModel {
+class KuenstlerViewModel: ObservableObject {
     
     @State var colourMap: [VColour] = []
     
@@ -43,11 +43,9 @@ class KuenstlerViewModel {
     
     func performAnalOnImage(artwork: Artwork, completion: @escaping (_ result: ([ColourPair])) -> Void) {
         
-        self.generateColourMapping { colourMap in
-            // Now the colourMap should be populated correctly
-            var colourPairs: [ColourPair] = []
-            print("Performing analysis on \(artwork.title)")
-            
+        var colourPairs: [ColourPair] = []
+        print("Performing analysis on \(artwork.title)")
+        DispatchQueue.main.async {
             Vibrant.from(artwork.image).getPalette() { palette in
                 let p = palette
                 let vibrant: Swatch? = p.Vibrant
@@ -79,6 +77,7 @@ class KuenstlerViewModel {
                         let actualColourInfo = ColourInfo(hexCode: actualHex, rgbCode: actualRGBCode, uiColour: actualUIColour)
                         
                         // Find nearest colour in the map
+                        print("passing colourMap of \(self.colourMap.count) items to converter..")
                         let currentVColour: VColour = ColourConverter.findNearestColourInMap(withRgbValue: actualRGBCode, colourMap: self.colourMap)
                         let estimatedHexCode: String = currentVColour.hexCode
                         let estimatedUIColour: UIColor = currentVColour.uiColour
