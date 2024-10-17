@@ -7,8 +7,6 @@
 
 import Foundation
 
-typealias RGBTuple = (r: Int, g: Int, b: Int)
-
 final class ColourConverter {
     
     // https://medium.com/@muzammalshahzad494/converting-hexadecimal-color-code-to-rgb-values-in-swift-3600d46bcbc9
@@ -36,19 +34,18 @@ final class ColourConverter {
         )
     }
     
-    static func colourDistance(rgb1: (r: Int, g: Int, b: Int), rgb2: (r: Int, g: Int, b: Int)) -> Double {
+    static private func colourDistance(rgb1: (r: Int, g: Int, b: Int), rgb2: (r: Int, g: Int, b: Int)) -> Double {
         let dr = rgb1.r - rgb2.r
         let dg = rgb1.g - rgb2.g
         let db = rgb1.b - rgb2.b
         return sqrt(Double(dr * dr + dg * dg + db * db))
     }
     
-    static func findNearestColorFromRGBValue(rgbTuple inputRGBTuple: RGBTuple, colourMap: [VColour]) -> VColour {
+    static func findNearestColourInMap(withRgbValue inputRGBTuple: RGBTuple, colourMap: [VColour]) -> VColour {
         var nearestColour: VColour = VColour()
         var minDistance: Double = Double.greatestFiniteMagnitude
         
         for col in colourMap {
-            let name = col.name
             let currentColourRGBCode = col.rgbCode
             
             let distance = colourDistance(rgb1: inputRGBTuple, rgb2: currentColourRGBCode)

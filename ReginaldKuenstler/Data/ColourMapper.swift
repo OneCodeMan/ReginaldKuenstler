@@ -26,27 +26,26 @@ final class ColourMapper {
         do {
             let csvData = try String(contentsOfFile: filePath, encoding: .utf8)
             let rows = csvData.components(separatedBy: "\n")
+            let rowsWithoutHeaders = rows.dropFirst()
             
-            for row in rows {
+            for row in rowsWithoutHeaders {
                 let columns = row.components(separatedBy: ",")
                 
                 if columns.count == 2 {
-                    let rgbCode = ColourConverter.hexToRGB(hex: columns[1])
-                    let colour = VColour(name: columns[0], hexCode: columns[1], rgbCode: rgbCode)
+                    let colourName = columns[0]
+                    let hexCode = columns[1]
+                    
+                    let rgbCode: RGBTuple = ColourConverter.hexToRGB(hex: hexCode)
+                    let uiColour: UIColor = UIColor(hex: hexCode)
+                    let colour = VColour(name: colourName, hexCode: hexCode, rgbCode: rgbCode, uiColour: uiColour)
                     coloursFromCSV.append(colour)
                 }
             }
         } catch {
             print("Error reading CSV file: \(error)")
         }
-        print(coloursFromCSV)
+        // print(coloursFromCSV)
         self.colourMap = coloursFromCSV
         return coloursFromCSV
     }
-}
-
-struct VColour {
-    var name: String = ""
-    var hexCode: String = ""
-    var rgbCode: RGBTuple = (r: 0, g: 0, b: 0)
 }

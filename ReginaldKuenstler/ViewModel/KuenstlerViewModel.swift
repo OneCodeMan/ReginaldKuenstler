@@ -14,54 +14,71 @@ import SwiftVibrantium
  */
 class KuenstlerViewModel {
     
+    @State var colourMap: [VColour] = []
+
     
-    func performAnalOnImage(artwork: Artwork, completion: @escaping ([UIColor]) -> Void) {
-        var infoString = ""
-        var uiColours: [UIColor] = []
+    init() {
+        self.generateColourMapping()
+    }
+    
+    func generateColourMapping() {
+        let mapper = ColourMapper()
+        let colourMap = mapper.createColourMapFromCSV()
+        self.colourMap = colourMap
+        print("[--KuenstlerViewModel generateColourMapping() colourMap \(colourMap.count) items")
+    }
+    
+    
+    func performAnalOnImage(artwork: Artwork, completion: @escaping (_ result: ([ColourPair])) -> Void) {
+        
+        var colourPairs: [ColourPair] = []
         print("performing anal on \(artwork.title)")
+        
         Vibrant.from(artwork.image).getPalette() { palette in
             let p = palette
-            let vibrant: String = p.Vibrant?.hex ?? ""
-            let darkVibrant: String = p.DarkVibrant?.hex ?? ""
-            let lightVibrant: String = p.LightVibrant?.hex ?? ""
-            let mutedVibrant: String = p.Muted?.hex ?? ""
-            let lightMuted: String = p.LightMuted?.hex ?? ""
-            let darkMuted: String = p.DarkMuted?.hex ?? ""
-            print("vibrant: \(vibrant);\n darkvibrant: \(darkVibrant);\n lightVibrant: \(lightVibrant); mutedVibrant: \(mutedVibrant); lightMuted: \(lightMuted); darkMuted: \(darkMuted)")
+            let vibrant: Swatch? = p.Vibrant
+            let darkVibrant: Swatch? = p.DarkVibrant
+            let lightVibrant: Swatch? = p.LightVibrant
+            let mutedVibrant: Swatch? = p.Muted
+            let lightMuted: Swatch? = p.LightMuted
+            let darkMuted: Swatch? = p.DarkMuted
+            
+            // print("vibrant: \(vibrant);\n darkvibrant: \(darkVibrant);\n lightVibrant: \(lightVibrant); mutedVibrant: \(mutedVibrant); lightMuted: \(lightMuted); darkMuted: \(darkMuted)")
             
             // take input
             let inputs = [vibrant, darkVibrant, lightVibrant, mutedVibrant, lightMuted, darkMuted]
-            var outputs: [VColour] = []
             
-            let mapper = ColourMapper()
-            let colourMap = mapper.createColourMapFromCSV()
-            print("\n\n\n\n")
-            
-            // for every colour input
-            for inputColour in inputs {
-                // convert to rgb
-                let rgbInputTuple = ColourConverter.hexToRGB(hex: inputColour)
-                
-                // calculate nearest distance, output
-                let nearestColour = ColourConverter.findNearestColorFromRGBValue(rgbTuple: rgbInputTuple, colourMap: colourMap)
-                outputs.append(nearestColour)
+            // loop through each input
+            // for each input
+            for swatchInput in inputs {
+                if let swatchInput = swatchInput {
+                    // make an ActualColourInfo
+                    let actualHex: String = swatchInput.hex
+                    let actualUIColour: UIColor = swatchInput.uiColor
+                    let actualRGBCode: RGBTuple = ColourConverter.hexToRGB(hex: actualHex)
+
+                    // ColourPair component 1
+                    let actualColourInfo = ColourInfo(hexCode: actualHex, rgbCode: actualRGBCode, uiColour: actualUIColour)
+                    
+                    // convert info from there to get a mapping
+                    // store mapping info to EstimatedColourInfo
+                    let currentVColour: VColour = ColourConverter.findNearestColourInMap(withRgbValue: actualRGBCode, colourMap: self.colourMap)
+                    let estimatedHexCode: String = currentVColour.hexCode
+                    let estimatedUIColour: UIColor = currentVColour.uiColour
+                    let estimatedRGBTuple: RGBTuple = currentVColour.rgbCode
+                    
+                    // ColourPair component 2
+                    let estimatedColourInfo = ColourInfo(hexCode: estimatedHexCode, rgbCode: estimatedRGBTuple, uiColour: estimatedUIColour)
+                    
+                    // create a ColourPair
+                    let colourPair = ColourPair(name: currentVColour.name, type: "", actualColourInfo: actualColourInfo, estimatedColourInfo: estimatedColourInfo)
+                    
+                    // add ColourPair to array
+                    colourPairs.append(colourPair)
+                }
             }
-            
-            let inputOutputZip = zip(inputs, outputs)
-            
-            print("Analysis of \(artwork.title)")
-            
-            for (inputColour, outputColour) in inputOutputZip {
-                let outputCode = outputColour.rgbCode
-                let currentColour = UIColor(red: CGFloat(outputCode.r) / 255.0, green: CGFloat(outputCode.g) / 255.0, blue: CGFloat(outputCode.b) / 255.0, alpha: 1.0)
-                uiColours.append(currentColour)
-                
-                let yap = "Vibrant took the input as \(inputColour), which corresponds to \(outputColour.name) (hex code: \(outputColour.hexCode))\nThe UIColor for \(outputColour.name) is: \(currentColour)\n\n"
-                infoString += yap
-                print(yap)
-            }
-            print("printing uiColours within callback: \(uiColours)")
-            completion(uiColours)
+            print("--KuenstlerViewModel anal has been performed, colourPairs has \(colourPairs.count) elements. Completion will be called.")
+            completion(colourPairs)
         }
     }
 }
