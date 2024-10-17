@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class ColourConverter {
     
@@ -13,9 +14,9 @@ final class ColourConverter {
     /*
      usage:
      if let rgb = hexToRGB(hex: "#FF0000") {
-         print("Red: \(rgb.red), Green: \(rgb.green), Blue: \(rgb.blue)")
+     print("Red: \(rgb.red), Green: \(rgb.green), Blue: \(rgb.blue)")
      } else {
-         print("Invalid hexadecimal color code.")
+     print("Invalid hexadecimal color code.")
      }
      */
     static func hexToRGB(hex: String) -> RGBTuple {
@@ -35,6 +36,7 @@ final class ColourConverter {
     }
     
     static private func colourDistance(rgb1: (r: Int, g: Int, b: Int), rgb2: (r: Int, g: Int, b: Int)) -> Double {
+        print("--ColourConverter Calculating distance between \(rgb1) and \(rgb2)")
         let dr = rgb1.r - rgb2.r
         let dg = rgb1.g - rgb2.g
         let db = rgb1.b - rgb2.b
@@ -42,6 +44,10 @@ final class ColourConverter {
     }
     
     static func findNearestColourInMap(withRgbValue inputRGBTuple: RGBTuple, colourMap: [VColour]) -> VColour {
+        guard !colourMap.isEmpty else {
+            print("--findNearestColourInMap: COLOUR MAP IS EMPTY. Returning default colour.")
+            return VColour(name: "Unknown", hexCode: "#000000", rgbCode: (0, 0, 0), uiColour: UIColor.black)
+        }
         var nearestColour: VColour = VColour()
         var minDistance: Double = Double.greatestFiniteMagnitude
         
@@ -55,8 +61,8 @@ final class ColourConverter {
             }
             
         }
-        // print("ColourConverter nearestColourInMap for rgb\(inputRGBTuple) is: \(nearestColour)\n")
+        print("--ColourConverter nearestColourInMap for rgb\(inputRGBTuple) is: \(nearestColour)\n")
         return nearestColour
     }
-
+    
 }

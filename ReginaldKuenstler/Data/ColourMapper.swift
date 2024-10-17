@@ -14,38 +14,44 @@ final class ColourMapper {
     // extract `colourmap.csv` and make a dict out of it
     // dict = { "Cadmium Red": "#FF2210" }
     var colourMap: [VColour] = []
-    func createColourMapFromCSV() -> [VColour] {
+    func createColourMapFromCSV(completion: @escaping ([VColour]) -> Void) {
         var coloursFromCSV: [VColour] = []
         
         guard let filePath = Bundle.main.path(forResource: "colourmap", ofType: "csv") else {
             print("CSV FILE NON-EXISTENT.")
-            return coloursFromCSV
+            completion(coloursFromCSV)
+            return
         }
         
-        // read from csv
-        do {
-            let csvData = try String(contentsOfFile: filePath, encoding: .utf8)
-            let rows = csvData.components(separatedBy: "\n")
-            let rowsWithoutHeaders = rows.dropFirst()
-            
-            for row in rowsWithoutHeaders {
-                let columns = row.components(separatedBy: ",")
+        DispatchQueue.global(qos: .background).async {
+            do {
+                let csvData = try String(contentsOfFile: filePath, encoding: .utf8)
+                let rows = csvData.components(separatedBy: "\n")
+                let rowsWithoutHeaders = rows.dropFirst()
                 
-                if columns.count == 2 {
-                    let colourName = columns[0]
-                    let hexCode = columns[1]
+                for row in rowsWithoutHeaders {
+                    let columns = row.components(separatedBy: ",")
                     
-                    let rgbCode: RGBTuple = ColourConverter.hexToRGB(hex: hexCode)
-                    let uiColour: UIColor = UIColor(hex: hexCode)
-                    let colour = VColour(name: colourName, hexCode: hexCode, rgbCode: rgbCode, uiColour: uiColour)
-                    coloursFromCSV.append(colour)
+                    if columns.count == 2 {
+                        let colourName = columns[0]
+                        let hexCode = columns[1]
+                        
+                        let rgbCode: RGBTuple = ColourConverter.hexToRGB(hex: hexCode)
+                        let uiColour: UIColor = UIColor(hex: hexCode)
+                        let colour = VColour(name: colourName, hexCode: hexCode, rgbCode: rgbCode, uiColour: uiColour)
+                        coloursFromCSV.append(colour)
+                    }
+                }
+                // Call completion on the main queue after reading
+                DispatchQueue.main.async {
+                    completion(coloursFromCSV)
+                }
+            } catch {
+                print("Error reading CSV file: \(error)")
+                DispatchQueue.main.async {
+                    completion(coloursFromCSV) // Return empty array on error
                 }
             }
-        } catch {
-            print("Error reading CSV file: \(error)")
         }
-        // print(coloursFromCSV)
-        self.colourMap = coloursFromCSV
-        return coloursFromCSV
     }
 }
