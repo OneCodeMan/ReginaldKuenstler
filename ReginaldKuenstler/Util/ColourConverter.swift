@@ -55,6 +55,7 @@ final class ColourConverter {
             }
             
         }
+        // print("ColourConverter nearestColourInMap for rgb\(inputRGBTuple) is: \(nearestColour)\n")
         return nearestColour
     }
 
