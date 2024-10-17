@@ -46,11 +46,11 @@ class KuenstlerViewModel {
             // print("vibrant: \(vibrant);\n darkvibrant: \(darkVibrant);\n lightVibrant: \(lightVibrant); mutedVibrant: \(mutedVibrant); lightMuted: \(lightMuted); darkMuted: \(darkMuted)")
             
             // take input
-            let inputs = [vibrant, darkVibrant, lightVibrant, mutedVibrant, lightMuted, darkMuted]
+            let inputs: [(String, Swatch?)] = [("Vibrant", vibrant), ("Dark Vibrant", darkVibrant), ("Light Vibrant", lightVibrant), ("Muted Vibrant", mutedVibrant), ("Light Muted", lightMuted), ("Dark Muted", darkMuted)]
             
             // loop through each input
             // for each input
-            for swatchInput in inputs {
+            for (colourType, swatchInput) in inputs {
                 if let swatchInput = swatchInput {
                     // make an ActualColourInfo
                     let actualHex: String = swatchInput.hex
@@ -71,7 +71,7 @@ class KuenstlerViewModel {
                     let estimatedColourInfo = ColourInfo(hexCode: estimatedHexCode, rgbCode: estimatedRGBTuple, uiColour: estimatedUIColour)
                     
                     // create a ColourPair
-                    let colourPair = ColourPair(name: currentVColour.name, type: "", actualColourInfo: actualColourInfo, estimatedColourInfo: estimatedColourInfo)
+                    let colourPair = ColourPair(name: currentVColour.name, type: colourType, actualColourInfo: actualColourInfo, estimatedColourInfo: estimatedColourInfo)
                     
                     // add ColourPair to array
                     colourPairs.append(colourPair)

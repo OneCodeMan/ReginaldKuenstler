@@ -72,12 +72,16 @@ struct ContentView: View {
             // colourPairs is an aray
             vm.performAnalOnImage(artwork: artwork) { colourPairs in
                 DispatchQueue.main.async {
-                    print("colourPairs are :\n\(colourPairs)\n\n\n")
-                    // display real colours
                     // Loop through the colourPairs and assign to real and estimated colours
                     for i in 0..<min(colourPairs.count, realColours.count) {
+                        let currentActualColour = colourPairs[i].actualColourInfo
+                        let currentEstimatedColour = colourPairs[i].estimatedColourInfo
+                        
                         realColours[i] = colourPairs[i].actualColourInfo.uiColour
                         estimatedColours[i] = colourPairs[i].estimatedColourInfo.uiColour
+                        
+                        print("\n actual hex is <\(currentActualColour.hexCode)>, estimated hex is <\(currentEstimatedColour.hexCode)>\nName:\(colourPairs[i].name)  \n\n\n")
+                        
                     }
                 }
             }
