@@ -9,11 +9,11 @@ import Foundation
 import UIKit
 
 // Has a dict of colour string names and their rgb/hex values
-final class ColourMapper {
+final class ColourMapper: ObservableObject {
     
     // extract `colourmap.csv` and make a dict out of it
     // dict = { "Cadmium Red": "#FF2210" }
-    var colourMap: [VColour] = []
+    @Published var colourMap: [VColour] = []
     func createColourMapFromCSV(completion: @escaping ([VColour]) -> Void) {
         var coloursFromCSV: [VColour] = []
         

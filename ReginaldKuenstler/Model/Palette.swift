@@ -6,7 +6,19 @@
 //
 
 import Foundation
+import SwiftUI
+
+/**
+ Information on what to display to the user.
+  PaletteColours are made of VColours from the map.
+ */
+struct PaletteColour {
+    var colourName: String
+    var hexCode: String
+    var uiColor: UIColor
+}
 
 struct Palette {
-    var colours: [String] = []
+    var title: String
+    var colours: [PaletteColour] = []
 }
