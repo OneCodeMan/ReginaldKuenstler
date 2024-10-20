@@ -8,5 +8,8 @@
 import Foundation
 
 class UserPalette {
-    // var paletteColours: [VColour] = []
+//    var userId: <TODO>
+    var title: String = ""
+    var colours: [PaletteColour] = []
+
 }

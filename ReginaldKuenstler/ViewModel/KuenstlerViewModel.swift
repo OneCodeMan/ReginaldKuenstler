@@ -27,6 +27,7 @@ class KuenstlerViewModel: ObservableObject {
             return
         }
         
+        // TODO: refactor this to environmentvariable
         let mapper = ColourMapper()
         
         DispatchQueue.main.async {

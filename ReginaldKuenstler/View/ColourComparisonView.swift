@@ -14,6 +14,7 @@ struct ColourComparisonView: View {
     @State var imgName = "starz"
     @State var infoString = "Title of Image"
     @State var paletteString = ""
+    @State var personalPaletteString = ""
     
     // real colours
     @State var realColours: [UIColor] = Array(repeating: .clear, count: 6)
@@ -112,6 +113,22 @@ struct ColourComparisonView: View {
                 Divider()
                     .background(.white)
                     .frame(height: 2)
+                Text("From Your Palette")
+                // TODO
+                VStack {
+                    HStack {
+                        ForEach(0..<estimatedColours.count, id: \.self) { index in
+                            Rectangle()
+                                .fill(Color(estimatedColours[index]))
+                                .frame(width: 20, height: 20)
+                        }
+                    }
+                    .padding()
+                    Text(paletteString)
+                }
+                Divider()
+                    .background(.white)
+                    .frame(height: 2)
             }
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
             .padding()
@@ -143,6 +160,7 @@ struct ColourComparisonView: View {
         
         // reset palette string
         paletteString = ""
+        personalPaletteString = ""
         let artwork = Artwork(image: img, title: imgTitle)
         
         viewModel.performAnalOnImage(artwork: artwork) { colourPairs in
@@ -152,6 +170,7 @@ struct ColourComparisonView: View {
                     realColours[i] = colourPairs[i].actualColourInfo.uiColour
                     estimatedColours[i] = colourPairs[i].estimatedColourInfo.uiColour
                     paletteString += "\(colourPairs[i].name), "
+                    personalPaletteString += "todo, "
                 }
             }
         }
