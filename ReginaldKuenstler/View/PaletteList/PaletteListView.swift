@@ -46,6 +46,7 @@ struct PaletteListView: View {
                     }
                 }
             }
+            // end of scrollview
         }
         .onAppear {
             // FIXME: Do we neeed this if vm does this on init?
