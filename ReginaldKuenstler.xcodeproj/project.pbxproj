@@ -10,10 +10,11 @@
 		162896842CC18515005A2399 /* ColourComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896832CC18515005A2399 /* ColourComparisonView.swift */; };
 		162896892CC1A6CD005A2399 /* UserPaletteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896882CC1A6CD005A2399 /* UserPaletteViewModel.swift */; };
 		1628968B2CC1A6FD005A2399 /* UserPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1628968A2CC1A6FD005A2399 /* UserPalette.swift */; };
-		1628968D2CC1A811005A2399 /* PaletteSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1628968C2CC1A811005A2399 /* PaletteSelectionViewModel.swift */; };
+		1628968D2CC1A811005A2399 /* PaletteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1628968C2CC1A811005A2399 /* PaletteListViewModel.swift */; };
 		162896BC2CC32B48005A2399 /* PaletteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896BB2CC32B48005A2399 /* PaletteListView.swift */; };
 		162896BE2CC353AC005A2399 /* ReginaldTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896BD2CC353AC005A2399 /* ReginaldTabView.swift */; };
 		162896C62CC57C99005A2399 /* PaletteListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896C52CC57C99005A2399 /* PaletteListItemView.swift */; };
+		162896C82CC587FC005A2399 /* UserPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896C72CC587FC005A2399 /* UserPaletteView.swift */; };
 		16ED0D232CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */; };
 		16ED0D252CBED1C500ADCA3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D242CBED1C500ADCA3B /* ContentView.swift */; };
 		16ED0D272CBED1C700ADCA3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16ED0D262CBED1C700ADCA3B /* Assets.xcassets */; };
@@ -56,10 +57,11 @@
 		162896832CC18515005A2399 /* ColourComparisonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourComparisonView.swift; sourceTree = "<group>"; };
 		162896882CC1A6CD005A2399 /* UserPaletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPaletteViewModel.swift; sourceTree = "<group>"; };
 		1628968A2CC1A6FD005A2399 /* UserPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPalette.swift; sourceTree = "<group>"; };
-		1628968C2CC1A811005A2399 /* PaletteSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteSelectionViewModel.swift; sourceTree = "<group>"; };
+		1628968C2CC1A811005A2399 /* PaletteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteListViewModel.swift; sourceTree = "<group>"; };
 		162896BB2CC32B48005A2399 /* PaletteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteListView.swift; sourceTree = "<group>"; };
 		162896BD2CC353AC005A2399 /* ReginaldTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReginaldTabView.swift; sourceTree = "<group>"; };
 		162896C52CC57C99005A2399 /* PaletteListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteListItemView.swift; sourceTree = "<group>"; };
+		162896C72CC587FC005A2399 /* UserPaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPaletteView.swift; sourceTree = "<group>"; };
 		16ED0D1F2CBED1C500ADCA3B /* ReginaldKuenstler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReginaldKuenstler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReginaldKuenstlerApp.swift; sourceTree = "<group>"; };
 		16ED0D242CBED1C500ADCA3B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -205,7 +207,7 @@
 			children = (
 				16ED0D582CC0964B00ADCA3B /* KuenstlerViewModel.swift */,
 				162896882CC1A6CD005A2399 /* UserPaletteViewModel.swift */,
-				1628968C2CC1A811005A2399 /* PaletteSelectionViewModel.swift */,
+				1628968C2CC1A811005A2399 /* PaletteListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -237,6 +239,7 @@
 				16ED0D9E2CC153A400ADCA3B /* ImageAnalysisView.swift */,
 				162896832CC18515005A2399 /* ColourComparisonView.swift */,
 				162896BD2CC353AC005A2399 /* ReginaldTabView.swift */,
+				162896C72CC587FC005A2399 /* UserPaletteView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				162896892CC1A6CD005A2399 /* UserPaletteViewModel.swift in Sources */,
 				16ED0DA62CC166D200ADCA3B /* Artwork.swift in Sources */,
 				16ED0D512CBFFAC100ADCA3B /* ColourMapper.swift in Sources */,
+				162896C82CC587FC005A2399 /* UserPaletteView.swift in Sources */,
 				16ED0DA82CC166E600ADCA3B /* Palette.swift in Sources */,
 				162896BE2CC353AC005A2399 /* ReginaldTabView.swift in Sources */,
 				162896842CC18515005A2399 /* ColourComparisonView.swift in Sources */,
@@ -393,7 +397,7 @@
 				16ED0DA32CC162CF00ADCA3B /* UIColor+Converter.swift in Sources */,
 				16ED0D9C2CC1538800ADCA3B /* ImagePicker.swift in Sources */,
 				16ED0D9F2CC153A400ADCA3B /* ImageAnalysisView.swift in Sources */,
-				1628968D2CC1A811005A2399 /* PaletteSelectionViewModel.swift in Sources */,
+				1628968D2CC1A811005A2399 /* PaletteListViewModel.swift in Sources */,
 				16ED0D232CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift in Sources */,
 				16ED0D592CC0964B00ADCA3B /* KuenstlerViewModel.swift in Sources */,
 				16ED0D992CC152B200ADCA3B /* ColourPair.swift in Sources */,

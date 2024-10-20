@@ -5,28 +5,18 @@
 //  Created by Dave Gumba on 2024-10-18.
 //
 
+// This should only be viewable on "Add to Your Palette" flow
+
 /**
  TODOs:
  - Select option to enable between selectMode and viewMode
  - Favourited pigments
  - State for pigments owned
+ -
  
  */
 
 import SwiftUI
-
-struct PaletteListItemView: View {
-    @State var paletteColourItem: PaletteColour
-    var body: some View {
-        VStack {
-            RoundedRectangle(cornerRadius: 12)
-                .fill(Color(paletteColourItem.uiColor))
-                .frame(height: 100)
-            Text(paletteColourItem.colourName)
-        }
-        .padding()
-    }
-}
 
 struct PaletteListView: View {
     @ObservedObject var paletteViewModel: PaletteListViewModel = PaletteListViewModel()
@@ -41,15 +31,25 @@ struct PaletteListView: View {
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: self.columns) {
-                    ForEach(paletteViewModel.paletteColours) {
+                    ForEach(paletteViewModel.filteredPaletteColours) {
                         PaletteListItemView(paletteColourItem: $0)
                     }
                 }
                 .padding()
+                .scrollContentBackground(.hidden)
+                .searchable(text: $searchText)
+                .onChange(of: searchText) { search in
+                    if !search.isEmpty {
+                        self.paletteViewModel.filterPaletteColours(term: search)
+                    } else {
+                        self.paletteViewModel.resetFilteredPaletteColours()
+                    }
+                }
             }
         }
         .onAppear {
-            Task { print("you're at paletteListView") }
+            // FIXME: Do we neeed this if vm does this on init?
+            // Task { try await self.paletteViewModel.fetchPaletteColours() }
         }
     }
 }

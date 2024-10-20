@@ -7,12 +7,19 @@
 
 import SwiftUI
 
-//struct PaletteListItemView2: View {
-//    var body: some View {
-//        // TODO
-//    }
-//}
-//
-//#Preview {
-//    PaletteListItemView2()
-//}
+struct PaletteListItemView: View {
+    @State var paletteColourItem: PaletteColour
+    var body: some View {
+        VStack {
+            Circle()
+                .stroke(.gray, lineWidth: 2)
+                .fill(Color(paletteColourItem.uiColor))
+                .frame(height: 50)
+            Text(paletteColourItem.colourName)
+                .bold()
+                .foregroundStyle(paletteColourItem.isUserOwned ? .gray : .black)
+        }
+        .padding()
+        .opacity(paletteColourItem.isUserOwned ? 0.7 : 1.0)
+    }
+}
