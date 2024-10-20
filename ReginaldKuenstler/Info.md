@@ -1,5 +1,17 @@
 #  DEVLOG
 
+# October 20, 2024 (Sunday)
+It's a cold Sunday to complain.
+
+Action items for today:
+- Create the palette display (data and view)
+    - Allow searchability
+- Start work on user palette functionality (UI forms can be skipped)
+    - UserPalette:
+        - title of palette
+        - [colours] = (hex_code)
+    - UserPalette operations, add edit delete
+
 # October 18, 2024 (Friday)
 10:23 P.M.
 I think this is how we get user palette to work:

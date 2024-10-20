@@ -13,6 +13,7 @@
 		1628968D2CC1A811005A2399 /* PaletteSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1628968C2CC1A811005A2399 /* PaletteSelectionViewModel.swift */; };
 		162896BC2CC32B48005A2399 /* PaletteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896BB2CC32B48005A2399 /* PaletteListView.swift */; };
 		162896BE2CC353AC005A2399 /* ReginaldTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896BD2CC353AC005A2399 /* ReginaldTabView.swift */; };
+		162896C62CC57C99005A2399 /* PaletteListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896C52CC57C99005A2399 /* PaletteListItemView.swift */; };
 		16ED0D232CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */; };
 		16ED0D252CBED1C500ADCA3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D242CBED1C500ADCA3B /* ContentView.swift */; };
 		16ED0D272CBED1C700ADCA3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16ED0D262CBED1C700ADCA3B /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		1628968C2CC1A811005A2399 /* PaletteSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteSelectionViewModel.swift; sourceTree = "<group>"; };
 		162896BB2CC32B48005A2399 /* PaletteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteListView.swift; sourceTree = "<group>"; };
 		162896BD2CC353AC005A2399 /* ReginaldTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReginaldTabView.swift; sourceTree = "<group>"; };
+		162896C52CC57C99005A2399 /* PaletteListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteListItemView.swift; sourceTree = "<group>"; };
 		16ED0D1F2CBED1C500ADCA3B /* ReginaldKuenstler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReginaldKuenstler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReginaldKuenstlerApp.swift; sourceTree = "<group>"; };
 		16ED0D242CBED1C500ADCA3B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		162896C42CC57C85005A2399 /* PaletteList */ = {
+			isa = PBXGroup;
+			children = (
+				162896BB2CC32B48005A2399 /* PaletteListView.swift */,
+				162896C52CC57C99005A2399 /* PaletteListItemView.swift */,
+			);
+			path = PaletteList;
+			sourceTree = "<group>";
+		};
 		16ED0D162CBED1C400ADCA3B = {
 			isa = PBXGroup;
 			children = (
@@ -137,8 +148,8 @@
 				16ED0D572CC0905100ADCA3B /* ViewModel */,
 				16ED0D542CC016F000ADCA3B /* Util */,
 				16ED0D4F2CBFFAB800ADCA3B /* Data */,
-				16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */,
 				16ED0D242CBED1C500ADCA3B /* ContentView.swift */,
+				16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */,
 				16ED0D262CBED1C700ADCA3B /* Assets.xcassets */,
 				16ED0D282CBED1C700ADCA3B /* Preview Content */,
 				16ED0D5A2CC0972500ADCA3B /* Info.md */,
@@ -222,9 +233,9 @@
 		16ED0D9D2CC1539600ADCA3B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				162896C42CC57C85005A2399 /* PaletteList */,
 				16ED0D9E2CC153A400ADCA3B /* ImageAnalysisView.swift */,
 				162896832CC18515005A2399 /* ColourComparisonView.swift */,
-				162896BB2CC32B48005A2399 /* PaletteListView.swift */,
 				162896BD2CC353AC005A2399 /* ReginaldTabView.swift */,
 			);
 			path = View;
@@ -368,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				162896BC2CC32B48005A2399 /* PaletteListView.swift in Sources */,
+				162896C62CC57C99005A2399 /* PaletteListItemView.swift in Sources */,
 				16ED0D562CC0170500ADCA3B /* ColourConverter.swift in Sources */,
 				162896892CC1A6CD005A2399 /* UserPaletteViewModel.swift in Sources */,
 				16ED0DA62CC166D200ADCA3B /* Artwork.swift in Sources */,
