@@ -16,11 +16,15 @@ struct ColourComparisonView: View {
     @State var paletteString = ""
     @State var personalPaletteString = ""
     
+    // Put this data in viewmodel.
     // real colours
     @State var realColours: [UIColor] = Array(repeating: .clear, count: 6)
     
     // estimated colours
     @State var estimatedColours: [UIColor] = Array(repeating: .clear, count: 6)
+    
+    // from user palette
+    @State var coloursFromUserPalette: [UIColor] = Array(repeating: .clear, count: 6)
     
     
     // image picker related
@@ -118,9 +122,9 @@ struct ColourComparisonView: View {
                     // TODO
                     VStack {
                         HStack {
-                            ForEach(0..<estimatedColours.count, id: \.self) { index in
+                            ForEach(0..<coloursFromUserPalette.count, id: \.self) { index in
                                 Rectangle()
-                                    .fill(Color(estimatedColours[index]))
+                                    .fill(Color(coloursFromUserPalette[index]))
                                     .frame(width: 20, height: 20)
                             }
                         }
@@ -172,6 +176,7 @@ struct ColourComparisonView: View {
                 for i in 0..<min(colourPairs.count, realColours.count) {
                     realColours[i] = colourPairs[i].actualColourInfo.uiColour
                     estimatedColours[i] = colourPairs[i].estimatedColourInfo.uiColour
+                    // coloursFromUserPalette[i] = 
                     paletteString += "\(colourPairs[i].name), "
                     personalPaletteString += "todo, "
                 }

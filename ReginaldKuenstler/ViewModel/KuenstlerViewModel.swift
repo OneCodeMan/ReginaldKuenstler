@@ -15,6 +15,9 @@ import SwiftVibrantium
 class KuenstlerViewModel: ObservableObject {
     
     @Published var colourMap: [VColour] = []
+    @Published var relevantColoursFromUserPalette: [VColour] = []
+    
+    private var coloursFromUserPalette: [VColour] = []
     
     init() {
         self.generateColourMapping()
@@ -95,8 +98,32 @@ class KuenstlerViewModel: ObservableObject {
                     }
                 }
                 print("--KuenstlerViewModel analysis has been performed, colourPairs has \(colourPairs.count) elements. Completion will be called.")
+                // TODO!!!
+                // self.relevantColoursFromUserPalette = determinePaletteIntersection(estimatedColours, self.coloursFromUserPalette)
+                // completion(colourPairs, self.relevantColoursFromUserPalette
                 completion(colourPairs)
             }
         }
+    }
+    
+    // MARK: User Palette
+    func getColoursFromUserPalette() {
+        if UserDefaultsHelper.isKeyPresentInUserDefaults(key: "userPalettes") {
+            if let userPaletteFromUserDefaults = UserDefaults.standard.dictionary(forKey: "userPalettes") as? [String: String]  {
+                // convert UserPalette to list of VColours
+                for (name, hexCode) in userPaletteFromUserDefaults {
+                    let generatedVColour = VColour(name: name, hexCode: hexCode)
+                    self.coloursFromUserPalette.append(generatedVColour)
+                }
+               
+            }
+        }
+    }
+    
+    // takes two palettes and tells you where they overlap.
+    // VColour for now, use Palette for later.
+    func determinePaletteIntersection(paletteOne: [VColour], paletteTwo: [VColour]) -> [VColour] {
+        let interesectedPalette = paletteOne.filter { paletteTwo.contains($0) }
+        return interesectedPalette
     }
 }
