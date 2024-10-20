@@ -3,6 +3,16 @@
 # October 20, 2024 (Sunday)
 It's a cold Sunday to complain.
 
+Next steps:
+- ColourComparison: Involve `UserPalette`
+    - Only show "Your Palette" if user has a palette. Otherwise completely remove it.
+    - Find connections between generated colours and user palette.
+    - For missed connections, estimate the mixes of colour one would need to make that colour from the palette.
+
+----------------------
+
+UPDATE: Was easy thanks to previous projects. Timer App, Itinerario and NRC clone helped me figure these out. we move on.
+
 Action items for today:
 - Create the palette display (data and view)
     - Allow searchability
@@ -10,7 +20,6 @@ Action items for today:
     - UserPalette:
         - title of palette
         - [colours] = (hex_code)
-    - UserPalette operations, add edit delete
 
 # October 18, 2024 (Friday)
 10:23 P.M.
