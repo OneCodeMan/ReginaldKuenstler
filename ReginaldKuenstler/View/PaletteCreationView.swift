@@ -75,7 +75,7 @@ struct PaletteCreationView: View {
                     VStack(alignment: .center) {
                         Text("Selected Colours:")
                         HStack {
-                            // info on selected colours
+                            // INFO on selected colours
                             ForEach(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }) { pc in
                                 Circle()
                                     .stroke(.gray, lineWidth: 2)
