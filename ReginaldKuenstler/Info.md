@@ -11,7 +11,11 @@
 # October 21, 2024
 - User should be able to select their palette.
 
+TODOs next next wave:
+- [ ] The coloursSelectedView should be able to wrap overflow.
+
 TODOs next wave:
+- [ ] Top tab bar button item for `UserPalette` edit state, or long press on any PaletteColourItem, and the user can delete or rearrange grid items.
 - [ ] Group PaletteColourItems by colour
 - [ ] Colour estimation for Analysis
 
@@ -25,9 +29,7 @@ TODOs:
     - [x] Float button on top of tab bar.
     - [x] While user is on select page, give information on what they've selected so far.
     ...
-    - [ ] Disable button when user hasn't selected any colour
-    - [ ] The coloursSelectedView should be able to wrap overflow.
-    - [ ] Top tab bar button item for `UserPalette` edit state, or long press on any PaletteColourItem, and the user can delete or rearrange grid items.
+    - [x] Disable button when user hasn't selected any colour
 
 - Successfully flow back to user palette page.
 

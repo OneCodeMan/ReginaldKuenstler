@@ -92,10 +92,11 @@ struct PaletteCreationView: View {
                         }) {
                             Text("Save Selected Colours")
                                 .padding()
-                                .background(Color.blue)
+                                .background(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }.isEmpty ? Color.gray : Color.blue)
                                 .foregroundColor(.white)
                                 .cornerRadius(8)
                         }
+                        .disabled(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }.isEmpty)
                         
                     }
                     .padding()
