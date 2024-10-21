@@ -52,10 +52,18 @@ struct UserPaletteView: View {
                         }
                     } // end of scrollview
                 } else {
-                    EmptyView()
+//                    EmptyView()
+                    VStack(alignment: .center) {
+                        Spacer()
+                        Text("You have no colours.")
+                        Spacer()
+                    }
                 } // else clause end bracket
             } // end of vstack
             .navigationTitle("Your Palette")
+            .onAppear {
+                self.userPaletteViewModel.fetchUserPalettes()
+            }
         }
             
     }

@@ -21,7 +21,9 @@ struct ColourGridItemView: View {
                 Text(colourItem.paletteColour.colourName)
                     .bold()
                     .foregroundStyle(colourItem.paletteColour.isUserOwned ? .gray : .black)
+                    .strikethrough(colourItem.paletteColour.isUserOwned)
             }
+            .opacity(colourItem.paletteColour.isUserOwned ? 0.3 : 1.0)
 
             // OVERLAY with a checkmark if the colour is selected
             if colourItem.isSelected {
@@ -30,7 +32,10 @@ struct ColourGridItemView: View {
                     .font(.largeTitle)
             }
         }
-        .overlay(RoundedRectangle(cornerRadius: 8)
-        .stroke(colourItem.isSelected ? Color.blue : Color.clear, lineWidth: 4))
+        .overlay(
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(colourItem.isSelected ? Color.blue : Color.clear, lineWidth: 4)
+                .background(colourItem.paletteColour.isUserOwned ? Color.gray.opacity(0.3) : Color.clear)
+        )
     }
 }

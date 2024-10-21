@@ -17,6 +17,7 @@ class CreateUserPaletteViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     
     init() {
+        // UserDefaultsHelper.clearUserPaletteFromDefaults()
         Task { try await self.fetchPaletteColours() }
     }
     
@@ -44,17 +45,18 @@ class CreateUserPaletteViewModel: ObservableObject {
     // Method to add selected colours to UserDefaults
     func saveSelectedToUserDefaults() {
         let selectedColours: [PaletteColourSelectItem] = self.filteredPaletteColours.filter { $0.isSelected }
-        var selectedColoursMarkedAsUserOwned: [PaletteColourSelectItem] = []
         
+        // array with selectedColours marked as userOwned
+        var selectedColoursMarkedAsUserOwned: [PaletteColourSelectItem] = []
         for var selectedColour in selectedColours {
-            selectedColour.paletteColour.isUserOwned.toggle()
+            selectedColour.paletteColour.isUserOwned = true
             selectedColoursMarkedAsUserOwned.append(selectedColour)
         }
         
         print("[--CreateUserPaletteViewModel --- selectedColours are: \(selectedColours)")
         
         var coloursToSave: [String: String] = [:]
-        for selectedColour in selectedColours {
+        for selectedColour in selectedColoursMarkedAsUserOwned {
             coloursToSave[selectedColour.paletteColour.colourName] = selectedColour.paletteColour.hexCode
             print("[--CreateUserPaletteViewModel --- selectedColour in loop: \(selectedColour)")
             print("[--CreateUserPaletteViewModel --- \(selectedColours)")
@@ -136,13 +138,13 @@ class UserPaletteViewModel: ObservableObject {
 //            defaults.set(initialUserPalette, forKey: "userPalettes")
             
             // FOR TESTING
-            let mockUserPalette: [String: String] = [
-                "Viridian": "#40826D",
-                "Sienna": "#E97451",
-                "Cadmium Red": "#D22B2B",
-                "Red Ochre": "#913831",
-                "Burnt Umber": "#6E260E",
-                "Ultramarine": "#0437F2"
+            let mockUserPalette: [String: String] = [:
+//                "Viridian": "#40826D",
+//                "Sienna": "#E97451",
+//                "Cadmium Red": "#D22B2B",
+//                "Red Ochre": "#913831",
+//                "Burnt Umber": "#6E260E",
+//                "Ultramarine": "#0437F2"
             ]
             
             // display

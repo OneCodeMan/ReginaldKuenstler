@@ -34,9 +34,9 @@ struct PaletteCreationView: View {
                                 ColourGridItemView(colourItem: $viewModel.filteredPaletteColours[index])
                                 .onTapGesture {
                                     let currentColour = viewModel.filteredPaletteColours[index]
+                                    
+                                    // don't select if already owned by user
                                     if !currentColour.paletteColour.isUserOwned {
-                                        viewModel.filteredPaletteColours[index].paletteColour.toggleIsUserOwned()
-                                        
                                         viewModel.filteredPaletteColours[index].isSelected.toggle()
                                         print("--PaletteCreationView, current colour is not owned. Toggled.")
                                     } else {
@@ -83,6 +83,7 @@ struct PaletteCreationView: View {
                 }
                 // end of scrollview
             }
+            .navigationTitle("Select Palette")// end of vstack
         }
     }
 }

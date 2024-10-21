@@ -15,7 +15,7 @@ TODOs:
 - Create the PaletteSelectionView
     - [ ] Disable selection on colours already owned. Or should we remove them?
         - Fuck. `isUserOwned` logic is wonky. We never set it properly.
-    - [ ] 
+    - [ ] Reset the user palette without having to restart the app. On navigation back to it from the select palette form, it should be populated after we click the "save" button.
 - Successfully flow back to user palette page.
 
 
