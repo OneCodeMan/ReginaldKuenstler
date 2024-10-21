@@ -13,6 +13,8 @@ import Foundation
 class CreateUserPaletteViewModel: ObservableObject {
     // user can choose colours from map.
     @Published var paletteColours: [PaletteColourSelectItem] = []
+    @Published var filteredPaletteColours: [PaletteColourSelectItem] = []
+    @Published var isLoading: Bool = false
     
     init() {
         Task { try await self.fetchPaletteColours() }
@@ -24,7 +26,7 @@ class CreateUserPaletteViewModel: ObservableObject {
         
         mapper.createColourMapFromCSV { colourMap in
             
-            print("[--PaletteViewModel generateColourMapping() colourMap \(colourMap.count) items")
+            // print("[--PaletteViewModel generateColourMapping() colourMap \(colourMap.count) items")
             
             // convert the colourMap ([VColour]) to an array of PaletteColours
             for vColour in colourMap {
@@ -33,23 +35,61 @@ class CreateUserPaletteViewModel: ObservableObject {
                 self.paletteColours.append(paletteColourSelectItem)
             }
             
-            print("[--PaletteViewModel paletteColours should be populated now. With \(self.paletteColours.count) items")
-            print("[--PaletteViewModel paletteColours random element: \(self.paletteColours.randomElement()!)")
+            self.filteredPaletteColours = self.paletteColours
+            // print("[--PaletteViewModel paletteColours should be populated now. With \(self.paletteColours.count) items")
+            // print("[--PaletteViewModel paletteColours random element: \(self.paletteColours.randomElement()!)")
         }
     }
     
     // Method to add selected colours to UserDefaults
     func saveSelectedToUserDefaults() {
-        let selectedColours = paletteColours.filter { $0.isSelected }
-        let coloursToSave = selectedColours.map { [$0.paletteColour.colourName: $0.paletteColour.hexCode] }
+        let selectedColours: [PaletteColourSelectItem] = self.filteredPaletteColours.filter { $0.isSelected }
+        var selectedColoursMarkedAsUserOwned: [PaletteColourSelectItem] = []
+        
+        for var selectedColour in selectedColours {
+            selectedColour.paletteColour.isUserOwned.toggle()
+            selectedColoursMarkedAsUserOwned.append(selectedColour)
+        }
+        
+        print("[--CreateUserPaletteViewModel --- selectedColours are: \(selectedColours)")
+        
+        var coloursToSave: [String: String] = [:]
+        for selectedColour in selectedColours {
+            coloursToSave[selectedColour.paletteColour.colourName] = selectedColour.paletteColour.hexCode
+            print("[--CreateUserPaletteViewModel --- selectedColour in loop: \(selectedColour)")
+            print("[--CreateUserPaletteViewModel --- \(selectedColours)")
+        }
         
         // Retrieve existing list or create a new one
-        var existingPalettes = UserDefaults.standard.array(forKey: "userPalettes") as? [[String: String]] ?? []
-        existingPalettes.append(contentsOf: coloursToSave)
+        if let existingPalettes: [String: String] = UserDefaults.standard.dictionary(forKey: "userPalettes") as? [String: String] {
+            // https://stackoverflow.com/a/50532046
+            // NOTE: .merge is in place.
+            // Another way:
+            // let combinedPalette = dict2.forEach { (k,v) in dict1[k] = v }
+            let combinedPalette = existingPalettes.merging(coloursToSave) { $1 }
+            
+            // Save the new list to UserDefaults
+            UserDefaults.standard.set(combinedPalette, forKey: "userPalettes")
+        } else {
+            print("[--CreateUserPaletteViewModel.saveSelectedToUserDefaults() -- couldn't fetch userPalettes")
+        }
         
-        // Save the new list to UserDefaults
-        UserDefaults.standard.set(existingPalettes, forKey: "userPalettes")
     }
+    
+    // MARK: Search functionality (DRY AF)
+    func filterPaletteColours(term: String) {
+        isLoading = true
+        self.filteredPaletteColours = self.paletteColours.filter{ $0.paletteColour.colourName.contains(term) }
+        print("[--PaletteViewModel filtering paletteColours based on term: \(term). Contains \(self.filteredPaletteColours.count) items.\n \(self.filteredPaletteColours)")
+        isLoading = false
+    }
+        
+    func resetFilteredPaletteColours() {
+        isLoading = true
+        self.filteredPaletteColours = self.paletteColours
+        isLoading = false
+    }
+    
 }
 
 // MARK: User Palette VM

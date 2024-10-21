@@ -33,7 +33,7 @@ class PaletteListViewModel: ObservableObject {
         mapper.createColourMapFromCSV { colourMap in
             self.colourMap = colourMap
             
-            print("[--PaletteViewModel generateColourMapping() colourMap \(colourMap.count) items")
+            // print("[--PaletteViewModel generateColourMapping() colourMap \(colourMap.count) items")
             
             // convert the colourMap ([VColour]) to an array of PaletteColours
             for vColour in colourMap {
@@ -43,8 +43,8 @@ class PaletteListViewModel: ObservableObject {
             
             // initially, filteredPaletteColours has all the colours.
             self.filteredPaletteColours = self.paletteColours
-            print("[--PaletteViewModel paletteColours should be populated now. With \(self.paletteColours.count) items")
-            print("[--PaletteViewModel paletteColours random element: \(self.paletteColours.randomElement()!)")
+//            print("[--PaletteViewModel paletteColours should be populated now. With \(self.paletteColours.count) items")
+//            print("[--PaletteViewModel paletteColours random element: \(self.paletteColours.randomElement()!)")
         }
         
         completion?(self.colourMap)

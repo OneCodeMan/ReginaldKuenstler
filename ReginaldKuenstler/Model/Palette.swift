@@ -29,7 +29,7 @@ struct PaletteColour: Identifiable {
     
     // user info
     var isUserFavorite: Bool = false
-    var isUserOwned: Bool = false // does user own it in a palette?
+    var isUserOwned: Bool // does user own it in a palette?
     
     /**
      Default initializer.
@@ -39,6 +39,7 @@ struct PaletteColour: Identifiable {
         self.hexCode = hexCode
         self.uiColour = UIColor.init(hex: hexCode)
         self.rgbCode = ColourConverter.hexToRGB(hex: hexCode)
+        self.isUserOwned = false
     }
     
     /**
@@ -49,6 +50,11 @@ struct PaletteColour: Identifiable {
         self.hexCode = vColour.hexCode
         self.uiColour = vColour.uiColour
         self.rgbCode = vColour.rgbCode
+        self.isUserOwned = false
+    }
+    
+    mutating func toggleIsUserOwned() {
+        self.isUserOwned.toggle()
     }
 }
 

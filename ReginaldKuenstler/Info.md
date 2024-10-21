@@ -11,6 +11,13 @@
 # October 21, 2024
 - User should be able to select their palette.
 
+TODOs:
+- Create the PaletteSelectionView
+    - [ ] Disable selection on colours already owned. Or should we remove them?
+        - Fuck. `isUserOwned` logic is wonky. We never set it properly.
+    - [ ] 
+- Successfully flow back to user palette page.
+
 
 # October 20, 2024 (Sunday)
 It's a cold Sunday to complain.

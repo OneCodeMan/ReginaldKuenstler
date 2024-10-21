@@ -39,7 +39,7 @@ class KuenstlerViewModel: ObservableObject {
         DispatchQueue.main.async {
             mapper.createColourMapFromCSV { colourMap in
                 self.colourMap = colourMap
-                print("[--KünstlerViewModel generateColourMapping() colourMap \(colourMap.count) items")
+                // print("[--KünstlerViewModel generateColourMapping() colourMap \(colourMap.count) items")
                 
                 // Call completion once the colour map is set
                 completion?(self.colourMap)
