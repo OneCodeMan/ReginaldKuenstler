@@ -13,7 +13,7 @@ struct PaletteListItemView: View {
         VStack {
             Circle()
                 .stroke(.gray, lineWidth: 2)
-                .fill(Color(paletteColourItem.uiColor))
+                .fill(Color(paletteColourItem.uiColour))
                 .frame(height: 50)
             Text(paletteColourItem.colourName)
                 .bold()

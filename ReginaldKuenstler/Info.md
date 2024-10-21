@@ -1,5 +1,17 @@
 #  DEVLOG
 
+## Backlog
+- For missed connections, estimate the mixes of colour one would need to make that colour from the palette.
+- Given an input of about 7 images, generate the least amount of colours needed to make a palette.
+
+..
+
+## Diary
+
+# October 21, 2024
+- User should be able to select their palette.
+
+
 # October 20, 2024 (Sunday)
 It's a cold Sunday to complain.
 

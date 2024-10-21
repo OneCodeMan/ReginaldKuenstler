@@ -18,6 +18,8 @@
 		162896CC2CC58FB5005A2399 /* ReginaldKuenstlerTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896CB2CC58FB5005A2399 /* ReginaldKuenstlerTabView.swift */; };
 		162896CE2CC5E203005A2399 /* badges.txt in Resources */ = {isa = PBXBuildFile; fileRef = 162896CD2CC5E203005A2399 /* badges.txt */; };
 		162896D12CC5E33A005A2399 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896D02CC5E33A005A2399 /* Badge.swift */; };
+		162896D32CC606C1005A2399 /* PaletteCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896D22CC606C1005A2399 /* PaletteCreationView.swift */; };
+		162896D52CC678F9005A2399 /* SelectPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896D42CC678F8005A2399 /* SelectPaletteView.swift */; };
 		16ED0D232CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */; };
 		16ED0D252CBED1C500ADCA3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D242CBED1C500ADCA3B /* ContentView.swift */; };
 		16ED0D272CBED1C700ADCA3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16ED0D262CBED1C700ADCA3B /* Assets.xcassets */; };
@@ -68,6 +70,8 @@
 		162896CB2CC58FB5005A2399 /* ReginaldKuenstlerTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReginaldKuenstlerTabView.swift; sourceTree = "<group>"; };
 		162896CD2CC5E203005A2399 /* badges.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = badges.txt; sourceTree = "<group>"; };
 		162896D02CC5E33A005A2399 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
+		162896D22CC606C1005A2399 /* PaletteCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCreationView.swift; sourceTree = "<group>"; };
+		162896D42CC678F8005A2399 /* SelectPaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPaletteView.swift; sourceTree = "<group>"; };
 		16ED0D1F2CBED1C500ADCA3B /* ReginaldKuenstler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReginaldKuenstler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReginaldKuenstlerApp.swift; sourceTree = "<group>"; };
 		16ED0D242CBED1C500ADCA3B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -257,6 +261,8 @@
 				162896832CC18515005A2399 /* ColourComparisonView.swift */,
 				162896C72CC587FC005A2399 /* UserPaletteView.swift */,
 				162896CB2CC58FB5005A2399 /* ReginaldKuenstlerTabView.swift */,
+				162896D22CC606C1005A2399 /* PaletteCreationView.swift */,
+				162896D42CC678F8005A2399 /* SelectPaletteView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -411,6 +417,7 @@
 				162896842CC18515005A2399 /* ColourComparisonView.swift in Sources */,
 				1628968B2CC1A6FD005A2399 /* UserPalette.swift in Sources */,
 				16ED0DA12CC162AC00ADCA3B /* VColour.swift in Sources */,
+				162896D32CC606C1005A2399 /* PaletteCreationView.swift in Sources */,
 				16ED0D252CBED1C500ADCA3B /* ContentView.swift in Sources */,
 				162896D12CC5E33A005A2399 /* Badge.swift in Sources */,
 				16ED0DA32CC162CF00ADCA3B /* UIColor+Converter.swift in Sources */,
@@ -418,6 +425,7 @@
 				162896CC2CC58FB5005A2399 /* ReginaldKuenstlerTabView.swift in Sources */,
 				16ED0D9F2CC153A400ADCA3B /* ImageAnalysisView.swift in Sources */,
 				1628968D2CC1A811005A2399 /* PaletteListViewModel.swift in Sources */,
+				162896D52CC678F9005A2399 /* SelectPaletteView.swift in Sources */,
 				16ED0D232CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift in Sources */,
 				16ED0D592CC0964B00ADCA3B /* KuenstlerViewModel.swift in Sources */,
 				16ED0D992CC152B200ADCA3B /* ColourPair.swift in Sources */,

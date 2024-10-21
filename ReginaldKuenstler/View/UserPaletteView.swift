@@ -27,7 +27,7 @@ struct UserPaletteView: View {
                 // TODO: ADD FUNCTIONALITY. LATER!!
                 Text("")
                     .toolbar {
-                        NavigationLink(destination: EmptyView()) {
+                        NavigationLink(destination: PaletteCreationView()) {
                             Text("Add")
                         }
                     }

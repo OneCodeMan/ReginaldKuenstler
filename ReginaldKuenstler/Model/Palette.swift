@@ -24,7 +24,7 @@ struct PaletteColour: Identifiable {
     
     // used for display
     var hexCode: String
-    var uiColor: UIColor = .yellow // TODO: create this out of init?
+    var uiColour: UIColor = .yellow // TODO: create this out of init?
     var rgbCode: RGBTuple = (r: 0, g: 0, b: 0) // TODO: create a default value and reference that. DRY.
     
     // user info
@@ -37,7 +37,7 @@ struct PaletteColour: Identifiable {
     init(colourName: String, hexCode: String) {
         self.colourName = colourName
         self.hexCode = hexCode
-        self.uiColor = UIColor.init(hex: hexCode)
+        self.uiColour = UIColor.init(hex: hexCode)
         self.rgbCode = ColourConverter.hexToRGB(hex: hexCode)
     }
     
@@ -47,7 +47,7 @@ struct PaletteColour: Identifiable {
     init(fromVColour vColour: VColour) {
         self.colourName = vColour.name
         self.hexCode = vColour.hexCode
-        self.uiColor = vColour.uiColour
+        self.uiColour = vColour.uiColour
         self.rgbCode = vColour.rgbCode
     }
 }
