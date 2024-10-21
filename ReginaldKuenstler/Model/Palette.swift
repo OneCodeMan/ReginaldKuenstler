@@ -12,7 +12,7 @@ import SwiftUI
  Information on what to display to the user.
   PaletteColours are made of VColours from the map.
  */
-struct PaletteColour: Identifiable {
+struct PaletteColour: Identifiable, Equatable {
     static func == (lhs: PaletteColour, rhs: PaletteColour) -> Bool {
         (lhs.colourName == rhs.colourName) &&
         (lhs.hexCode == rhs.hexCode)
