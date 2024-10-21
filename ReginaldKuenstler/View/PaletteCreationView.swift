@@ -18,6 +18,9 @@ struct PaletteCreationView: View {
     // MARK: Search logic
     @State private var searchText: String = ""
     
+    // MARK: dismiss
+    @Environment(\.dismiss) var dismiss
+    
     // Grid layout with 3 columns
     let columns = Array(repeating: GridItem(.flexible()), count: 3)
     
@@ -66,6 +69,7 @@ struct PaletteCreationView: View {
                     Group {
                         Button(action: {
                             viewModel.saveSelectedToUserDefaults()
+                            self.dismiss()
                         }) {
                             Text("Save Selected Colours")
                                 .padding()
