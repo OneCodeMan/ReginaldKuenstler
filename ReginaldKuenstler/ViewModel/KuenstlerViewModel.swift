@@ -108,7 +108,10 @@ class KuenstlerViewModel: ObservableObject {
                 print("--KünstlerViewModel analysis has been performed, colourPairs has \(colourPairs.count) elements")
                 print(self.coloursFromUserPalette)
                 print(self.estimatedColours)
-                self.relevantColoursFromUserPalette = self.determinePaletteIntersection(paletteOne: self.coloursFromUserPalette, paletteTwo: self.estimatedColours)
+                let paletteIntersectionUserAndEstimate = self.determinePaletteIntersection(paletteOne: self.coloursFromUserPalette, paletteTwo: self.estimatedColours)
+                // TODO: for what user lacks.
+                var approximateUserMixes: [VColour] = []
+                self.relevantColoursFromUserPalette = paletteIntersectionUserAndEstimate + approximateUserMixes
                 
                 print("--KünstlerViewModel, relevantColoursFromUserPalette: \(self.relevantColoursFromUserPalette.count) elements")
                 print("\n\(self.relevantColoursFromUserPalette.count) elements.\n\n")
@@ -137,5 +140,10 @@ class KuenstlerViewModel: ObservableObject {
     private func determinePaletteIntersection(paletteOne: [VColour], paletteTwo: [VColour]) -> [VColour] {
         let interesectedPalette = paletteOne.filter { paletteTwo.contains($0) }
         return interesectedPalette
+    }
+    
+    // TODO: DO THIS
+    private func determineBestMixFromUserPalette() {
+        
     }
 }
