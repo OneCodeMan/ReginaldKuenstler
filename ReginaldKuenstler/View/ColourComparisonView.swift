@@ -179,14 +179,16 @@ struct ColourComparisonView: View {
                     paletteString += "\(colourPairs[i].name), "
                 }
                 
-                for (j, relevantColour) in relevantColoursFromUserPalette.enumerated() {
-                    coloursFromUserPalette[j] = relevantColour.uiColour
-                    personalPaletteString += "\(relevantColoursFromUserPalette[j].name), "
-                }
-                
-                if personalPaletteString.isEmpty {
+                if !relevantColoursFromUserPalette.isEmpty {
+                    for (j, relevantColour) in relevantColoursFromUserPalette.enumerated() {
+                        coloursFromUserPalette[j] = relevantColour.uiColour
+                        personalPaletteString += "\(relevantColoursFromUserPalette[j].name), "
+                    }
+                } else {
+                    coloursFromUserPalette = []
                     personalPaletteString = "No relevant colours found."
                 }
+                
             }
         }
     }

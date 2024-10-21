@@ -52,6 +52,8 @@ class KuenstlerViewModel: ObservableObject {
     func performAnalOnImage(artwork: Artwork, completion: @escaping (_ result: [ColourPair], [VColour]) -> Void) {
         
         var colourPairs: [ColourPair] = []
+        self.relevantColoursFromUserPalette = []
+        self.estimatedColours = []
         print("Performing analysis on \(artwork.title)")
         DispatchQueue.main.async {
             Vibrant.from(artwork.image).getPalette() { palette in
@@ -106,7 +108,7 @@ class KuenstlerViewModel: ObservableObject {
                 print("--KünstlerViewModel analysis has been performed, colourPairs has \(colourPairs.count) elements")
                 print(self.coloursFromUserPalette)
                 print(self.estimatedColours)
-                self.relevantColoursFromUserPalette = self.coloursFromUserPalette.filter{ self.estimatedColours.contains($0) }
+                self.relevantColoursFromUserPalette = self.determinePaletteIntersection(paletteOne: self.coloursFromUserPalette, paletteTwo: self.estimatedColours)
                 
                 print("--KünstlerViewModel, relevantColoursFromUserPalette: \(self.relevantColoursFromUserPalette.count) elements")
                 print("\n\(self.relevantColoursFromUserPalette.count) elements.\n\n")
