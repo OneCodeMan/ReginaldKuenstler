@@ -22,6 +22,7 @@ class KuenstlerViewModel: ObservableObject {
     
     init() {
 //        UserDefaults.resetStandardUserDefaults()
+        self.getColoursFromUserPalette()
         self.generateColourMapping()
     }
     
@@ -38,7 +39,7 @@ class KuenstlerViewModel: ObservableObject {
         DispatchQueue.main.async {
             mapper.createColourMapFromCSV { colourMap in
                 self.colourMap = colourMap
-                print("[--KuenstlerViewModel generateColourMapping() colourMap \(colourMap.count) items")
+                print("[--KünstlerViewModel generateColourMapping() colourMap \(colourMap.count) items")
                 
                 // Call completion once the colour map is set
                 completion?(self.colourMap)
@@ -103,6 +104,8 @@ class KuenstlerViewModel: ObservableObject {
                     }
                 }
                 print("--KünstlerViewModel analysis has been performed, colourPairs has \(colourPairs.count) elements")
+                print(self.coloursFromUserPalette)
+                print(self.estimatedColours)
                 self.relevantColoursFromUserPalette = self.coloursFromUserPalette.filter{ self.estimatedColours.contains($0) }
                 
                 print("--KünstlerViewModel, relevantColoursFromUserPalette: \(self.relevantColoursFromUserPalette.count) elements")
@@ -114,7 +117,7 @@ class KuenstlerViewModel: ObservableObject {
     }
     
     // MARK: User Palette
-    func getColoursFromUserPalette() {
+    private func getColoursFromUserPalette() {
         if UserDefaultsHelper.isKeyPresentInUserDefaults(key: "userPalettes") {
             if let userPaletteFromUserDefaults = UserDefaults.standard.dictionary(forKey: "userPalettes") as? [String: String]  {
                 // convert UserPalette to list of VColours
@@ -129,7 +132,7 @@ class KuenstlerViewModel: ObservableObject {
     
     // takes two palettes and tells you where they overlap.
     // VColour for now, use Palette for later.
-    func determinePaletteIntersection(paletteOne: [VColour], paletteTwo: [VColour]) -> [VColour] {
+    private func determinePaletteIntersection(paletteOne: [VColour], paletteTwo: [VColour]) -> [VColour] {
         let interesectedPalette = paletteOne.filter { paletteTwo.contains($0) }
         return interesectedPalette
     }

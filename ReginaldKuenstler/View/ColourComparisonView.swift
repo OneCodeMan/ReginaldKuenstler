@@ -116,12 +116,12 @@ struct ColourComparisonView: View {
                     }
                     
                     Divider()
+
                         .background(.white)
                         .frame(height: 2)
                     Text("From Your Palette")
-                    // TODO
                     VStack {
-                        HStack {
+                        HStack(alignment: .center) {
                             ForEach(0..<coloursFromUserPalette.count, id: \.self) { index in
                                 Rectangle()
                                     .fill(Color(coloursFromUserPalette[index]))
