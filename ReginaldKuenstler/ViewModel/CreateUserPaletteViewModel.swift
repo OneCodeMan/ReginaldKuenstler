@@ -13,7 +13,7 @@ import Foundation
 class CreateUserPaletteViewModel: ObservableObject {
     // user can choose colours from map.
     @Published var paletteColourSelectItems: [PaletteColourSelectItem] = []
-    @Published var filteredPaletteColours: [PaletteColourSelectItem] = []
+    @Published var filteredPaletteColourSelectItems: [PaletteColourSelectItem] = []
     @Published var isLoading: Bool = false
     
     // private variables
@@ -49,7 +49,7 @@ class CreateUserPaletteViewModel: ObservableObject {
                 self.paletteColourSelectItems.append(paletteColourSelectItem)
             }
             
-            self.filteredPaletteColours = self.paletteColourSelectItems
+            self.filteredPaletteColourSelectItems = self.paletteColourSelectItems
             // print("[--PaletteViewModel paletteColours should be populated now. With \(self.paletteColours.count) items")
             // print("[--PaletteViewModel paletteColours random element: \(self.paletteColours.randomElement()!)")
         }
@@ -99,7 +99,7 @@ class CreateUserPaletteViewModel: ObservableObject {
     
     // Method to add selected colours to UserDefaults
     func saveSelectedToUserDefaults() {
-        let selectedColours: [PaletteColourSelectItem] = self.filteredPaletteColours.filter { $0.isSelected }
+        let selectedColours: [PaletteColourSelectItem] = self.filteredPaletteColourSelectItems.filter { $0.isSelected }
         
         // array with selectedColours marked as userOwned
         var selectedColoursMarkedAsUserOwned: [PaletteColourSelectItem] = []
@@ -136,14 +136,14 @@ class CreateUserPaletteViewModel: ObservableObject {
     // MARK: Search functionality (DRY AF)
     func filterPaletteColours(term: String) {
         isLoading = true
-        self.filteredPaletteColours = self.paletteColourSelectItems.filter{ $0.paletteColour.colourName.contains(term) }
-        print("[--PaletteViewModel filtering paletteColours based on term: \(term). Contains \(self.filteredPaletteColours.count) items.\n \(self.filteredPaletteColours)")
+        self.filteredPaletteColourSelectItems = self.paletteColourSelectItems.filter{ $0.paletteColour.colourName.contains(term) }
+        print("[--PaletteViewModel filtering paletteColours based on term: \(term). Contains \(self.filteredPaletteColourSelectItems.count) items.\n \(self.filteredPaletteColourSelectItems)")
         isLoading = false
     }
         
     func resetFilteredPaletteColours() {
         isLoading = true
-        self.filteredPaletteColours = self.paletteColourSelectItems
+        self.filteredPaletteColourSelectItems = self.paletteColourSelectItems
         isLoading = false
     }
     

@@ -11,15 +11,24 @@
 # October 21, 2024
 - User should be able to select their palette.
 
+TODOs next wave:
+- [ ] Group PaletteColourItems by colour
+- [ ] Colour estimation for Analysis
+
 TODOs:
 - Create the PaletteSelectionView
     - [x] Disable selection on colours already owned. Or should we remove them?
         - Fuck. `isUserOwned` logic is wonky. We never set it properly.
     - [x] Reset the user palette without having to restart the app. On navigation back to it from the select palette form, it should be populated after we click the "save" button.
-    - [ ] Go back to UserPalette page on button tap
+    - [x] Go back to UserPalette page on button tap
+    ...
+    - [x] Float button on top of tab bar.
+    - [x] While user is on select page, give information on what they've selected so far.
     ...
     - [ ] Disable button when user hasn't selected any colour
-    - [ ] Float button on top of tab bar.
+    - [ ] The coloursSelectedView should be able to wrap overflow.
+    - [ ] Top tab bar button item for `UserPalette` edit state, or long press on any PaletteColourItem, and the user can delete or rearrange grid items.
+
 - Successfully flow back to user palette page.
 
 
