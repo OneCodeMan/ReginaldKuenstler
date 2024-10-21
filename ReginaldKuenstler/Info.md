@@ -8,6 +8,10 @@ Next steps:
     - Only show "Your Palette" if user has a palette. Otherwise completely remove it.
     - Find connections between generated colours and user palette.
     - For missed connections, estimate the mixes of colour one would need to make that colour from the palette.
+    
+    
+
+- Given an input of about 7 images, generate the least amount of colours needed to make a palette.
 
 ----------------------
 

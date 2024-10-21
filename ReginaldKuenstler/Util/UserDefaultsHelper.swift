@@ -11,6 +11,13 @@ class UserDefaultsHelper {
     static func isKeyPresentInUserDefaults(key: String) -> Bool {
         return UserDefaults.standard.object(forKey: key) != nil
     }
+    
+    // TODO: DRY
+    static func clearUserPaletteFromDefaults() {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "userPalettes")
+        print("[--UserPaletteViewModel user defaults cleared for 'userPalettes' key.")
+    }
 }
 
 extension Array: RawRepresentable where Element: Codable {

@@ -48,7 +48,7 @@ struct ImageAnalysisView: View {
                 .padding(.horizontal, 20)
                 .onTapGesture {
                     let artwork = Artwork(image: self.image, title: "")
-                    viewModel.performAnalOnImage(artwork: artwork) { colourPairs in
+                    viewModel.performAnalOnImage(artwork: artwork) { colourPairs, relevantColoursFromUserPalette in
                         print("colourPairs after analyze: \(colourPairs.count)")
                     }
                 }

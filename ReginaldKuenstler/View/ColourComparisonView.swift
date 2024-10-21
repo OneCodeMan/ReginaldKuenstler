@@ -129,7 +129,7 @@ struct ColourComparisonView: View {
                             }
                         }
                         .padding()
-                        Text(paletteString)
+                        Text(personalPaletteString)
                     }
                     Divider()
                         .background(.white)
@@ -156,7 +156,7 @@ struct ColourComparisonView: View {
                 ImagePicker(sourceType: self.sourceType, selectedImage: self.$image)
             }
             .onAppear {
-                performColourAnalysis(onImage: self.image)
+                self.performColourAnalysis(onImage: self.image)
             }
         }
         
@@ -165,20 +165,27 @@ struct ColourComparisonView: View {
     func performColourAnalysis(onImage img: UIImage) {
         // let image = UIImage(named: imgName)!
         
-        // reset palette string
+        // reset palette strings
         paletteString = ""
         personalPaletteString = ""
         let artwork = Artwork(image: img, title: imgTitle)
         
-        viewModel.performAnalOnImage(artwork: artwork) { colourPairs in
+        viewModel.performAnalOnImage(artwork: artwork) { colourPairs, relevantColoursFromUserPalette in
             DispatchQueue.main.async {
                 // Loop through the colourPairs and assign to real and estimated colours
                 for i in 0..<min(colourPairs.count, realColours.count) {
                     realColours[i] = colourPairs[i].actualColourInfo.uiColour
                     estimatedColours[i] = colourPairs[i].estimatedColourInfo.uiColour
-                    // coloursFromUserPalette[i] = 
                     paletteString += "\(colourPairs[i].name), "
-                    personalPaletteString += "todo, "
+                }
+                
+                for (j, relevantColour) in relevantColoursFromUserPalette.enumerated() {
+                    coloursFromUserPalette[j] = relevantColour.uiColour
+                    personalPaletteString += "\(relevantColoursFromUserPalette[j].name), "
+                }
+                
+                if personalPaletteString.isEmpty {
+                    personalPaletteString = "No relevant colours found."
                 }
             }
         }

@@ -12,11 +12,12 @@
 		1628968B2CC1A6FD005A2399 /* UserPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1628968A2CC1A6FD005A2399 /* UserPalette.swift */; };
 		1628968D2CC1A811005A2399 /* PaletteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1628968C2CC1A811005A2399 /* PaletteListViewModel.swift */; };
 		162896BC2CC32B48005A2399 /* PaletteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896BB2CC32B48005A2399 /* PaletteListView.swift */; };
-		162896BE2CC353AC005A2399 /* ReginaldTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896BD2CC353AC005A2399 /* ReginaldTabView.swift */; };
 		162896C62CC57C99005A2399 /* PaletteListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896C52CC57C99005A2399 /* PaletteListItemView.swift */; };
 		162896C82CC587FC005A2399 /* UserPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896C72CC587FC005A2399 /* UserPaletteView.swift */; };
 		162896CA2CC58A28005A2399 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896C92CC58A28005A2399 /* UserDefaultsHelper.swift */; };
 		162896CC2CC58FB5005A2399 /* ReginaldKuenstlerTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896CB2CC58FB5005A2399 /* ReginaldKuenstlerTabView.swift */; };
+		162896CE2CC5E203005A2399 /* badges.txt in Resources */ = {isa = PBXBuildFile; fileRef = 162896CD2CC5E203005A2399 /* badges.txt */; };
+		162896D12CC5E33A005A2399 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896D02CC5E33A005A2399 /* Badge.swift */; };
 		16ED0D232CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */; };
 		16ED0D252CBED1C500ADCA3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D242CBED1C500ADCA3B /* ContentView.swift */; };
 		16ED0D272CBED1C700ADCA3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16ED0D262CBED1C700ADCA3B /* Assets.xcassets */; };
@@ -61,11 +62,12 @@
 		1628968A2CC1A6FD005A2399 /* UserPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPalette.swift; sourceTree = "<group>"; };
 		1628968C2CC1A811005A2399 /* PaletteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteListViewModel.swift; sourceTree = "<group>"; };
 		162896BB2CC32B48005A2399 /* PaletteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteListView.swift; sourceTree = "<group>"; };
-		162896BD2CC353AC005A2399 /* ReginaldTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReginaldTabView.swift; sourceTree = "<group>"; };
 		162896C52CC57C99005A2399 /* PaletteListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteListItemView.swift; sourceTree = "<group>"; };
 		162896C72CC587FC005A2399 /* UserPaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPaletteView.swift; sourceTree = "<group>"; };
 		162896C92CC58A28005A2399 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		162896CB2CC58FB5005A2399 /* ReginaldKuenstlerTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReginaldKuenstlerTabView.swift; sourceTree = "<group>"; };
+		162896CD2CC5E203005A2399 /* badges.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = badges.txt; sourceTree = "<group>"; };
+		162896D02CC5E33A005A2399 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		16ED0D1F2CBED1C500ADCA3B /* ReginaldKuenstler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReginaldKuenstler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReginaldKuenstlerApp.swift; sourceTree = "<group>"; };
 		16ED0D242CBED1C500ADCA3B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -123,6 +125,14 @@
 				162896C52CC57C99005A2399 /* PaletteListItemView.swift */,
 			);
 			path = PaletteList;
+			sourceTree = "<group>";
+		};
+		162896CF2CC5E324005A2399 /* Badges */ = {
+			isa = PBXGroup;
+			children = (
+				162896D02CC5E33A005A2399 /* Badge.swift */,
+			);
+			path = Badges;
 			sourceTree = "<group>";
 		};
 		16ED0D162CBED1C400ADCA3B = {
@@ -191,6 +201,7 @@
 		16ED0D4F2CBFFAB800ADCA3B /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				162896CD2CC5E203005A2399 /* badges.txt */,
 				16ED0D522CC0112A00ADCA3B /* colourmap.csv */,
 				16ED0D502CBFFAC100ADCA3B /* ColourMapper.swift */,
 			);
@@ -220,6 +231,7 @@
 		16ED0D972CC152A000ADCA3B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				162896CF2CC5E324005A2399 /* Badges */,
 				16ED0D982CC152B200ADCA3B /* ColourPair.swift */,
 				16ED0DA02CC162AC00ADCA3B /* VColour.swift */,
 				16ED0DA52CC166D200ADCA3B /* Artwork.swift */,
@@ -243,7 +255,6 @@
 				162896C42CC57C85005A2399 /* PaletteList */,
 				16ED0D9E2CC153A400ADCA3B /* ImageAnalysisView.swift */,
 				162896832CC18515005A2399 /* ColourComparisonView.swift */,
-				162896BD2CC353AC005A2399 /* ReginaldTabView.swift */,
 				162896C72CC587FC005A2399 /* UserPaletteView.swift */,
 				162896CB2CC58FB5005A2399 /* ReginaldKuenstlerTabView.swift */,
 			);
@@ -362,6 +373,7 @@
 			files = (
 				16ED0D2A2CBED1C700ADCA3B /* Preview Assets.xcassets in Resources */,
 				16ED0D272CBED1C700ADCA3B /* Assets.xcassets in Resources */,
+				162896CE2CC5E203005A2399 /* badges.txt in Resources */,
 				16ED0D532CC0112B00ADCA3B /* colourmap.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,11 +408,11 @@
 				16ED0D512CBFFAC100ADCA3B /* ColourMapper.swift in Sources */,
 				162896C82CC587FC005A2399 /* UserPaletteView.swift in Sources */,
 				16ED0DA82CC166E600ADCA3B /* Palette.swift in Sources */,
-				162896BE2CC353AC005A2399 /* ReginaldTabView.swift in Sources */,
 				162896842CC18515005A2399 /* ColourComparisonView.swift in Sources */,
 				1628968B2CC1A6FD005A2399 /* UserPalette.swift in Sources */,
 				16ED0DA12CC162AC00ADCA3B /* VColour.swift in Sources */,
 				16ED0D252CBED1C500ADCA3B /* ContentView.swift in Sources */,
+				162896D12CC5E33A005A2399 /* Badge.swift in Sources */,
 				16ED0DA32CC162CF00ADCA3B /* UIColor+Converter.swift in Sources */,
 				16ED0D9C2CC1538800ADCA3B /* ImagePicker.swift in Sources */,
 				162896CC2CC58FB5005A2399 /* ReginaldKuenstlerTabView.swift in Sources */,

@@ -25,6 +25,7 @@ class UserPaletteViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     
     init() {
+        // UserDefaultsHelper.clearUserPaletteFromDefaults()
         self.fetchUserPalettes()
     }
     
@@ -57,7 +58,14 @@ class UserPaletteViewModel: ObservableObject {
 //            defaults.set(initialUserPalette, forKey: "userPalettes")
             
             // FOR TESTING
-            let mockUserPalette: [String: String] = ["Viridian": "#40826D", "Sienna": "#E97451", "Cadmium Red": "#D22B2B"]
+            let mockUserPalette: [String: String] = [
+                "Viridian": "#40826D",
+                "Sienna": "#E97451",
+                "Cadmium Red": "#D22B2B",
+                "Red Ochre": "#913831",
+                "Burnt Umber": "#6E260E",
+                "Ultramarine": "#0437F2"
+            ]
             
             // display
             let userPaletteColoursAsPalette = mockUserPalette.map { PaletteColour(colourName: $0.key, hexCode: $0.value) }

@@ -17,9 +17,11 @@ class KuenstlerViewModel: ObservableObject {
     @Published var colourMap: [VColour] = []
     @Published var relevantColoursFromUserPalette: [VColour] = []
     
+    private var estimatedColours: [VColour] = []
     private var coloursFromUserPalette: [VColour] = []
     
     init() {
+//        UserDefaults.resetStandardUserDefaults()
         self.generateColourMapping()
     }
     
@@ -44,8 +46,9 @@ class KuenstlerViewModel: ObservableObject {
         }
         
     }
-    
-    func performAnalOnImage(artwork: Artwork, completion: @escaping (_ result: ([ColourPair])) -> Void) {
+
+    // should be void?
+    func performAnalOnImage(artwork: Artwork, completion: @escaping (_ result: [ColourPair], [VColour]) -> Void) {
         
         var colourPairs: [ColourPair] = []
         print("Performing analysis on \(artwork.title)")
@@ -87,6 +90,8 @@ class KuenstlerViewModel: ObservableObject {
                         let estimatedUIColour: UIColor = currentVColour.uiColour
                         let estimatedRGBTuple: RGBTuple = currentVColour.rgbCode
                         
+                        self.estimatedColours.append(currentVColour)
+                        
                         // ColourPair component 2
                         let estimatedColourInfo = ColourInfo(hexCode: estimatedHexCode, rgbCode: estimatedRGBTuple, uiColour: estimatedUIColour)
                         
@@ -97,11 +102,13 @@ class KuenstlerViewModel: ObservableObject {
                         colourPairs.append(colourPair)
                     }
                 }
-                print("--KuenstlerViewModel analysis has been performed, colourPairs has \(colourPairs.count) elements. Completion will be called.")
-                // TODO!!!
-                // self.relevantColoursFromUserPalette = determinePaletteIntersection(estimatedColours, self.coloursFromUserPalette)
-                // completion(colourPairs, self.relevantColoursFromUserPalette
-                completion(colourPairs)
+                print("--KünstlerViewModel analysis has been performed, colourPairs has \(colourPairs.count) elements")
+                self.relevantColoursFromUserPalette = self.coloursFromUserPalette.filter{ self.estimatedColours.contains($0) }
+                
+                print("--KünstlerViewModel, relevantColoursFromUserPalette: \(self.relevantColoursFromUserPalette.count) elements")
+                print("\n\(self.relevantColoursFromUserPalette.count) elements.\n\n")
+                
+                completion(colourPairs, self.relevantColoursFromUserPalette)
             }
         }
     }
