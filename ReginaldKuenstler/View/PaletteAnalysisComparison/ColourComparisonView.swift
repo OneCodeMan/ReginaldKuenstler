@@ -38,6 +38,11 @@ struct ColourComparisonView: View {
                 CarouselPage(id: 0, content: {
                     ImageAnalysisInputView(image: $image, showSheet: $showSheet, showImagePicker: $showImagePicker, sourceType: $sourceType, handleAnalyzePhoto: {
                         self.performColourAnalysis(onImage: self.image)
+                        withAnimation {
+                            if currentIndex == 0 {
+                                self.currentIndex = 1
+                            }
+                        }
                     })
                 })
                 .tag(0)
@@ -157,9 +162,6 @@ struct ImageAnalysisInputView: View {
         }
         .sheet(isPresented: $showImagePicker) {
             ImagePicker(sourceType: self.sourceType, selectedImage: self.$image)
-        }
-        .onAppear {
-            self.handleAnalyzePhoto()
         }
     }
 }
