@@ -34,12 +34,12 @@ struct PaletteColour: Identifiable, Equatable {
     /**
      Default initializer.
      */
-    init(colourName: String, hexCode: String) {
+    init(colourName: String, hexCode: String, isUserOwned: Bool = false) {
         self.colourName = colourName
         self.hexCode = hexCode
         self.uiColour = UIColor.init(hex: hexCode)
         self.rgbCode = ColourHelper.hexToRGB(hex: hexCode)
-        self.isUserOwned = false
+        self.isUserOwned = isUserOwned
     }
     
     /**

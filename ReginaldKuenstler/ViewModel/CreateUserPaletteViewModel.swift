@@ -64,7 +64,7 @@ class CreateUserPaletteViewModel: ObservableObject {
         let defaults = UserDefaults.standard
         
         if UserDefaultsHelper.isKeyPresentInUserDefaults(key: "userPalettes") {
-            print("[--UserPaletteViewModel we have a palette, gonna retrieve them now...")
+            print("[--CreateUserPaletteViewModel we have a palette, gonna retrieve them now...")
             if let userPaletteFromUserDefaults = defaults.dictionary(forKey: "userPalettes") as? [String: String]  {
                 
                 // take the user default palette and convert to PaletteColour objects

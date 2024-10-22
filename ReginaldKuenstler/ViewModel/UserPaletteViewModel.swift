@@ -39,11 +39,13 @@ class UserPaletteViewModel: ObservableObject {
                 
                 // take the user default palette and convert to PaletteColour objects
                 for (name, hexCode) in userPaletteFromUserDefaults {
-                    let generatedPaletteColour = PaletteColour(colourName: name, hexCode: hexCode)
+                    let generatedPaletteColour = PaletteColour(colourName: name, hexCode: hexCode, isUserOwned: true)
                     self.userPaletteColours.append(generatedPaletteColour)
                 }
                 
                 self.filteredUserPaletteColours = self.userPaletteColours // TODO: DRY
+                self.groupedColours = ColourHelper.groupColours(colours: self.filteredUserPaletteColours)
+                // print("GROUPED COLOURS:\n\n \(self.groupedColours)\n\n")
             } else {
                 // TODO: throw error
                 fatalError("failed to retrieve colours from user defaults.")
@@ -67,8 +69,6 @@ class UserPaletteViewModel: ObservableObject {
             let userPaletteColoursAsPalette = mockUserPalette.map { PaletteColour(colourName: $0.key, hexCode: $0.value) }
             self.userPaletteColours = userPaletteColoursAsPalette // TODO: sort alphabetically
             self.filteredUserPaletteColours = self.userPaletteColours // TODO: DRY
-            
-            self.groupedColours = ColourHelper.groupColours(colours: userPaletteColours)
             
 //            for colour in userPaletteColours {
 //                let group = ColourHelper.groupColours(colours: userPaletteColours)

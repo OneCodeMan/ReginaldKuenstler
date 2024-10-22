@@ -13,7 +13,7 @@
 import SwiftUI
 
 struct UserPaletteView: View {
-    @StateObject var userPaletteViewModel = UserPaletteViewModel()
+    @ObservedObject var userPaletteViewModel = UserPaletteViewModel()
     
     // MARK: search logic
     @State var searchText: String = ""
@@ -34,25 +34,38 @@ struct UserPaletteView: View {
                 
                 // GRID OR EMPTY VIEW
                 if !userPaletteViewModel.userPaletteColours.isEmpty {
-                    ScrollView {
-                        LazyVGrid(columns: self.columns) {
-                            ForEach(userPaletteViewModel.filteredUserPaletteColours) {
-                                PaletteListItemView(paletteColourItem: $0)
+                    List {
+                        ForEach(Array(userPaletteViewModel.groupedColours.keys), id: \.self) { groupName in
+                            VStack {
+                                Text(groupName)
+                                    .font(.headline)
+                                    .padding([.top, .bottom], 8)
+                                
+                                // colour list
+                                LazyVGrid(columns: self.columns) {
+                                    ForEach(Array(userPaletteViewModel.groupedColours[groupName] ?? [])) {
+                                        PaletteListItemView(paletteColourItem: $0)
+                                    }
+                                }
+                                .padding()
+                                .scrollContentBackground(.hidden)
+                                .searchable(text: $searchText)
+                                .onChange(of: searchText) { search in
+                                    if !search.isEmpty {
+                                        self.userPaletteViewModel.filterPaletteColours(term: search)
+                                    } else {
+                                        self.userPaletteViewModel.resetFilteredPaletteColours()
+                                    }
+                                }
+                                // end of VGrid
                             }
                         }
-                        .padding()
-                        .scrollContentBackground(.hidden)
-                        .searchable(text: $searchText)
-                        .onChange(of: searchText) { search in
-                            if !search.isEmpty {
-                                self.userPaletteViewModel.filterPaletteColours(term: search)
-                            } else {
-                                self.userPaletteViewModel.resetFilteredPaletteColours()
-                            }
-                        }
-                    } // end of scrollview
+                    }
+                    // colour group header
+                    
+                    
                 } else {
-//                    EmptyView()
+                    //                    EmptyView()
                     VStack(alignment: .center) {
                         Spacer()
                         Text("You have no colours.")
@@ -65,7 +78,7 @@ struct UserPaletteView: View {
                 self.userPaletteViewModel.fetchUserPalettes()
             }
         }
-            
+        
     }
 }
 

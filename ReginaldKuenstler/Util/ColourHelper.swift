@@ -79,6 +79,9 @@ final class ColourHelper {
             colourGroups[group]?.append(colour)
         }
         
+//        print("[--ColourHelper, colourGroups:")
+//        print(colourGroups)
+        
         return colourGroups
     }
     
