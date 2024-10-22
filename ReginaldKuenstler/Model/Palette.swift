@@ -38,7 +38,7 @@ struct PaletteColour: Identifiable, Equatable {
         self.colourName = colourName
         self.hexCode = hexCode
         self.uiColour = UIColor.init(hex: hexCode)
-        self.rgbCode = ColourConverter.hexToRGB(hex: hexCode)
+        self.rgbCode = ColourHelper.hexToRGB(hex: hexCode)
         self.isUserOwned = false
     }
     

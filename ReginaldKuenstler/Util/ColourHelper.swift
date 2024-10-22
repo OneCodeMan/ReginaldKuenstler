@@ -8,7 +8,9 @@
 import Foundation
 import SwiftUI
 
-final class ColourConverter {
+final class ColourHelper {
+    
+    // MARK: Colour Distance/Estimation
     
     // https://medium.com/@muzammalshahzad494/converting-hexadecimal-color-code-to-rgb-values-in-swift-3600d46bcbc9
     /*
@@ -63,6 +65,58 @@ final class ColourConverter {
         }
        // print("--ColourConverter nearestColourInMap for rgb\(inputRGBTuple) is: \(nearestColour.name) \(nearestColour.rgbCode)\n")
         return nearestColour
+    }
+    
+    // MARK: Colour Grouping
+    
+    // Group colors based on dominant color component
+    // This is how we'd sort the colours
+    static func groupColours(colours: [PaletteColour]) -> [String: [PaletteColour]] {
+        var colourGroups: [String: [PaletteColour]] = ["Red": [], "Green": [], "Blue": [], "Yellow": [], "Black": [], "White": [], "Gray": [], "Other": []]
+        
+        for colour in colours {
+            let group = self.groupIndividualColour(hexColour: colour.hexCode)
+            colourGroups[group]?.append(colour)
+        }
+        
+        return colourGroups
+    }
+    
+    // Group colors based on dominant color component
+    // This is how we'd sort the colours
+    static func groupColourSelectItems(colours: [PaletteColourSelectItem]) -> [String: [PaletteColourSelectItem]] {
+        var colourGroups: [String: [PaletteColourSelectItem]] = ["Red": [], "Green": [], "Blue": [], "Yellow": [], "Black": [], "White": [], "Gray": [], "Other": []]
+        
+        for colourSelectItem in colours {
+            let group = self.groupIndividualColour(hexColour: colourSelectItem.paletteColour.hexCode)
+            colourGroups[group]?.append(colourSelectItem)
+        }
+        
+        return colourGroups
+    }
+    
+    // TODO: take an RGB instead, pass in colour's rgb not hex.
+    static func groupIndividualColour(hexColour: String) -> String {
+        let rgb = self.hexToRGB(hex: hexColour)
+        let (r, g, b) = (rgb.r, rgb.g, rgb.b)
+        
+        if r > 200 && g < 100 && b < 100 {
+            return "Red"
+        } else if g > 200 && r < 100 && b < 100 {
+            return "Green"
+        } else if b > 200 && r < 100 && g < 100 {
+            return "Blue"
+        } else if r > 200 && g > 200 && b < 100 {
+            return "Yellow"
+        } else if r < 50 && g < 50 && b < 50 {
+            return "Black"
+        } else if r > 200 && g > 200 && b > 200 {
+            return "White"
+        } else if abs(r - g) < 20 && abs(r - b) < 20 {
+            return "Gray"
+        } else {
+            return "Other"
+        }
     }
     
 }

@@ -23,6 +23,7 @@
 		162896D72CC6BA91005A2399 /* ColourGridItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896D62CC6BA91005A2399 /* ColourGridItem.swift */; };
 		166520732CC72A0500F2836E /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166520722CC72A0500F2836E /* CarouselView.swift */; };
 		166520762CC72BAD00F2836E /* ImageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166520752CC72BAC00F2836E /* ImageInputView.swift */; };
+		1665207A2CC7FA6A00F2836E /* UserPaletteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166520792CC7FA6A00F2836E /* UserPaletteViewModel.swift */; };
 		16ED0D232CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */; };
 		16ED0D252CBED1C500ADCA3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D242CBED1C500ADCA3B /* ContentView.swift */; };
 		16ED0D272CBED1C700ADCA3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16ED0D262CBED1C700ADCA3B /* Assets.xcassets */; };
@@ -33,7 +34,7 @@
 		16ED0D4E2CBED8B500ADCA3B /* SwiftVibrantium in Frameworks */ = {isa = PBXBuildFile; productRef = 16ED0D4D2CBED8B500ADCA3B /* SwiftVibrantium */; };
 		16ED0D512CBFFAC100ADCA3B /* ColourMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D502CBFFAC100ADCA3B /* ColourMapper.swift */; };
 		16ED0D532CC0112B00ADCA3B /* colourmap.csv in Resources */ = {isa = PBXBuildFile; fileRef = 16ED0D522CC0112A00ADCA3B /* colourmap.csv */; };
-		16ED0D562CC0170500ADCA3B /* ColourConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D552CC0170500ADCA3B /* ColourConverter.swift */; };
+		16ED0D562CC0170500ADCA3B /* ColourHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D552CC0170500ADCA3B /* ColourHelper.swift */; };
 		16ED0D592CC0964B00ADCA3B /* KuenstlerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D582CC0964B00ADCA3B /* KuenstlerViewModel.swift */; };
 		16ED0D992CC152B200ADCA3B /* ColourPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D982CC152B200ADCA3B /* ColourPair.swift */; };
 		16ED0D9C2CC1538800ADCA3B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D9B2CC1538800ADCA3B /* ImagePicker.swift */; };
@@ -78,6 +79,7 @@
 		162896D62CC6BA91005A2399 /* ColourGridItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourGridItem.swift; sourceTree = "<group>"; };
 		166520722CC72A0500F2836E /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		166520752CC72BAC00F2836E /* ImageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInputView.swift; sourceTree = "<group>"; };
+		166520792CC7FA6A00F2836E /* UserPaletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPaletteViewModel.swift; sourceTree = "<group>"; };
 		16ED0D1F2CBED1C500ADCA3B /* ReginaldKuenstler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReginaldKuenstler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReginaldKuenstlerApp.swift; sourceTree = "<group>"; };
 		16ED0D242CBED1C500ADCA3B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,7 +92,7 @@
 		16ED0D3F2CBED1C700ADCA3B /* ReginaldKuenstlerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReginaldKuenstlerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		16ED0D502CBFFAC100ADCA3B /* ColourMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourMapper.swift; sourceTree = "<group>"; };
 		16ED0D522CC0112A00ADCA3B /* colourmap.csv */ = {isa = PBXFileReference; lastKnownFileType = text; name = colourmap.csv; path = mapper/colourmap.csv; sourceTree = SOURCE_ROOT; };
-		16ED0D552CC0170500ADCA3B /* ColourConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourConverter.swift; sourceTree = "<group>"; };
+		16ED0D552CC0170500ADCA3B /* ColourHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourHelper.swift; sourceTree = "<group>"; };
 		16ED0D582CC0964B00ADCA3B /* KuenstlerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KuenstlerViewModel.swift; sourceTree = "<group>"; };
 		16ED0D5A2CC0972500ADCA3B /* Info.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Info.md; sourceTree = "<group>"; };
 		16ED0D982CC152B200ADCA3B /* ColourPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourPair.swift; sourceTree = "<group>"; };
@@ -230,7 +232,7 @@
 		16ED0D542CC016F000ADCA3B /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				16ED0D552CC0170500ADCA3B /* ColourConverter.swift */,
+				16ED0D552CC0170500ADCA3B /* ColourHelper.swift */,
 				16ED0DA22CC162CF00ADCA3B /* UIColor+Converter.swift */,
 				162896C92CC58A28005A2399 /* UserDefaultsHelper.swift */,
 			);
@@ -243,6 +245,7 @@
 				16ED0D582CC0964B00ADCA3B /* KuenstlerViewModel.swift */,
 				162896882CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift */,
 				1628968C2CC1A811005A2399 /* PaletteListViewModel.swift */,
+				166520792CC7FA6A00F2836E /* UserPaletteViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -426,7 +429,7 @@
 				162896CA2CC58A28005A2399 /* UserDefaultsHelper.swift in Sources */,
 				162896BC2CC32B48005A2399 /* PaletteListView.swift in Sources */,
 				162896C62CC57C99005A2399 /* PaletteListItemView.swift in Sources */,
-				16ED0D562CC0170500ADCA3B /* ColourConverter.swift in Sources */,
+				16ED0D562CC0170500ADCA3B /* ColourHelper.swift in Sources */,
 				162896892CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift in Sources */,
 				16ED0DA62CC166D200ADCA3B /* Artwork.swift in Sources */,
 				16ED0D512CBFFAC100ADCA3B /* ColourMapper.swift in Sources */,
@@ -437,6 +440,7 @@
 				166520762CC72BAD00F2836E /* ImageInputView.swift in Sources */,
 				16ED0DA12CC162AC00ADCA3B /* VColour.swift in Sources */,
 				162896D32CC606C1005A2399 /* PaletteCreationView.swift in Sources */,
+				1665207A2CC7FA6A00F2836E /* UserPaletteViewModel.swift in Sources */,
 				16ED0D252CBED1C500ADCA3B /* ContentView.swift in Sources */,
 				162896D12CC5E33A005A2399 /* Badge.swift in Sources */,
 				162896D72CC6BA91005A2399 /* ColourGridItem.swift in Sources */,

@@ -81,14 +81,14 @@ class KuenstlerViewModel: ObservableObject {
                         // Make an ActualColourInfo
                         let actualHex: String = swatchInput.hex
                         let actualUIColour: UIColor = swatchInput.uiColor
-                        let actualRGBCode: RGBTuple = ColourConverter.hexToRGB(hex: actualHex)
+                        let actualRGBCode: RGBTuple = ColourHelper.hexToRGB(hex: actualHex)
                         
                         // ColourPair component 1
                         let actualColourInfo = ColourInfo(hexCode: actualHex, rgbCode: actualRGBCode, uiColour: actualUIColour)
                         
                         // Find nearest colour in the map
                         // print("passing colourMap of \(self.colourMap.count) items to converter..")
-                        let currentVColour: VColour = ColourConverter.findNearestColourInMap(withRgbValue: actualRGBCode, colourMap: self.colourMap)
+                        let currentVColour: VColour = ColourHelper.findNearestColourInMap(withRgbValue: actualRGBCode, colourMap: self.colourMap)
                         let estimatedHexCode: String = currentVColour.hexCode
                         let estimatedUIColour: UIColor = currentVColour.uiColour
                         let estimatedRGBTuple: RGBTuple = currentVColour.rgbCode

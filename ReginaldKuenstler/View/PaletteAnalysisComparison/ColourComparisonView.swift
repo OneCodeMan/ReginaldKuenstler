@@ -88,8 +88,8 @@ struct ColourComparisonView: View {
                 }
                 
                 if !relevantColoursFromUserPalette.isEmpty {
-                    for (j, relevantColour) in relevantColoursFromUserPalette.enumerated() {
-                        coloursFromUserPalette[j] = relevantColour.uiColour
+                    for j in 0..<min(relevantColoursFromUserPalette.count, coloursFromUserPalette.count) {
+                        coloursFromUserPalette[j] = relevantColoursFromUserPalette[j].uiColour
                         personalPaletteString += "\(relevantColoursFromUserPalette[j].name), "
                     }
                 } else {
@@ -177,13 +177,16 @@ struct PaletteResults: View {
                 Text(paletteString)
                     .padding()
                 
+                Divider()
+                
                 Text("From Your Palette")
+                    .font(.title2)
                 VStack {
                     HStack(alignment: .center) {
                         ForEach(0..<coloursFromUserPalette.count, id: \.self) { index in
                             Rectangle()
                                 .fill(Color(coloursFromUserPalette[index]))
-                                .frame(width: 20, height: 20)
+                                .frame(minWidth: 50, minHeight: 300)
                         }
                     }
                     .padding()

@@ -34,7 +34,7 @@ struct VColour: Equatable {
     init(name: String, hexCode: String) {
         self.name = name
         self.hexCode = hexCode
-        self.rgbCode = ColourConverter.hexToRGB(hex: hexCode)
+        self.rgbCode = ColourHelper.hexToRGB(hex: hexCode)
         self.uiColour = UIColor.init(hex: hexCode)
     }
 }

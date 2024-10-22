@@ -36,7 +36,7 @@ final class ColourMapper: ObservableObject {
                         let colourName = columns[0]
                         let hexCode = columns[1]
                         
-                        let rgbCode: RGBTuple = ColourConverter.hexToRGB(hex: hexCode)
+                        let rgbCode: RGBTuple = ColourHelper.hexToRGB(hex: hexCode)
                         let uiColour: UIColor = UIColor(hex: hexCode)
                         let colour = VColour(name: colourName, hexCode: hexCode, rgbCode: rgbCode, uiColour: uiColour)
                         coloursFromCSV.append(colour)
