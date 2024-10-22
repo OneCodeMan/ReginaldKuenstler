@@ -68,6 +68,11 @@ struct CarouselView_Previews: PreviewProvider {
     }
 }
 
+#Preview {
+    CarouselView()
+}
+
+// TODO: put in own file
 var placeholderCarouselChildView: [CarouselPage] = [
     
     CarouselPage(id: 1, content: {
@@ -101,19 +106,3 @@ var placeholderCarouselChildView: [CarouselPage] = [
     })
     
 ]
-
-// MARK: Carousel Page
-struct CarouselPage: View, Identifiable {
-    var id: Int
-    @ViewBuilder var content: any View
-    
-    var body: some View {
-        ZStack {
-            AnyView(content)
-        }
-    }
-}
-
-#Preview {
-    CarouselView()
-}

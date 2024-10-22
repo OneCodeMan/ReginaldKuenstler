@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftVibrantium
 
+// https://medium.com/@sharma17krups/onboarding-view-with-swiftui-b26096049be3
 struct ColourComparisonView: View {
     @ObservedObject var viewModel = KuenstlerViewModel()
     @State var imgTitle = "Calum from Aftersun"
@@ -34,40 +35,30 @@ struct ColourComparisonView: View {
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     // end of img picker related
     
+    @State var views: [CarouselPage] = []
     var body: some View {
-        CarouselView(views:
-                        [CarouselPage(id: 1,
-                                      content:
-                                        {
-            ImageAnalysisInputView(image: $image, showSheet: $showSheet, handdleAnalyzePhoto: { self.performColourAnalysis(onImage: self.image) })
-                .actionSheet(isPresented: $showSheet) {
-                    ActionSheet(title: Text("Select Photo"), message: Text("Choose an option"), buttons: [
-                        .default(Text("Take Photo")) {
-                            self.sourceType = .camera
-                            self.showImagePicker = true
-                        },
-                        .default(Text("Select from Library")) {
-                            self.sourceType = .photoLibrary
-                            self.showImagePicker = true
-                        },
-                        .cancel()
-                    ])
-                }
-                .sheet(isPresented: $showImagePicker) {
-                    ImagePicker(sourceType: self.sourceType, selectedImage: self.$image)
-                }
-                .onAppear {
+        TabView {
+            ZStack {
+                ForEach(views) { view in
+                    view
+                } //: LOOP
+            }
+        }
+        .tabViewStyle(PageTabViewStyle())
+        .padding(.vertical, 20)
+        .onAppear {
+            let carouselPageOne = CarouselPage(id: 0, content: {
+                ImageAnalysisInputView(image: $image, showSheet: $showSheet, showImagePicker: $showImagePicker, sourceType: $sourceType, handleAnalyzePhoto: {
                     self.performColourAnalysis(onImage: self.image)
-                }
+                })
+            })
+
+            let carouselPageTwo = CarouselPage(id: 1, content: {
+                PaletteResults(realColours: $realColours, paletteString: $paletteString, coloursFromUserPalette: $coloursFromUserPalette, personalPaletteString: $personalPaletteString)
+            })
+            
+            self.views = [carouselPageOne, carouselPageTwo]
         }
-                                     ),
-                         CarouselPage(id: 2,
-                                      content: {
-            PaletteResults(realColours: $realColours, paletteString: $paletteString, coloursFromUserPalette: $coloursFromUserPalette, personalPaletteString: $personalPaletteString)
-        }
-                                     ),
-                         CarouselPage(id: 3, content: { EmptyView() })]
-        )
     }
     
     func performColourAnalysis(onImage img: UIImage) {
@@ -106,7 +97,9 @@ struct ColourComparisonView: View {
 struct ImageAnalysisInputView: View {
     @Binding var image: UIImage
     @Binding var showSheet: Bool
-    var handdleAnalyzePhoto: () -> ()
+    @Binding var showImagePicker: Bool
+    @Binding var sourceType: UIImagePickerController.SourceType
+    var handleAnalyzePhoto: () -> ()
     
     var body: some View {
         ZStack {
@@ -141,12 +134,30 @@ struct ImageAnalysisInputView: View {
                     .padding(.horizontal, 20)
                     .onTapGesture {
                         print("Analyze button tapped, performing analysis on \(self.image)")
-                        handdleAnalyzePhoto()
+                        handleAnalyzePhoto()
                     }
             }
             .padding()
             .frame(maxHeight: .infinity, alignment: .bottom)
-            
+        }
+        .actionSheet(isPresented: $showSheet) {
+            ActionSheet(title: Text("Select Photo"), message: Text("Choose an option"), buttons: [
+                .default(Text("Take Photo")) {
+                    self.sourceType = .camera
+                    self.showImagePicker = true
+                },
+                .default(Text("Select from Library")) {
+                    self.sourceType = .photoLibrary
+                    self.showImagePicker = true
+                },
+                .cancel()
+            ])
+        }
+        .sheet(isPresented: $showImagePicker) {
+            ImagePicker(sourceType: self.sourceType, selectedImage: self.$image)
+        }
+        .onAppear {
+            self.handleAnalyzePhoto()
         }
     }
 }
@@ -194,5 +205,21 @@ struct PaletteResults: View {
                 }
             }
         }
+    }
+}
+
+
+// MARK: Carousel Page
+struct CarouselPage: View, Identifiable {
+    var id: Int
+    @ViewBuilder var content: any View
+    
+    var body: some View {
+        ZStack {
+            AnyView(content)
+        }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+        .cornerRadius(20)
+        .padding(.horizontal, 20)
     }
 }
