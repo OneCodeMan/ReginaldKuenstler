@@ -14,7 +14,7 @@
 import SwiftUI
 
 struct ReginaldKuenstlerTabView: View {
-    @State var selectedTab: Int = 0
+    @State var selectedTab: Int = 1
     var body: some View {
         TabView(selection:  $selectedTab) {
             UserPaletteView()
@@ -24,7 +24,7 @@ struct ReginaldKuenstlerTabView: View {
                     Text("Your Palette")
                 }
             
-            CarouselView()
+            ColourComparisonView()
                 .tag(1)
                 .tabItem {
                     Image(systemName: "paintpalette.fill")

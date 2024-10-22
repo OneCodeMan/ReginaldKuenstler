@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CarouselView: View {
     
-    var xDistance: Int = 150
+    @State var xDistance: Int = 150
     
     @State private var snappedItem = 0.0
     @State private var draggingItem = 1.0
@@ -26,6 +26,9 @@ struct CarouselView: View {
                     .offset(x: getOffset(view.id), y: 0)
                     .zIndex(1.0 - abs(distance(view.id)) * 0.1)
             }
+        }
+        .onAppear {
+            self.xDistance = Int(UIScreen.main.bounds.width)
         }
         .gesture(
             DragGesture()
