@@ -11,10 +11,14 @@
 # October 21, 2024
 - User should be able to select their palette.
 
-TODOs next next wave:
+TODOs low hanging fruit:
 - [ ] The coloursSelectedView should be able to wrap overflow.
 
+TODOs next next wave:
+- [ ] User can save analyzed pieces
+
 TODOs next wave:
+- [ ] Colour Analysis carousel view
 - [ ] Top tab bar button item for `UserPalette` edit state, or long press on any PaletteColourItem, and the user can delete or rearrange grid items.
 - [ ] Group PaletteColourItems by colour
 - [ ] Colour estimation for Analysis

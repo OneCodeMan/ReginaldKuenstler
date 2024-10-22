@@ -24,12 +24,19 @@ struct ReginaldKuenstlerTabView: View {
                     Text("Your Palette")
                 }
             
-            ColourComparisonView()
+            CarouselView()
                 .tag(1)
                 .tabItem {
                     Image(systemName: "paintpalette.fill")
                     Text("Analyzer")
                 }
+            
+//            ColourComparisonView()
+//                .tag(1)
+//                .tabItem {
+//                    Image(systemName: "paintpalette.fill")
+//                    Text("Analyzer")
+//                }
             
         }
     }
