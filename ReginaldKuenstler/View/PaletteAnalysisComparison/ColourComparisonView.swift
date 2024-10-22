@@ -17,67 +17,69 @@ struct ColourComparisonView: View {
     @State var paletteString = ""
     @State var personalPaletteString = ""
     
-    // Put this data in viewmodel.
-    // real colours
     @State var realColours: [UIColor] = Array(repeating: .clear, count: 6)
-    
-    // estimated colours
     @State var estimatedColours: [UIColor] = Array(repeating: .clear, count: 6)
-    
-    // from user palette
     @State var coloursFromUserPalette: [UIColor] = Array(repeating: .clear, count: 6)
     
-    
-    // image picker related
     @State private var image = UIImage(named: "beauty") ?? UIImage()
     @State private var showSheet = false
     @State private var showImagePicker = false
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
-    // end of img picker related
     
     @State var views: [CarouselPage] = []
+    
+    // Control current page index
+    @State private var currentIndex = 0
+    
     var body: some View {
-        TabView {
-            ZStack {
-                ForEach(views) { view in
-                    view
-                } //: LOOP
-            }
-        }
-        .tabViewStyle(PageTabViewStyle())
-        .padding(.vertical, 20)
-        .onAppear {
-            let carouselPageOne = CarouselPage(id: 0, content: {
-                ImageAnalysisInputView(image: $image, showSheet: $showSheet, showImagePicker: $showImagePicker, sourceType: $sourceType, handleAnalyzePhoto: {
-                    self.performColourAnalysis(onImage: self.image)
+        VStack {
+            // TabView with Carousel Pages
+            TabView(selection: $currentIndex) {
+                CarouselPage(id: 0, content: {
+                    ImageAnalysisInputView(image: $image, showSheet: $showSheet, showImagePicker: $showImagePicker, sourceType: $sourceType, handleAnalyzePhoto: {
+                        self.performColourAnalysis(onImage: self.image)
+                    })
                 })
-            })
-
-            let carouselPageTwo = CarouselPage(id: 1, content: {
-                PaletteResults(realColours: $realColours, paletteString: $paletteString, coloursFromUserPalette: $coloursFromUserPalette, personalPaletteString: $personalPaletteString)
-            })
-            
-            self.views = [carouselPageOne, carouselPageTwo]
+                .tag(0)
+                
+                CarouselPage(id: 1, content: {
+                    PaletteResults(realColours: $realColours, paletteString: $paletteString, coloursFromUserPalette: $coloursFromUserPalette, personalPaletteString: $personalPaletteString)
+                })
+                .tag(1)
+            }
+            .tabViewStyle(PageTabViewStyle())
+            .padding(.vertical, 20)
+        }
+        .onAppear {
+            self.views = [
+                CarouselPage(id: 0, content: {
+                    ImageAnalysisInputView(image: $image, showSheet: $showSheet, showImagePicker: $showImagePicker, sourceType: $sourceType, handleAnalyzePhoto: {
+                        self.performColourAnalysis(onImage: self.image)
+                    })
+                }),
+                CarouselPage(id: 1, content: {
+                    PaletteResults(realColours: $realColours, paletteString: $paletteString, coloursFromUserPalette: $coloursFromUserPalette, personalPaletteString: $personalPaletteString)
+                })
+            ]
         }
     }
     
     func performColourAnalysis(onImage img: UIImage) {
-        // let image = UIImage(named: imgName)!
-        
-        // reset palette strings
+        // Reset palette strings
         paletteString = ""
         personalPaletteString = ""
         let artwork = Artwork(image: img, title: imgTitle)
         
         viewModel.performAnalOnImage(artwork: artwork) { colourPairs, relevantColoursFromUserPalette in
             DispatchQueue.main.async {
-                // Loop through the colourPairs and assign to real and estimated colours
+                // Update real and estimated colours
                 for i in 0..<min(colourPairs.count, realColours.count) {
                     realColours[i] = colourPairs[i].actualColourInfo.uiColour
                     estimatedColours[i] = colourPairs[i].estimatedColourInfo.uiColour
                     paletteString += "\(colourPairs[i].name), "
                 }
                 
+                // Update user palette
                 if !relevantColoursFromUserPalette.isEmpty {
                     for j in 0..<min(relevantColoursFromUserPalette.count, coloursFromUserPalette.count) {
                         coloursFromUserPalette[j] = relevantColoursFromUserPalette[j].uiColour
@@ -87,11 +89,11 @@ struct ColourComparisonView: View {
                     coloursFromUserPalette = []
                     personalPaletteString = "No relevant colours found."
                 }
-                
             }
         }
     }
 }
+
 
 // first page in carousel
 struct ImageAnalysisInputView: View {
@@ -220,6 +222,6 @@ struct CarouselPage: View, Identifiable {
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
         .cornerRadius(20)
-        .padding(.horizontal, 20)
+        .padding([.horizontal, .bottom], 20)
     }
 }
