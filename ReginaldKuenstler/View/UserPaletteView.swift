@@ -21,6 +21,9 @@ struct UserPaletteView: View {
     // MARK: VGrid logic
     let columns = Array(repeating: GridItem(.flexible()), count: 3)
     
+    // MARK: List edit mode
+    @State private var isEditing: Bool = false
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -31,9 +34,19 @@ struct UserPaletteView: View {
                             Text("Add")
                         }
                     }
-                
                 // GRID OR EMPTY VIEW
                 if !userPaletteViewModel.userPaletteColours.isEmpty {
+                    // Button to toggle edit mode
+                    if isEditing {
+                        Button("Done") {
+                            isEditing.toggle()
+                        }
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                    }
+                    
                     List {
                         ForEach(Array(userPaletteViewModel.groupedColours.keys), id: \.self) { groupName in
                             VStack {
@@ -43,8 +56,29 @@ struct UserPaletteView: View {
                                 
                                 // colour list
                                 LazyVGrid(columns: self.columns) {
-                                    ForEach(Array(userPaletteViewModel.groupedColours[groupName] ?? [])) {
-                                        PaletteListItemView(paletteColourItem: $0)
+                                    ForEach(Array(userPaletteViewModel.groupedColours[groupName] ?? [])) { cI in
+                                        PaletteListItemView(paletteColourItem: cI)
+                                            .onTapGesture {}.onLongPressGesture(minimumDuration: 0.2) { // Setting the // Enable edit mode on long press
+                                                withAnimation {
+                                                    isEditing = true
+                                                }
+                                            }
+                                            .overlay(
+                                                // Show delete button when in edit mode
+                                                isEditing ? Button(action: {
+                                                    // Delete action
+                                                    if let index = userPaletteViewModel.groupedColours[groupName]?.firstIndex(of: cI) {
+                                                        print("tapped to remove \(cI)")
+                                                        userPaletteViewModel.groupedColours[groupName]?.remove(at: index)
+                                                    }
+                                                }) {
+                                                    Image(systemName: "minus.circle.fill")
+                                                        .foregroundColor(.red)
+                                                }
+                                                    .padding(8)
+                                                : nil,
+                                                alignment: .topTrailing
+                                            )
                                     }
                                 }
                                 .padding()
