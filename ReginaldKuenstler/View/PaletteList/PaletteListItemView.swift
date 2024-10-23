@@ -18,6 +18,9 @@ struct PaletteListItemView: View {
             Text(paletteColourItem.colourName)
                 .bold()
                 .foregroundStyle(paletteColourItem.isUserOwned ? .gray : .black)
+                .font(.system(size: 14.0))
+                .scaledToFill()
+                .padding(.top, 3)
         }
         .padding()
         .opacity(paletteColourItem.isUserOwned ? 0.7 : 1.0)

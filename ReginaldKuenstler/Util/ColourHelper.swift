@@ -75,7 +75,7 @@ final class ColourHelper {
         var colourGroups: [String: [PaletteColour]] = ["Red": [], "Green": [], "Blue": [], "Yellow": [], "Black": [], "White": [], "Gray": [], "Other": []]
         
         for colour in colours {
-            let group = self.groupIndividualColour(hexColour: colour.hexCode)
+            let group = self.groupIndividualColour(hexColour: colour.hexCode, colourName: colour.colourName)
             colourGroups[group]?.append(colour)
         }
         
@@ -91,7 +91,7 @@ final class ColourHelper {
         var colourGroups: [String: [PaletteColourSelectItem]] = ["Red": [], "Green": [], "Blue": [], "Yellow": [], "Black": [], "White": [], "Gray": [], "Other": []]
         
         for colourSelectItem in colours {
-            let group = self.groupIndividualColour(hexColour: colourSelectItem.paletteColour.hexCode)
+            let group = self.groupIndividualColour(hexColour: colourSelectItem.paletteColour.hexCode, colourName: colourSelectItem.paletteColour.colourName)
             colourGroups[group]?.append(colourSelectItem)
         }
         
@@ -99,23 +99,23 @@ final class ColourHelper {
     }
     
     // TODO: take an RGB instead, pass in colour's rgb not hex.
-    static func groupIndividualColour(hexColour: String) -> String {
+    static func groupIndividualColour(hexColour: String, colourName: String) -> String {
         let rgb = self.hexToRGB(hex: hexColour)
         let (r, g, b) = (rgb.r, rgb.g, rgb.b)
         
-        if r > 200 && g < 100 && b < 100 {
+        if (r > 200 && g < 100 && b < 100) || (colourName.contains("Red")) {
             return "Red"
-        } else if g > 200 && r < 100 && b < 100 {
+        } else if (g > 200 && r < 100 && b < 100) || (colourName.contains("Green")) {
             return "Green"
-        } else if b > 200 && r < 100 && g < 100 {
+        } else if (b > 200 && r < 100 && g < 100) || (colourName.contains("Blue")) {
             return "Blue"
-        } else if r > 200 && g > 200 && b < 100 {
+        } else if (r > 200 && g > 200 && b < 100) || (colourName.contains("Yellow")) {
             return "Yellow"
-        } else if r < 50 && g < 50 && b < 50 {
+        } else if (r < 50 && g < 50 && b < 50) || (colourName.contains("Black")) {
             return "Black"
-        } else if r > 200 && g > 200 && b > 200 {
+        } else if (r > 200 && g > 200 && b > 200) || (colourName.contains("White")) {
             return "White"
-        } else if abs(r - g) < 20 && abs(r - b) < 20 {
+        } else if (abs(r - g) < 20 && abs(r - b) < 20) || (colourName.contains("Gray")) {
             return "Gray"
         } else {
             return "Other"
