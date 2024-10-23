@@ -72,7 +72,7 @@ final class ColourHelper {
     // Group colors based on dominant color component
     // This is how we'd sort the colours
     static func groupColours(colours: [PaletteColour]) -> [String: [PaletteColour]] {
-        var colourGroups: [String: [PaletteColour]] = ["Red": [], "Green": [], "Blue": [], "Yellow": [], "Black": [], "White": [], "Gray": [], "Other": []]
+        var colourGroups: [String: [PaletteColour]] = ["Red": [], "Green": [], "Blue": [], "Yellow": [], "Brown": [], "Black": [], "White": [], "Gray": [], "Other": []]
         
         for colour in colours {
             let group = self.groupIndividualColour(hexColour: colour.hexCode, colourName: colour.colourName)
@@ -98,28 +98,65 @@ final class ColourHelper {
         return colourGroups
     }
     
-    // TODO: take an RGB instead, pass in colour's rgb not hex.
+    // TODO: take rgb instead
     static func groupIndividualColour(hexColour: String, colourName: String) -> String {
         let rgb = self.hexToRGB(hex: hexColour)
         let (r, g, b) = (rgb.r, rgb.g, rgb.b)
-        
+
+        // Red
         if (r > 200 && g < 100 && b < 100) || (colourName.contains("Red")) {
             return "Red"
-        } else if (g > 200 && r < 100 && b < 100) || (colourName.contains("Green")) {
+        }
+        // Green
+        else if (g > 200 && r < 100 && b < 100) || (colourName.contains("Green")) {
             return "Green"
-        } else if (b > 200 && r < 100 && g < 100) || (colourName.contains("Blue")) {
+        }
+        // Blue
+        else if (b > 200 && r < 100 && g < 100) || (colourName.contains("Blue")) {
             return "Blue"
-        } else if (r > 200 && g > 200 && b < 100) || (colourName.contains("Yellow")) {
+        }
+        // Yellow
+        else if (r > 200 && g > 200 && b < 100) || (colourName.contains("Yellow")) {
             return "Yellow"
-        } else if (r < 50 && g < 50 && b < 50) || (colourName.contains("Black")) {
+        }
+        // Orange
+        else if (r > 200 && g > 100 && b < 100) || (colourName.contains("Orange")) {
+            return "Orange"
+        }
+        // Pink
+        else if (r > 200 && g < 100 && b > 200) || (colourName.contains("Pink")) {
+            return "Pink"
+        }
+        // Violet
+        else if (r < 100 && g < 100 && b > 200) || (colourName.contains("Violet")) {
+            return "Violet"
+        }
+        // Black
+        else if (r < 50 && g < 50 && b < 50) || (colourName.contains("Black")) {
             return "Black"
-        } else if (r > 200 && g > 200 && b > 200) || (colourName.contains("White")) {
+        }
+        // White
+        else if (r > 200 && g > 200 && b > 200) || (colourName.contains("White")) {
             return "White"
-        } else if (abs(r - g) < 20 && abs(r - b) < 20) || (colourName.contains("Gray")) {
+        }
+        // Gray
+        else if (abs(r - g) < 20 && abs(r - b) < 20) || (colourName.contains("Gray")) {
             return "Gray"
-        } else {
+        }
+        // Purple
+        else if (r < 100 && g < 100 && b > 200) || (colourName.contains("Purple")) {
+            return "Purple"
+        }
+        // Brown
+        else if (r > 100 && g < 100 && b < 100 && r < 200) || (g < 80 && r > 100 && b < 80) || (colourName.contains("Brown")) {
+            return "Brown"
+        }
+        // Other
+        else {
             return "Other"
         }
     }
+
+
     
 }

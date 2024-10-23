@@ -36,7 +36,7 @@ struct PaletteCreationView: View {
                 SelectedColoursView(viewModel: viewModel)
                     .padding()
             }
-            .navigationTitle("Your Palette")
+            .navigationTitle("Create Palette")
             .onAppear {
                 viewModel.fetchUserPalettes()
             }
