@@ -11,7 +11,6 @@
 		162896892CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896882CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift */; };
 		1628968B2CC1A6FD005A2399 /* UserPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1628968A2CC1A6FD005A2399 /* UserPalette.swift */; };
 		1628968D2CC1A811005A2399 /* PaletteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1628968C2CC1A811005A2399 /* PaletteListViewModel.swift */; };
-		162896BC2CC32B48005A2399 /* PaletteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896BB2CC32B48005A2399 /* PaletteListView.swift */; };
 		162896C62CC57C99005A2399 /* PaletteListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896C52CC57C99005A2399 /* PaletteListItemView.swift */; };
 		162896C82CC587FC005A2399 /* UserPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896C72CC587FC005A2399 /* UserPaletteView.swift */; };
 		162896CA2CC58A28005A2399 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896C92CC58A28005A2399 /* UserDefaultsHelper.swift */; };
@@ -67,7 +66,6 @@
 		162896882CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserPaletteViewModel.swift; sourceTree = "<group>"; };
 		1628968A2CC1A6FD005A2399 /* UserPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPalette.swift; sourceTree = "<group>"; };
 		1628968C2CC1A811005A2399 /* PaletteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteListViewModel.swift; sourceTree = "<group>"; };
-		162896BB2CC32B48005A2399 /* PaletteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteListView.swift; sourceTree = "<group>"; };
 		162896C52CC57C99005A2399 /* PaletteListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteListItemView.swift; sourceTree = "<group>"; };
 		162896C72CC587FC005A2399 /* UserPaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPaletteView.swift; sourceTree = "<group>"; };
 		162896C92CC58A28005A2399 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 		162896C42CC57C85005A2399 /* PaletteList */ = {
 			isa = PBXGroup;
 			children = (
-				162896BB2CC32B48005A2399 /* PaletteListView.swift */,
 				162896C52CC57C99005A2399 /* PaletteListItemView.swift */,
 			);
 			path = PaletteList;
@@ -427,7 +424,6 @@
 			files = (
 				166520732CC72A0500F2836E /* CarouselView.swift in Sources */,
 				162896CA2CC58A28005A2399 /* UserDefaultsHelper.swift in Sources */,
-				162896BC2CC32B48005A2399 /* PaletteListView.swift in Sources */,
 				162896C62CC57C99005A2399 /* PaletteListItemView.swift in Sources */,
 				16ED0D562CC0170500ADCA3B /* ColourHelper.swift in Sources */,
 				162896892CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift in Sources */,

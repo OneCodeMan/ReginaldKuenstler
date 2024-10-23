@@ -1,10 +1,3 @@
-//
-//  PaletteCreationView.swift
-//  ReginaldKuenstler
-//
-//  Created by Dave Gumba on 2024-10-20.
-//
-
 import SwiftUI
 
 struct PaletteColourSelectItem: Identifiable {
@@ -19,93 +12,120 @@ struct PaletteCreationView: View {
     // MARK: Search logic
     @State private var searchText: String = ""
     
-    // MARK: dismiss
-    @Environment(\.dismiss) var dismiss
-    
     // Grid layout with 3 columns
     let columns = Array(repeating: GridItem(.flexible()), count: 3)
     
     var body: some View {
         NavigationStack {
-            ZStack {
-                VStack {
-                    ScrollView {
-                        // Display colours in a LazyVGrid
-                        LazyVGrid(columns: columns, spacing: 16) {
-                            // We need indices because of the `isSelected` logic
-                            // crashes if we don't have this if statement lmfao what a joke
-                            if !viewModel.filteredPaletteColourSelectItems.isEmpty {
-                                ForEach(viewModel.filteredPaletteColourSelectItems.indices, id: \.self) { index in
-                                    ColourGridItemView(colourItem: $viewModel.filteredPaletteColourSelectItems[index])
-                                    .onTapGesture {
-                                        let currentColour = viewModel.filteredPaletteColourSelectItems[index]
-                                        
-                                        // don't select if already owned by user
-                                        if !currentColour.paletteColour.isUserOwned {
-                                            viewModel.filteredPaletteColourSelectItems[index].isSelected.toggle()
-                                            print("--PaletteCreationView, current colour is not owned. Toggled.")
-                                        } else {
-                                            print("--PaletteCreationView, current colour is already user owned. Not toggling.")
-                                        }
-                                       
-                                        print("--PaletteCreationView, inside onTapGesture of GridItem.")
-                                        print("--PaletteCreationView, selectedColour is \(viewModel.filteredPaletteColourSelectItems[index])\n")
-                                    }
-                                }
-                            }
-                            
-                        }
-                        .padding()
-                        .scrollContentBackground(.hidden)
-                        .searchable(text: $searchText)
-                        .onChange(of: searchText) { search in
-                            if !search.isEmpty {
-                                self.viewModel.filterPaletteColours(term: search)
-                            } else {
-                                self.viewModel.resetFilteredPaletteColours()
-                            }
-                        }
-                        
-//                        Spacer()
-                        
+            VStack {
+                List {
+                    ForEach(viewModel.groupedColourSelectItems.keys.sorted(), id: \.self) { groupName in
+                        GroupSectionView(groupName: groupName, colourItems: viewModel.groupedColourSelectItems[groupName] ?? [], viewModel: viewModel)
                     }
-                    // end of scrollview
-                    
-                    // Button to save selected colours to UserDefaults
-                    VStack(alignment: .center) {
-                        Text("Selected Colours:")
-                        HStack {
-                            // INFO on selected colours
-                            ForEach(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }) { pc in
-                                Circle()
-                                    .stroke(.gray, lineWidth: 2)
-                                    .fill(Color(pc.paletteColour.uiColour))
-                                    .frame(height: 20)
-                            }
-                        }
-                        .padding()
-                        
-                        // the submit button
-                        Button(action: {
-                            viewModel.saveSelectedToUserDefaults()
-                            self.dismiss()
-                        }) {
-                            Text("Save Selected Colours")
-                                .padding()
-                                .background(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }.isEmpty ? Color.gray : Color.blue)
-                                .foregroundColor(.white)
-                                .cornerRadius(8)
-                        }
-                        .disabled(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }.isEmpty)
-                        
-                    }
-                    .padding()
-                    .frame(alignment: .bottom)
-                    // end of group
                 }
-                .navigationTitle("Select Palette")// end of vstack
+                .searchable(text: $searchText)
+                .onChange(of: searchText) { search in
+                    if !search.isEmpty {
+                        viewModel.filterPaletteColours(term: search)
+                    } else {
+                        viewModel.resetFilteredPaletteColours()
+                    }
+                }
+                
+                // Display selected colors
+                SelectedColoursView(viewModel: viewModel)
+                    .padding()
             }
-           
+            .navigationTitle("Your Palette")
+            .onAppear {
+                viewModel.fetchUserPalettes()
+            }
+        }
+    }
+}
+
+struct GroupSectionView: View {
+    var groupName: String
+    var colourItems: [PaletteColourSelectItem]
+    @ObservedObject var viewModel: CreateUserPaletteViewModel  // Pass viewModel here
+    
+    var body: some View {
+        if !colourItems.isEmpty {
+            VStack(alignment: .leading) {
+                Text(groupName)
+                    .font(.largeTitle)
+                    .bold()
+                    .padding([.top, .leading], 8)
+                
+                // Colour list
+                ColourGridView(colourItems: colourItems, viewModel: viewModel)  // Pass viewModel to ColourGridView
+            }
+            .listRowSeparator(.hidden)
+        }
+    }
+}
+
+struct ColourGridView: View {
+    var colourItems: [PaletteColourSelectItem]
+    @ObservedObject var viewModel: CreateUserPaletteViewModel  // Accept viewModel here
+    
+    var body: some View {
+        LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 3)) {
+            ForEach(colourItems) { cI in
+                PaletteListItemView(paletteColourItem: cI)
+                    .onTapGesture {
+                        toggleColourSelection(for: cI)
+                    }
+            }
+        }
+        .listRowSeparator(.hidden)
+        .padding()
+    }
+    
+    private func toggleColourSelection(for item: PaletteColourSelectItem) {
+        // Update selection state
+        if let index = viewModel.filteredPaletteColourSelectItems.firstIndex(where: { $0.id == item.id }) {
+            if !viewModel.filteredPaletteColourSelectItems[index].paletteColour.isUserOwned {
+                viewModel.filteredPaletteColourSelectItems[index].isSelected.toggle()
+                print("Toggled selection for color: \(item.paletteColour.uiColour)")
+            } else {
+                print("user owned not toggling select")
+            }
+            
+        }
+    }
+}
+
+struct SelectedColoursView: View {
+    @ObservedObject var viewModel: CreateUserPaletteViewModel
+    
+    // MARK: Dismiss
+    @Environment(\.dismiss) var dismiss
+    
+    var body: some View {
+        VStack(alignment: .center) {
+            Text("Selected Colours:")
+            HStack {
+                ForEach(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }) { pc in
+                    Circle()
+                        .stroke(.gray, lineWidth: 2)
+                        .fill(Color(pc.paletteColour.uiColour))
+                        .frame(height: 20)
+                }
+            }
+            .padding()
+            
+            Button(action: {
+                viewModel.saveSelectedToUserDefaults()
+                dismiss() // Ensure this function is available
+            }) {
+                Text("Save Selected Colours")
+                    .padding()
+                    .background(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }.isEmpty ? Color.gray : Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+            }
+            .disabled(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }.isEmpty)
         }
     }
 }

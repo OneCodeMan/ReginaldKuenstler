@@ -59,7 +59,7 @@ struct UserPaletteView: View {
                                     // colour list
                                     LazyVGrid(columns: self.columns) {
                                         ForEach(Array(userPaletteViewModel.groupedColours[groupName] ?? [])) { cI in
-                                            PaletteListItemView(paletteColourItem: cI)
+                                            UserPaletteListItemView(paletteColourItem: cI)
                                                 .onTapGesture {}.onLongPressGesture(minimumDuration: 0.2) { // Setting the // Enable edit mode on long press
                                                     withAnimation {
                                                         isEditing = true
@@ -116,8 +116,7 @@ struct UserPaletteView: View {
                 self.userPaletteViewModel.fetchUserPalettes()
             }
         }
-        
-    }
+    } // body
 }
 
 #Preview {
