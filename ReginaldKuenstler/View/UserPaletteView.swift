@@ -60,7 +60,16 @@ struct UserPaletteView: View {
                                     LazyVGrid(columns: self.columns) {
                                         ForEach(Array(userPaletteViewModel.groupedColours[groupName] ?? [])) { cI in
                                             UserPaletteListItemView(paletteColourItem: cI)
-                                                .onTapGesture {}.onLongPressGesture(minimumDuration: 0.2) { // Setting the // Enable edit mode on long press
+                                                .onTapGesture {
+                                                    if isEditing {
+                                                        if let index = userPaletteViewModel.groupedColours[groupName]?.firstIndex(of: cI) {
+                                                            print("tapped to remove \(cI)")
+                                                            userPaletteViewModel.groupedColours[groupName]?.remove(at: index)
+                                                        }
+                                                    }
+                                                }
+                                                .contentShape(Rectangle()) // Prevents default tap highlight
+                                                .onLongPressGesture(minimumDuration: 0.2) { // Setting the // Enable edit mode on long press
                                                     withAnimation {
                                                         isEditing = true
                                                     }
