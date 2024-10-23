@@ -13,7 +13,7 @@ Next steps is perfecting these items:
 - [ ] Colour estimation for analysis
     - [ ] Have a mock user palette ready
     - [ ] Have mock image inputs that partially generate colours the user has.
-- [ ] Colour Analysis carousel view
+- [x] Colour Analysis carousel view
 - [ ] Top tab bar button item for `UserPalette` edit state, or long press on any PaletteColourItem, and the user can delete or rearrange grid items.
 - [ ] Group PaletteColourItems by colour
 

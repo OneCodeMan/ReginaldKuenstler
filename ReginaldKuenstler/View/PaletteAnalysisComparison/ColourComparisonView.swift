@@ -177,6 +177,7 @@ struct PaletteResults: View {
             VStack(alignment: .center) {
                 Text("Detected Colours")
                     .font(.title2)
+                    .bold()
                 
                 HStack(spacing: 0) {
                     ForEach(0..<realColours.count, id: \.self) { index in
@@ -184,7 +185,7 @@ struct PaletteResults: View {
                             .fill(Color(realColours[index]))
                             .frame(minWidth: 50, minHeight: 300)
                     }
-                }
+                } // end of VStack
                 .padding()
                 .frame(maxWidth: .infinity)
                 
@@ -194,21 +195,24 @@ struct PaletteResults: View {
                 
                 Divider()
                 
-                Text("From Your Palette")
-                    .font(.title2)
                 VStack {
+                    Text("From Your Palette")
+                        .font(.title2)
+                        .bold()
+                        .padding()
                     HStack(alignment: .center) {
                         ForEach(0..<coloursFromUserPalette.count, id: \.self) { index in
-                            Rectangle()
+                            Circle()
                                 .fill(Color(coloursFromUserPalette[index]))
-                                .frame(minWidth: 50, minHeight: 300)
+                                .frame(width: 30)
                         }
                     }
                     .padding()
                     Text(personalPaletteString)
-                }
+                } // end of VStack
             }
         }
+        .disabled(true)
     }
 }
 

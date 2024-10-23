@@ -52,7 +52,7 @@ struct UserPaletteView: View {
                             if !(userPaletteViewModel.groupedColours[groupName]?.isEmpty ?? false) {
                                 VStack(alignment: .leading) {
                                     Text(groupName)
-                                        .font(.title2)
+                                        .font(.largeTitle)
                                         .bold()
                                         .padding([.top, .leading], 8)
                                     
