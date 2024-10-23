@@ -81,6 +81,20 @@ class UserPaletteViewModel: ObservableObject {
         
     }
     
+    // MARK: Delete functionality
+    func deletePaletteColourFromUserPalette(paletteColour pc: PaletteColour, groupName: String) {
+        if let index = groupedColours[groupName]?.firstIndex(of: pc) {
+            groupedColours[groupName]?.remove(at: index)
+            // take groupColours without the groupNames, flattened array of values.
+            let coloursFlatMap = groupedColours.values.flatMap { $0 }
+            var updatedData: [String: String] = [:]
+            for colour in coloursFlatMap {
+                updatedData.updateValue(colour.hexCode, forKey: colour.colourName)
+            }
+            UserDefaults.standard.set(updatedData, forKey: "userPalettes")
+        }
+    }
+    
     // MARK: Search functionality
     func filterPaletteColours(term: String) {
         isLoading = true
