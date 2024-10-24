@@ -19,7 +19,8 @@ class KuenstlerViewModel: ObservableObject {
     
     private var estimatedColours: [VColour] = []
     private var coloursFromUserPalette: [VColour] = []
-    
+    private var approximateUserMixes: [VColour] = []
+
     init() {
 //        UserDefaults.resetStandardUserDefaults()
         self.getColoursFromUserPalette()
@@ -109,9 +110,11 @@ class KuenstlerViewModel: ObservableObject {
                 print(self.coloursFromUserPalette)
                 print(self.estimatedColours)
                 let paletteIntersectionUserAndEstimate = self.determinePaletteIntersection(paletteOne: self.coloursFromUserPalette, paletteTwo: self.estimatedColours)
-                // TODO: for what user lacks.
-                var approximateUserMixes: [VColour] = []
-                self.relevantColoursFromUserPalette = paletteIntersectionUserAndEstimate + approximateUserMixes
+                
+                let approximateColours: [VColour] = ColourHelper.findBestMixesForColours(targetColours: self.estimatedColours, userPalette: self.coloursFromUserPalette)
+                
+                self.approximateUserMixes = approximateColours
+                self.relevantColoursFromUserPalette = paletteIntersectionUserAndEstimate + approximateColours
                 
                 print("--KünstlerViewModel, relevantColoursFromUserPalette: \(self.relevantColoursFromUserPalette.count) elements")
                 print("\n\(self.relevantColoursFromUserPalette.count) elements.\n\n")
@@ -143,7 +146,7 @@ class KuenstlerViewModel: ObservableObject {
     }
     
     // TODO: DO THIS
-    private func determineBestMixFromUserPalette() {
-        
-    }
+//    private func determineBestMixFromUserPalette() {
+//        let (bestMix, bestDeltaE) = ColourHelper.determineBestMixFromUserPalette(userPalette: self.coloursFromUserPalette, missingColor: missingColor)
+//    }
 }

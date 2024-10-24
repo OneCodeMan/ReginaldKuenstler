@@ -13,7 +13,7 @@ class UserDefaultsHelper {
     }
     
     // TODO: DRY
-    static func clearUserPaletteFromDefaults() {
+    static func nukeUserPaletteFromDefaults() {
         let defaults = UserDefaults.standard
         defaults.removeObject(forKey: "userPalettes")
         print("[--UserPaletteViewModel user defaults cleared for 'userPalettes' key.")

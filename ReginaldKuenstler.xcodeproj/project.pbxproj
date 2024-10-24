@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		160278852CC9BD540048F4F8 /* WiggleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160278842CC9BD540048F4F8 /* WiggleModifier.swift */; };
 		162896842CC18515005A2399 /* ColourComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896832CC18515005A2399 /* ColourComparisonView.swift */; };
 		162896892CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896882CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift */; };
 		1628968B2CC1A6FD005A2399 /* UserPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1628968A2CC1A6FD005A2399 /* UserPalette.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		160278842CC9BD540048F4F8 /* WiggleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiggleModifier.swift; sourceTree = "<group>"; };
 		162896832CC18515005A2399 /* ColourComparisonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourComparisonView.swift; sourceTree = "<group>"; };
 		162896882CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserPaletteViewModel.swift; sourceTree = "<group>"; };
 		1628968A2CC1A6FD005A2399 /* UserPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPalette.swift; sourceTree = "<group>"; };
@@ -128,6 +130,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		160278832CC9BD430048F4F8 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				160278842CC9BD540048F4F8 /* WiggleModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
 		162896C42CC57C85005A2399 /* PaletteList */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +282,7 @@
 		16ED0D9D2CC1539600ADCA3B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				160278832CC9BD430048F4F8 /* Modifiers */,
 				166520742CC72B8E00F2836E /* PaletteAnalysisComparison */,
 				162896C42CC57C85005A2399 /* PaletteList */,
 				16ED0D9E2CC153A400ADCA3B /* ImageAnalysisView.swift */,
@@ -431,6 +442,7 @@
 				16ED0D512CBFFAC100ADCA3B /* ColourMapper.swift in Sources */,
 				162896C82CC587FC005A2399 /* UserPaletteView.swift in Sources */,
 				16ED0DA82CC166E600ADCA3B /* Palette.swift in Sources */,
+				160278852CC9BD540048F4F8 /* WiggleModifier.swift in Sources */,
 				162896842CC18515005A2399 /* ColourComparisonView.swift in Sources */,
 				1628968B2CC1A6FD005A2399 /* UserPalette.swift in Sources */,
 				166520762CC72BAD00F2836E /* ImageInputView.swift in Sources */,

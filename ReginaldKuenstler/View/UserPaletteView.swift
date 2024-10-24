@@ -23,6 +23,7 @@ struct UserPaletteView: View {
     
     // MARK: List edit mode
     @State private var isEditing: Bool = false
+    @State private var isJiggling: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -60,6 +61,7 @@ struct UserPaletteView: View {
                                     LazyVGrid(columns: self.columns) {
                                         ForEach(Array(userPaletteViewModel.groupedColours[groupName] ?? [])) { cI in
                                             UserPaletteListItemView(paletteColourItem: cI)
+                                                .jiggle(isEnabled: self.isJiggling)
                                                 .onTapGesture {
                                                     if isEditing {
                                                         if let index = userPaletteViewModel.groupedColours[groupName]?.firstIndex(of: cI) {
@@ -74,6 +76,11 @@ struct UserPaletteView: View {
                                                 .onLongPressGesture(minimumDuration: 0.2) { // Setting the // Enable edit mode on long press
                                                     withAnimation {
                                                         isEditing = true
+                                                        isJiggling = true
+                                                        delay(interval: 0.5) {
+                                                            self.isJiggling = false
+                                                        }
+                                                        
                                                     }
                                                 }
                                                 .overlay(
@@ -132,4 +139,8 @@ struct UserPaletteView: View {
 
 #Preview {
     UserPaletteView()
+}
+
+func delay(interval: TimeInterval, closure: @escaping () -> Void) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + interval, execute: closure)
 }

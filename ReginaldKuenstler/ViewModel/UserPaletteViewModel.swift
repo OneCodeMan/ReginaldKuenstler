@@ -21,7 +21,7 @@ class UserPaletteViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     
     init() {
-        // UserDefaultsHelper.clearUserPaletteFromDefaults()
+        // UserDefaultsHelper.nukeUserPaletteFromDefaults()
         self.fetchUserPalettes()
     }
     
