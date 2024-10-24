@@ -24,7 +24,7 @@ class KuenstlerViewModel: ObservableObject {
     @Published var isLoading: Bool = false
 
     init() {
-//        UserDefaults.resetStandardUserDefaults()
+        // UserDefaultsHelper.nukeUserPaletteFromDefaults()
         self.getColoursFromUserPalette()
         self.generateColourMapping()
     }
