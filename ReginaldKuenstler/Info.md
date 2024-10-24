@@ -6,18 +6,24 @@
 
 ..
 
-## Diary
+# Diary
+## October 24, 2024
+This morning, I worked on the ProgressView() between Analysis. And the colour mixing logic, preliminary.
+On deck for later:
+- [ ] Fix app crash on user palette item deletion
+- [ ] Make search functionality work with everything else.
+- [ ] Fix mixed colours how they're presented.
 
-# October 22, 2024
+## October 22, 2024
 Next steps is perfecting these items:
 - [ ] Colour estimation for analysis
     - [ ] Have a mock user palette ready
     - [ ] Have mock image inputs that partially generate colours the user has.
 - [x] Colour Analysis carousel view
-- [ ] Top tab bar button item for `UserPalette` edit state, or long press on any PaletteColourItem, and the user can delete or rearrange grid items.
-- [ ] Group PaletteColourItems by colour
+- [x] Top tab bar button item for `UserPalette` edit state, or long press on any PaletteColourItem, and the user can delete or rearrange grid items.
+- [x] Group PaletteColourItems by colour
 
-# October 21, 2024
+## October 21, 2024
 - User should be able to select their palette.
 
 TODOs low hanging fruit:
