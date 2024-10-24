@@ -48,7 +48,7 @@ struct ColourComparisonView: View {
                 .tag(0)
                 
                 CarouselPage(id: 1, content: {
-                    PaletteResults(realColours: $realColours, paletteString: $paletteString, coloursFromUserPalette: $coloursFromUserPalette, personalPaletteString: $personalPaletteString)
+                    PaletteResults(realColours: $realColours, paletteString: $paletteString, coloursFromUserPalette: $coloursFromUserPalette, personalPaletteString: $personalPaletteString, isLoading: $viewModel.isLoading)
                 })
                 .tag(1)
             }
@@ -63,7 +63,7 @@ struct ColourComparisonView: View {
                     })
                 }),
                 CarouselPage(id: 1, content: {
-                    PaletteResults(realColours: $realColours, paletteString: $paletteString, coloursFromUserPalette: $coloursFromUserPalette, personalPaletteString: $personalPaletteString)
+                    PaletteResults(realColours: $realColours, paletteString: $paletteString, coloursFromUserPalette: $coloursFromUserPalette, personalPaletteString: $personalPaletteString, isLoading: $viewModel.isLoading)
                 })
             ]
         }
@@ -172,47 +172,59 @@ struct PaletteResults: View {
     @Binding var paletteString: String
     @Binding var coloursFromUserPalette: [UIColor]
     @Binding var personalPaletteString: String
+    @Binding var isLoading: Bool
     var body: some View {
-        ScrollView {
-            VStack(alignment: .center) {
-                Text("Detected Colours")
-                    .font(.title2)
-                    .bold()
-                
-                HStack(spacing: 0) {
-                    ForEach(0..<realColours.count, id: \.self) { index in
-                        Rectangle()
-                            .fill(Color(realColours[index]))
-                            .frame(minWidth: 50, minHeight: 300)
-                    }
-                } // end of VStack
-                .padding()
-                .frame(maxWidth: .infinity)
-                
-                
-                Text(paletteString)
-                    .padding()
-                
-                Divider()
-                
+            if isLoading {
                 VStack {
-                    Text("From Your Palette")
+                    Spacer()
+                    ProgressView() {
+                        Text("Loading")
+                            .font(.title)
+                    }
+                    .progressViewStyle(.circular)
+                    Spacer()
+                }
+            } else {
+            ScrollView {
+                VStack(alignment: .center) {
+                    Text("Detected Colours")
                         .font(.title2)
                         .bold()
-                        .padding()
-                    HStack(alignment: .center) {
-                        ForEach(0..<coloursFromUserPalette.count, id: \.self) { index in
-                            Circle()
-                                .fill(Color(coloursFromUserPalette[index]))
-                                .frame(width: 30)
+                    
+                    HStack(spacing: 0) {
+                        ForEach(0..<realColours.count, id: \.self) { index in
+                            Rectangle()
+                                .fill(Color(realColours[index]))
+                                .frame(minWidth: 50, minHeight: 300)
                         }
-                    }
+                    } // end of VStack
                     .padding()
-                    Text(personalPaletteString)
-                } // end of VStack
-            }
+                    .frame(maxWidth: .infinity)
+                    
+                    
+                    Text(paletteString)
+                        .padding()
+                    
+                    Divider()
+                    
+                    VStack {
+                        Text("From Your Palette")
+                            .font(.title2)
+                            .bold()
+                            .padding()
+                        HStack(alignment: .center) {
+                            ForEach(0..<coloursFromUserPalette.count, id: \.self) { index in
+                                Circle()
+                                    .fill(Color(coloursFromUserPalette[index]))
+                                    .frame(width: 30)
+                            }
+                        }
+                        .padding()
+                        Text(personalPaletteString)
+                    } // end of VStack
+                }
+            }.disabled(false)
         }
-        .disabled(true)
     }
 }
 

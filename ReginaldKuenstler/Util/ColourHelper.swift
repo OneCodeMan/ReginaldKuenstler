@@ -65,23 +65,54 @@ final class ColourHelper {
     // MARK: Colour Grouping
     
     static func findBestMixesForColours(targetColours: [VColour], userPalette: [VColour], learningRate: Double = 0.01, maxIterations: Int = 1000) -> [VColour] {
-        var bestMixes: [VColour] = []
-            
+        var bestMixes: [(VColour, [VColour])] = []
+        
         for targetColour in targetColours {
-            let (bestMix, _) = ColourHelper.gradientDescentMixing(targetColor: targetColour, paletteColors: userPalette, learningRate: learningRate, maxIterations: maxIterations)
-            bestMixes.append(bestMix)
+            // Attempt mixing two colors
+            var bestMix: VColour?
+            var bestMixDifference = Double.infinity
+            var bestMixColors: [VColour] = []
+            
+            // Try mixing two palette colors
+            for i in 0..<userPalette.count {
+                for j in i+1..<userPalette.count {
+                    let mix = ColourHelper.mixThreeColors(userPalette[i], userPalette[j], userPalette[0], weights: (0.5, 0.5, 0.0)) // Last color as dummy to focus on two
+                    let difference = ColourHelper.deltaE(targetColour, mix)
+                    
+                    if difference < bestMixDifference {
+                        bestMixDifference = difference
+                        bestMix = mix
+                        bestMixColors = [userPalette[i], userPalette[j]]
+                    }
+                }
+            }
+            
+            // Try mixing three palette colors
+            for i in 0..<userPalette.count {
+                for j in i+1..<userPalette.count {
+                    for k in j+1..<userPalette.count {
+                        let mix = ColourHelper.mixThreeColors(userPalette[i], userPalette[j], userPalette[k], weights: (0.33, 0.33, 0.34))
+                        let difference = ColourHelper.deltaE(targetColour, mix)
+                        
+                        if difference < bestMixDifference {
+                            bestMixDifference = difference
+                            bestMix = mix
+                            bestMixColors = [userPalette[i], userPalette[j], userPalette[k]]
+                        }
+                    }
+                }
+            }
+            
+            if let bestMix = bestMix {
+                bestMixes.append((bestMix, bestMixColors))
+            }
         }
         
-        return bestMixes
-//        var bestMixes: [VColour: (VColour, [Double])] = [:]
-//        
-//        for targetColour in targetColours {
-//            let (bestMix, weights) = ColourHelper.gradientDescentMixing(targetColor: targetColour, paletteColors: userPalette, learningRate: learningRate, maxIterations: maxIterations)
-//            bestMixes[targetColour] = (bestMix, weights)
-//        }
-//        
-//        return bestMixes.values
+        let nearestColourMixes = bestMixes.map { $0.0 }
+        
+        return nearestColourMixes
     }
+
 
     
     static func groupColours(colours: [PaletteColour]) -> [String: [PaletteColour]] {
@@ -163,8 +194,10 @@ final class ColourHelper {
             b: Int(Double(color1.rgbCode.b) * normalizedWeights.0 + Double(color2.rgbCode.b) * normalizedWeights.1 + Double(color3.rgbCode.b) * normalizedWeights.2)
         )
         
+        var colourMixName = weights.2 > 0 ? "\(color1.name)\(color2.name)\(color3.name)" : "\(color1.name)\(color2.name)"
+        
         return VColour(
-            name: "MixedColor",
+            name: colourMixName,
             hexCode: ColourHelper.rgbToHex(mixedRGB),
             rgbCode: mixedRGB,
             uiColour: UIColor(

@@ -20,6 +20,8 @@ class KuenstlerViewModel: ObservableObject {
     private var estimatedColours: [VColour] = []
     private var coloursFromUserPalette: [VColour] = []
     private var approximateUserMixes: [VColour] = []
+    
+    @Published var isLoading: Bool = false
 
     init() {
 //        UserDefaults.resetStandardUserDefaults()
@@ -51,7 +53,7 @@ class KuenstlerViewModel: ObservableObject {
 
     // should be void?
     func performAnalOnImage(artwork: Artwork, completion: @escaping (_ result: [ColourPair], [VColour]) -> Void) {
-        
+        self.isLoading = true
         var colourPairs: [ColourPair] = []
         self.relevantColoursFromUserPalette = []
         self.estimatedColours = []
@@ -119,6 +121,7 @@ class KuenstlerViewModel: ObservableObject {
                 print("--KünstlerViewModel, relevantColoursFromUserPalette: \(self.relevantColoursFromUserPalette.count) elements")
                 print("\n\(self.relevantColoursFromUserPalette.count) elements.\n\n")
                 
+                self.isLoading = false
                 completion(colourPairs, self.relevantColoursFromUserPalette)
             }
         }
