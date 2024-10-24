@@ -10,7 +10,7 @@
 ## October 24, 2024
 This morning, I worked on the ProgressView() between Analysis. And the colour mixing logic, preliminary.
 On deck for later:
-- [ ] Fix app crash on user palette item deletion
+- [x] Fix app crash on user palette item deletion
 - [ ] Make search functionality work with everything else.
 - [ ] Fix mixed colours how they're presented.
 

@@ -67,7 +67,6 @@ struct UserPaletteView: View {
                                                         if let index = userPaletteViewModel.groupedColours[groupName]?.firstIndex(of: cI) {
                                                             print("tapped to remove \(cI)")
                                                             userPaletteViewModel.deletePaletteColourFromUserPalette(paletteColour: cI, groupName: groupName)
-                                                            userPaletteViewModel.groupedColours[groupName]?.remove(at: index)
                                                             
                                                         }
                                                     }
