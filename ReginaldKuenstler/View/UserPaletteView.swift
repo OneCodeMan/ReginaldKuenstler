@@ -63,11 +63,13 @@ struct UserPaletteView: View {
                                             UserPaletteListItemView(paletteColourItem: cI)
                                                 .jiggle(isEnabled: self.isJiggling)
                                                 .onTapGesture {
-                                                    if isEditing {
-                                                        if let index = userPaletteViewModel.groupedColours[groupName]?.firstIndex(of: cI) {
-                                                            print("tapped to remove \(cI)")
-                                                            userPaletteViewModel.deletePaletteColourFromUserPalette(paletteColour: cI, groupName: groupName)
-                                                            
+                                                    withAnimation {
+                                                        if isEditing {
+                                                            if let index = userPaletteViewModel.groupedColours[groupName]?.firstIndex(of: cI) {
+                                                                print("tapped to remove \(cI)")
+                                                                userPaletteViewModel.deletePaletteColourFromUserPalette(paletteColour: cI, groupName: groupName)
+                                                                
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -76,7 +78,7 @@ struct UserPaletteView: View {
                                                     withAnimation {
                                                         isEditing = true
                                                         isJiggling = true
-                                                        delay(interval: 0.5) {
+                                                        delay(interval: 1.5) {
                                                             self.isJiggling = false
                                                         }
                                                         

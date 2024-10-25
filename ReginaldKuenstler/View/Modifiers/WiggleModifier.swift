@@ -49,7 +49,7 @@ struct WiggleModifier: ViewModifier {
 // Another version
 extension View {
     @ViewBuilder
-    func jiggle(amount: Double = 2, isEnabled: Bool = true) -> some View {
+    func jiggle(amount: Double = 3, isEnabled: Bool = true) -> some View {
         if isEnabled {
             modifier(JiggleViewModifier(amount: amount))
         } else {
