@@ -12,7 +12,6 @@ struct ColourGridItemView: View {
     
     var body: some View {
         ZStack {
-            // Display the colour as a rectangle
             VStack {
                 Circle()
                     .stroke(.gray, lineWidth: 2)

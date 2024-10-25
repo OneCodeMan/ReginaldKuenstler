@@ -67,7 +67,7 @@ struct GroupSectionView: View {
 
 struct ColourGridView: View {
     var colourItems: [PaletteColourSelectItem]
-    @ObservedObject var viewModel: CreateUserPaletteViewModel  // Accept viewModel here
+    @ObservedObject var viewModel: CreateUserPaletteViewModel
     
     var body: some View {
         LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 3)) {

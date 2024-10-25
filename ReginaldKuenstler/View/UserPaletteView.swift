@@ -24,20 +24,22 @@ struct UserPaletteView: View {
     // MARK: List edit mode
     @State private var isEditing: Bool = false
     @State private var isJiggling: Bool = false
+    @State private var isPresentingConfirmation: Bool = false
+    
+    // MARK: Selected item for deletion
+    @State private var itemToDelete: (paletteColour: PaletteColour, groupName: String)?
     
     var body: some View {
         NavigationStack {
             VStack {
-                // TODO: ADD FUNCTIONALITY. LATER!!
                 Text("")
                     .toolbar {
                         NavigationLink(destination: PaletteCreationView()) {
                             Text("Add")
                         }
                     }
-                // GRID OR EMPTY VIEW
+                
                 if !userPaletteViewModel.userPaletteColours.isEmpty {
-                    // Button to toggle edit mode
                     if isEditing {
                         Button("Done") {
                             isEditing.toggle()
@@ -57,7 +59,6 @@ struct UserPaletteView: View {
                                         .bold()
                                         .padding([.top, .leading], 8)
                                     
-                                    // colour list
                                     LazyVGrid(columns: self.columns) {
                                         ForEach(Array(userPaletteViewModel.groupedColours[groupName] ?? [])) { cI in
                                             UserPaletteListItemView(paletteColourItem: cI)
@@ -65,43 +66,33 @@ struct UserPaletteView: View {
                                                 .onTapGesture {
                                                     withAnimation {
                                                         if isEditing {
-                                                            if let index = userPaletteViewModel.groupedColours[groupName]?.firstIndex(of: cI) {
-                                                                print("tapped to remove \(cI)")
-                                                                userPaletteViewModel.deletePaletteColourFromUserPalette(paletteColour: cI, groupName: groupName)
-                                                                
-                                                            }
+                                                            self.isPresentingConfirmation = true
+                                                            self.itemToDelete = (cI, groupName)
                                                         }
                                                     }
                                                 }
-                                                .contentShape(Rectangle()) // Prevents default tap highlight
-                                                .onLongPressGesture(minimumDuration: 0.2) { // Setting the // Enable edit mode on long press
+                                                .contentShape(Rectangle())
+                                                .onLongPressGesture(minimumDuration: 0.2) {
                                                     withAnimation {
                                                         isEditing = true
                                                         isJiggling = true
                                                         delay(interval: 1.5) {
                                                             self.isJiggling = false
                                                         }
-                                                        
                                                     }
                                                 }
                                                 .overlay(
-                                                    // Show delete button when in edit mode
                                                     isEditing ? Button(action: {
-                                                        // Delete action
-                                                        if let index = userPaletteViewModel.groupedColours[groupName]?.firstIndex(of: cI) {
-                                                            print("tapped to remove \(cI)")
-                                                            userPaletteViewModel.groupedColours[groupName]?.remove(at: index)
-                                                        }
+                                                        self.isPresentingConfirmation = true
+                                                        self.itemToDelete = (cI, groupName)
                                                     }) {
                                                         Image(systemName: "minus.circle.fill")
                                                             .foregroundColor(.red)
                                                     }
-                                                        .padding(8)
-                                                    : nil,
+                                                    .padding(8) : nil,
                                                     alignment: .topTrailing
                                                 )
                                         }
-                                    
                                     }
                                     .listRowSeparator(.hidden)
                                     .padding()
@@ -113,30 +104,39 @@ struct UserPaletteView: View {
                                             self.userPaletteViewModel.resetFilteredPaletteColours()
                                         }
                                     }
-                                    // end of VGrid
                                 }
                                 .listRowSeparator(.hidden)
-                            } // ForEach
-
+                            }
                         }
                     }
-                    // colour group header
                 } else {
-                    //                    EmptyView()
                     VStack(alignment: .center) {
                         Spacer()
                         Text("You have no colours.")
                         Spacer()
                     }
-                } // else clause end bracket
-            } // end of vstack
+                }
+            }
             .navigationTitle("Your Palette")
             .onAppear {
                 self.userPaletteViewModel.fetchUserPalettes()
             }
+            .alert("Are you sure you want to delete this colour?", isPresented: $isPresentingConfirmation) {
+                Button("Delete", role: .destructive) {
+                    if let item = itemToDelete {
+                        withAnimation(.easeOut) {
+                            userPaletteViewModel.deletePaletteColourFromUserPalette(paletteColour: item.paletteColour, groupName: item.groupName)
+                        }
+                    }
+                }
+                Button("Cancel", role: .cancel) {
+                    isPresentingConfirmation = false
+                }
+            }
         }
-    } // body
+    }
 }
+
 
 #Preview {
     UserPaletteView()

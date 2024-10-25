@@ -7,11 +7,13 @@
 ..
 
 # Diary
-## October 25, 2024
+## ON DECK
 - [ ] Fix select state on `PaletteCreationView`, currently lacks one.
 - [ ] Make search functionality work with everything else.
 - [ ] Fix mixed colours how they're presented.
-- [ ] ???
+
+## October 25, 2024
+- [ ] Alert on deletion (are you sure)
 - [ ] ???
 
 ## October 24, 2024

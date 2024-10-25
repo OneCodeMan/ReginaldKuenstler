@@ -28,7 +28,10 @@ struct PaletteListItemView: View {
                 .padding(.top, 3)
         }
         .padding()
-        .opacity(paletteColourItem.paletteColour.isUserOwned ? 0.7 : 1.0)
+        .background(paletteColourItem.paletteColour.isUserOwned ? .gray : .clear)
+        .opacity(paletteColourItem.paletteColour.isUserOwned ? 0.3 : 1.0)
+        
+        
     }
 }
 
