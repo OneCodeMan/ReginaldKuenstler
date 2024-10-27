@@ -14,6 +14,7 @@
 - [ ] Vertical center to the right there is a vertical menu of Circle() colour groups.
 - [ ] Colour mapper can be better
 - [ ] Select state rectangle matches colour of selected colour group
+- [ ] User can add palette colours with photos input (they take pics of their paints)
 
 
 ## BIG BATCH TO MVP
@@ -42,6 +43,7 @@
 ### BULK
 
 ### Wave 1 to MVP
+- [ ] Update image analysis view to have updated user palette so it can analyze colours properly.
 - [ ] Analyze View - placeholder imageview
 - [x] On edit, keep the palette select items wiggling.
 - [ ] Analyze View - Disable tab scrolling if no image input.
