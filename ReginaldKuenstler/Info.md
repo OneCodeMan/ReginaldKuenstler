@@ -17,6 +17,10 @@
 
 
 ## BIG BATCH TO MVP
+### nice to haves
+- [ ] SelectPaletteView - toast that indicates which colour has been added
+- [ ] SelectPaletteView - confirmation on what colours to select.
+- [ ] Sort by RGB
 
 ### Wave 2 to MVP
 - [ ] IMPLEMENT AD MOB
@@ -37,20 +41,19 @@
 ### BULK
 
 ### Wave 1 to MVP
-- [ ] Sort by RGB
-- [ ] SelectPaletteView - confirmation on what colours to select.
-- [ ] SelectPaletteView - toast that indicates which colour has been added
-- [x] Add select state on user palette creation.
-    - [x] Select state rectangle corners rounded
-    
-- [ ] Analyze View - Consider removing "Detected Colours" if nothing from user palette.
+- [ ] Analyze View - placeholder imageview
+- [ ] Pimped out loading views
 - [ ] Analyze View - Asking for photo change text
 - [ ] Analyze View - Button styling on Analyze View needs work.
-
-- [ ] Fix colourName Text() overlap
-...
+- [ ] Analyze View - Consider removing "Detected Colours" if nothing from user palette.
+- [ ] Analyze View - Disable tab scrolling if no image input.
 - [ ] Tab View -- change icons
 ...
+
+### history
+- [x] Fix colourName Text() overlap
+- [x] Add select state on user palette creation.
+    - [x] Select state rectangle corners rounded
 - [x] SelectPaletteView - clear selection top right bar button
 ...
 - [x] Dark mode vs. light mode, generate appropriate text.
@@ -63,7 +66,6 @@
 - [x] SelectPaletteView states
     - [x] on tap of colourItem already userOwned display alert.
 - [x] On "Done" edit user palette state, animate the state change.
-
 
 
 ## DONE -- ON DECK

@@ -21,12 +21,16 @@ struct ColourComparisonView: View {
     @State var estimatedColours: [UIColor] = Array(repeating: .clear, count: 6)
     @State var coloursFromUserPalette: [UIColor] = Array(repeating: .clear, count: 6)
     
+    // MARK: Image states
     @State private var image = UIImage(named: "beauty") ?? UIImage()
     @State private var showSheet = false
     @State private var showImagePicker = false
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     
     @State var views: [CarouselPage] = []
+    
+    // MARK: Boolean view states
+    @State private var disableScrollNoImageInput: Bool = true
     
     // Control current page index
     @State private var currentIndex = 0
@@ -48,7 +52,7 @@ struct ColourComparisonView: View {
                 .tag(0)
                 
                 CarouselPage(id: 1, content: {
-                    PaletteResults(realColours: $realColours, paletteString: $paletteString, coloursFromUserPalette: $coloursFromUserPalette, personalPaletteString: $personalPaletteString, isLoading: $viewModel.isLoading)
+                    PaletteResults(realColours: $realColours, paletteString: $paletteString, coloursFromUserPalette: $coloursFromUserPalette, personalPaletteString: $personalPaletteString, isLoading: $viewModel.isLoading, disableScrollNoImageInput: $disableScrollNoImageInput)
                 })
                 .tag(1)
             }
@@ -63,7 +67,7 @@ struct ColourComparisonView: View {
                     })
                 }),
                 CarouselPage(id: 1, content: {
-                    PaletteResults(realColours: $realColours, paletteString: $paletteString, coloursFromUserPalette: $coloursFromUserPalette, personalPaletteString: $personalPaletteString, isLoading: $viewModel.isLoading)
+                    PaletteResults(realColours: $realColours, paletteString: $paletteString, coloursFromUserPalette: $coloursFromUserPalette, personalPaletteString: $personalPaletteString, isLoading: $viewModel.isLoading, disableScrollNoImageInput: $disableScrollNoImageInput)
                 })
             ]
         }
@@ -173,6 +177,7 @@ struct PaletteResults: View {
     @Binding var coloursFromUserPalette: [UIColor]
     @Binding var personalPaletteString: String
     @Binding var isLoading: Bool
+    @Binding var disableScrollNoImageInput: Bool
     var body: some View {
             if isLoading {
                 VStack {
@@ -223,7 +228,8 @@ struct PaletteResults: View {
                         Text(personalPaletteString)
                     } // end of VStack
                 }
-            }.disabled(false)
+            }
+                .disabled(true)
         }
     }
 }
