@@ -327,4 +327,12 @@ extension Color {
     public static var whiteTextLightMode1: Color {
         return Color(UIColor(red: 232/255, green: 231/255, blue: 227/255, alpha: 1.0))
     }
+    
+    public static var goldInnerFrameImage: Color {
+        return Color(UIColor(red: 218/255, green: 165/255, blue: 32/255, alpha: 1.0))
+    }
+    
+    public static var brownOuterFrameImage: Color {
+        return Color(UIColor(red: 111/255, green: 78/255, blue: 55/255, alpha: 1.0))
+    }
 }

@@ -49,6 +49,7 @@ struct ColourComparisonView: View {
                         }
                     })
                 })
+                .padding(.bottom, 20)
                 .tag(0)
                 
                 CarouselPage(id: 1, content: {
@@ -103,7 +104,6 @@ struct ColourComparisonView: View {
     }
 }
 
-
 // first page in carousel
 struct ImageAnalysisInputView: View {
     @Binding var image: UIImage
@@ -113,24 +113,33 @@ struct ImageAnalysisInputView: View {
     var handleAnalyzePhoto: () -> ()
     
     var body: some View {
-        ZStack {
-            Image(uiImage: self.image)
-                .resizable()
-                .aspectRatio(image.size, contentMode: .fill)
-                .edgesIgnoringSafeArea(.all)
-                .statusBar(hidden: true)
-                .clipShape(Rectangle())
-                .padding()
+        ZStack(alignment: .top) {
+            VStack {
+                Spacer()
+                    .frame(height: 50)
+                Image(uiImage: self.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .overlay(
+                        Rectangle()
+                            .stroke(Color.brownOuterFrameImage, lineWidth: 12)
+                            .border(Color.goldInnerFrameImage, width: 15)
+                    )
+                    .edgesIgnoringSafeArea(.all)
+                    .statusBar(hidden: true)
+                    .padding()
+            }
             
             VStack {
                 Text("Change photo")
                     .font(.headline)
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
-                    .background(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.262745098, green: 0.0862745098, blue: 0.8588235294, alpha: 1)), Color(#colorLiteral(red: 0.5647058824, green: 0.462745098, blue: 0.9058823529, alpha: 1))]), startPoint: .top, endPoint: .bottom))
-                    .cornerRadius(16)
+                    .background(Color(#colorLiteral(red: 0.5647058824, green: 0.462745098, blue: 0.9058823529, alpha: 1)))
+                    .cornerRadius(3)
                     .foregroundColor(.white)
-                    .padding(.horizontal, 20)
+                    .padding(.horizontal, 10)
                     .onTapGesture {
                         showSheet = true
                     }
@@ -139,10 +148,10 @@ struct ImageAnalysisInputView: View {
                     .font(.headline)
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
-                    .background(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.262745098, green: 0.0862745098, blue: 0.8588235294, alpha: 1)), Color(#colorLiteral(red: 0.5647058824, green: 0.462745098, blue: 0.9058823529, alpha: 1))]), startPoint: .top, endPoint: .bottom))
-                    .cornerRadius(16)
+                    .background(Color(#colorLiteral(red: 0.5647058824, green: 0.462745098, blue: 0.9058823529, alpha: 1)))
+                    .cornerRadius(3)
                     .foregroundColor(.white)
-                    .padding(.horizontal, 20)
+                    .padding(.horizontal, 10)
                     .onTapGesture {
                         print("Analyze button tapped, performing analysis on \(self.image)")
                         handleAnalyzePhoto()
