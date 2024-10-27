@@ -81,10 +81,11 @@
 		162896D62CC6BA91005A2399 /* ColourGridItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourGridItem.swift; sourceTree = "<group>"; };
 		1637C7112CCDC93B00B99812 /* GridLoadingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLoadingAnimation.swift; sourceTree = "<group>"; };
 		1637C7162CCE7EE900B99812 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		1637C7182CCEC4DA00B99812 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		166520722CC72A0500F2836E /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		166520752CC72BAC00F2836E /* ImageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInputView.swift; sourceTree = "<group>"; };
 		166520792CC7FA6A00F2836E /* UserPaletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPaletteViewModel.swift; sourceTree = "<group>"; };
-		16ED0D1F2CBED1C500ADCA3B /* ReginaldKuenstler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReginaldKuenstler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		16ED0D1F2CBED1C500ADCA3B /* Pinselton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pinselton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReginaldKuenstlerApp.swift; sourceTree = "<group>"; };
 		16ED0D242CBED1C500ADCA3B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16ED0D262CBED1C700ADCA3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -188,7 +189,7 @@
 		16ED0D202CBED1C500ADCA3B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				16ED0D1F2CBED1C500ADCA3B /* ReginaldKuenstler.app */,
+				16ED0D1F2CBED1C500ADCA3B /* Pinselton.app */,
 				16ED0D2F2CBED1C700ADCA3B /* ReginaldKuenstlerTests.xctest */,
 				16ED0D392CBED1C700ADCA3B /* ReginaldKuenstlerUITests.xctest */,
 			);
@@ -198,6 +199,7 @@
 		16ED0D212CBED1C500ADCA3B /* ReginaldKuenstler */ = {
 			isa = PBXGroup;
 			children = (
+				1637C7182CCEC4DA00B99812 /* Info.plist */,
 				1637C7102CCDC93000B99812 /* Juice */,
 				16ED0D9D2CC1539600ADCA3B /* View */,
 				16ED0D9A2CC1537A00ADCA3B /* Components */,
@@ -329,7 +331,7 @@
 				16ED0D4D2CBED8B500ADCA3B /* SwiftVibrantium */,
 			);
 			productName = ReginaldKuenstler;
-			productReference = 16ED0D1F2CBED1C500ADCA3B /* ReginaldKuenstler.app */;
+			productReference = 16ED0D1F2CBED1C500ADCA3B /* Pinselton.app */;
 			productType = "com.apple.product-type.application";
 		};
 		16ED0D2E2CBED1C700ADCA3B /* ReginaldKuenstlerTests */ = {
@@ -643,10 +645,10 @@
 				DEVELOPMENT_TEAM = HY3LPP8363;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "\"Phantom that's all red, inside all white\"";
+				INFOPLIST_FILE = ReginaldKuenstler/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"Pinselton would like to access your photo library.\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -655,7 +657,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = daveyg.ReginaldKuenstler;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Pinselton;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -673,10 +675,10 @@
 				DEVELOPMENT_TEAM = HY3LPP8363;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "\"Phantom that's all red, inside all white\"";
+				INFOPLIST_FILE = ReginaldKuenstler/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"Pinselton would like to access your photo library.\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -685,7 +687,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = daveyg.ReginaldKuenstler;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Pinselton;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

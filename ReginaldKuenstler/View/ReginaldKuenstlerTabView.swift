@@ -21,31 +21,27 @@ struct ReginaldKuenstlerTabView: View {
                 .tag(0)
                 .tabItem {
                     Image(systemName: "paintpalette.fill")
+                        .renderingMode(.template)
+                        .foregroundColor(.red) // <2>
                     Text("Your Palette")
                 }
             
             ColourComparisonView()
                 .tag(1)
                 .tabItem {
-                    Image(systemName: "paintpalette.fill")
+                    Image(systemName: "chart.bar.fill")
+                        .renderingMode(.template)
                     Text("Analyzer")
                 }
             
             MessageView()
                 .tag(2)
                 .tabItem {
-                    Image(systemName: "paintpalette.fill")
+                    Image(systemName: "person.fill.questionmark")
                     Text("TO YOU")
                 }
-            
-//            ColourComparisonView()
-//                .tag(1)
-//                .tabItem {
-//                    Image(systemName: "paintpalette.fill")
-//                    Text("Analyzer")
-//                }
-            
         }
+        .tint(.indigo)
     }
 }
 
