@@ -25,18 +25,17 @@ struct PaletteCreationView: View {
             VStack {
                 Text("")
                     .toolbar {
-                        if displayClearSelectionButton {
+                        if !viewModel.filteredPaletteColourSelectItems.filter({ $0.isSelected }).isEmpty {
                             Button("Clear") {
                                 withAnimation {
                                     viewModel.clearUserSelectedColours()
-                                    displayClearSelectionButton.toggle()
                                 }
                             }
                         }
                     }
                 // Selection
                 List {
-                    ForEach(Array(viewModel.groupedColourSelectItems.keys), id: \.self) { groupName in
+                    ForEach(Array(viewModel.groupedColourSelectItems.keys).sorted(), id: \.self) { groupName in
                         GroupSectionView(groupName: groupName, colourItems: viewModel.groupedColourSelectItems[groupName] ?? [], viewModel: viewModel, displayColourAlreadyOwnedAlert: $displayColourAlreadyOwnedAlert)
                     }
                 }

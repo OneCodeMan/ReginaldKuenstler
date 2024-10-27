@@ -28,8 +28,14 @@ struct PaletteListItemView: View {
                 .padding(.top, 3)
         }
         .padding()
-        .background(paletteColourItem.paletteColour.isUserOwned ? .gray : (paletteColourItem.isSelected ? .blue : .clear))
+        .background(paletteColourItem.paletteColour.isUserOwned ? .gray : .clear)
         .opacity(paletteColourItem.paletteColour.isUserOwned ? 0.3 : (paletteColourItem.isSelected ? 0.4 : 1.0))
+        .overlay( /// apply a rounded border
+            RoundedRectangle(cornerRadius: 5)
+                .stroke(paletteColourItem.isSelected ? .blue : .clear, lineWidth: 0.5)
+                .background(paletteColourItem.isSelected ? .blue : .clear)
+                .opacity(0.2)
+        )
     }
 }
 

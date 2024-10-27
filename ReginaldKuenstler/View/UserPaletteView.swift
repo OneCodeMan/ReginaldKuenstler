@@ -67,7 +67,7 @@ struct UserPaletteView: View {
                 // State 3: User is searching and there are results for the search term
                 } else {
                     List {
-                        ForEach(Array(userPaletteViewModel.groupedColours.keys), id: \.self) { groupName in
+                        ForEach(Array(userPaletteViewModel.groupedColours.keys).sorted(), id: \.self) { groupName in
                             if let groupItems = userPaletteViewModel.groupedColours[groupName], !groupItems.isEmpty {
                                 VStack(alignment: .leading) {
                                     Text(groupName)

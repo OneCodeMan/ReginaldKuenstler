@@ -138,7 +138,12 @@ class CreateUserPaletteViewModel: ObservableObject {
     }
     
     func clearUserSelectedColours() {
-        // TODO
+        // Set isSelected to false for all selected colours
+        for index in filteredPaletteColourSelectItems.indices {
+            filteredPaletteColourSelectItems[index].isSelected = false
+        }
+        // Refresh the grouped items after clearing selection
+        self.groupedColourSelectItems = ColourHelper.groupColourSelectItems(colours: filteredPaletteColourSelectItems)
     }
     
     // MARK: Search functionality (DRY AF)

@@ -9,11 +9,11 @@
 # Diary
 
 ## POST MVP
-- [ ] Multi select imagess, average palette.
+- [ ] Multi select imagess, determine average palette needed.
     - [ ] User can easily delete/re-add images and it's dynamic
 - [ ] Vertical center to the right there is a vertical menu of Circle() colour groups.
 - [ ] Colour mapper can be better
-
+- [ ] Select state rectangle matches colour of selected colour group
 
 
 ## BIG BATCH TO MVP
@@ -38,20 +38,20 @@
 
 ### Wave 1 to MVP
 - [ ] Sort by RGB
-- [x] Add select state on user palette creation.
-    - [ ] Select state rectangle corners rounded
-    - [ ] Select state rectangle matches colour of selected colour group
-- [ ] SelectPaletteView - clear selection top right bar button
 - [ ] SelectPaletteView - confirmation on what colours to select.
 - [ ] SelectPaletteView - toast that indicates which colour has been added
-...
+- [x] Add select state on user palette creation.
+    - [x] Select state rectangle corners rounded
+    
 - [ ] Analyze View - Consider removing "Detected Colours" if nothing from user palette.
 - [ ] Analyze View - Asking for photo change text
 - [ ] Analyze View - Button styling on Analyze View needs work.
-...
+
 - [ ] Fix colourName Text() overlap
 ...
 - [ ] Tab View -- change icons
+...
+- [x] SelectPaletteView - clear selection top right bar button
 ...
 - [x] Dark mode vs. light mode, generate appropriate text.
 - [x] Search functionality, get that shit done.
