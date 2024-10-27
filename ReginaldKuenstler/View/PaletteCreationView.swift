@@ -72,11 +72,14 @@ struct ColourGridView: View {
     var body: some View {
         LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 3)) {
             ForEach(colourItems) { cI in
-                PaletteListItemView(paletteColourItem: cI)
-                    .onTapGesture {
-                        toggleColourSelection(for: cI)
-                    }
+                if let index = viewModel.filteredPaletteColourSelectItems.firstIndex(where: { $0.id == cI.id }) {
+                    PaletteListItemView(paletteColourItem: $viewModel.filteredPaletteColourSelectItems[index])
+                        .onTapGesture {
+                            toggleColourSelection(for: cI)
+                        }
+                }
             }
+            // end of foreach(colourItems)
         }
         .listRowSeparator(.hidden)
         .padding()

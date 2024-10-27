@@ -8,30 +8,28 @@
 import SwiftUI
 
 struct PaletteListItemView: View {
-    @State var paletteColourItem: PaletteColourSelectItem
+    @Binding var paletteColourItem: PaletteColourSelectItem
+    
+    // MARK: light vs. dark mode
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         VStack {
             Circle()
                 .stroke(.gray, lineWidth: 2)
                 .fill(Color(paletteColourItem.paletteColour.uiColour))
                 .frame(height: 50)
-                .overlay(
-                    Circle()
-                        .stroke(paletteColourItem.isSelected ? Color.blue : Color.clear, lineWidth: 4) // Highlight if selected
-                )
             Text(paletteColourItem.paletteColour.colourName)
                 .bold()
                 .strikethrough(paletteColourItem.paletteColour.isUserOwned)
-                .foregroundStyle(paletteColourItem.paletteColour.isUserOwned ? .gray : .black)
+                .foregroundStyle(paletteColourItem.paletteColour.isUserOwned ? .gray : (self.colorScheme == .dark ? .whiteTextLightMode1 : .black))
                 .font(.system(size: 14.0))
                 .scaledToFill()
                 .padding(.top, 3)
         }
         .padding()
-        .background(paletteColourItem.paletteColour.isUserOwned ? .gray : .clear)
-        .opacity(paletteColourItem.paletteColour.isUserOwned ? 0.3 : 1.0)
-        
-        
+        .background(paletteColourItem.paletteColour.isUserOwned ? .gray : (paletteColourItem.isSelected ? .blue : .clear))
+        .opacity(paletteColourItem.paletteColour.isUserOwned ? 0.3 : (paletteColourItem.isSelected ? 0.4 : 1.0))
     }
 }
 

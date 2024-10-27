@@ -295,3 +295,18 @@ final class ColourHelper {
 }
 
 typealias LABTuple = (L: Double, A: Double, B: Double)
+
+// MARK: Extension Color
+
+extension Color {
+    
+    // MARK: Custom colours
+    public static var blueSelectedState: Color {
+        // 50, 125, 168
+        return Color(UIColor(red: 50/255, green: 125/255, blue: 168/255, alpha: 0.3))
+    }
+    
+    public static var whiteTextLightMode1: Color {
+        return Color(UIColor(red: 232/255, green: 231/255, blue: 227/255, alpha: 1.0))
+    }
+}

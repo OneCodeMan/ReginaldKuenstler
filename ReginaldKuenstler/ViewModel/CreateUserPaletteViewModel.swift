@@ -140,16 +140,18 @@ class CreateUserPaletteViewModel: ObservableObject {
     // MARK: Search functionality (DRY AF)
     func filterPaletteColours(term: String) {
         isLoading = true
-        self.filteredPaletteColourSelectItems = self.paletteColourSelectItems.filter{ $0.paletteColour.colourName.contains(term) }
-        print("[--PaletteViewModel filtering paletteColours based on term: \(term). Contains \(self.filteredPaletteColourSelectItems.count) items.\n \(self.filteredPaletteColourSelectItems)")
+        // Filter `paletteColourSelectItems` and group them by name
+        let filteredItems = paletteColourSelectItems.filter { $0.paletteColour.colourName.contains(term) }
+        self.groupedColourSelectItems = ColourHelper.groupColourSelectItems(colours: filteredItems)
         isLoading = false
     }
         
     func resetFilteredPaletteColours() {
         isLoading = true
-        self.filteredPaletteColourSelectItems = self.paletteColourSelectItems
+        self.groupedColourSelectItems = ColourHelper.groupColourSelectItems(colours: paletteColourSelectItems)
         isLoading = false
     }
+
     
 }
 

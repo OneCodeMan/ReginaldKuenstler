@@ -34,21 +34,31 @@ struct UserPaletteView: View {
             VStack {
                 Text("")
                     .toolbar {
-                        NavigationLink(destination: PaletteCreationView()) {
-                            Text("Add")
+                        if isEditing {
+                            Button("Done") {
+                                withAnimation {
+                                    isEditing.toggle()
+                                }
+                            }
+                        } else {
+                            NavigationLink(destination: PaletteCreationView()) {
+                                Text("Add")
+                            }
                         }
                     }
                 
                 if !userPaletteViewModel.userPaletteColours.isEmpty {
-                    if isEditing {
-                        Button("Done") {
-                            isEditing.toggle()
-                        }
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                    }
+//                    if isEditing {
+//                        Button("Done") {
+//                            withAnimation {
+//                                isEditing.toggle()
+//                            }
+//                        }
+//                        .padding()
+//                        .background(Color.blue)
+//                        .foregroundColor(.white)
+//                        .cornerRadius(8)
+//                    }
                     
                     List {
                         ForEach(Array(userPaletteViewModel.groupedColours.keys).sorted(), id: \.self) { groupName in

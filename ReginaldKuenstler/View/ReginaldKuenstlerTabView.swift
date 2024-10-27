@@ -31,6 +31,13 @@ struct ReginaldKuenstlerTabView: View {
                     Text("Analyzer")
                 }
             
+            MessageView()
+                .tag(2)
+                .tabItem {
+                    Image(systemName: "paintpalette.fill")
+                    Text("TO YOU")
+                }
+            
 //            ColourComparisonView()
 //                .tag(1)
 //                .tabItem {

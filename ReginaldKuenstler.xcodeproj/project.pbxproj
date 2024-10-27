@@ -22,6 +22,7 @@
 		162896D52CC678F9005A2399 /* SelectPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896D42CC678F8005A2399 /* SelectPaletteView.swift */; };
 		162896D72CC6BA91005A2399 /* ColourGridItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896D62CC6BA91005A2399 /* ColourGridItem.swift */; };
 		1637C7122CCDC93B00B99812 /* GridLoadingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1637C7112CCDC93B00B99812 /* GridLoadingAnimation.swift */; };
+		1637C7172CCE7EE900B99812 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1637C7162CCE7EE900B99812 /* MessageView.swift */; };
 		166520732CC72A0500F2836E /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166520722CC72A0500F2836E /* CarouselView.swift */; };
 		166520762CC72BAD00F2836E /* ImageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166520752CC72BAC00F2836E /* ImageInputView.swift */; };
 		1665207A2CC7FA6A00F2836E /* UserPaletteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166520792CC7FA6A00F2836E /* UserPaletteViewModel.swift */; };
@@ -79,6 +80,7 @@
 		162896D42CC678F8005A2399 /* SelectPaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPaletteView.swift; sourceTree = "<group>"; };
 		162896D62CC6BA91005A2399 /* ColourGridItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourGridItem.swift; sourceTree = "<group>"; };
 		1637C7112CCDC93B00B99812 /* GridLoadingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLoadingAnimation.swift; sourceTree = "<group>"; };
+		1637C7162CCE7EE900B99812 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		166520722CC72A0500F2836E /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		166520752CC72BAC00F2836E /* ImageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInputView.swift; sourceTree = "<group>"; };
 		166520792CC7FA6A00F2836E /* UserPaletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPaletteViewModel.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				162896D22CC606C1005A2399 /* PaletteCreationView.swift */,
 				162896D42CC678F8005A2399 /* SelectPaletteView.swift */,
 				162896D62CC6BA91005A2399 /* ColourGridItem.swift */,
+				1637C7162CCE7EE900B99812 /* MessageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				16ED0D9C2CC1538800ADCA3B /* ImagePicker.swift in Sources */,
 				162896CC2CC58FB5005A2399 /* ReginaldKuenstlerTabView.swift in Sources */,
 				16ED0D9F2CC153A400ADCA3B /* ImageAnalysisView.swift in Sources */,
+				1637C7172CCE7EE900B99812 /* MessageView.swift in Sources */,
 				1628968D2CC1A811005A2399 /* PaletteListViewModel.swift in Sources */,
 				162896D52CC678F9005A2399 /* SelectPaletteView.swift in Sources */,
 				16ED0D232CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift in Sources */,

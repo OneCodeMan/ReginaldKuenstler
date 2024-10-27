@@ -25,9 +25,13 @@
 ### BULK
 
 ### Wave 1 to MVP
-- [ ] Add select state on user palette creation.
-- [ ] Dark mode vs. light mode, generate appropriate text.
+- [x] Add select state on user palette creation.
+    - [ ] Select state rectangle corners rounded
+    - [ ] Select state rectangle matches colour of selected colour group
+- [x] Dark mode vs. light mode, generate appropriate text.
 - [ ] Search functionality, get that shit done.
+    - [x] on creation view
+    - [ ] on user palette view
 - [ ] Buttons styling on Analyze View needs work.
 - [ ] On "Done" edit user palette state, animate the state change.
 - [ ] Consider removing "Detected Colours" if nothing from user palette.
