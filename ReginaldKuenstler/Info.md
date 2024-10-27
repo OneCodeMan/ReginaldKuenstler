@@ -14,7 +14,18 @@
 - [ ] Vertical center to the right there is a vertical menu of Circle() colour groups.
 - [ ] Colour mapper can be better
 
+
+
 ## BIG BATCH TO MVP
+
+### Wave 2 to MVP
+- [ ] IMPLEMENT AD MOB
+- [ ] Revisit the colour grouper.
+
+### Wave 3 to MVP -- Beat the spaghetti code allegations.
+- [ ] On another branch, one big code cleanup
+- [ ] And then two small code cleanups
+- [ ] Then one more big code cleanup
 
 ### MARKETING
 - [ ] Create app logo
@@ -26,15 +37,19 @@
 ### BULK
 
 ### Wave 1 to MVP
+- [ ] Sort by RGB
 - [x] Add select state on user palette creation.
     - [ ] Select state rectangle corners rounded
     - [ ] Select state rectangle matches colour of selected colour group
 - [ ] SelectPaletteView - clear selection top right bar button
 - [ ] SelectPaletteView - confirmation on what colours to select.
+- [ ] SelectPaletteView - toast that indicates which colour has been added
 ...
 - [ ] Analyze View - Consider removing "Detected Colours" if nothing from user palette.
 - [ ] Analyze View - Asking for photo change text
 - [ ] Analyze View - Button styling on Analyze View needs work.
+...
+- [ ] Fix colourName Text() overlap
 ...
 - [ ] Tab View -- change icons
 ...
@@ -42,24 +57,12 @@
 - [x] Search functionality, get that shit done.
     - [x] on creation view
     - [x] on user palette view
-- [ ] UserPaletteView search states
-    - [ ] non-empty palette but search term is empty
-    - [ ] empty palette (don't view search at all?)
-    - [ ] disable deletion on search
-- [ ] SelectPaletteView states
+- [x] UserPaletteView search states
+    - [x] non-empty palette but search term is empty
+    - [x] empty palette (don't view search at all?)
+- [x] SelectPaletteView states
     - [x] on tap of colourItem already userOwned display alert.
-    - [ ] toast that indicates which colour has been added
 - [x] On "Done" edit user palette state, animate the state change.
-
-
-### Wave 2 to MVP
-- [ ] IMPLEMENT AD MOB
-- [ ] Revisit the colour grouper.
-
-### Wave 3 to MVP -- Beat the spaghetti code allegations.
-- [ ] On another branch, one big code cleanup
-- [ ] And then two small code cleanups
-- [ ] Then one more big code cleanup
 
 
 

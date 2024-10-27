@@ -5,11 +5,6 @@
 //  Created by Dave Gumba on 2024-10-20.
 //
 
-/**
- Either a list of palettes or an empty view.
- The list of palettes comes from UserDefaults.
- */
-
 import SwiftUI
 
 struct UserPaletteView: View {
@@ -47,9 +42,32 @@ struct UserPaletteView: View {
                         }
                     }
                 
-                if !userPaletteViewModel.userPaletteColours.isEmpty {
+                // Keep search bar at the top level for consistency across states
+                .searchable(text: $searchText)
+                .onChange(of: searchText) { search in
+                    if !search.isEmpty {
+                        userPaletteViewModel.filterPaletteColours(term: search)
+                    } else {
+                        userPaletteViewModel.resetFilteredPaletteColours()
+                    }
+                }
+                
+                // State 1: User has no palette colors and is not searching
+                if userPaletteViewModel.userPaletteColours.isEmpty && searchText.isEmpty {
+                    Text("You have no colours.")
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .multilineTextAlignment(.center)
+                
+                // State 2: User is searching but there are no results for the search term
+                } else if !userPaletteViewModel.userPaletteColours.isEmpty && !searchText.isEmpty && userPaletteViewModel.filteredUserPaletteColours.isEmpty {
+                    Text("No results found for \"\(searchText)\".")
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .multilineTextAlignment(.center)
+                
+                // State 3: User is searching and there are results for the search term
+                } else {
                     List {
-                        ForEach(userPaletteViewModel.groupedColours.keys.sorted(), id: \.self) { groupName in
+                        ForEach(Array(userPaletteViewModel.groupedColours.keys), id: \.self) { groupName in
                             if let groupItems = userPaletteViewModel.groupedColours[groupName], !groupItems.isEmpty {
                                 VStack(alignment: .leading) {
                                     Text(groupName)
@@ -97,21 +115,8 @@ struct UserPaletteView: View {
                             }
                         }
                     }
-                    .searchable(text: $searchText)
-                    .onChange(of: searchText) { search in
-                        if !search.isEmpty {
-                            userPaletteViewModel.filterPaletteColours(term: search)
-                        } else {
-                            userPaletteViewModel.resetFilteredPaletteColours()
-                        }
-                    }
-                } else {
-                    Text("You have no colours.")
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .multilineTextAlignment(.center)
                 }
             }
-
             .navigationTitle("Your Palette")
             .onAppear {
                 self.userPaletteViewModel.fetchUserPalettes()
@@ -127,7 +132,7 @@ struct UserPaletteView: View {
                 Button("Cancel", role: .cancel) {
                     isPresentingConfirmation = false
                 }
-            } // alert
+            }
         }
     }
 }

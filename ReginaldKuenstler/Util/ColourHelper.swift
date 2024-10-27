@@ -122,7 +122,25 @@ final class ColourHelper {
             let group = self.groupIndividualColour(hexColour: colour.hexCode, colourName: colour.colourName)
             colourGroups[group]?.append(colour)
         }
-        return colourGroups
+        // Create a new ordered dictionary with RGB categories first
+        var orderedGroups: [String: [PaletteColour]] = [:]
+        
+        // Add primary categories first
+        let primaryCategories = ["Red", "Green", "Blue"]
+        for category in primaryCategories {
+            if let colors = colourGroups[category], !colors.isEmpty {
+                orderedGroups[category] = colors
+            }
+        }
+        
+        // Then add any remaining categories in alphabetical order
+        let otherCategories = colourGroups.keys.filter { !primaryCategories.contains($0) }.sorted()
+        for category in otherCategories {
+            if let colors = colourGroups[category], !colors.isEmpty {
+                orderedGroups[category] = colors
+            }
+        }
+        return orderedGroups
     }
     
     static func groupColourSelectItems(colours: [PaletteColourSelectItem]) -> [String: [PaletteColourSelectItem]] {

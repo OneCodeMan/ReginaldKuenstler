@@ -137,6 +137,10 @@ class CreateUserPaletteViewModel: ObservableObject {
         
     }
     
+    func clearUserSelectedColours() {
+        // TODO
+    }
+    
     // MARK: Search functionality (DRY AF)
     func filterPaletteColours(term: String) {
         isLoading = true

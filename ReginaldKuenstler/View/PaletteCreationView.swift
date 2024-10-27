@@ -18,12 +18,25 @@ struct PaletteCreationView: View {
     // MARK: alert states
     // when user taps on colour already owned in their palette.
     @State private var displayColourAlreadyOwnedAlert: Bool = false
+    @State private var displayClearSelectionButton: Bool = false
     
     var body: some View {
         NavigationStack {
             VStack {
+                Text("")
+                    .toolbar {
+                        if displayClearSelectionButton {
+                            Button("Clear") {
+                                withAnimation {
+                                    viewModel.clearUserSelectedColours()
+                                    displayClearSelectionButton.toggle()
+                                }
+                            }
+                        }
+                    }
+                // Selection
                 List {
-                    ForEach(viewModel.groupedColourSelectItems.keys.sorted(), id: \.self) { groupName in
+                    ForEach(Array(viewModel.groupedColourSelectItems.keys), id: \.self) { groupName in
                         GroupSectionView(groupName: groupName, colourItems: viewModel.groupedColourSelectItems[groupName] ?? [], viewModel: viewModel, displayColourAlreadyOwnedAlert: $displayColourAlreadyOwnedAlert)
                     }
                 }
