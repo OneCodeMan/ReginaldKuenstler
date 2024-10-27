@@ -48,18 +48,6 @@ struct UserPaletteView: View {
                     }
                 
                 if !userPaletteViewModel.userPaletteColours.isEmpty {
-//                    if isEditing {
-//                        Button("Done") {
-//                            withAnimation {
-//                                isEditing.toggle()
-//                            }
-//                        }
-//                        .padding()
-//                        .background(Color.blue)
-//                        .foregroundColor(.white)
-//                        .cornerRadius(8)
-//                    }
-                    
                     List {
                         ForEach(Array(userPaletteViewModel.groupedColours.keys).sorted(), id: \.self) { groupName in
                             if !(userPaletteViewModel.groupedColours[groupName]?.isEmpty ?? false) {
