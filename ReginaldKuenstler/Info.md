@@ -23,6 +23,7 @@
 - [ ] Sort by RGB
 
 ### Wave 2 to MVP
+- [] Onboarding view
 - [ ] IMPLEMENT AD MOB
 - [ ] Revisit the colour grouper.
 
@@ -42,13 +43,13 @@
 
 ### Wave 1 to MVP
 - [ ] Analyze View - placeholder imageview
-- [ ] On edit, keep the palette select items wiggling.
+- [x] On edit, keep the palette select items wiggling.
 - [ ] Analyze View - Disable tab scrolling if no image input.
 - [ ] Analyze View - Button styling on Analyze View needs work.
-..
 - [ ] Fix word wrap on palette select item.
 - [ ] Pimped out loading views
-- [ ] Analyze View - Consider removing "Detected Colours" if nothing from user palette.
+- [ ] Analyze View - Logic for "Detected Colours" if nothing from user palette.
+...
 - [x] Analyze View - Asking for photo change text
 - [x] Tab View -- change icons
 ...

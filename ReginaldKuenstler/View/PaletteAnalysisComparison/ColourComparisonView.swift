@@ -117,6 +117,8 @@ struct ImageAnalysisInputView: View {
             VStack {
                 Spacer()
                     .frame(height: 50)
+                
+                // TODO: if no image input, add a placeholder image.
                 Image(uiImage: self.image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -124,7 +126,7 @@ struct ImageAnalysisInputView: View {
                     .overlay(
                         Rectangle()
                             .stroke(Color.brownOuterFrameImage, lineWidth: 12)
-                            .border(Color.goldInnerFrameImage, width: 15)
+                            .border(Color.goldInnerFrameImage, width: 14)
                     )
                     .edgesIgnoringSafeArea(.all)
                     .statusBar(hidden: true)
@@ -219,23 +221,25 @@ struct PaletteResults: View {
                     Text(paletteString)
                         .padding()
                     
-                    Divider()
-                    
-                    VStack {
-                        Text("From Your Palette")
-                            .font(.title2)
-                            .bold()
-                            .padding()
-                        HStack(alignment: .center) {
-                            ForEach(0..<coloursFromUserPalette.count, id: \.self) { index in
-                                Circle()
-                                    .fill(Color(coloursFromUserPalette[index]))
-                                    .frame(width: 30)
+                    if !coloursFromUserPalette.isEmpty {
+                        Divider()
+                        
+                        VStack {
+                            Text("From Your Palette")
+                                .font(.title2)
+                                .bold()
+                                .padding()
+                            HStack(alignment: .center) {
+                                ForEach(0..<coloursFromUserPalette.count, id: \.self) { index in
+                                    Circle()
+                                        .fill(Color(coloursFromUserPalette[index]))
+                                        .frame(width: 30)
+                                }
                             }
-                        }
-                        .padding()
-                        Text(personalPaletteString)
-                    } // end of VStack
+                            .padding()
+                            Text(personalPaletteString)
+                        } // end of VStack
+                    }
                 }
             }
                 .disabled(true)

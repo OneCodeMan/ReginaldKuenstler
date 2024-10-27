@@ -33,6 +33,7 @@ struct UserPaletteView: View {
                             Button("Done") {
                                 withAnimation {
                                     isEditing.toggle()
+                                    isJiggling.toggle()
                                 }
                             }
                         } else {
@@ -92,7 +93,7 @@ struct UserPaletteView: View {
                                                     withAnimation {
                                                         isEditing = true
                                                         isJiggling = true
-                                                        delay(interval: 1.5) { self.isJiggling = false }
+                                                        // delay(interval: 1.5) { self.isJiggling = false }
                                                     }
                                                 }
                                                 .overlay(
