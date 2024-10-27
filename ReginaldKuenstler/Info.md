@@ -33,7 +33,7 @@
     - [x] on creation view
     - [ ] on user palette view
 - [ ] Buttons styling on Analyze View needs work.
-- [ ] On "Done" edit user palette state, animate the state change.
+- [x] On "Done" edit user palette state, animate the state change.
 - [ ] Consider removing "Detected Colours" if nothing from user palette.
 - [ ] Analyze View - Asking for photo change text
 - [ ] Tab View -- change icon
