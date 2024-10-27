@@ -14,7 +14,7 @@
 import SwiftUI
 
 struct ReginaldKuenstlerTabView: View {
-    @State var selectedTab: Int = 1
+    @State var selectedTab: Int = 0
     var body: some View {
         TabView(selection:  $selectedTab) {
             UserPaletteView()
@@ -34,12 +34,12 @@ struct ReginaldKuenstlerTabView: View {
                     Text("Analyzer")
                 }
             
-            MessageView()
-                .tag(2)
-                .tabItem {
-                    Image(systemName: "person.fill.questionmark")
-                    Text("TO YOU")
-                }
+//            MessageView()
+//                .tag(2)
+//                .tabItem {
+//                    Image(systemName: "person.fill.questionmark")
+//                    Text("TO YOU")
+//                }
         }
         .tint(.indigo)
     }

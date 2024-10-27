@@ -113,7 +113,7 @@ class KuenstlerViewModel: ObservableObject {
                 print(self.estimatedColours)
                 let paletteIntersectionUserAndEstimate = self.determinePaletteIntersection(paletteOne: self.coloursFromUserPalette, paletteTwo: self.estimatedColours)
                 
-                let approximateColours: [VColour] = ColourHelper.findBestMixesForColours(targetColours: self.estimatedColours, userPalette: self.coloursFromUserPalette)
+                let approximateColours: [VColour] = [] // ColourHelper.findBestMixesForColours(targetColours: self.estimatedColours, userPalette: self.coloursFromUserPalette)
                 
                 self.approximateUserMixes = approximateColours
                 self.relevantColoursFromUserPalette = paletteIntersectionUserAndEstimate + approximateColours
