@@ -21,6 +21,7 @@
 - [ ] Create website
 - [ ] Create screenshots
 - [ ] Create demo video
+- [ ] Create App Launch screen
 
 ### BULK
 
@@ -28,6 +29,15 @@
 - [x] Add select state on user palette creation.
     - [ ] Select state rectangle corners rounded
     - [ ] Select state rectangle matches colour of selected colour group
+- [ ] SelectPaletteView - clear selection top right bar button
+- [ ] SelectPaletteView - confirmation on what colours to select.
+...
+- [ ] Analyze View - Consider removing "Detected Colours" if nothing from user palette.
+- [ ] Analyze View - Asking for photo change text
+- [ ] Analyze View - Button styling on Analyze View needs work.
+...
+- [ ] Tab View -- change icons
+...
 - [x] Dark mode vs. light mode, generate appropriate text.
 - [x] Search functionality, get that shit done.
     - [x] on creation view
@@ -35,16 +45,12 @@
 - [ ] UserPaletteView search states
     - [ ] non-empty palette but search term is empty
     - [ ] empty palette (don't view search at all?)
+    - [ ] disable deletion on search
 - [ ] SelectPaletteView states
-    - [ ] on tap of colourItem already userOwned display alert.
-    - [ ] toast that indicates which colour has been added.
-- [ ] Buttons styling on Analyze View needs work.
+    - [x] on tap of colourItem already userOwned display alert.
+    - [ ] toast that indicates which colour has been added
 - [x] On "Done" edit user palette state, animate the state change.
-- [ ] Consider removing "Detected Colours" if nothing from user palette.
-- [ ] Analyze View - Asking for photo change text
-- [ ] Tab View -- change icon
-- [ ] SelectPaletteView - clear selection top right bar button
-- [ ] SelectPaletteView - confirmation on what colours to select.
+
 
 ### Wave 2 to MVP
 - [ ] IMPLEMENT AD MOB
