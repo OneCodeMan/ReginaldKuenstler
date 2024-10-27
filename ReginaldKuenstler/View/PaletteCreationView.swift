@@ -15,12 +15,16 @@ struct PaletteCreationView: View {
     // Grid layout with 3 columns
     let columns = Array(repeating: GridItem(.flexible()), count: 3)
     
+    // MARK: alert states
+    // when user taps on colour already owned in their palette.
+    @State private var displayColourAlreadyOwnedAlert: Bool = false
+    
     var body: some View {
         NavigationStack {
             VStack {
                 List {
                     ForEach(viewModel.groupedColourSelectItems.keys.sorted(), id: \.self) { groupName in
-                        GroupSectionView(groupName: groupName, colourItems: viewModel.groupedColourSelectItems[groupName] ?? [], viewModel: viewModel)
+                        GroupSectionView(groupName: groupName, colourItems: viewModel.groupedColourSelectItems[groupName] ?? [], viewModel: viewModel, displayColourAlreadyOwnedAlert: $displayColourAlreadyOwnedAlert)
                     }
                 }
                 .searchable(text: $searchText)
@@ -40,6 +44,9 @@ struct PaletteCreationView: View {
             .onAppear {
                 viewModel.fetchUserPalettes()
             }
+            .alert("This colour is already in your palette.", isPresented: $displayColourAlreadyOwnedAlert) {
+                
+            } // alert
         }
     }
 }
@@ -48,6 +55,7 @@ struct GroupSectionView: View {
     var groupName: String
     var colourItems: [PaletteColourSelectItem]
     @ObservedObject var viewModel: CreateUserPaletteViewModel  // Pass viewModel here
+    @Binding var displayColourAlreadyOwnedAlert: Bool
     
     var body: some View {
         if !colourItems.isEmpty {
@@ -58,7 +66,7 @@ struct GroupSectionView: View {
                     .padding([.top, .leading], 8)
                 
                 // Colour list
-                ColourGridView(colourItems: colourItems, viewModel: viewModel)  // Pass viewModel to ColourGridView
+                ColourGridView(colourItems: colourItems, viewModel: viewModel, displayColourAlreadyOwnedAlert: $displayColourAlreadyOwnedAlert)  // Pass viewModel to ColourGridView
             }
             .listRowSeparator(.hidden)
         }
@@ -68,6 +76,7 @@ struct GroupSectionView: View {
 struct ColourGridView: View {
     var colourItems: [PaletteColourSelectItem]
     @ObservedObject var viewModel: CreateUserPaletteViewModel
+    @Binding var displayColourAlreadyOwnedAlert: Bool
     
     var body: some View {
         LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 3)) {
@@ -92,6 +101,7 @@ struct ColourGridView: View {
                 viewModel.filteredPaletteColourSelectItems[index].isSelected.toggle()
                 print("Toggled selection for color: \(item.paletteColour.uiColour)")
             } else {
+                displayColourAlreadyOwnedAlert = true
                 print("user owned not toggling select")
             }
             

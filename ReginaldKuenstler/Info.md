@@ -43,6 +43,8 @@
 - [ ] Consider removing "Detected Colours" if nothing from user palette.
 - [ ] Analyze View - Asking for photo change text
 - [ ] Tab View -- change icon
+- [ ] SelectPaletteView - clear selection top right bar button
+- [ ] SelectPaletteView - confirmation on what colours to select.
 
 ### Wave 2 to MVP
 - [ ] IMPLEMENT AD MOB

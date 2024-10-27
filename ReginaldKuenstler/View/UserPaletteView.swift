@@ -127,7 +127,7 @@ struct UserPaletteView: View {
                 Button("Cancel", role: .cancel) {
                     isPresentingConfirmation = false
                 }
-            }
+            } // alert
         }
     }
 }
