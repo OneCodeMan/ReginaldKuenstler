@@ -7,13 +7,51 @@
 ..
 
 # Diary
-## ON DECK
-- [ ] Fix select state on `PaletteCreationView`, currently lacks one.
+
+## POST MVP
+- [ ] Multi select imagess, average palette.
+    - [ ] User can easily delete/re-add images and it's dynamic
+- [ ] Vertical center to the right there is a vertical menu of Circle() colour groups.
+- [ ] Colour mapper can be better
+
+## BIG BATCH TO MVP
+
+### MARKETING
+- [ ] Create app logo
+- [ ] Create website
+- [ ] Create screenshots
+- [ ] Create demo video
+
+### BULK
+
+### Wave 1 to MVP
+- [ ] Add select state on user palette creation.
+- [ ] Dark mode vs. light mode, generate appropriate text.
+- [ ] Search functionality, get that shit done.
+- [ ] Buttons styling on Analyze View needs work.
+- [ ] On "Done" edit user palette state, animate the state change.
+- [ ] Consider removing "Detected Colours" if nothing from user palette.
+- [ ] Analyze View - Asking for photo change text
+- [ ] Tab View -- change icon
+
+### Wave 2 to MVP
+- [ ] IMPLEMENT AD MOB
+- [ ] Revisit the colour grouper.
+
+### Wave 3 to MVP -- Beat the spaghetti code allegations.
+- [ ] On another branch, one big code cleanup
+- [ ] And then two small code cleanups
+- [ ] Then one more big code cleanup
+
+
+
+## DONE -- ON DECK
+- [x] Fix select state on `PaletteCreationView`, currently lacks one.
 - [ ] Make search functionality work with everything else.
 - [ ] Fix mixed colours how they're presented.
 
 ## October 25, 2024
-- [ ] Alert on deletion (are you sure)
+- [x] Alert on deletion (are you sure)
 - [ ] ???
 
 ## October 24, 2024
