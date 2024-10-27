@@ -49,8 +49,8 @@ struct UserPaletteView: View {
                 
                 if !userPaletteViewModel.userPaletteColours.isEmpty {
                     List {
-                        ForEach(Array(userPaletteViewModel.groupedColours.keys).sorted(), id: \.self) { groupName in
-                            if !(userPaletteViewModel.groupedColours[groupName]?.isEmpty ?? false) {
+                        ForEach(userPaletteViewModel.groupedColours.keys.sorted(), id: \.self) { groupName in
+                            if let groupItems = userPaletteViewModel.groupedColours[groupName], !groupItems.isEmpty {
                                 VStack(alignment: .leading) {
                                     Text(groupName)
                                         .font(.largeTitle)
@@ -58,7 +58,7 @@ struct UserPaletteView: View {
                                         .padding([.top, .leading], 8)
                                     
                                     LazyVGrid(columns: self.columns) {
-                                        ForEach(Array(userPaletteViewModel.groupedColours[groupName] ?? [])) { cI in
+                                        ForEach(groupItems) { cI in
                                             UserPaletteListItemView(paletteColourItem: cI)
                                                 .jiggle(isEnabled: self.isJiggling)
                                                 .onTapGesture {
@@ -74,9 +74,7 @@ struct UserPaletteView: View {
                                                     withAnimation {
                                                         isEditing = true
                                                         isJiggling = true
-                                                        delay(interval: 1.5) {
-                                                            self.isJiggling = false
-                                                        }
+                                                        delay(interval: 1.5) { self.isJiggling = false }
                                                     }
                                                 }
                                                 .overlay(
@@ -94,27 +92,26 @@ struct UserPaletteView: View {
                                     }
                                     .listRowSeparator(.hidden)
                                     .padding()
-                                    .searchable(text: $searchText)
-                                    .onChange(of: searchText) { search in
-                                        if !search.isEmpty {
-                                            self.userPaletteViewModel.filterPaletteColours(term: search)
-                                        } else {
-                                            self.userPaletteViewModel.resetFilteredPaletteColours()
-                                        }
-                                    }
                                 }
                                 .listRowSeparator(.hidden)
                             }
                         }
                     }
-                } else {
-                    VStack(alignment: .center) {
-                        Spacer()
-                        Text("You have no colours.")
-                        Spacer()
+                    .searchable(text: $searchText)
+                    .onChange(of: searchText) { search in
+                        if !search.isEmpty {
+                            userPaletteViewModel.filterPaletteColours(term: search)
+                        } else {
+                            userPaletteViewModel.resetFilteredPaletteColours()
+                        }
                     }
+                } else {
+                    Text("You have no colours.")
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .multilineTextAlignment(.center)
                 }
             }
+
             .navigationTitle("Your Palette")
             .onAppear {
                 self.userPaletteViewModel.fetchUserPalettes()

@@ -99,6 +99,7 @@ class UserPaletteViewModel: ObservableObject {
     func filterPaletteColours(term: String) {
         isLoading = true
         self.filteredUserPaletteColours = self.userPaletteColours.filter{ $0.colourName.contains(term) }
+        self.groupedColours = ColourHelper.groupColours(colours: self.filteredUserPaletteColours)
         print("[--PaletteViewModel filtering paletteColours based on term: \(term). Contains \(self.filteredUserPaletteColours.count) items.\n \(self.userPaletteColours)")
         isLoading = false
     }
@@ -106,6 +107,7 @@ class UserPaletteViewModel: ObservableObject {
     func resetFilteredPaletteColours() {
         isLoading = true
         self.filteredUserPaletteColours = self.userPaletteColours
+        self.groupedColours = ColourHelper.groupColours(colours: self.userPaletteColours)
         isLoading = false
     }
 }

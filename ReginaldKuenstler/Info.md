@@ -29,9 +29,15 @@
     - [ ] Select state rectangle corners rounded
     - [ ] Select state rectangle matches colour of selected colour group
 - [x] Dark mode vs. light mode, generate appropriate text.
-- [ ] Search functionality, get that shit done.
+- [x] Search functionality, get that shit done.
     - [x] on creation view
-    - [ ] on user palette view
+    - [x] on user palette view
+- [ ] UserPaletteView search states
+    - [ ] non-empty palette but search term is empty
+    - [ ] empty palette (don't view search at all?)
+- [ ] SelectPaletteView states
+    - [ ] on tap of colourItem already userOwned display alert.
+    - [ ] toast that indicates which colour has been added.
 - [ ] Buttons styling on Analyze View needs work.
 - [x] On "Done" edit user palette state, animate the state change.
 - [ ] Consider removing "Detected Colours" if nothing from user palette.
