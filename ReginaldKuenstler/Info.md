@@ -37,9 +37,14 @@
 # BIG BATCH TO MVP
 
 ### Wave 1 to MVP (BULK!!)
+- [ ] When image analysis is processing, hide the bottom tab bar?
 - [ ] Onboarding view
 - [ ] Update image analysis view to have updated user palette so it can analyze colours properly.
 - [ ] Fix word wrap on palette select items
+- [ ] Add a general typeface
+
+Suggestions:
+- Should we add a floating bottom right button on UserPalette to toggle Edit view? Is long press not obvious enough?
 
 ### Wave 2 to MVP
 - [ ] IMPLEMENT AD MOB
