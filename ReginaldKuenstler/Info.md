@@ -37,8 +37,6 @@
 # BIG BATCH TO MVP
 
 ### Wave 1 to MVP (BULK!!)
-- [ ] PaletteCreationView
-    - [ ] When selectedColours is not empty and user taps back button (to `Your Palette`), have a confirmation "are u sure u wanna exit?"
 - [ ] Onboarding view
 - [ ] Update image analysis view to have updated user palette so it can analyze colours properly.
 - [ ] Fix word wrap on palette select items
@@ -70,6 +68,8 @@ And you should be done.
 ### history
 
 October 28, 2024
+- [x] PaletteCreationView
+    - [x] When selectedColours is not empty and user taps back button (to `Your Palette`), have a confirmation "are u sure u wanna exit?"
 - [x] Change styling of `Save Selected Colours`
 - [x] `Save selected colours` button press -- "are you sure you want to save?" alert window
 - [x] Loading screen after `Save selected colours`

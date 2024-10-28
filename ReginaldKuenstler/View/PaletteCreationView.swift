@@ -7,6 +7,8 @@ struct PaletteColourSelectItem: Identifiable {
 }
 
 struct PaletteCreationView: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     @ObservedObject var viewModel: CreateUserPaletteViewModel = CreateUserPaletteViewModel()
     
     // MARK: Search logic
@@ -23,6 +25,7 @@ struct PaletteCreationView: View {
     @State private var displayColourAlreadyOwnedAlert: Bool = false
     @State private var displayClearSelectionButton: Bool = false
     @State private var displayZeroSelectedColoursAlert: Bool = false
+    @State private var displayCancelPaletteCreationAlert: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -62,12 +65,28 @@ struct PaletteCreationView: View {
                     .padding()
             }
             .navigationTitle("Create Palette")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                // Add a toolbar item for the cancel button
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Cancel", role: .destructive) {
+                        displayCancelPaletteCreationAlert = true
+                    }
+                }
+            }
             .onAppear {
                 viewModel.fetchUserPalettes()
             }
             .alert("This colour is already in your palette.", isPresented: $displayColourAlreadyOwnedAlert) {
                 
             } // alert
+            .alert("Are you sure you want to cancel palette creation?", isPresented: $displayCancelPaletteCreationAlert) {
+                Button("YES") {
+                    presentationMode.wrappedValue.dismiss()
+                }
+                Button("NO", role: .cancel) { }
+            }
         }
     }
 }
