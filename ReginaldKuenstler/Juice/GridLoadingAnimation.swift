@@ -1,6 +1,3 @@
-// https://gist.github.com/Inncoder/f3f463e1b1126026dfe0041b999bb992/d3a4c96c888f434865806c8b42873002c464c9b7
-
-
 import SwiftUI
 
 struct GridAnimationView: View {
@@ -18,7 +15,6 @@ struct GridAnimationView: View {
         [63, 64, 65, 66, 67, 68, 69, 70, 71,],
         [72, 73, 74, 75, 76, 77, 78, 79, 80,],
     ]
-
 
     let colors: [Color] = [.blue, .green, .yellow, .orange]
     
@@ -40,12 +36,16 @@ struct GridAnimationView: View {
         }
         .padding()
         .onAppear {
+            // Trigger initial animation immediately
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                animate.toggle()
+            }
+
             Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { _ in
                 if !animate { color = colors.randomElement()! }
                 animate.toggle()
             }
         }
-        // .darkBackground()
     }
     
     func delay(row: Int, col: Int) -> Double {
@@ -56,8 +56,3 @@ struct GridAnimationView: View {
         return 0.0
     }
 }
-
-
-
-
-

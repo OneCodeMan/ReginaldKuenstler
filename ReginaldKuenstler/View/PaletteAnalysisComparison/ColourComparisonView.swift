@@ -31,6 +31,7 @@ struct ColourComparisonView: View {
     
     // MARK: Boolean view states
     @State private var disableScrollNoImageInput: Bool = true
+    @State private var isImageSelected: Bool = false
     
     // Control current page index
     @State private var currentIndex = 0
@@ -38,39 +39,46 @@ struct ColourComparisonView: View {
     var body: some View {
         VStack {
             // TabView with Carousel Pages
+            // can we disable tabview?
             TabView(selection: $currentIndex) {
-                CarouselPage(id: 0, content: {
-                    ImageAnalysisInputView(image: $image, showSheet: $showSheet, showImagePicker: $showImagePicker, sourceType: $sourceType, handleAnalyzePhoto: {
-                        self.performColourAnalysis(onImage: self.image)
-                        withAnimation {
-                            if currentIndex == 0 {
-                                self.currentIndex = 1
+                if !viewModel.isLoading {
+                    CarouselPage(id: 0, content: {
+                        ImageAnalysisInputView(image: $image, showSheet: $showSheet, showImagePicker: $showImagePicker, sourceType: $sourceType, isImageSelected: $isImageSelected, isLoading: $viewModel.isLoading, handleAnalyzePhoto: {
+                            self.performColourAnalysis(onImage: self.image)
+                            withAnimation {
+                                if currentIndex == 0 {
+                                    self.currentIndex = 1
+                                }
                             }
-                        }
+                        })
                     })
-                })
-                .padding(.bottom, 20)
-                .tag(0)
+                    .padding(.bottom, 20)
+                    .tag(0)
+                }
                 
-                CarouselPage(id: 1, content: {
-                    PaletteResults(realColours: $realColours, paletteString: $paletteString, coloursFromUserPalette: $coloursFromUserPalette, personalPaletteString: $personalPaletteString, isLoading: $viewModel.isLoading, disableScrollNoImageInput: $disableScrollNoImageInput)
-                })
-                .tag(1)
+                if isImageSelected {
+                    CarouselPage(id: 1, content: {
+                        PaletteResults(realColours: $realColours, paletteString: $paletteString, coloursFromUserPalette: $coloursFromUserPalette, personalPaletteString: $personalPaletteString, isLoading: $viewModel.isLoading, disableScrollNoImageInput: $disableScrollNoImageInput)
+                    })
+                    .tag(1)
+                    .disabled(!isImageSelected) // Disable the second tab if no image is selected
+                }
+                
             }
             .tabViewStyle(PageTabViewStyle())
             .padding(.vertical, 20)
         }
         .onAppear {
-            self.views = [
-                CarouselPage(id: 0, content: {
-                    ImageAnalysisInputView(image: $image, showSheet: $showSheet, showImagePicker: $showImagePicker, sourceType: $sourceType, handleAnalyzePhoto: {
-                        self.performColourAnalysis(onImage: self.image)
-                    })
-                }),
-                CarouselPage(id: 1, content: {
-                    PaletteResults(realColours: $realColours, paletteString: $paletteString, coloursFromUserPalette: $coloursFromUserPalette, personalPaletteString: $personalPaletteString, isLoading: $viewModel.isLoading, disableScrollNoImageInput: $disableScrollNoImageInput)
-                })
-            ]
+            //            self.views = [
+            //                CarouselPage(id: 0, content: {
+            //                    ImageAnalysisInputView(image: $image, showSheet: $showSheet, showImagePicker: $showImagePicker, sourceType: $sourceType, isImageSelected: $isImageSelected, handleAnalyzePhoto: {
+            //                        self.performColourAnalysis(onImage: self.image)
+            //                    })
+            //                }),
+            //                CarouselPage(id: 1, content: {
+            //                    PaletteResults(realColours: $realColours, paletteString: $paletteString, coloursFromUserPalette: $coloursFromUserPalette, personalPaletteString: $personalPaletteString, isLoading: $viewModel.isLoading, disableScrollNoImageInput: $disableScrollNoImageInput)
+            //                })
+            //            ]
         }
     }
     
@@ -88,13 +96,16 @@ struct ColourComparisonView: View {
                     estimatedColours[i] = colourPairs[i].estimatedColourInfo.uiColour
                     paletteString += "\(colourPairs[i].name), "
                 }
+                paletteString = String(paletteString.dropLast(2))
                 
                 // Update user palette
                 if !relevantColoursFromUserPalette.isEmpty {
-                    for j in 0..<min(relevantColoursFromUserPalette.count, coloursFromUserPalette.count) {
+                    let minCount = min(relevantColoursFromUserPalette.count, coloursFromUserPalette.count)
+                    for j in 0..<minCount {
                         coloursFromUserPalette[j] = relevantColoursFromUserPalette[j].uiColour
                         personalPaletteString += "\(relevantColoursFromUserPalette[j].name), "
                     }
+                    personalPaletteString = String(personalPaletteString.dropLast(2))
                 } else {
                     coloursFromUserPalette = []
                     personalPaletteString = "No relevant colours found."
@@ -110,14 +121,16 @@ struct ImageAnalysisInputView: View {
     @Binding var showSheet: Bool
     @Binding var showImagePicker: Bool
     @Binding var sourceType: UIImagePickerController.SourceType
+    @Binding var isImageSelected: Bool  // Add this line
+    @Binding var isLoading: Bool
     var handleAnalyzePhoto: () -> ()
-
+    
     var body: some View {
         ZStack(alignment: .top) {
             VStack {
                 Spacer()
                     .frame(height: 50)
-
+                
                 // Display the placeholder image if no image is selected
                 if image.size.width == 0 && image.size.height == 0 {
                     Image(systemName: "photo.artframe") // Replace with your placeholder image name
@@ -146,7 +159,7 @@ struct ImageAnalysisInputView: View {
                         .padding()
                 }
             }
-
+            
             VStack {
                 Text("Change photo")
                     .font(.headline)
@@ -159,22 +172,29 @@ struct ImageAnalysisInputView: View {
                     .onTapGesture {
                         showSheet = true
                     }
-
+                
                 Text("Analyze")
                     .font(.headline)
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
-                    .background(Color(#colorLiteral(red: 0.5647058824, green: 0.462745098, blue: 0.9058823529, alpha: 1)))
+                    .background(!isImageSelected ? Color.gray : Color(#colorLiteral(red: 0.5647058824, green: 0.462745098, blue: 0.9058823529, alpha: 1)))
                     .cornerRadius(3)
                     .foregroundColor(.white)
                     .padding(.horizontal, 10)
                     .onTapGesture {
-                        print("Analyze button tapped, performing analysis on \(self.image)")
-                        handleAnalyzePhoto()
+                        if isImageSelected && !isLoading {
+                            print("Analyze button tapped, performing analysis on \(self.image)")
+                            handleAnalyzePhoto()
+                        }
                     }
+                    .disabled(!isImageSelected && !isLoading) // Disable if button is disabled
+                    .opacity((!isImageSelected && !isLoading) ? 0.5 : 1) // Change opacity when disabled
             }
             .padding()
             .frame(maxHeight: .infinity, alignment: .bottom)
+        }
+        .onChange(of: image) { newImage in
+            isImageSelected = !(newImage.size.width == 0 && newImage.size.height == 0)
         }
         .actionSheet(isPresented: $showSheet) {
             ActionSheet(title: Text("Select Photo"), message: Text("Choose an option"), buttons: [
@@ -204,20 +224,37 @@ struct PaletteResults: View {
     @Binding var personalPaletteString: String
     @Binding var isLoading: Bool
     @Binding var disableScrollNoImageInput: Bool
+    
+    @State var showGridLoading: Bool = false
     var body: some View {
-            if isLoading {
-                VStack {
-                    Spacer()
-                    ProgressView() {
-                        Text("Loading")
-                            .font(.title)
+        if isLoading {
+            VStack {
+                if showGridLoading {
+                    GridAnimationView()
+                } else {
+                    VStack {
+                        Spacer()
+                        ProgressView() {
+                            Text("Loading")
+                                .font(.title)
+                        }
+                        .progressViewStyle(.circular)
+                        Spacer()
                     }
-                    .progressViewStyle(.circular)
-                    Spacer()
                 }
-            } else {
+            }
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                    withAnimation {
+                        showGridLoading.toggle()
+                    }
+                }
+            }
+        } else {
             ScrollView {
                 VStack(alignment: .center) {
+                    Spacer()
+                        .frame(height: 30)
                     Text("Detected Colours")
                         .font(.title2)
                         .bold()
@@ -257,7 +294,7 @@ struct PaletteResults: View {
                     }
                 }
             }
-                .disabled(true)
+            .disabled(true)
         }
     }
 }

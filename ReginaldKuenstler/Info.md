@@ -50,13 +50,21 @@
 ### BULK
 
 ### Wave 1 to MVP
-- [ ] Analyze View - placeholder imageview
-- [ ] Analyze View - Disable tab scrolling if no image input.
-- [ ] Analyze View - Button styling on Analyze View needs work.
-- [ ] Analyze View - Logic for "Detected Colours" if nothing from user palette.
-- [ ] Update image analysis view to have updated user palette so it can analyze colours properly.
-- [ ] Fix word wrap on palette select item.
+- [x] Analyze View - placeholder imageview
+- [x] Analyze View - Disable tab scrolling if no image input.
+- [x] Analyze View - Button styling on Analyze View needs work.
+..
+- [x] Analyze View - Logic for "Detected Colours" if nothing from user palette.
+    - [x] If nothing from user palette, make the entire thing full page
+..
 - [ ] Pimped out loading views
+..
+- [ ] Alert States
+    - [ ] "Save Selected Colours" with no selectedColours
+    - [ ] "Analyze" with no inputImage
+..
+- [ ] Update image analysis view to have updated user palette so it can analyze colours properly.
+- [ ] Fix word wrap on palette select items
 ...
 - [x] On edit, keep the palette select items wiggling.
 - [x] Analyze View - Asking for photo change text
