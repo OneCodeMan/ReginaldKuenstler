@@ -19,6 +19,7 @@ struct PaletteCreationView: View {
     // when user taps on colour already owned in their palette.
     @State private var displayColourAlreadyOwnedAlert: Bool = false
     @State private var displayClearSelectionButton: Bool = false
+    @State private var displayZeroSelectedColoursAlert: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -127,6 +128,8 @@ struct SelectedColoursView: View {
     // MARK: Dismiss
     @Environment(\.dismiss) var dismiss
     
+    @State private var displayNoSelectedColoursAlert: Bool = false
+    
     var body: some View {
         VStack(alignment: .center) {
             Text("Selected Colours:")
@@ -141,8 +144,12 @@ struct SelectedColoursView: View {
             .padding()
             
             Button(action: {
-                viewModel.saveSelectedToUserDefaults()
-                dismiss() // Ensure this function is available
+                if !viewModel.filteredPaletteColourSelectItems.filter({ $0.isSelected }).isEmpty {
+                    viewModel.saveSelectedToUserDefaults()
+                    dismiss() // Ensure this function is available
+                } else {
+                    displayNoSelectedColoursAlert = true
+                }
             }) {
                 Text("Save Selected Colours")
                     .padding()
@@ -150,7 +157,11 @@ struct SelectedColoursView: View {
                     .foregroundColor(.white)
                     .cornerRadius(8)
             }
-            .disabled(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }.isEmpty)
+            // .disabled(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }.isEmpty)
+            .alert("No colours were selected.", isPresented: $displayNoSelectedColoursAlert) {
+                Button("OK", role: .cancel) {}
+            }
         }
     }
 }
+

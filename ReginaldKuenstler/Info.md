@@ -15,19 +15,24 @@
 
 
 
-## POST MVP
+# POST MVP
+
+## PREMIUM
 - [ ] Multi select imagess, determine average palette needed.
     - [ ] User can easily delete/re-add images and it's dynamic
+- [ ] User can add palette colours with photos input (they take pics of their paints)
+- [ ] Previous inputs and analyses
+
+## ENHANCEMENTS
 - [ ] Vertical center to the right there is a vertical menu of Circle() colour groups.
 - [ ] Colour mapper can be better
 - [ ] Select state rectangle matches colour of selected colour group
-- [ ] User can add palette colours with photos input (they take pics of their paints)
 
+------------------------------------------------------------------------------------------------------------------------
+# BIG BATCH TO MVP
 
-## BIG BATCH TO MVP
 ### nice to haves
 - [ ] SelectPaletteView - toast that indicates which colour has been added
-- [ ] SelectPaletteView - confirmation on what colours to select.
 - [ ] Sort by RGB
 
 ### Wave 2 to MVP
@@ -50,6 +55,17 @@
 ### BULK
 
 ### Wave 1 to MVP
+- [ ] Update image analysis view to have updated user palette so it can analyze colours properly.
+- [ ] PaletteCreationView
+    - [ ] when selectedColours is not empty and user goes back, have a confirmation "are u sure u wanna exit"
+    - [ ] save selected colours -- are you sure you want to save?
+    - [ ] Loading screen after save selected colours
+- [ ] Fix word wrap on palette select items
+
+### history
+
+October 28, 2024
+
 - [x] Analyze View - placeholder imageview
 - [x] Analyze View - Disable tab scrolling if no image input.
 - [x] Analyze View - Button styling on Analyze View needs work.
@@ -57,21 +73,18 @@
 - [x] Analyze View - Logic for "Detected Colours" if nothing from user palette.
     - [x] If nothing from user palette, make the entire thing full page
 ..
-- [ ] Pimped out loading views
+- [x] Pimped out loading views
 ..
-- [ ] Alert States
-    - [ ] "Save Selected Colours" with no selectedColours
-    - [ ] "Analyze" with no inputImage
-..
-- [ ] Update image analysis view to have updated user palette so it can analyze colours properly.
-- [ ] Fix word wrap on palette select items
+- [x] Alert States
+    - [x] "Save Selected Colours" with no selectedColours
+    - [x] "Analyze" with no inputImage
 ...
 - [x] On edit, keep the palette select items wiggling.
 - [x] Analyze View - Asking for photo change text
 - [x] Tab View -- change icons
 ...
 
-### history
+October 27, 2024
 - [x] Fix colourName Text() overlap
 - [x] Add select state on user palette creation.
     - [x] Select state rectangle corners rounded

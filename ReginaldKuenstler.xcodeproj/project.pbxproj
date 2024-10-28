@@ -40,7 +40,6 @@
 		16ED0D592CC0964B00ADCA3B /* KuenstlerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D582CC0964B00ADCA3B /* KuenstlerViewModel.swift */; };
 		16ED0D992CC152B200ADCA3B /* ColourPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D982CC152B200ADCA3B /* ColourPair.swift */; };
 		16ED0D9C2CC1538800ADCA3B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D9B2CC1538800ADCA3B /* ImagePicker.swift */; };
-		16ED0D9F2CC153A400ADCA3B /* ImageAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D9E2CC153A400ADCA3B /* ImageAnalysisView.swift */; };
 		16ED0DA12CC162AC00ADCA3B /* VColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0DA02CC162AC00ADCA3B /* VColour.swift */; };
 		16ED0DA32CC162CF00ADCA3B /* UIColor+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0DA22CC162CF00ADCA3B /* UIColor+Converter.swift */; };
 		16ED0DA62CC166D200ADCA3B /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0DA52CC166D200ADCA3B /* Artwork.swift */; };
@@ -102,7 +101,6 @@
 		16ED0D5A2CC0972500ADCA3B /* Info.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Info.md; sourceTree = "<group>"; };
 		16ED0D982CC152B200ADCA3B /* ColourPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourPair.swift; sourceTree = "<group>"; };
 		16ED0D9B2CC1538800ADCA3B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		16ED0D9E2CC153A400ADCA3B /* ImageAnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnalysisView.swift; sourceTree = "<group>"; };
 		16ED0DA02CC162AC00ADCA3B /* VColour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VColour.swift; sourceTree = "<group>"; };
 		16ED0DA22CC162CF00ADCA3B /* UIColor+Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Converter.swift"; sourceTree = "<group>"; };
 		16ED0DA52CC166D200ADCA3B /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
@@ -300,7 +298,6 @@
 				160278832CC9BD430048F4F8 /* Modifiers */,
 				166520742CC72B8E00F2836E /* PaletteAnalysisComparison */,
 				162896C42CC57C85005A2399 /* PaletteList */,
-				16ED0D9E2CC153A400ADCA3B /* ImageAnalysisView.swift */,
 				162896C72CC587FC005A2399 /* UserPaletteView.swift */,
 				162896CB2CC58FB5005A2399 /* ReginaldKuenstlerTabView.swift */,
 				162896D22CC606C1005A2399 /* PaletteCreationView.swift */,
@@ -472,7 +469,6 @@
 				16ED0DA32CC162CF00ADCA3B /* UIColor+Converter.swift in Sources */,
 				16ED0D9C2CC1538800ADCA3B /* ImagePicker.swift in Sources */,
 				162896CC2CC58FB5005A2399 /* ReginaldKuenstlerTabView.swift in Sources */,
-				16ED0D9F2CC153A400ADCA3B /* ImageAnalysisView.swift in Sources */,
 				1637C7172CCE7EE900B99812 /* MessageView.swift in Sources */,
 				1628968D2CC1A811005A2399 /* PaletteListViewModel.swift in Sources */,
 				162896D52CC678F9005A2399 /* SelectPaletteView.swift in Sources */,

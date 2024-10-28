@@ -121,9 +121,12 @@ struct ImageAnalysisInputView: View {
     @Binding var showSheet: Bool
     @Binding var showImagePicker: Bool
     @Binding var sourceType: UIImagePickerController.SourceType
-    @Binding var isImageSelected: Bool  // Add this line
+    @Binding var isImageSelected: Bool
     @Binding var isLoading: Bool
     var handleAnalyzePhoto: () -> ()
+    
+    // New state variable to control alert visibility
+    @State private var displayAnalyzePressedNoImageInputAlert = false
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -133,7 +136,7 @@ struct ImageAnalysisInputView: View {
                 
                 // Display the placeholder image if no image is selected
                 if image.size.width == 0 && image.size.height == 0 {
-                    Image(systemName: "photo.artframe") // Replace with your placeholder image name
+                    Image(systemName: "photo.artframe")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -185,10 +188,19 @@ struct ImageAnalysisInputView: View {
                         if isImageSelected && !isLoading {
                             print("Analyze button tapped, performing analysis on \(self.image)")
                             handleAnalyzePhoto()
+                        } else {
+                            displayAnalyzePressedNoImageInputAlert = true // Show alert if no image is selected
                         }
                     }
-                    .disabled(!isImageSelected && !isLoading) // Disable if button is disabled
-                    .opacity((!isImageSelected && !isLoading) ? 0.5 : 1) // Change opacity when disabled
+                    // .disabled(!isImageSelected && !isLoading)
+                    .opacity((!isImageSelected && !isLoading) ? 0.5 : 1)
+                    .alert(isPresented: $displayAnalyzePressedNoImageInputAlert) {
+                        Alert(
+                            title: Text("No Image Selected"),
+                            message: Text("Please select an image to analyze."),
+                            dismissButton: .default(Text("OK"))
+                        )
+                    }
             }
             .padding()
             .frame(maxHeight: .infinity, alignment: .bottom)
@@ -197,7 +209,7 @@ struct ImageAnalysisInputView: View {
             isImageSelected = !(newImage.size.width == 0 && newImage.size.height == 0)
         }
         .actionSheet(isPresented: $showSheet) {
-            ActionSheet(title: Text("Select Photo"), message: Text("Choose an option"), buttons: [
+            ActionSheet(title: Text("Select Image"), message: Text("Please choose an option to select a photo"), buttons: [
                 .default(Text("Take Photo")) {
                     self.sourceType = .camera
                     self.showImagePicker = true
@@ -214,6 +226,7 @@ struct ImageAnalysisInputView: View {
         }
     }
 }
+
 
 
 // second page in carousel
