@@ -12,6 +12,9 @@ struct PaletteCreationView: View {
     // MARK: Search logic
     @State private var searchText: String = ""
     
+    // MARK: bool states
+    @State private var isLoadingAfterColoursSelected: Bool = false
+    
     // Grid layout with 3 columns
     let columns = Array(repeating: GridItem(.flexible()), count: 3)
     
@@ -34,23 +37,28 @@ struct PaletteCreationView: View {
                             }
                         }
                     }
-                // Selection
-                List {
-                    ForEach(Array(viewModel.groupedColourSelectItems.keys).sorted(), id: \.self) { groupName in
-                        GroupSectionView(groupName: groupName, colourItems: viewModel.groupedColourSelectItems[groupName] ?? [], viewModel: viewModel, displayColourAlreadyOwnedAlert: $displayColourAlreadyOwnedAlert)
-                    }
-                }
-                .searchable(text: $searchText)
-                .onChange(of: searchText) { search in
-                    if !search.isEmpty {
-                        viewModel.filterPaletteColours(term: search)
-                    } else {
-                        viewModel.resetFilteredPaletteColours()
+                if !isLoadingAfterColoursSelected {
+                    VStack {
+                        // Selection
+                        List {
+                            ForEach(Array(viewModel.groupedColourSelectItems.keys).sorted(), id: \.self) { groupName in
+                                GroupSectionView(groupName: groupName, colourItems: viewModel.groupedColourSelectItems[groupName] ?? [], viewModel: viewModel, displayColourAlreadyOwnedAlert: $displayColourAlreadyOwnedAlert)
+                            }
+                        }
+                        .searchable(text: $searchText)
+                        .onChange(of: searchText) { search in
+                            if !search.isEmpty {
+                                viewModel.filterPaletteColours(term: search)
+                            } else {
+                                viewModel.resetFilteredPaletteColours()
+                            }
+                        }
                     }
                 }
                 
+                
                 // Display selected colors
-                SelectedColoursView(viewModel: viewModel)
+                SelectedColoursView(viewModel: viewModel, isLoadingAfterColoursSelected: $isLoadingAfterColoursSelected)
                     .padding()
             }
             .navigationTitle("Create Palette")
@@ -124,43 +132,83 @@ struct ColourGridView: View {
 
 struct SelectedColoursView: View {
     @ObservedObject var viewModel: CreateUserPaletteViewModel
+    @Binding var isLoadingAfterColoursSelected: Bool
     
     // MARK: Dismiss
     @Environment(\.dismiss) var dismiss
     
     @State private var displayNoSelectedColoursAlert: Bool = false
+    @State private var displayConfirmationSelectedColoursAlert: Bool = false
+    @State private var showGridLoading: Bool = false
     
     var body: some View {
         VStack(alignment: .center) {
-            Text("Selected Colours:")
-            HStack {
-                ForEach(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }) { pc in
-                    Circle()
-                        .stroke(.gray, lineWidth: 2)
-                        .fill(Color(pc.paletteColour.uiColour))
-                        .frame(height: 20)
+            if isLoadingAfterColoursSelected {
+                VStack {
+                    if showGridLoading {
+                        GridAnimationView()
+                    } else {
+                        VStack {
+                            Spacer()
+                            ProgressView() {
+                                Text("Loading")
+                                    .font(.title)
+                            }
+                            .progressViewStyle(.circular)
+                            Spacer()
+                        }
+                    }
                 }
-            }
-            .padding()
-            
-            Button(action: {
-                if !viewModel.filteredPaletteColourSelectItems.filter({ $0.isSelected }).isEmpty {
-                    viewModel.saveSelectedToUserDefaults()
-                    dismiss() // Ensure this function is available
-                } else {
-                    displayNoSelectedColoursAlert = true
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                        withAnimation {
+                            showGridLoading.toggle()
+                        }
+                    }
                 }
-            }) {
-                Text("Save Selected Colours")
+            } else {
+                VStack {
+                    Text("Selected Colours:")
+                    HStack {
+                        ForEach(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }) { pc in
+                            Circle()
+                                .stroke(.gray, lineWidth: 2)
+                                .fill(Color(pc.paletteColour.uiColour))
+                                .frame(height: 20)
+                        }
+                    }
                     .padding()
-                    .background(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }.isEmpty ? Color.gray : Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
+                    
+                    Button(action: {
+                        if !viewModel.filteredPaletteColourSelectItems.filter({ $0.isSelected }).isEmpty {
+                            viewModel.saveSelectedToUserDefaults()
+                            displayConfirmationSelectedColoursAlert = true
+                        } else {
+                            displayNoSelectedColoursAlert = true
+                        }
+                    }) {
+                        Text("Save Selected Colours")
+                            .padding()
+                            .background(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }.isEmpty ? Color.gray : Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                    }
+                    // .disabled(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }.isEmpty)
+                    .alert("No colours were selected.", isPresented: $displayNoSelectedColoursAlert) {
+                        Button("OK", role: .cancel) {}
+                    }
+                    .alert("Are you sure you are finished selecting colours?", isPresented: $displayConfirmationSelectedColoursAlert) {
+                        Button("YES") {
+                            isLoadingAfterColoursSelected = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                dismiss()
+                            }
+                        }
+                        Button("NO", role: .cancel) { }
+                    }
+                }
             }
-            // .disabled(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }.isEmpty)
-            .alert("No colours were selected.", isPresented: $displayNoSelectedColoursAlert) {
-                Button("OK", role: .cancel) {}
-            }
+            
         }
     }
 }

@@ -36,8 +36,8 @@
 ### Wave 1 to MVP (BULK!!)
 - [ ] PaletteCreationView
     - [ ] when selectedColours is not empty and user goes back, have a confirmation "are u sure u wanna exit?"
-    - [ ] `Save selected colours` button press -- "are you sure you want to save?" alert window
-    - [ ] Loading screen after `Save selected colours`
+    - [x] `Save selected colours` button press -- "are you sure you want to save?" alert window
+    - [x] Loading screen after `Save selected colours`
 - [ ] Onboarding view
 - [ ] Update image analysis view to have updated user palette so it can analyze colours properly.
 - [ ] Fix word wrap on palette select items

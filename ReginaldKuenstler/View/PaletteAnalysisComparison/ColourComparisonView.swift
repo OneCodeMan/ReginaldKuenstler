@@ -150,7 +150,7 @@ struct ImageAnalysisInputView: View {
                     Image(uiImage: self.image)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(minHeight: 400)
+                        .frame(minHeight: 400, maxHeight: 450)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .overlay(
                             Rectangle()
