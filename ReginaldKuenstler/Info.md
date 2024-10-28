@@ -18,27 +18,34 @@
 # POST MVP
 
 ## PREMIUM
-- [ ] Multi select imagess, determine average palette needed.
+- [ ] Multi select images, determine average palette, but also individual palette.
     - [ ] User can easily delete/re-add images and it's dynamic
 - [ ] User can add palette colours with photos input (they take pics of their paints)
-- [ ] Previous inputs and analyses
+- [ ] Historical data of inputs and analyses
 
 ## ENHANCEMENTS
 - [ ] Vertical center to the right there is a vertical menu of Circle() colour groups.
 - [ ] Colour mapper can be better
 - [ ] Select state rectangle matches colour of selected colour group
+- [ ] SelectPaletteView - toast that indicates which colour has been added
+- [ ] Sort by RGB
 
 ------------------------------------------------------------------------------------------------------------------------
 # BIG BATCH TO MVP
 
-### nice to haves
-- [ ] SelectPaletteView - toast that indicates which colour has been added
-- [ ] Sort by RGB
+### Wave 1 to MVP (BULK!!)
+- [ ] PaletteCreationView
+    - [ ] when selectedColours is not empty and user goes back, have a confirmation "are u sure u wanna exit?"
+    - [ ] `Save selected colours` button press -- "are you sure you want to save?" alert window
+    - [ ] Loading screen after `Save selected colours`
+- [ ] Onboarding view
+- [ ] Update image analysis view to have updated user palette so it can analyze colours properly.
+- [ ] Fix word wrap on palette select items
 
 ### Wave 2 to MVP
-- [] Onboarding view
 - [ ] IMPLEMENT AD MOB
-- [ ] Revisit the colour grouper.
+- [ ] Revisit colour grouper
+- [ ] Revisit colour mapper
 
 ### Wave 3 to MVP -- Beat the spaghetti code allegations.
 - [ ] On another branch, one big code cleanup
@@ -52,15 +59,9 @@
 - [ ] Create demo video
 - [x] Create App Launch screen
 
-### BULK
+And you should be done.
 
-### Wave 1 to MVP
-- [ ] Update image analysis view to have updated user palette so it can analyze colours properly.
-- [ ] PaletteCreationView
-    - [ ] when selectedColours is not empty and user goes back, have a confirmation "are u sure u wanna exit"
-    - [ ] save selected colours -- are you sure you want to save?
-    - [ ] Loading screen after save selected colours
-- [ ] Fix word wrap on palette select items
+### BULK
 
 ### history
 
