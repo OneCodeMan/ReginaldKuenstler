@@ -37,10 +37,17 @@
 # BIG BATCH TO MVP
 
 ### Wave 1 to MVP (BULK!!)
+- [ ] Delete on UserPalette search does not delete item. Disable/hide search on Edit state?
+- [ ] UserPalette -> Top left tab bar button to Clear All with confirmation alert
+..
 - [ ] When image analysis is processing, hide the bottom tab bar?
+..
 - [ ] Onboarding view
+..
 - [ ] Update image analysis view to have updated user palette so it can analyze colours properly.
+..
 - [ ] Fix word wrap on palette select items
+..
 - [ ] Add a general typeface
 
 Suggestions:
@@ -53,7 +60,8 @@ Suggestions:
 
 ### Wave 3 to MVP -- Beat the spaghetti code allegations.
 - [ ] On another branch, one big code cleanup
-- [ ] And then two small code cleanups
+- [ ] And then a small code cleanup
+- [ ] Then one more small code cleanup
 - [ ] Then one more big code cleanup
 
 ### WAVE 4 TO MVP - (MARKETING WAVE)
