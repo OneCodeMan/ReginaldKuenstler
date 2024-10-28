@@ -52,12 +52,15 @@
 - [ ] And then two small code cleanups
 - [ ] Then one more big code cleanup
 
-### MARKETING
+### WAVE 4 TO MVP - (MARKETING WAVE)
 - [x] Create app logo
 - [ ] Create website
 - [ ] Create screenshots
 - [ ] Create demo video
 - [x] Create App Launch screen
+
+### WAVE 5 -- FINAL WAVE -- THE DEPLOYMENT
+- [ ] Deploy app.
 
 And you should be done.
 
