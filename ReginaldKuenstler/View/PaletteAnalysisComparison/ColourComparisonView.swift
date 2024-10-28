@@ -12,8 +12,8 @@ import SwiftVibrantium
 struct ColourComparisonView: View {
     @ObservedObject var viewModel = KuenstlerViewModel()
     @State var imgTitle = "Calum from Aftersun"
-    @State var imgName = "starz"
-    @State var infoString = "Title of Image"
+    @State var imgName = ""
+    @State var infoString = ""
     @State var paletteString = ""
     @State var personalPaletteString = ""
     
@@ -22,7 +22,7 @@ struct ColourComparisonView: View {
     @State var coloursFromUserPalette: [UIColor] = Array(repeating: .clear, count: 6)
     
     // MARK: Image states
-    @State private var image = UIImage(named: "beauty") ?? UIImage()
+    @State private var image = UIImage()
     @State private var showSheet = false
     @State private var showImagePicker = false
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
@@ -111,28 +111,42 @@ struct ImageAnalysisInputView: View {
     @Binding var showImagePicker: Bool
     @Binding var sourceType: UIImagePickerController.SourceType
     var handleAnalyzePhoto: () -> ()
-    
+
     var body: some View {
         ZStack(alignment: .top) {
             VStack {
                 Spacer()
                     .frame(height: 50)
-                
-                // TODO: if no image input, add a placeholder image.
-                Image(uiImage: self.image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .overlay(
-                        Rectangle()
-                            .stroke(Color.brownOuterFrameImage, lineWidth: 12)
-                            .border(Color.goldInnerFrameImage, width: 14)
-                    )
-                    .edgesIgnoringSafeArea(.all)
-                    .statusBar(hidden: true)
-                    .padding()
+
+                // Display the placeholder image if no image is selected
+                if image.size.width == 0 && image.size.height == 0 {
+                    Image(systemName: "photo.artframe") // Replace with your placeholder image name
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .overlay(
+                            Rectangle()
+                                .stroke(Color.brownOuterFrameImage, lineWidth: 12)
+                                .border(Color.goldInnerFrameImage, width: 14)
+                        )
+                        .padding()
+                } else {
+                    Image(uiImage: self.image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(minHeight: 400)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .overlay(
+                            Rectangle()
+                                .stroke(Color.brownOuterFrameImage, lineWidth: 12)
+                                .border(Color.goldInnerFrameImage, width: 14)
+                        )
+                        .edgesIgnoringSafeArea(.all)
+                        .statusBar(hidden: true)
+                        .padding()
+                }
             }
-            
+
             VStack {
                 Text("Change photo")
                     .font(.headline)
@@ -145,7 +159,7 @@ struct ImageAnalysisInputView: View {
                     .onTapGesture {
                         showSheet = true
                     }
-                
+
                 Text("Analyze")
                     .font(.headline)
                     .frame(maxWidth: .infinity)
@@ -180,6 +194,7 @@ struct ImageAnalysisInputView: View {
         }
     }
 }
+
 
 // second page in carousel
 struct PaletteResults: View {
