@@ -189,7 +189,7 @@ struct SelectedColoursView: View {
                     }) {
                         Text("Save Selected Colours")
                             .padding()
-                            .background(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }.isEmpty ? Color.gray : Color.blue)
+                            .background(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }.isEmpty ? Color.gray : Color(#colorLiteral(red: 0.5647058824, green: 0.462745098, blue: 0.9058823529, alpha: 1)))
                             .foregroundColor(.white)
                             .cornerRadius(8)
                     }
@@ -200,7 +200,7 @@ struct SelectedColoursView: View {
                     .alert("Are you sure you are finished selecting colours?", isPresented: $displayConfirmationSelectedColoursAlert) {
                         Button("YES") {
                             isLoadingAfterColoursSelected = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
                                 dismiss()
                             }
                         }
