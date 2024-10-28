@@ -1,12 +1,19 @@
 #  DEVLOG
 
+# Clean Notes
+
+
+
+
+# Personal Diary
+
 ## Backlog
 - For missed connections, estimate the mixes of colour one would need to make that colour from the palette.
 - Given an input of about 7 images, generate the least amount of colours needed to make a palette.
 
 ..
 
-# Diary
+
 
 ## POST MVP
 - [ ] Multi select imagess, determine average palette needed.
@@ -43,15 +50,15 @@
 ### BULK
 
 ### Wave 1 to MVP
-- [ ] Update image analysis view to have updated user palette so it can analyze colours properly.
 - [ ] Analyze View - placeholder imageview
-- [x] On edit, keep the palette select items wiggling.
 - [ ] Analyze View - Disable tab scrolling if no image input.
 - [ ] Analyze View - Button styling on Analyze View needs work.
+- [ ] Analyze View - Logic for "Detected Colours" if nothing from user palette.
+- [ ] Update image analysis view to have updated user palette so it can analyze colours properly.
 - [ ] Fix word wrap on palette select item.
 - [ ] Pimped out loading views
-- [ ] Analyze View - Logic for "Detected Colours" if nothing from user palette.
 ...
+- [x] On edit, keep the palette select items wiggling.
 - [x] Analyze View - Asking for photo change text
 - [x] Tab View -- change icons
 ...

@@ -55,9 +55,9 @@ struct UserPaletteListItemView: View {
             Text(paletteColourItem.colourName)
                 .bold()
                 .font(.system(size: 14.0))
-                .multilineTextAlignment(.center) // Center align text for better appearance
-                .lineLimit(2)
-                .frame(maxWidth: .infinity)
+                .fixedSize(horizontal: false, vertical: true)
+                .lineLimit(nil)
+                .multilineTextAlignment(.center)
                 .padding(5)
         }
         .padding(10) // Overall padding
