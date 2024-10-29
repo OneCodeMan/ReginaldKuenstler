@@ -176,7 +176,7 @@ struct ImageAnalysisInputView: View {
             }
             
             VStack {
-                Text("Change photo")
+                Text("Select photo")
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
                     .background(Color(#colorLiteral(red: 0.5647058824, green: 0.462745098, blue: 0.9058823529, alpha: 1)))

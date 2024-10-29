@@ -10,15 +10,29 @@ import SwiftUI
 struct OnboardingView: View {
     @Binding var hasCompletedOnboarding: Bool
     var body: some View {
-        VStack {
-            Text("ONBOARDING VIEW")
-            Button("Get Started") {
-                hasCompletedOnboarding = true
-            }
-            .padding()
-            .background(Color.blue)
-            .foregroundColor(.white)
-            .cornerRadius(8)
+        VStack(alignment: .center) {
+            
+            Text("Welcome to Pinselton")
+                .font(.defaultFontLargeTitle)
+                .fontWeight(.bold)
+                .multilineTextAlignment(.center)
+            
+            Text("Have a great time painting! 😊")
+                .font(.defaultFontCaption)
+                .fontWeight(.medium)
+                .padding()
+            
+            Text("Proceed")
+                .font(.defaultFontButton)
+                .frame(maxWidth: .infinity)
+                .frame(width: 100, height: 50)
+                .background(Color(#colorLiteral(red: 0.5647058824, green: 0.462745098, blue: 0.9058823529, alpha: 1)))
+                .cornerRadius(3)
+                .foregroundColor(.white)
+                .padding()
+                .onTapGesture {
+                    hasCompletedOnboarding = true
+                }
         }
     }
 }

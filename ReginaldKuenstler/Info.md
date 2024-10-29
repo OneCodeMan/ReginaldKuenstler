@@ -32,6 +32,8 @@
 
 ## LOW HANGING FRUIT
 - [ ] Palette Creation - User can tap on Selected Colours to open a sheet of what colours they've selected so far.
+- [ ] Make a widget that displays the last palette created.
+- [ ] Alerts should have font (https://www.hackingwithswift.com/forums/swiftui/why-does-this-alert-code-not-show-colors/19662)
 
 ## QUESTIONS
 - Should the imageview itself be tappable to open imagepicker menu?
@@ -41,7 +43,6 @@
 
 ### Wave 1 to MVP (BULK!!)
 - [ ] Onboarding view (https://www.youtube.com/watch?v=EZzTFbbiEls)
-- [ ] Alerts should have font (https://www.hackingwithswift.com/forums/swiftui/why-does-this-alert-code-not-show-colors/19662)
 ...
 - [ ] Update image analysis view to have updated user palette so it can analyze colours properly
 
@@ -76,7 +77,7 @@ And you should be done.
 ### history
 
 October 29, 2024
-- [ ] Onboarding flow
+- [x] Onboarding flow
 - [x] Add a general typeface
 - [x] On `SaveSelectedColours` loading, hide top tab bar buttons on left and right, and hide the tab view.
 - [x] Delete on UserPalette search does not delete item. Disable/hide search on Edit state?
