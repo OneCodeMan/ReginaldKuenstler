@@ -24,11 +24,10 @@ struct PaletteListItemView: View {
                 .bold()
                 .strikethrough(paletteColourItem.paletteColour.isUserOwned)
                 .foregroundStyle(paletteColourItem.paletteColour.isUserOwned ? .gray : (self.colorScheme == .dark ? .whiteTextLightMode1 : .black))
-                .font(.system(size: 13.0))
-                .multilineTextAlignment(.center) // Center align text for better appearance
+                .allowsTightening(true)
+                .minimumScaleFactor(0.6)
                 .lineLimit(2)
-                .frame(maxWidth: .infinity)
-                .padding(5)
+                .padding(.top, 3)
         }
         .padding(10) // Overall padding
         .background(paletteColourItem.paletteColour.isUserOwned ? .gray : .clear)
@@ -46,7 +45,7 @@ struct UserPaletteListItemView: View {
     @State var paletteColourItem: PaletteColour
     
     var body: some View {
-        VStack {
+        VStack(alignment: .center) {
             Circle()
                 .stroke(.gray, lineWidth: 2)
                 .fill(Color(paletteColourItem.uiColour))
@@ -55,13 +54,12 @@ struct UserPaletteListItemView: View {
             Text(paletteColourItem.colourName)
                 .bold()
                 .font(.system(size: 14.0))
-                .fixedSize(horizontal: false, vertical: true)
-                .lineLimit(nil)
-                .multilineTextAlignment(.center)
-                .padding(5)
+                .allowsTightening(true)
+                .minimumScaleFactor(0.8)
+                .lineLimit(2)
+                .padding(.top, 3)
         }
         .padding(10) // Overall padding
-        .opacity(paletteColourItem.isUserOwned ? 0.7 : 1.0)
     }
 }
 

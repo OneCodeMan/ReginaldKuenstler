@@ -24,6 +24,7 @@
 - [ ] Historical data of inputs and analyses
 
 ## ENHANCEMENTS
+- [ ] Palette Creation - User can tap on Selected Colours to open a sheet of what colours they've selected so far.
 - [ ] Vertical center to the right there is a vertical menu of Circle() colour groups.
 - [ ] Colour mapper can be better
 - [ ] Select state rectangle matches colour of selected colour group
@@ -38,13 +39,12 @@
 
 ### Wave 1 to MVP (BULK!!)
 ..
-- [ ] Update image analysis view to have updated user palette so it can analyze colours properly.
-- [ ] Fix word wrap on palette select items
+- [ ] On `SaveSelectedColours` loading state, hide top tab bar
+- [ ] Update image analysis view to have updated user palette so it can analyze colours properly
+- [ ] Add a general typeface
 ..
 https://www.youtube.com/watch?v=gm7Xct50CFo
 - [ ] Onboarding view
-..
-- [ ] Add a general typeface
 
 Suggestions:
 - Should we add a floating bottom right button on UserPalette to toggle Edit view? Is long press not obvious enough?
@@ -81,6 +81,7 @@ October 29, 2024
 - [x] UserPalette -> Top left tab bar button to Clear All with confirmation alert
 - [x] When image analysis is processing, hide the bottom tab bar?
 - [x] Disable `Analyze` button if `self.image` already has been Analyzed, just simply slide.
+- [x] Fix word wrap on palette select items
 
 October 28, 2024
 - [x] PaletteCreationView
