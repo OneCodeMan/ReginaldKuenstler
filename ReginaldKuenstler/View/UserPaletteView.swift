@@ -20,6 +20,7 @@ struct UserPaletteView: View {
     @State private var isEditing: Bool = false
     @State private var isJiggling: Bool = false
     @State private var isPresentingConfirmation: Bool = false
+    @State private var displayClearUserPaletteConfirmationAlert: Bool = false
     
     // MARK: Selected item for deletion
     @State private var itemToDelete: (paletteColour: PaletteColour, groupName: String)?
@@ -42,16 +43,6 @@ struct UserPaletteView: View {
                             }
                         }
                     }
-                
-                // Keep search bar at the top level for consistency across states
-                .searchable(text: $searchText)
-                .onChange(of: searchText) { search in
-                    if !search.isEmpty {
-                        userPaletteViewModel.filterPaletteColours(term: search)
-                    } else {
-                        userPaletteViewModel.resetFilteredPaletteColours()
-                    }
-                }
                 
                 // State 1: User has no palette colors and is not searching
                 if userPaletteViewModel.userPaletteColours.isEmpty && searchText.isEmpty {
@@ -119,6 +110,17 @@ struct UserPaletteView: View {
                 }
             }
             .navigationTitle("Your Palette")
+            .toolbar {
+                if isEditing {
+                    // Add a toolbar item for the Clear All button
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button("Clear All", role: .destructive) {
+                            displayClearUserPaletteConfirmationAlert = true
+                        }
+                    }
+                }
+                
+            }
             .onAppear {
                 self.userPaletteViewModel.fetchUserPalettes()
             }
@@ -133,7 +135,18 @@ struct UserPaletteView: View {
                 Button("Cancel", role: .cancel) {
                     isPresentingConfirmation = false
                 }
-            }
+            } // end of delete one colour alert
+            .alert("Are you sure you want to clear your entire palette?", isPresented: $displayClearUserPaletteConfirmationAlert) {
+                Button("Yes", role: .destructive) {
+                    withAnimation(.easeOut) {
+                        isEditing = false
+                        userPaletteViewModel.deleteAllColoursFromUserPalette()
+                    }
+                }
+                Button("Cancel", role: .cancel) {
+                    displayClearUserPaletteConfirmationAlert = false
+                }
+            } // end of delete one colour alert
         }
     }
 }
@@ -145,4 +158,27 @@ struct UserPaletteView: View {
 
 func delay(interval: TimeInterval, closure: @escaping () -> Void) {
     DispatchQueue.main.asyncAfter(deadline: .now() + interval, execute: closure)
+}
+
+
+@available(iOS 15.0, macOS 12.0, tvOS 15.0, watchOS 8.0, *)
+extension View {
+
+    @ViewBuilder
+    func searchable(
+        if condition: Bool,
+        text: Binding<String>,
+        placement: SearchFieldPlacement = .automatic,
+        prompt: String
+    ) -> some View {
+        if condition {
+            self.searchable(
+                text: text,
+                placement: placement,
+                prompt: prompt
+            )
+        } else {
+            self
+        }
+    }
 }

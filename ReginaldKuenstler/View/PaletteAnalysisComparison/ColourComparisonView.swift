@@ -160,6 +160,7 @@ struct ImageAnalysisInputView: View {
                         .edgesIgnoringSafeArea(.all)
                         .statusBar(hidden: true)
                         .padding()
+                        .redacted(reason: .placeholder)
                 }
             }
             

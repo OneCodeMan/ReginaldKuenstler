@@ -95,6 +95,11 @@ class UserPaletteViewModel: ObservableObject {
         }
     }
     
+    func deleteAllColoursFromUserPalette() {
+        UserDefaultsHelper.nukeUserPaletteFromDefaults()
+        fetchUserPalettes()
+    }
+    
     // MARK: Search functionality
     func filterPaletteColours(term: String) {
         isLoading = true
