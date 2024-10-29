@@ -18,6 +18,7 @@ struct ColourGridItemView: View {
                     .fill(Color(colourItem.paletteColour.uiColour))
                     .frame(height: 50)
                 Text(colourItem.paletteColour.colourName)
+                    .font(.defaultFontButton)
                     .bold()
                     .foregroundStyle(colourItem.paletteColour.isUserOwned ? .gray : .black)
                     .strikethrough(colourItem.paletteColour.isUserOwned)

@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import SwiftUI
 
 // MARK: User Palette VM
 // fetch and delete
 
 class UserPaletteViewModel: ObservableObject {
+    @EnvironmentObject var userPaletteData: UserPaletteData
     
     @Published var userPaletteColours: [PaletteColour] = []
     @Published var filteredUserPaletteColours: [PaletteColour] = []
@@ -22,6 +24,7 @@ class UserPaletteViewModel: ObservableObject {
     
     init() {
         // UserDefaultsHelper.nukeUserPaletteFromDefaults()
+        print("\n USERPALETTEVIEWMODEL INIT() -- fetch USERPALETTES")
         self.fetchUserPalettes()
     }
     

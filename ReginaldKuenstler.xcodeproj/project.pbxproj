@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		160278852CC9BD540048F4F8 /* WiggleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160278842CC9BD540048F4F8 /* WiggleModifier.swift */; };
+		1609D0012CD1634700D3FCF8 /* UserPaletteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1609D0002CD1634700D3FCF8 /* UserPaletteData.swift */; };
+		1609D00C2CD1676F00D3FCF8 /* Merriweather-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1609D0032CD1676F00D3FCF8 /* Merriweather-Italic.ttf */; };
+		1609D00D2CD1676F00D3FCF8 /* Merriweather-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1609D0042CD1676F00D3FCF8 /* Merriweather-BlackItalic.ttf */; };
+		1609D00E2CD1676F00D3FCF8 /* Merriweather-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1609D0052CD1676F00D3FCF8 /* Merriweather-Black.ttf */; };
+		1609D00F2CD1676F00D3FCF8 /* Merriweather-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1609D0062CD1676F00D3FCF8 /* Merriweather-Light.ttf */; };
+		1609D0102CD1676F00D3FCF8 /* Merriweather-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1609D0072CD1676F00D3FCF8 /* Merriweather-LightItalic.ttf */; };
+		1609D0112CD1676F00D3FCF8 /* Merriweather-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1609D0082CD1676F00D3FCF8 /* Merriweather-Regular.ttf */; };
+		1609D0122CD1676F00D3FCF8 /* Merriweather-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1609D0092CD1676F00D3FCF8 /* Merriweather-Bold.ttf */; };
+		1609D0132CD1676F00D3FCF8 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1609D00A2CD1676F00D3FCF8 /* OFL.txt */; };
+		1609D0142CD1676F00D3FCF8 /* Merriweather-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1609D00B2CD1676F00D3FCF8 /* Merriweather-BoldItalic.ttf */; };
+		1609D0162CD1687300D3FCF8 /* UIFont+CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1609D0152CD1687300D3FCF8 /* UIFont+CustomFont.swift */; };
 		162896842CC18515005A2399 /* ColourComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896832CC18515005A2399 /* ColourComparisonView.swift */; };
 		162896892CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896882CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift */; };
 		1628968B2CC1A6FD005A2399 /* UserPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1628968A2CC1A6FD005A2399 /* UserPalette.swift */; };
@@ -65,6 +76,17 @@
 
 /* Begin PBXFileReference section */
 		160278842CC9BD540048F4F8 /* WiggleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiggleModifier.swift; sourceTree = "<group>"; };
+		1609D0002CD1634700D3FCF8 /* UserPaletteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPaletteData.swift; sourceTree = "<group>"; };
+		1609D0032CD1676F00D3FCF8 /* Merriweather-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Italic.ttf"; sourceTree = "<group>"; };
+		1609D0042CD1676F00D3FCF8 /* Merriweather-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-BlackItalic.ttf"; sourceTree = "<group>"; };
+		1609D0052CD1676F00D3FCF8 /* Merriweather-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Black.ttf"; sourceTree = "<group>"; };
+		1609D0062CD1676F00D3FCF8 /* Merriweather-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Light.ttf"; sourceTree = "<group>"; };
+		1609D0072CD1676F00D3FCF8 /* Merriweather-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-LightItalic.ttf"; sourceTree = "<group>"; };
+		1609D0082CD1676F00D3FCF8 /* Merriweather-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Regular.ttf"; sourceTree = "<group>"; };
+		1609D0092CD1676F00D3FCF8 /* Merriweather-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Bold.ttf"; sourceTree = "<group>"; };
+		1609D00A2CD1676F00D3FCF8 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		1609D00B2CD1676F00D3FCF8 /* Merriweather-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-BoldItalic.ttf"; sourceTree = "<group>"; };
+		1609D0152CD1687300D3FCF8 /* UIFont+CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFont.swift"; sourceTree = "<group>"; };
 		162896832CC18515005A2399 /* ColourComparisonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourComparisonView.swift; sourceTree = "<group>"; };
 		162896882CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserPaletteViewModel.swift; sourceTree = "<group>"; };
 		1628968A2CC1A6FD005A2399 /* UserPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPalette.swift; sourceTree = "<group>"; };
@@ -141,6 +163,22 @@
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
+		1609D0022CD1673B00D3FCF8 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				1609D0052CD1676F00D3FCF8 /* Merriweather-Black.ttf */,
+				1609D0042CD1676F00D3FCF8 /* Merriweather-BlackItalic.ttf */,
+				1609D0092CD1676F00D3FCF8 /* Merriweather-Bold.ttf */,
+				1609D00B2CD1676F00D3FCF8 /* Merriweather-BoldItalic.ttf */,
+				1609D0032CD1676F00D3FCF8 /* Merriweather-Italic.ttf */,
+				1609D0062CD1676F00D3FCF8 /* Merriweather-Light.ttf */,
+				1609D0072CD1676F00D3FCF8 /* Merriweather-LightItalic.ttf */,
+				1609D0082CD1676F00D3FCF8 /* Merriweather-Regular.ttf */,
+				1609D00A2CD1676F00D3FCF8 /* OFL.txt */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		162896C42CC57C85005A2399 /* PaletteList */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +235,7 @@
 		16ED0D212CBED1C500ADCA3B /* ReginaldKuenstler */ = {
 			isa = PBXGroup;
 			children = (
+				1609D0022CD1673B00D3FCF8 /* Assets */,
 				1637C7182CCEC4DA00B99812 /* Info.plist */,
 				1637C7102CCDC93000B99812 /* Juice */,
 				16ED0D9D2CC1539600ADCA3B /* View */,
@@ -255,6 +294,7 @@
 				16ED0D552CC0170500ADCA3B /* ColourHelper.swift */,
 				16ED0DA22CC162CF00ADCA3B /* UIColor+Converter.swift */,
 				162896C92CC58A28005A2399 /* UserDefaultsHelper.swift */,
+				1609D0152CD1687300D3FCF8 /* UIFont+CustomFont.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -266,6 +306,7 @@
 				162896882CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift */,
 				1628968C2CC1A811005A2399 /* PaletteListViewModel.swift */,
 				166520792CC7FA6A00F2836E /* UserPaletteViewModel.swift */,
+				1609D0002CD1634700D3FCF8 /* UserPaletteData.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -419,9 +460,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				16ED0D2A2CBED1C700ADCA3B /* Preview Assets.xcassets in Resources */,
+				1609D00E2CD1676F00D3FCF8 /* Merriweather-Black.ttf in Resources */,
+				1609D00D2CD1676F00D3FCF8 /* Merriweather-BlackItalic.ttf in Resources */,
 				16ED0D272CBED1C700ADCA3B /* Assets.xcassets in Resources */,
+				1609D0112CD1676F00D3FCF8 /* Merriweather-Regular.ttf in Resources */,
 				162896CE2CC5E203005A2399 /* badges.txt in Resources */,
+				1609D0132CD1676F00D3FCF8 /* OFL.txt in Resources */,
+				1609D0102CD1676F00D3FCF8 /* Merriweather-LightItalic.ttf in Resources */,
+				1609D00C2CD1676F00D3FCF8 /* Merriweather-Italic.ttf in Resources */,
+				1609D0142CD1676F00D3FCF8 /* Merriweather-BoldItalic.ttf in Resources */,
+				1609D00F2CD1676F00D3FCF8 /* Merriweather-Light.ttf in Resources */,
 				16ED0D532CC0112B00ADCA3B /* colourmap.csv in Resources */,
+				1609D0122CD1676F00D3FCF8 /* Merriweather-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +506,7 @@
 				162896C82CC587FC005A2399 /* UserPaletteView.swift in Sources */,
 				1637C7122CCDC93B00B99812 /* GridLoadingAnimation.swift in Sources */,
 				16ED0DA82CC166E600ADCA3B /* Palette.swift in Sources */,
+				1609D0012CD1634700D3FCF8 /* UserPaletteData.swift in Sources */,
 				160278852CC9BD540048F4F8 /* WiggleModifier.swift in Sources */,
 				162896842CC18515005A2399 /* ColourComparisonView.swift in Sources */,
 				1628968B2CC1A6FD005A2399 /* UserPalette.swift in Sources */,
@@ -464,6 +515,7 @@
 				162896D32CC606C1005A2399 /* PaletteCreationView.swift in Sources */,
 				1665207A2CC7FA6A00F2836E /* UserPaletteViewModel.swift in Sources */,
 				16ED0D252CBED1C500ADCA3B /* ContentView.swift in Sources */,
+				1609D0162CD1687300D3FCF8 /* UIFont+CustomFont.swift in Sources */,
 				162896D12CC5E33A005A2399 /* Badge.swift in Sources */,
 				162896D72CC6BA91005A2399 /* ColourGridItem.swift in Sources */,
 				16ED0DA32CC162CF00ADCA3B /* UIColor+Converter.swift in Sources */,

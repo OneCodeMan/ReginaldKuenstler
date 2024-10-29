@@ -24,6 +24,7 @@ class CreateUserPaletteViewModel: ObservableObject {
     
     init() {
         // UserDefaultsHelper.clearUserPaletteFromDefaults()
+        print("\nCreateUserPaletteViewModel init() -- FETCHING USERPALETTES FROM USERPALETTEVIEWMODEL")
         fetchUserPalettes()
         Task { try await self.fetchPaletteColours() }
     }

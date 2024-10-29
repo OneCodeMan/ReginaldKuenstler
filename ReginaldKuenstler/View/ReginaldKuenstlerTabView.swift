@@ -25,6 +25,7 @@ struct ReginaldKuenstlerTabView: View {
                         .foregroundColor(.red) // <2>
                     Text("Your Palette")
                 }
+                .font(.defaultFontCaption)
             
             ColourComparisonView()
                 .tag(1)
@@ -33,6 +34,7 @@ struct ReginaldKuenstlerTabView: View {
                         .renderingMode(.template)
                     Text("Analyzer")
                 }
+                .font(.defaultFontCaption)
             
 //            MessageView()
 //                .tag(2)

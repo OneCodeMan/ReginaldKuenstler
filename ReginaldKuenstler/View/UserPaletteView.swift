@@ -37,9 +37,11 @@ struct UserPaletteView: View {
                                     isJiggling.toggle()
                                 }
                             }
+                            .font(.defaultFontButton)
                         } else {
                             NavigationLink(destination: PaletteCreationView()) {
                                 Text("Add")
+                                    .font(.defaultFontCaption)
                             }
                         }
                     }
@@ -49,12 +51,14 @@ struct UserPaletteView: View {
                     Text("You have no colours.")
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .multilineTextAlignment(.center)
+                        .font(.defaultFontCaption)
                 
                 // State 2: User is searching but there are no results for the search term
                 } else if !userPaletteViewModel.userPaletteColours.isEmpty && !searchText.isEmpty && userPaletteViewModel.filteredUserPaletteColours.isEmpty {
                     Text("No results found for \"\(searchText)\".")
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .multilineTextAlignment(.center)
+                        .font(.defaultFontCaption)
                 
                 // State 3: User is searching and there are results for the search term
                 } else {
@@ -63,7 +67,7 @@ struct UserPaletteView: View {
                             if let groupItems = userPaletteViewModel.groupedColours[groupName], !groupItems.isEmpty {
                                 VStack(alignment: .leading) {
                                     Text(groupName)
-                                        .font(.largeTitle)
+                                        .font(.defaultFontLargeTitle)
                                         .bold()
                                         .padding([.top, .leading], 8)
                                     
@@ -110,6 +114,7 @@ struct UserPaletteView: View {
                 }
             }
             .navigationTitle("Your Palette")
+            .font(.defaultFontLargeTitle)
             .toolbar {
                 if isEditing {
                     // Add a toolbar item for the Clear All button
@@ -117,11 +122,13 @@ struct UserPaletteView: View {
                         Button("Clear All", role: .destructive) {
                             displayClearUserPaletteConfirmationAlert = true
                         }
+                        .font(.defaultFontCaption)
                     }
                 }
                 
             }
             .onAppear {
+                print("USERPALETTEVIEW -- FETCHING USERPALETTES FROM USERPALETTEVIEWMODEL")
                 self.userPaletteViewModel.fetchUserPalettes()
             }
             .alert("Are you sure you want to delete this colour?", isPresented: $isPresentingConfirmation) {
@@ -135,6 +142,7 @@ struct UserPaletteView: View {
                 Button("Cancel", role: .cancel) {
                     isPresentingConfirmation = false
                 }
+                .font(.defaultFontTitle)
             } // end of delete one colour alert
             .alert("Are you sure you want to clear your entire palette?", isPresented: $displayClearUserPaletteConfirmationAlert) {
                 Button("Yes", role: .destructive) {
@@ -146,6 +154,7 @@ struct UserPaletteView: View {
                 Button("Cancel", role: .cancel) {
                     displayClearUserPaletteConfirmationAlert = false
                 }
+                .font(.defaultFontCaption)
             } // end of delete one colour alert
         }
     }

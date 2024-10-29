@@ -21,6 +21,7 @@ struct PaletteListItemView: View {
                 .frame(height: 45)
             
             Text(paletteColourItem.paletteColour.colourName)
+                .font(.defaultFontListItem)
                 .bold()
                 .strikethrough(paletteColourItem.paletteColour.isUserOwned)
                 .foregroundStyle(paletteColourItem.paletteColour.isUserOwned ? .gray : (self.colorScheme == .dark ? .whiteTextLightMode1 : .black))
@@ -52,6 +53,7 @@ struct UserPaletteListItemView: View {
                 .frame(height: 50)
             
             Text(paletteColourItem.colourName)
+                .font(.defaultFontListItem)
                 .bold()
                 .font(.system(size: 14.0))
                 .allowsTightening(true)

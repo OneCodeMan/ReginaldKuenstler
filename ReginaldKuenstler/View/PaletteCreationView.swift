@@ -38,6 +38,7 @@ struct PaletteCreationView: View {
                                     viewModel.clearUserSelectedColours()
                                 }
                             }
+                            .font(.defaultFontCaption)
                         }
                     }
                 if !isLoadingAfterColoursSelected {
@@ -65,6 +66,7 @@ struct PaletteCreationView: View {
                     .padding()
             }
             .navigationTitle("Create Palette")
+            .font(.defaultFontButton)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true) // hide the back button
             .toolbar(isLoadingAfterColoursSelected ? .hidden : .visible) // hide the top bar buttons "Cancel" and "Clear" on save
@@ -75,9 +77,11 @@ struct PaletteCreationView: View {
                     Button("Cancel", role: .destructive) {
                         displayCancelPaletteCreationAlert = true
                     }
+                    .font(.defaultFontCaption)
                 }
             }
             .onAppear {
+                print("\nPALETTECREATIONVIEW -- FETCHING USERPALETTES FROM USERPALETTEVIEWMODEL")
                 viewModel.fetchUserPalettes()
             }
             .alert("This colour is already in your palette.", isPresented: $displayColourAlreadyOwnedAlert) {
@@ -87,7 +91,9 @@ struct PaletteCreationView: View {
                 Button("YES") {
                     presentationMode.wrappedValue.dismiss()
                 }
-                Button("NO", role: .cancel) { }
+                .font(.defaultFontTitle)
+                Button("NO", role: .cancel) { }.font(.defaultFontTitle)
+                
             }
         }
     }
@@ -103,7 +109,7 @@ struct GroupSectionView: View {
         if !colourItems.isEmpty {
             VStack(alignment: .leading) {
                 Text(groupName)
-                    .font(.largeTitle)
+                    .font(.defaultFontTitle)
                     .bold()
                     .padding([.top, .leading], 8)
                 
@@ -173,7 +179,7 @@ struct SelectedColoursView: View {
                             Spacer()
                             ProgressView() {
                                 Text("Loading")
-                                    .font(.title)
+                                    .font(.defaultFontTitle)
                             }
                             .progressViewStyle(.circular)
                             Spacer()
@@ -190,6 +196,7 @@ struct SelectedColoursView: View {
             } else {
                 VStack {
                     Text("Selected Colours:")
+                        .font(.defaultFontCaption)
                     HStack {
                         ForEach(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }) { pc in
                             Circle()
@@ -210,6 +217,7 @@ struct SelectedColoursView: View {
                     }) {
                         Text("Save Selected Colours")
                             .padding()
+                            .font(.defaultFontButton)
                             .background(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }.isEmpty ? Color.gray : Color(#colorLiteral(red: 0.5647058824, green: 0.462745098, blue: 0.9058823529, alpha: 1)))
                             .foregroundColor(.white)
                             .cornerRadius(8)

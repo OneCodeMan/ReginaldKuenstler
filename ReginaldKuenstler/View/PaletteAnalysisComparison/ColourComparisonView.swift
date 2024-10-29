@@ -177,7 +177,6 @@ struct ImageAnalysisInputView: View {
             
             VStack {
                 Text("Change photo")
-                    .font(.headline)
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
                     .background(Color(#colorLiteral(red: 0.5647058824, green: 0.462745098, blue: 0.9058823529, alpha: 1)))
@@ -187,9 +186,10 @@ struct ImageAnalysisInputView: View {
                     .onTapGesture {
                         showSheet = true
                     }
+                    .font(.defaultFontButton)
                 
                 Text("Analyze")
-                    .font(.headline)
+                    .font(.defaultFontButton)
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
                     .background(!isImageSelected ? Color.gray : Color(#colorLiteral(red: 0.5647058824, green: 0.462745098, blue: 0.9058823529, alpha: 1)))
@@ -322,7 +322,7 @@ struct PaletteResults: View {
                         
                         VStack {
                             Text("From Your Palette")
-                                .font(.title2)
+                                .font(.defaultFontLargeTitle)
                                 .bold()
                                 .padding()
                             HStack(alignment: .center) {
