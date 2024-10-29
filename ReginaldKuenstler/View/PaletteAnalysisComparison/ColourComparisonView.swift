@@ -280,7 +280,7 @@ struct PaletteResults: View {
                         Spacer()
                         ProgressView() {
                             Text("Loading")
-                                .font(.title)
+                                .font(.defaultFontTitle)
                         }
                         .progressViewStyle(.circular)
                         Spacer()
@@ -300,7 +300,7 @@ struct PaletteResults: View {
                     Spacer()
                         .frame(height: 30)
                     Text("Detected Colours")
-                        .font(.title2)
+                        .font(.defaultFontTitle)
                         .bold()
                     
                     HStack(spacing: 0) {
