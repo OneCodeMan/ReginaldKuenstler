@@ -68,6 +68,7 @@ struct ColourComparisonView: View {
             .tabViewStyle(PageTabViewStyle())
             .padding(.vertical, 20)
         }
+        .toolbar(viewModel.isLoading ? .hidden : .visible, for: .tabBar)
         .onAppear {
             //            self.views = [
             //                CarouselPage(id: 0, content: {
@@ -160,7 +161,7 @@ struct ImageAnalysisInputView: View {
                         .edgesIgnoringSafeArea(.all)
                         .statusBar(hidden: true)
                         .padding()
-                        .redacted(reason: .placeholder)
+                        // .redacted(reason: .placeholder)
                 }
             }
             

@@ -37,8 +37,6 @@
 # BIG BATCH TO MVP
 
 ### Wave 1 to MVP (BULK!!)
-- [ ] When image analysis is processing, hide the bottom tab bar?
-..
 - [ ] Onboarding view
 ..
 - [ ] Update image analysis view to have updated user palette so it can analyze colours properly.
@@ -80,6 +78,7 @@ And you should be done.
 October 29, 2024
 - [x] Delete on UserPalette search does not delete item. Disable/hide search on Edit state?
 - [x] UserPalette -> Top left tab bar button to Clear All with confirmation alert
+- [x] When image analysis is processing, hide the bottom tab bar?
 
 October 28, 2024
 - [x] PaletteCreationView
