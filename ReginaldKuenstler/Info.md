@@ -37,12 +37,12 @@
 # BIG BATCH TO MVP
 
 ### Wave 1 to MVP (BULK!!)
-https://www.youtube.com/watch?v=gm7Xct50CFo
-- [ ] Onboarding view
 ..
 - [ ] Update image analysis view to have updated user palette so it can analyze colours properly.
 - [ ] Fix word wrap on palette select items
-- [ ] Disable `Analyze` button if `self.image` already has been Analyzed, just simply slide.
+..
+https://www.youtube.com/watch?v=gm7Xct50CFo
+- [ ] Onboarding view
 ..
 - [ ] Add a general typeface
 
@@ -80,6 +80,7 @@ October 29, 2024
 - [x] Delete on UserPalette search does not delete item. Disable/hide search on Edit state?
 - [x] UserPalette -> Top left tab bar button to Clear All with confirmation alert
 - [x] When image analysis is processing, hide the bottom tab bar?
+- [x] Disable `Analyze` button if `self.image` already has been Analyzed, just simply slide.
 
 October 28, 2024
 - [x] PaletteCreationView

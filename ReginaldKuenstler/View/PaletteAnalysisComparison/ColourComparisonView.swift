@@ -32,6 +32,7 @@ struct ColourComparisonView: View {
     // MARK: Boolean view states
     @State private var disableScrollNoImageInput: Bool = true
     @State private var isImageSelected: Bool = false
+    @State private var didImageSelectChange: Bool = false // Set to false after every image select. Disable Analyze if true. Set to true
     
     // Control current page index
     @State private var currentIndex = 0
@@ -43,7 +44,7 @@ struct ColourComparisonView: View {
             TabView(selection: $currentIndex) {
                 if !viewModel.isLoading {
                     CarouselPage(id: 0, content: {
-                        ImageAnalysisInputView(image: $image, showSheet: $showSheet, showImagePicker: $showImagePicker, sourceType: $sourceType, isImageSelected: $isImageSelected, isLoading: $viewModel.isLoading, handleAnalyzePhoto: {
+                        ImageAnalysisInputView(currentTabViewIndex: $currentIndex,image: $image, showSheet: $showSheet, showImagePicker: $showImagePicker, sourceType: $sourceType, isImageSelected: $isImageSelected, didImageSelectChange: $didImageSelectChange, isLoading: $viewModel.isLoading, handleAnalyzePhoto: {
                             self.performColourAnalysis(onImage: self.image)
                             withAnimation {
                                 if currentIndex == 0 {
@@ -118,16 +119,19 @@ struct ColourComparisonView: View {
 
 // first page in carousel
 struct ImageAnalysisInputView: View {
+    @Binding var currentTabViewIndex: Int
     @Binding var image: UIImage
     @Binding var showSheet: Bool
     @Binding var showImagePicker: Bool
     @Binding var sourceType: UIImagePickerController.SourceType
     @Binding var isImageSelected: Bool
+    @Binding var didImageSelectChange: Bool
     @Binding var isLoading: Bool
     var handleAnalyzePhoto: () -> ()
     
-    // New state variable to control alert visibility
+    // MARK: State variables for alert
     @State private var displayAnalyzePressedNoImageInputAlert = false
+    @State private var displayImageAlreadyAnalyzedAlert = false
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -187,9 +191,16 @@ struct ImageAnalysisInputView: View {
                     .foregroundColor(.white)
                     .padding(.horizontal, 10)
                     .onTapGesture {
-                        if isImageSelected && !isLoading {
-                            print("Analyze button tapped, performing analysis on \(self.image)")
-                            handleAnalyzePhoto()
+                        if isImageSelected {
+                            if didImageSelectChange {
+                                print("Analyze button tapped, performing analysis on \(self.image)")
+                                handleAnalyzePhoto()
+                                didImageSelectChange = false
+                            } else {
+                                // we have an image, but the user already pressed Analyze on it and has not changed it.
+                                displayImageAlreadyAnalyzedAlert = true // Show alert if no image is selected
+                            }
+                            
                         } else {
                             displayAnalyzePressedNoImageInputAlert = true // Show alert if no image is selected
                         }
@@ -203,12 +214,24 @@ struct ImageAnalysisInputView: View {
                             dismissButton: .default(Text("OK"))
                         )
                     }
+                    .alert(isPresented: $displayImageAlreadyAnalyzedAlert) {
+                        Alert(
+                            title: Text("Image already analyzed"),
+                            message: Text("This image has already been analyzed."),
+                            dismissButton: .default(Text("OK"), action: {
+                                withAnimation {
+                                    currentTabViewIndex = 1
+                                }
+                            })
+                        )
+                    }
             }
             .padding()
             .frame(maxHeight: .infinity, alignment: .bottom)
         }
         .onChange(of: image) { newImage in
             isImageSelected = !(newImage.size.width == 0 && newImage.size.height == 0)
+            didImageSelectChange = true
         }
         .actionSheet(isPresented: $showSheet) {
             ActionSheet(title: Text("Select Image"), message: Text("Please choose an option to select a photo"), buttons: [
