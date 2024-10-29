@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("hasCompletedOnboarding") var hasCompletedOnboarding = false
     var body: some View {
-        ReginaldKuenstlerTabView()
-//        UserPaletteView()
-//        PaletteListView()
-        // ColourComparisonView()
-        // ImageAnalysisView()
+        if hasCompletedOnboarding {
+            ReginaldKuenstlerTabView() // Your main app view after onboarding is complete
+        } else {
+            OnboardingView(hasCompletedOnboarding: $hasCompletedOnboarding)
+        }
     }
 }
 

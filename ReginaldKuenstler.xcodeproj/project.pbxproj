@@ -19,6 +19,7 @@
 		1609D0132CD1676F00D3FCF8 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1609D00A2CD1676F00D3FCF8 /* OFL.txt */; };
 		1609D0142CD1676F00D3FCF8 /* Merriweather-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1609D00B2CD1676F00D3FCF8 /* Merriweather-BoldItalic.ttf */; };
 		1609D0162CD1687300D3FCF8 /* UIFont+CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1609D0152CD1687300D3FCF8 /* UIFont+CustomFont.swift */; };
+		1609D0182CD170E700D3FCF8 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1609D0172CD170E700D3FCF8 /* OnboardingView.swift */; };
 		162896842CC18515005A2399 /* ColourComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896832CC18515005A2399 /* ColourComparisonView.swift */; };
 		162896892CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896882CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift */; };
 		1628968B2CC1A6FD005A2399 /* UserPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1628968A2CC1A6FD005A2399 /* UserPalette.swift */; };
@@ -87,6 +88,7 @@
 		1609D00A2CD1676F00D3FCF8 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		1609D00B2CD1676F00D3FCF8 /* Merriweather-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-BoldItalic.ttf"; sourceTree = "<group>"; };
 		1609D0152CD1687300D3FCF8 /* UIFont+CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFont.swift"; sourceTree = "<group>"; };
+		1609D0172CD170E700D3FCF8 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		162896832CC18515005A2399 /* ColourComparisonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourComparisonView.swift; sourceTree = "<group>"; };
 		162896882CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserPaletteViewModel.swift; sourceTree = "<group>"; };
 		1628968A2CC1A6FD005A2399 /* UserPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPalette.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 				162896D42CC678F8005A2399 /* SelectPaletteView.swift */,
 				162896D62CC6BA91005A2399 /* ColourGridItem.swift */,
 				1637C7162CCE7EE900B99812 /* MessageView.swift */,
+				1609D0172CD170E700D3FCF8 /* OnboardingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				1609D0012CD1634700D3FCF8 /* UserPaletteData.swift in Sources */,
 				160278852CC9BD540048F4F8 /* WiggleModifier.swift in Sources */,
 				162896842CC18515005A2399 /* ColourComparisonView.swift in Sources */,
+				1609D0182CD170E700D3FCF8 /* OnboardingView.swift in Sources */,
 				1628968B2CC1A6FD005A2399 /* UserPalette.swift in Sources */,
 				166520762CC72BAD00F2836E /* ImageInputView.swift in Sources */,
 				16ED0DA12CC162AC00ADCA3B /* VColour.swift in Sources */,

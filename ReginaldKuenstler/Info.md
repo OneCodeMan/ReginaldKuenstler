@@ -40,9 +40,10 @@
 # BIG BATCH TO MVP
 
 ### Wave 1 to MVP (BULK!!)
-- [ ] Onboarding view (https://www.youtube.com/watch?v=gm7Xct50CFo)
-- [ ] Update image analysis view to have updated user palette so it can analyze colours properly
+- [ ] Onboarding view (https://www.youtube.com/watch?v=EZzTFbbiEls)
 - [ ] Alerts should have font (https://www.hackingwithswift.com/forums/swiftui/why-does-this-alert-code-not-show-colors/19662)
+...
+- [ ] Update image analysis view to have updated user palette so it can analyze colours properly
 
 Suggestions:
 - Should we add a floating bottom right button on UserPalette to toggle Edit view? Is long press not obvious enough?
@@ -75,6 +76,7 @@ And you should be done.
 ### history
 
 October 29, 2024
+- [ ] Onboarding flow
 - [x] Add a general typeface
 - [x] On `SaveSelectedColours` loading, hide top tab bar buttons on left and right, and hide the tab view.
 - [x] Delete on UserPalette search does not delete item. Disable/hide search on Edit state?
