@@ -13,8 +13,6 @@
 
 ..
 
-
-
 # POST MVP
 
 ## PREMIUM
@@ -67,8 +65,12 @@ Suggestions:
 - [ ] Create demo video
 - [x] Create App Launch screen
 
-### WAVE 5 -- FINAL WAVE -- THE DEPLOYMENT
+### WAVE 5 -- THE DEPLOYMENT
 - [ ] Deploy app.
+
+### Wave 5.5 -- Post-deployment -- FINAL WAVE
+- [ ] Create a fastlane file for deployment
+- [ ] Create tickets for future steps.
 
 And you should be done.
 
