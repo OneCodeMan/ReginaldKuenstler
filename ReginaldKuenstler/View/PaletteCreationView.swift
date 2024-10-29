@@ -57,7 +57,7 @@ struct PaletteCreationView: View {
                             }
                         }
                     }
-                }
+                } // end of if
                 
                 
                 // Display selected colors
@@ -66,7 +66,9 @@ struct PaletteCreationView: View {
             }
             .navigationTitle("Create Palette")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden(true)
+            .navigationBarBackButtonHidden(true) // hide the back button
+            .toolbar(isLoadingAfterColoursSelected ? .hidden : .visible) // hide the top bar buttons "Cancel" and "Clear" on save
+            .toolbar(isLoadingAfterColoursSelected ? .hidden : .visible, for: .tabBar) // hide the bottom tab bar menu on save
             .toolbar {
                 // Add a toolbar item for the cancel button
                 ToolbarItem(placement: .navigationBarLeading) {

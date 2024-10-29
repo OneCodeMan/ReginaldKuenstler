@@ -151,6 +151,9 @@ struct ImageAnalysisInputView: View {
                                 .border(Color.goldInnerFrameImage, width: 14)
                         )
                         .padding()
+                        .onTapGesture {
+                            showSheet = true
+                        }
                 } else {
                     Image(uiImage: self.image)
                         .resizable()
@@ -165,6 +168,9 @@ struct ImageAnalysisInputView: View {
                         .edgesIgnoringSafeArea(.all)
                         .statusBar(hidden: true)
                         .padding()
+                        .onTapGesture {
+                            showSheet = true
+                        }
                         // .redacted(reason: .placeholder)
                 }
             }

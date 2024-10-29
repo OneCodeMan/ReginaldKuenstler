@@ -24,12 +24,14 @@
 - [ ] Historical data of inputs and analyses
 
 ## ENHANCEMENTS
-- [ ] Palette Creation - User can tap on Selected Colours to open a sheet of what colours they've selected so far.
-- [ ] Vertical center to the right there is a vertical menu of Circle() colour groups.
+- [ ] On UserPalette and PaletteCreation vertical center, to the right, there is a vertical menu of Circle() colour groups.
 - [ ] Colour mapper can be better
 - [ ] Select state rectangle matches colour of selected colour group
 - [ ] SelectPaletteView - toast that indicates which colour has been added
 - [ ] Sort by RGB
+
+## LOW HANGING FRUIT
+- [ ] Palette Creation - User can tap on Selected Colours to open a sheet of what colours they've selected so far.
 
 ## QUESTIONS
 - Should the imageview itself be tappable to open imagepicker menu?
@@ -38,8 +40,6 @@
 # BIG BATCH TO MVP
 
 ### Wave 1 to MVP (BULK!!)
-..
-- [ ] On `SaveSelectedColours` loading state, hide top tab bar
 - [ ] Update image analysis view to have updated user palette so it can analyze colours properly
 - [ ] Add a general typeface
 ..
@@ -77,11 +77,13 @@ And you should be done.
 ### history
 
 October 29, 2024
+- [x] On `SaveSelectedColours` loading, hide top tab bar buttons on left and right, and hide the tab view.
 - [x] Delete on UserPalette search does not delete item. Disable/hide search on Edit state?
 - [x] UserPalette -> Top left tab bar button to Clear All with confirmation alert
 - [x] When image analysis is processing, hide the bottom tab bar?
 - [x] Disable `Analyze` button if `self.image` already has been Analyzed, just simply slide.
 - [x] Fix word wrap on palette select items
+- [x] ColourComparison - User can tap on image view to access image picker.
 
 October 28, 2024
 - [x] PaletteCreationView
