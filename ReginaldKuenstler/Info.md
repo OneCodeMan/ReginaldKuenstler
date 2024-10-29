@@ -37,11 +37,12 @@
 # BIG BATCH TO MVP
 
 ### Wave 1 to MVP (BULK!!)
+https://www.youtube.com/watch?v=gm7Xct50CFo
 - [ ] Onboarding view
 ..
 - [ ] Update image analysis view to have updated user palette so it can analyze colours properly.
-..
 - [ ] Fix word wrap on palette select items
+- [ ] Disable `Analyze` button if `self.image` already has been Analyzed, just simply slide.
 ..
 - [ ] Add a general typeface
 
