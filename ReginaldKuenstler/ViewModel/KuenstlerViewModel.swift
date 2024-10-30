@@ -14,7 +14,6 @@ import SwiftVibrantium
  */
 class KuenstlerViewModel: ObservableObject {
     
-    @Published var colourMap: [VColour] = []
     @Published var relevantColoursFromUserPalette: [VColour] = []
     
     private var estimatedColours: [VColour] = []
@@ -26,12 +25,13 @@ class KuenstlerViewModel: ObservableObject {
     // private var userPaletteViewModel: UserPaletteViewModel
     
     init() {
-        self.colourMap = ColourMapper.shared.colourMap
         self.getColoursFromUserPalette()
     }
     
-    // should be void?
-    func performAnalOnImage(artwork: Artwork, completion: @escaping (_ result: [ColourPair], [VColour]) -> Void) {
+    @MainActor
+    func performAnalOnImage(artwork: Artwork, completion: @escaping (_ result: [ColourPair], [VColour]) -> Void) async throws {
+        let colourMap = ColourMapper.shared.colourMap
+        print("colourMap status from KuenstlerViewModel.performAnal --- \(colourMap.count) items")
         self.isLoading = true
         var colourPairs: [ColourPair] = []
         self.relevantColoursFromUserPalette = []
@@ -70,7 +70,7 @@ class KuenstlerViewModel: ObservableObject {
                         
                         // Find nearest colour in the map
                         // print("passing colourMap of \(self.colourMap.count) items to converter..")
-                        let currentVColour: VColour = ColourHelper.findNearestColourInMap(withRgbValue: actualRGBCode, colourMap: self.colourMap)
+                        let currentVColour: VColour = ColourHelper.findNearestColourInMap(withRgbValue: actualRGBCode, colourMap: ColourMapper.shared.colourMap)
                         let estimatedHexCode: String = currentVColour.hexCode
                         let estimatedUIColour: UIColor = currentVColour.uiColour
                         let estimatedRGBTuple: RGBTuple = currentVColour.rgbCode

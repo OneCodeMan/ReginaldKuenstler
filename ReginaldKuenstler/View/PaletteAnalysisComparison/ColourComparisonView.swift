@@ -45,8 +45,8 @@ struct ColourComparisonView: View {
                 if !viewModel.isLoading {
                     CarouselPage(id: 0, content: {
                         ImageAnalysisInputView(currentTabViewIndex: $currentIndex,image: $image, showSheet: $showSheet, showImagePicker: $showImagePicker, sourceType: $sourceType, isImageSelected: $isImageSelected, didImageSelectChange: $didImageSelectChange, isLoading: $viewModel.isLoading, handleAnalyzePhoto: {
-                            self.performColourAnalysis(onImage: self.image)
                             withAnimation {
+                                self.performColourAnalysis(onImage: self.image)
                                 if currentIndex == 0 {
                                     self.currentIndex = 1
                                 }
@@ -81,30 +81,33 @@ struct ColourComparisonView: View {
         personalPaletteString = ""
         let artwork = Artwork(image: img, title: imgTitle)
         
-        viewModel.performAnalOnImage(artwork: artwork) { colourPairs, relevantColoursFromUserPalette in
-            DispatchQueue.main.async {
-                // Update real and estimated colours
-                for i in 0..<min(colourPairs.count, realColours.count) {
-                    realColours[i] = colourPairs[i].actualColourInfo.uiColour
-                    estimatedColours[i] = colourPairs[i].estimatedColourInfo.uiColour
-                    paletteString += "\(colourPairs[i].name), "
-                }
-                paletteString = String(paletteString.dropLast(2))
-                
-                // Update user palette
-                if !relevantColoursFromUserPalette.isEmpty {
-                    let minCount = min(relevantColoursFromUserPalette.count, coloursFromUserPalette.count)
-                    for j in 0..<minCount {
-                        coloursFromUserPalette[j] = relevantColoursFromUserPalette[j].uiColour
-                        personalPaletteString += "\(relevantColoursFromUserPalette[j].name), "
+        Task {
+            try await viewModel.performAnalOnImage(artwork: artwork) { colourPairs, relevantColoursFromUserPalette in
+                DispatchQueue.main.async {
+                    // Update real and estimated colours
+                    for i in 0..<min(colourPairs.count, realColours.count) {
+                        realColours[i] = colourPairs[i].actualColourInfo.uiColour
+                        estimatedColours[i] = colourPairs[i].estimatedColourInfo.uiColour
+                        paletteString += "\(colourPairs[i].name), "
                     }
-                    personalPaletteString = String(personalPaletteString.dropLast(2))
-                } else {
-                    coloursFromUserPalette = []
-                    personalPaletteString = "No relevant colours found."
+                    paletteString = String(paletteString.dropLast(2))
+                    
+                    // Update user palette
+                    if !relevantColoursFromUserPalette.isEmpty {
+                        let minCount = min(relevantColoursFromUserPalette.count, coloursFromUserPalette.count)
+                        for j in 0..<minCount {
+                            coloursFromUserPalette[j] = relevantColoursFromUserPalette[j].uiColour
+                            personalPaletteString += "\(relevantColoursFromUserPalette[j].name), "
+                        }
+                        personalPaletteString = String(personalPaletteString.dropLast(2))
+                    } else {
+                        coloursFromUserPalette = []
+                        personalPaletteString = "No relevant colours found."
+                    }
                 }
             }
         }
+        
     }
 }
 
