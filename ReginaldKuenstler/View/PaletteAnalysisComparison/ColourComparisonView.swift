@@ -199,7 +199,7 @@ struct ImageAnalysisInputView: View {
                     .onTapGesture {
                         if isImageSelected {
                             if didImageSelectChange {
-                                print("Analyze button tapped, performing analysis on \(self.image)")
+                                // print("Analyze button tapped, performing analysis on \(self.image)")
                                 handleAnalyzePhoto()
                                 didImageSelectChange = false
                             } else {

@@ -31,6 +31,7 @@ struct ReginaldKuenstlerTabView: View {
                 .font(.defaultFontCaption)
             
             ColourComparisonView()
+                .environmentObject(userPaletteViewModel)
                 .tag(1)
                 .tabItem {
                     Image(systemName: "chart.bar.fill")

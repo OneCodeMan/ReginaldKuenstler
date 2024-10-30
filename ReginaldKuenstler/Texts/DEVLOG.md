@@ -20,6 +20,7 @@
 - [ ] Historical data of inputs and analyses
 
 ## ENHANCEMENTS
+- [ ] IMPLEMENT AD MOB
 - [ ] On UserPalette and PaletteCreation vertical center, to the right, there is a vertical menu of Circle() colour groups.
 - [ ] Colour mapper can be better
 - [ ] Select state rectangle matches colour of selected colour group
@@ -39,27 +40,20 @@
 
 ### Wave 1 to MVP (BULK!!)
 - [ ] Update image analysis view to have updated user palette so it can analyze colours properly
+- [ ] Revisit colour mapper so that it only fetches once on entire app run.
+- [ ] Revisit colour grouper to first group by names and then by rgb. 2 separate if statements.
+- [ ] Localize at least 2 strings.
 
-Suggestions:
-- Should we add a floating bottom right button on UserPalette to toggle Edit view? Is long press not obvious enough?
-
-### Wave 2 to MVP
-- [ ] IMPLEMENT AD MOB
-- [ ] Revisit colour grouper
-- [ ] Revisit colour mapper
-
-### Wave 3 to MVP -- Beat the spaghetti code allegations.
+### Wave 2 to MVP -- Beat the spaghetti code allegations.
 - [ ] On another branch, one big code cleanup
 - [ ] And then a small code cleanup
 - [ ] Then one more small code cleanup
 - [ ] Then one more big code cleanup
 
-### WAVE 4 TO MVP - (MARKETING WAVE)
-- [x] Create app logo
+### Wave 3 to MVP -- MARKETING
 - [ ] Create website
 - [ ] Create screenshots
 - [ ] Create demo video
-- [x] Create App Launch screen
 
 ### WAVE 5 -- THE DEPLOYMENT
 - [ ] Deploy app.
@@ -67,8 +61,12 @@ Suggestions:
 ### Wave 5.5 -- Post-deployment -- FINAL WAVE
 - [ ] Create a fastlane file for deployment
 - [ ] Create tickets for future steps.
+- [ ] Write documentation for future devs.
 
 And you should be done.
+
+Suggestions:
+- Should we add a floating bottom right button on UserPalette to toggle Edit view? Is long press not obvious enough?
 
 ### BULK
 
@@ -90,6 +88,8 @@ October 29, 2024
 - [x] ColourComparison - User can tap on image view to access image picker.
 
 October 28, 2024
+- [x] Create app logo
+- [x] Create App Launch screen
 - [x] PaletteCreationView
     - [x] When selectedColours is not empty and user taps back button (to `Your Palette`), have a confirmation "are u sure u wanna exit?"
 - [x] Change styling of `Save Selected Colours`

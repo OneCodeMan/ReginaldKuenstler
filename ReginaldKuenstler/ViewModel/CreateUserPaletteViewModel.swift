@@ -28,7 +28,7 @@ class CreateUserPaletteViewModel: ObservableObject {
     
     @MainActor
     func fetchPaletteColours() async throws {
-        let mapper = ColourMapper()
+        let mapper = ColourMapper.shared
         
         mapper.createColourMapFromCSV { colourMap in
             let paletteColours: [PaletteColour] = colourMap.map { PaletteColour(fromVColour: $0) }

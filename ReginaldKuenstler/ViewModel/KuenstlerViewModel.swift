@@ -22,7 +22,9 @@ class KuenstlerViewModel: ObservableObject {
     private var approximateUserMixes: [VColour] = []
     
     @Published var isLoading: Bool = false
-
+    
+    // private var userPaletteViewModel: UserPaletteViewModel
+    
     init() {
         // UserDefaultsHelper.nukeUserPaletteFromDefaults()
         self.getColoursFromUserPalette()
@@ -30,34 +32,24 @@ class KuenstlerViewModel: ObservableObject {
     }
     
     private func generateColourMapping(completion: (([VColour]) -> Void)? = nil) {
-        // Check if the colourMap is already populated
-        if !self.colourMap.isEmpty {
-            completion?([])  // No need to regenerate
-            return
-        }
-        
-        // TODO: refactor this to environmentvariable
-        let mapper = ColourMapper()
+        // Use the singleton instance of ColourMapper
+        let mapper = ColourMapper.shared
         
         DispatchQueue.main.async {
             mapper.createColourMapFromCSV { colourMap in
                 self.colourMap = colourMap
-                // print("[--KünstlerViewModel generateColourMapping() colourMap \(colourMap.count) items")
-                
-                // Call completion once the colour map is set
                 completion?(self.colourMap)
             }
         }
-        
     }
-
+    
     // should be void?
     func performAnalOnImage(artwork: Artwork, completion: @escaping (_ result: [ColourPair], [VColour]) -> Void) {
         self.isLoading = true
         var colourPairs: [ColourPair] = []
         self.relevantColoursFromUserPalette = []
         self.estimatedColours = []
-        print("Performing analysis on \(artwork.title)")
+        // print("Performing analysis on \(artwork.title)")
         DispatchQueue.main.async {
             Vibrant.from(artwork.image).getPalette() { palette in
                 let p = palette
@@ -108,9 +100,9 @@ class KuenstlerViewModel: ObservableObject {
                         colourPairs.append(colourPair)
                     }
                 }
-                print("--KünstlerViewModel analysis has been performed, colourPairs has \(colourPairs.count) elements")
-                print(self.coloursFromUserPalette)
-                print(self.estimatedColours)
+                // print("--KünstlerViewModel analysis has been performed, colourPairs has \(colourPairs.count) elements")
+                // print(self.coloursFromUserPalette)
+                // print(self.estimatedColours)
                 let paletteIntersectionUserAndEstimate = self.determinePaletteIntersection(paletteOne: self.coloursFromUserPalette, paletteTwo: self.estimatedColours)
                 
                 let approximateColours: [VColour] = [] // ColourHelper.findBestMixesForColours(targetColours: self.estimatedColours, userPalette: self.coloursFromUserPalette)
@@ -118,8 +110,8 @@ class KuenstlerViewModel: ObservableObject {
                 self.approximateUserMixes = approximateColours
                 self.relevantColoursFromUserPalette = paletteIntersectionUserAndEstimate + approximateColours
                 
-                print("--KünstlerViewModel, relevantColoursFromUserPalette: \(self.relevantColoursFromUserPalette.count) elements")
-                print("\n\(self.relevantColoursFromUserPalette.count) elements.\n\n")
+//                print("--KünstlerViewModel, relevantColoursFromUserPalette: \(self.relevantColoursFromUserPalette.count) elements")
+//                print("\n\(self.relevantColoursFromUserPalette.count) elements.\n\n")
                 
                 self.isLoading = false
                 completion(colourPairs, self.relevantColoursFromUserPalette)
@@ -136,7 +128,7 @@ class KuenstlerViewModel: ObservableObject {
                     let generatedVColour = VColour(name: name, hexCode: hexCode)
                     self.coloursFromUserPalette.append(generatedVColour)
                 }
-               
+                
             }
         }
     }
@@ -149,7 +141,7 @@ class KuenstlerViewModel: ObservableObject {
     }
     
     // TODO: DO THIS
-//    private func determineBestMixFromUserPalette() {
-//        let (bestMix, bestDeltaE) = ColourHelper.determineBestMixFromUserPalette(userPalette: self.coloursFromUserPalette, missingColor: missingColor)
-//    }
+    //    private func determineBestMixFromUserPalette() {
+    //        let (bestMix, bestDeltaE) = ColourHelper.determineBestMixFromUserPalette(userPalette: self.coloursFromUserPalette, missingColor: missingColor)
+    //    }
 }

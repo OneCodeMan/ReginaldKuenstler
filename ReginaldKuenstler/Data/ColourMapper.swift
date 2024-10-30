@@ -8,13 +8,24 @@
 import Foundation
 import UIKit
 
-// Has a dict of colour string names and their rgb/hex values
 final class ColourMapper: ObservableObject {
+    // Singleton instance
+    static let shared = ColourMapper()
     
-    // extract `colourmap.csv` and make a dict out of it
-    // dict = { "Cadmium Red": "#FF2210" }
+    // Prevents external instantiation
+    private init() {}
+    
     @Published var colourMap: [VColour] = []
+    
     func createColourMapFromCSV(completion: @escaping ([VColour]) -> Void) {
+        print("creating colourMap from CSV.")
+        // Check if colourMap is already populated
+        if !colourMap.isEmpty {
+            completion(colourMap) // Return existing colourMap if already populated
+            return
+        }
+        
+        // Proceed to read the CSV and populate colourMap
         var coloursFromCSV: [VColour] = []
         
         guard let filePath = Bundle.main.path(forResource: "colourmap", ofType: "csv") else {
@@ -42,8 +53,8 @@ final class ColourMapper: ObservableObject {
                         coloursFromCSV.append(colour)
                     }
                 }
-                // Call completion on the main queue after reading
                 DispatchQueue.main.async {
+                    self.colourMap = coloursFromCSV // Store the fetched colours
                     completion(coloursFromCSV)
                 }
             } catch {
