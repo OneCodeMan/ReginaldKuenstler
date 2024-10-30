@@ -181,29 +181,7 @@ struct SelectedColoursView: View {
     var body: some View {
         VStack(alignment: .center) {
             if isLoadingAfterColoursSelected {
-                VStack {
-                    if showGridLoading {
-                        GridAnimationView()
-                            .environmentObject(userPaletteViewModel)
-                    } else {
-                        VStack {
-                            Spacer()
-                            ProgressView() {
-                                Text("Loading")
-                                    .font(.defaultFontTitle)
-                            }
-                            .progressViewStyle(.circular)
-                            Spacer()
-                        }
-                    }
-                }
-                .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
-                        withAnimation {
-                            showGridLoading.toggle()
-                        }
-                    }
-                }
+                DescriptiveProgressView(message: "Setting up your palette")
             } else {
                 VStack {
                     Text("Selected Colours:")

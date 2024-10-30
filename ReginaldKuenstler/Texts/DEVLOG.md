@@ -1,7 +1,15 @@
 #  DEVLOG
 
-# Clean Notes
+# Design Questions // Next Steps
 
+- UserPaletteView
+    - How do we make it more obvious that the user can edit their palette?
+- ColourAnalysisView
+    - When user taps on a single colour in the Swatch, should there be a popup view with more details on that colour?
+        - e.g. similar colours to that, maybe the user can choose out of those alternatives and replace that swatch colour.
+    - If the user lacks a direct colour match, try to see if the user has a colour in the same group as that colour.
+        - e.g. user has cadmium red, analysis detects alizarin crimson. `From Your Palette` shows `Cadmium Red`
+            - but there should be an indicator that it is NOT a _DIRECT_ match, but rather, it is a _CLOSE_ match.
 
 # Personal Diary
 
@@ -39,9 +47,10 @@
 # BIG BATCH TO MVP
 
 ### Wave 1 to MVP (BULK!!)
-- [ ] Update image analysis view to have updated user palette so it can analyze colours properly
-- [ ] Revisit colour mapper so that it only fetches once on entire app run.
+- [ ] Loading screen should have descriptive text on what is loading.
+    - Instead of `Loading..`, make it `Creating Palette...`, `Generating Swatch...`
 - [ ] Revisit colour grouper to first group by names and then by rgb. 2 separate if statements.
+- [ ] Update image analysis view to have updated user palette so it can analyze colours properly
 - [ ] Localize at least 2 strings.
 
 ### Wave 2 to MVP -- Beat the spaghetti code allegations.
@@ -71,11 +80,11 @@ Suggestions:
 ### BULK
 
 ### history
-October 30, 2024
+### October 30, 2024
+- [x] Revisit colour mapper so that it only fetches once on entire app run.
 - [x] Clean up UserDefaults palette part 1.
 
-
-October 29, 2024
+### October 29, 2024
 - [x] Onboarding view (https://www.youtube.com/watch?v=EZzTFbbiEls)
 - [x] Onboarding flow
 - [x] Add a general typeface
@@ -87,11 +96,12 @@ October 29, 2024
 - [x] Fix word wrap on palette select items
 - [x] ColourComparison - User can tap on image view to access image picker.
 
-October 28, 2024
+### October 28, 2024
 - [x] Create app logo
 - [x] Create App Launch screen
 - [x] PaletteCreationView
-    - [x] When selectedColours is not empty and user taps back button (to `Your Palette`), have a confirmation "are u sure u wanna exit?"
+    - [x] When selectedColours is not empty and user taps back button (to `Your Palette`), 
+        have a confirmation "are u sure u wanna exit?"
 - [x] Change styling of `Save Selected Colours`
 - [x] `Save selected colours` button press -- "are you sure you want to save?" alert window
 - [x] Loading screen after `Save selected colours`
@@ -114,7 +124,7 @@ October 28, 2024
 - [x] Tab View -- change icons
 ...
 
-October 27, 2024
+### October 27, 2024
 - [x] Fix colourName Text() overlap
 - [x] Add select state on user palette creation.
     - [x] Select state rectangle corners rounded

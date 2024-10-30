@@ -23,9 +23,13 @@ class PaletteListViewModel: ObservableObject {
     @Published var filteredPaletteColours: [PaletteColour] = [PaletteColour]()
     
     init() {
-        Task { try await self.fetchPaletteColours() }
+        self.colourMap = ColourMapper.shared.colourMap
+        self.paletteColours = self.colourMap.map { PaletteColour(fromVColour: $0) }
+        self.filteredPaletteColours = self.paletteColours
+        // Task { try await self.fetchPaletteColours() }
     }
     
+    // TODO: we might not need this
     @MainActor
     func fetchPaletteColours(completion: (([VColour]) -> Void)? = nil) async throws {
         let mapper = ColourMapper.shared

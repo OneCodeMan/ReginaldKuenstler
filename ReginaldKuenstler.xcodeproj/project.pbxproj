@@ -39,6 +39,7 @@
 		166520762CC72BAD00F2836E /* ImageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166520752CC72BAC00F2836E /* ImageInputView.swift */; };
 		1665207A2CC7FA6A00F2836E /* UserPaletteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166520792CC7FA6A00F2836E /* UserPaletteViewModel.swift */; };
 		166DF25F2CD18C540048C0E0 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 166DF25E2CD18C540048C0E0 /* GoogleMobileAds */; };
+		16E3146F2CD2AFEA004509D7 /* DescriptiveProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E3146E2CD2AFE9004509D7 /* DescriptiveProgressView.swift */; };
 		16ED0D232CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */; };
 		16ED0D252CBED1C500ADCA3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D242CBED1C500ADCA3B /* ContentView.swift */; };
 		16ED0D272CBED1C700ADCA3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16ED0D262CBED1C700ADCA3B /* Assets.xcassets */; };
@@ -110,6 +111,7 @@
 		166520752CC72BAC00F2836E /* ImageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInputView.swift; sourceTree = "<group>"; };
 		166520792CC7FA6A00F2836E /* UserPaletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPaletteViewModel.swift; sourceTree = "<group>"; };
 		16E3146D2CD29ED2004509D7 /* Testing.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Testing.md; sourceTree = "<group>"; };
+		16E3146E2CD2AFE9004509D7 /* DescriptiveProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptiveProgressView.swift; sourceTree = "<group>"; };
 		16ED0D1F2CBED1C500ADCA3B /* Pinselton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pinselton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReginaldKuenstlerApp.swift; sourceTree = "<group>"; };
 		16ED0D242CBED1C500ADCA3B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -203,7 +205,6 @@
 		1637C7102CCDC93000B99812 /* Juice */ = {
 			isa = PBXGroup;
 			children = (
-				1637C7112CCDC93B00B99812 /* GridLoadingAnimation.swift */,
 			);
 			path = Juice;
 			sourceTree = "<group>";
@@ -224,6 +225,15 @@
 				16E3146D2CD29ED2004509D7 /* Testing.md */,
 			);
 			path = Texts;
+			sourceTree = "<group>";
+		};
+		16E314702CD2AFF5004509D7 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				1637C7112CCDC93B00B99812 /* GridLoadingAnimation.swift */,
+				16E3146E2CD2AFE9004509D7 /* DescriptiveProgressView.swift */,
+			);
+			path = Loading;
 			sourceTree = "<group>";
 		};
 		16ED0D162CBED1C400ADCA3B = {
@@ -350,6 +360,7 @@
 		16ED0D9D2CC1539600ADCA3B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				16E314702CD2AFF5004509D7 /* Loading */,
 				160278832CC9BD430048F4F8 /* Modifiers */,
 				166520742CC72B8E00F2836E /* PaletteAnalysisComparison */,
 				162896C42CC57C85005A2399 /* PaletteList */,
@@ -522,6 +533,7 @@
 				16ED0D512CBFFAC100ADCA3B /* ColourMapper.swift in Sources */,
 				162896C82CC587FC005A2399 /* UserPaletteView.swift in Sources */,
 				1637C7122CCDC93B00B99812 /* GridLoadingAnimation.swift in Sources */,
+				16E3146F2CD2AFEA004509D7 /* DescriptiveProgressView.swift in Sources */,
 				16ED0DA82CC166E600ADCA3B /* Palette.swift in Sources */,
 				1609D0012CD1634700D3FCF8 /* UserPaletteData.swift in Sources */,
 				160278852CC9BD540048F4F8 /* WiggleModifier.swift in Sources */,

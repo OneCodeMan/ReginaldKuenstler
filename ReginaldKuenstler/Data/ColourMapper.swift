@@ -9,13 +9,20 @@ import Foundation
 import UIKit
 
 final class ColourMapper: ObservableObject {
+
+    // Data
+    private(set) var colourMap: [VColour] = []
+    
     // Singleton instance
     static let shared = ColourMapper()
     
     // Prevents external instantiation
-    private init() {}
-    
-    @Published var colourMap: [VColour] = []
+    private init() {
+        print("ColourMapper init called")
+        self.createColourMapFromCSV { cM in
+            self.colourMap = cM
+        }
+    }
     
     func createColourMapFromCSV(completion: @escaping ([VColour]) -> Void) {
         print("creating colourMap from CSV.")

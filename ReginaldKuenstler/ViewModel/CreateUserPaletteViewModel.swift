@@ -28,22 +28,19 @@ class CreateUserPaletteViewModel: ObservableObject {
     
     @MainActor
     func fetchPaletteColours() async throws {
-        let mapper = ColourMapper.shared
-        
-        mapper.createColourMapFromCSV { colourMap in
-            let paletteColours: [PaletteColour] = colourMap.map { PaletteColour(fromVColour: $0) }
+        let colourMap = ColourMapper.shared.colourMap
+        let paletteColours: [PaletteColour] = colourMap.map { PaletteColour(fromVColour: $0) }
             
-            for var colour in paletteColours {
-                if self.userPaletteViewModel.userPaletteColours.contains(colour) {
-                    colour.isUserOwned = true
-                }
-                let paletteColourSelectItem = PaletteColourSelectItem(paletteColour: colour, isSelected: false)
-                self.paletteColourSelectItems.append(paletteColourSelectItem)
+        for var colour in paletteColours {
+            if self.userPaletteViewModel.userPaletteColours.contains(colour) {
+                colour.isUserOwned = true
             }
-
-            self.filteredPaletteColourSelectItems = self.paletteColourSelectItems
-            self.groupedColourSelectItems = ColourHelper.groupColourSelectItems(colours: self.paletteColourSelectItems)
+            let paletteColourSelectItem = PaletteColourSelectItem(paletteColour: colour, isSelected: false)
+            self.paletteColourSelectItems.append(paletteColourSelectItem)
         }
+
+        self.filteredPaletteColourSelectItems = self.paletteColourSelectItems
+        self.groupedColourSelectItems = ColourHelper.groupColourSelectItems(colours: self.paletteColourSelectItems)
     }
     
     func fetchUserPalettes() {

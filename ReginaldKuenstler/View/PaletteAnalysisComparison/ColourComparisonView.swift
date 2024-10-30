@@ -264,32 +264,9 @@ struct PaletteResults: View {
     @Binding var personalPaletteString: String
     @Binding var isLoading: Bool
     @Binding var disableScrollNoImageInput: Bool
-    
-    @State var showGridLoading: Bool = false
     var body: some View {
         if isLoading {
-            VStack {
-                if showGridLoading {
-                    GridAnimationView()
-                } else {
-                    VStack {
-                        Spacer()
-                        ProgressView() {
-                            Text("Loading")
-                                .font(.defaultFontTitle)
-                        }
-                        .progressViewStyle(.circular)
-                        Spacer()
-                    }
-                }
-            }
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
-                    withAnimation {
-                        showGridLoading.toggle()
-                    }
-                }
-            }
+            DescriptiveProgressView(message: "Creating Swatch")
         } else {
             ScrollView {
                 VStack(alignment: .center) {

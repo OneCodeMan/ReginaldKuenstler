@@ -27,8 +27,10 @@ class KuenstlerViewModel: ObservableObject {
     
     init() {
         // UserDefaultsHelper.nukeUserPaletteFromDefaults()
+        self.colourMap = ColourMapper.shared.colourMap
         self.getColoursFromUserPalette()
-        self.generateColourMapping()
+//        self.getColoursFromUserPalette()
+//        self.generateColourMapping()
     }
     
     private func generateColourMapping(completion: (([VColour]) -> Void)? = nil) {
