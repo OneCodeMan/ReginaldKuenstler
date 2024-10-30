@@ -109,6 +109,7 @@
 		166520722CC72A0500F2836E /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		166520752CC72BAC00F2836E /* ImageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInputView.swift; sourceTree = "<group>"; };
 		166520792CC7FA6A00F2836E /* UserPaletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPaletteViewModel.swift; sourceTree = "<group>"; };
+		16E3146D2CD29ED2004509D7 /* Testing.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Testing.md; sourceTree = "<group>"; };
 		16ED0D1F2CBED1C500ADCA3B /* Pinselton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pinselton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReginaldKuenstlerApp.swift; sourceTree = "<group>"; };
 		16ED0D242CBED1C500ADCA3B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -123,7 +124,7 @@
 		16ED0D522CC0112A00ADCA3B /* colourmap.csv */ = {isa = PBXFileReference; lastKnownFileType = text; name = colourmap.csv; path = mapper/colourmap.csv; sourceTree = SOURCE_ROOT; };
 		16ED0D552CC0170500ADCA3B /* ColourHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourHelper.swift; sourceTree = "<group>"; };
 		16ED0D582CC0964B00ADCA3B /* KuenstlerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KuenstlerViewModel.swift; sourceTree = "<group>"; };
-		16ED0D5A2CC0972500ADCA3B /* Info.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Info.md; sourceTree = "<group>"; };
+		16ED0D5A2CC0972500ADCA3B /* DEVLOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DEVLOG.md; sourceTree = "<group>"; };
 		16ED0D982CC152B200ADCA3B /* ColourPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourPair.swift; sourceTree = "<group>"; };
 		16ED0D9B2CC1538800ADCA3B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		16ED0DA02CC162AC00ADCA3B /* VColour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VColour.swift; sourceTree = "<group>"; };
@@ -216,6 +217,15 @@
 			path = PaletteAnalysisComparison;
 			sourceTree = "<group>";
 		};
+		16E3146C2CD29EBE004509D7 /* Texts */ = {
+			isa = PBXGroup;
+			children = (
+				16ED0D5A2CC0972500ADCA3B /* DEVLOG.md */,
+				16E3146D2CD29ED2004509D7 /* Testing.md */,
+			);
+			path = Texts;
+			sourceTree = "<group>";
+		};
 		16ED0D162CBED1C400ADCA3B = {
 			isa = PBXGroup;
 			children = (
@@ -252,7 +262,7 @@
 				16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */,
 				16ED0D262CBED1C700ADCA3B /* Assets.xcassets */,
 				16ED0D282CBED1C700ADCA3B /* Preview Content */,
-				16ED0D5A2CC0972500ADCA3B /* Info.md */,
+				16E3146C2CD29EBE004509D7 /* Texts */,
 			);
 			path = ReginaldKuenstler;
 			sourceTree = "<group>";

@@ -3,8 +3,6 @@
 # Clean Notes
 
 
-
-
 # Personal Diary
 
 ## Backlog
@@ -40,8 +38,6 @@
 # BIG BATCH TO MVP
 
 ### Wave 1 to MVP (BULK!!)
-- [ ] Onboarding view (https://www.youtube.com/watch?v=EZzTFbbiEls)
-...
 - [ ] Update image analysis view to have updated user palette so it can analyze colours properly
 
 Suggestions:
@@ -77,8 +73,12 @@ And you should be done.
 ### BULK
 
 ### history
+October 30, 2024
+- [x] Clean up UserDefaults palette part 1.
+
 
 October 29, 2024
+- [x] Onboarding view (https://www.youtube.com/watch?v=EZzTFbbiEls)
 - [x] Onboarding flow
 - [x] Add a general typeface
 - [x] On `SaveSelectedColours` loading, hide top tab bar buttons on left and right, and hide the tab view.
