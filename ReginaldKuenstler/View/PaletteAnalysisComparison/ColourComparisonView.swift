@@ -71,16 +71,7 @@ struct ColourComparisonView: View {
         }
         .toolbar(viewModel.isLoading ? .hidden : .visible, for: .tabBar)
         .onAppear {
-            //            self.views = [
-            //                CarouselPage(id: 0, content: {
-            //                    ImageAnalysisInputView(image: $image, showSheet: $showSheet, showImagePicker: $showImagePicker, sourceType: $sourceType, isImageSelected: $isImageSelected, handleAnalyzePhoto: {
-            //                        self.performColourAnalysis(onImage: self.image)
-            //                    })
-            //                }),
-            //                CarouselPage(id: 1, content: {
-            //                    PaletteResults(realColours: $realColours, paletteString: $paletteString, coloursFromUserPalette: $coloursFromUserPalette, personalPaletteString: $personalPaletteString, isLoading: $viewModel.isLoading, disableScrollNoImageInput: $disableScrollNoImageInput)
-            //                })
-            //            ]
+            // 
         }
     }
     

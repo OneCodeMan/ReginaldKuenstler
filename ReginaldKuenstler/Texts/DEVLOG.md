@@ -1,6 +1,8 @@
 #  DEVLOG
 
 # Design Questions // Next Steps
+- Big Picture UX
+    - When user opens app not first time, should open to previous tab they were in.
 - Palette Colour Lists
     - Should be grouped RGB first, not alphabetically. Makes sense in this context.
 - UserPaletteView

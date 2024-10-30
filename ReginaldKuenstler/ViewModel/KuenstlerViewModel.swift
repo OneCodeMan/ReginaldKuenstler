@@ -26,23 +26,8 @@ class KuenstlerViewModel: ObservableObject {
     // private var userPaletteViewModel: UserPaletteViewModel
     
     init() {
-        // UserDefaultsHelper.nukeUserPaletteFromDefaults()
         self.colourMap = ColourMapper.shared.colourMap
         self.getColoursFromUserPalette()
-//        self.getColoursFromUserPalette()
-//        self.generateColourMapping()
-    }
-    
-    private func generateColourMapping(completion: (([VColour]) -> Void)? = nil) {
-        // Use the singleton instance of ColourMapper
-        let mapper = ColourMapper.shared
-        
-        DispatchQueue.main.async {
-            mapper.createColourMapFromCSV { colourMap in
-                self.colourMap = colourMap
-                completion?(self.colourMap)
-            }
-        }
     }
     
     // should be void?
