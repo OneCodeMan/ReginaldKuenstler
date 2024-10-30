@@ -1,6 +1,6 @@
 #  DEVLOG
 
-## MIGHT GO DOWN A G.O.D
+**MIGHT GO DOWN AS G.O.D**
 
 # Design Questions // Next Steps
 - Big Picture UX
