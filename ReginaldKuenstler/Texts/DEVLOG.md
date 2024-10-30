@@ -76,8 +76,6 @@
 
 ### Wave 2 to MVP -- Beat the spaghetti code allegations.
 - [ ] One big code cleanup
-- [ ] And then a small code cleanup
-- [ ] Then one more big code cleanup
 
 ### Wave 3 to MVP -- MARKETING
 - [ ] Create website
