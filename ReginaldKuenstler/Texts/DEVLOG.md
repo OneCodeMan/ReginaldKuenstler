@@ -33,6 +33,9 @@
         - User can easily delete/add more images
     - User can take pictures of their paints to create their palette, fuck the palette creation form.
         - Accept UIImage as input and detect with SwiftVibrantium
+        
+# CASE STUDY -- A UI/UX Perspective
+
 
 # Personal Diary
 
