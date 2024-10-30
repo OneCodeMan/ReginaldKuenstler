@@ -267,7 +267,7 @@ struct PaletteResults: View {
                     Spacer()
                         .frame(height: 30)
                     Text(String(localized: "Detected Colours"))
-                        .font(.defaultFontTitle)
+                        .font(.defaultFontLargeTitle)
                         .bold()
                     
                     HStack(spacing: 0) {

@@ -1,7 +1,7 @@
 #  DEVLOG
 
 **MIGHT GO DOWN AS G.O.D**
-
+[APP LOGO](https://imgur.com/m9Fb9lp)
 # Design Questions // Next Steps
 - Big Picture UX
     - When user opens app not first time, should open to previous tab they were in.
