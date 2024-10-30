@@ -22,6 +22,7 @@
     - If the user lacks a direct colour match, try to see if the user has a colour in the same group as that colour.
         - e.g. user has cadmium red, analysis detects alizarin crimson. `From Your Palette` shows `Cadmium Red`
             - but there should be an indicator that it is NOT a _DIRECT_ match, but rather, it is a _CLOSE_ match.
+- Revisit Onboarding View.
 
 - ~*Enhancements*~
     - User can add a bunch of images and get an AveragePalette for those images.
@@ -64,8 +65,7 @@
 # BIG BATCH TO MVP
 
 ### Wave 1 to MVP (BULK!!)
-- [ ] Set up Localization
-- [ ] Localize at least 7 strings.
+- [ ] BUGFIX: Unknown detected colours on app start and analysis is first action.
 - [ ] Update image analysis view to have updated user palette so it can analyze colours properly
 
 ### Wave 2 to MVP -- Beat the spaghetti code allegations.
@@ -95,6 +95,8 @@ Suggestions:
 
 ### history
 ### October 30, 2024
+- [x] Set up Localization
+- [x] Localize at least 7 strings.
 - [x] Revisit colour grouper to first group by names and then by rgb. 2 separate if statements.
 - [x] Loading screen should have descriptive text on what is loading.
     - Instead of `Loading..`, make it `Creating Palette...`, `Generating Swatch...`

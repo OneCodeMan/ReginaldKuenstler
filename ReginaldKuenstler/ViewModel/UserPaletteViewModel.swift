@@ -25,7 +25,7 @@ class UserPaletteViewModel: ObservableObject {
         self.userPaletteColours = []
         let defaults = UserDefaults.standard
         
-        if let userPaletteFromUserDefaults = defaults.dictionary(forKey: "userPalettes") as? [String: String]  {
+        if let userPaletteFromUserDefaults = defaults.dictionary(forKey: UserPaletteConstants.userPalettesKey) as? [String: String]  {
             for (name, hexCode) in userPaletteFromUserDefaults {
                 let generatedPaletteColour = PaletteColour(colourName: name, hexCode: hexCode, isUserOwned: true)
                 self.userPaletteColours.append(generatedPaletteColour)
@@ -38,13 +38,13 @@ class UserPaletteViewModel: ObservableObject {
             let mockUserPalette: [String: String] = [:]
             self.userPaletteColours = mockUserPalette.map { PaletteColour(colourName: $0.key, hexCode: $0.value) }
             self.filteredUserPaletteColours = self.userPaletteColours
-            defaults.set(mockUserPalette, forKey: "userPalettes")
+            defaults.set(mockUserPalette, forKey: UserPaletteConstants.userPalettesKey)
         }
     }
     
     func saveUserPaletteColours(_ newColours: [String: String]) {
-        var combinedPalette = userPaletteColoursDictionary.merging(newColours) { $1 }
-        UserDefaults.standard.set(combinedPalette, forKey: "userPalettes")
+        let combinedPalette = userPaletteColoursDictionary.merging(newColours) { $1 }
+        UserDefaults.standard.set(combinedPalette, forKey: UserPaletteConstants.userPalettesKey)
         self.userPaletteColours = combinedPalette.map { PaletteColour(colourName: $0.key, hexCode: $0.value) }
     }
     
@@ -55,13 +55,13 @@ class UserPaletteViewModel: ObservableObject {
             let updatedData = groupedColours.flatMap { $0.value }.reduce(into: [String: String]()) {
                 $0[$1.colourName] = $1.hexCode
             }
-            UserDefaults.standard.set(updatedData, forKey: "userPalettes")
+            UserDefaults.standard.set(updatedData, forKey: UserPaletteConstants.userPalettesKey)
             fetchUserPalettes() // Refresh the palettes after deletion
         }
     }
     
     func deleteAllColoursFromUserPalette() {
-        UserDefaults.standard.removeObject(forKey: "userPalettes")
+        UserDefaults.standard.removeObject(forKey: UserPaletteConstants.userPalettesKey)
         fetchUserPalettes()
     }
     

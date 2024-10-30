@@ -7,15 +7,18 @@
 
 import Foundation
 
+struct UserPaletteConstants {
+    static let userPalettesKey: String = "userPalettes"
+}
+
 class UserDefaultsHelper {
     static func isKeyPresentInUserDefaults(key: String) -> Bool {
         return UserDefaults.standard.object(forKey: key) != nil
     }
     
-    // TODO: DRY
     static func nukeUserPaletteFromDefaults() {
         let defaults = UserDefaults.standard
-        defaults.removeObject(forKey: "userPalettes")
+        defaults.removeObject(forKey: UserPaletteConstants.userPalettesKey)
         print("[--UserPaletteViewModel user defaults cleared for 'userPalettes' key.")
     }
 }

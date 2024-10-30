@@ -123,8 +123,8 @@ class KuenstlerViewModel: ObservableObject {
     
     // MARK: User Palette
     private func getColoursFromUserPalette() {
-        if UserDefaultsHelper.isKeyPresentInUserDefaults(key: "userPalettes") {
-            if let userPaletteFromUserDefaults = UserDefaults.standard.dictionary(forKey: "userPalettes") as? [String: String]  {
+        if UserDefaultsHelper.isKeyPresentInUserDefaults(key: UserPaletteConstants.userPalettesKey) {
+            if let userPaletteFromUserDefaults = UserDefaults.standard.dictionary(forKey: UserPaletteConstants.userPalettesKey) as? [String: String]  {
                 // convert UserPalette to list of VColours
                 for (name, hexCode) in userPaletteFromUserDefaults {
                     let generatedVColour = VColour(name: name, hexCode: hexCode)
