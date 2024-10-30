@@ -23,12 +23,17 @@
         - e.g. user has cadmium red, analysis detects alizarin crimson. `From Your Palette` shows `Cadmium Red`
             - but there should be an indicator that it is NOT a _DIRECT_ match, but rather, it is a _CLOSE_ match.
 
+- ~*Enhancements*~
+    - User can add a bunch of images and get an AveragePalette for those images.
+        - User can easily delete/add more images
+    - User can take pictures of their paints to create their palette, fuck the palette creation form.
+        - Accept UIImage as input and detect with SwiftVibrantium
+
 # Personal Diary
 
 ## Backlog
 - For missed connections, estimate the mixes of colour one would need to make that colour from the palette.
 - Given an input of about 7 images, generate the least amount of colours needed to make a palette.
-
 ..
 
 # POST MVP
@@ -59,13 +64,13 @@
 # BIG BATCH TO MVP
 
 ### Wave 1 to MVP (BULK!!)
-- [ ] Localize at least 2 strings.
+- [ ] Set up Localization
+- [ ] Localize at least 7 strings.
 - [ ] Update image analysis view to have updated user palette so it can analyze colours properly
 
 ### Wave 2 to MVP -- Beat the spaghetti code allegations.
-- [ ] On another branch, one big code cleanup
+- [ ] One big code cleanup
 - [ ] And then a small code cleanup
-- [ ] Then one more small code cleanup
 - [ ] Then one more big code cleanup
 
 ### Wave 3 to MVP -- MARKETING

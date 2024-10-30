@@ -34,7 +34,7 @@ struct PaletteCreationView: View {
                 Text("")
                     .toolbar {
                         if !viewModel.filteredPaletteColourSelectItems.filter({ $0.isSelected }).isEmpty {
-                            Button("Clear") {
+                            Button(String(localized: "Clear")) {
                                 withAnimation {
                                     viewModel.clearUserSelectedColours()
                                 }
@@ -68,7 +68,7 @@ struct PaletteCreationView: View {
                     .environmentObject(userPaletteViewModel)
                     .padding()
             }
-            .navigationTitle("Create Palette")
+            .navigationTitle(String(localized: "Create Palette"))
             .font(.defaultFontButton)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true) // hide the back button
@@ -77,7 +77,7 @@ struct PaletteCreationView: View {
             .toolbar {
                 // Add a toolbar item for the cancel button
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel", role: .destructive) {
+                    Button(String(localized: "Cancel"), role: .destructive) {
                         displayCancelPaletteCreationAlert = true
                     }
                     .font(.defaultFontCaption)
@@ -89,15 +89,15 @@ struct PaletteCreationView: View {
                 print("\nPALETTECREATIONVIEW -- FETCHING USERPALETTES FROM USERPALETTEVIEWMODEL")
                 viewModel.fetchUserPalettes()
             }
-            .alert("This colour is already in your palette.", isPresented: $displayColourAlreadyOwnedAlert) {
+            .alert(String(localized: "This colour is already in your palette."), isPresented: $displayColourAlreadyOwnedAlert) {
                 
             } // alert
-            .alert("Are you sure you want to cancel palette creation?", isPresented: $displayCancelPaletteCreationAlert) {
-                Button("YES") {
+            .alert(String(localized: "Are you sure you want to cancel palette creation?"), isPresented: $displayCancelPaletteCreationAlert) {
+                Button(String(localized: "YES")) {
                     presentationMode.wrappedValue.dismiss()
                 }
                 .font(.defaultFontTitle)
-                Button("NO", role: .cancel) { }.font(.defaultFontTitle)
+                Button(String(localized: "NO"), role: .cancel) { }.font(.defaultFontTitle)
                 
             }
         }
@@ -184,8 +184,7 @@ struct SelectedColoursView: View {
                 DescriptiveProgressView(message: "Setting up your palette")
             } else {
                 VStack {
-                    // TODO: Localize me
-                    Text("Selected Colours:")
+                    Text(String(localized: "Selected Colours:"))
                         .font(.defaultFontCaption)
                     HStack {
                         ForEach(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }) { pc in
@@ -205,8 +204,7 @@ struct SelectedColoursView: View {
                             displayNoSelectedColoursAlert = true
                         }
                     }) {
-                        // TODO: Localize me
-                        Text("Save Selected Colours")
+                        Text(String(localized: "Save Selected Colours"))
                             .padding()
                             .font(.defaultFontButton)
                             .background(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }.isEmpty ? Color.gray : Color(#colorLiteral(red: 0.5647058824, green: 0.462745098, blue: 0.9058823529, alpha: 1)))
@@ -214,17 +212,17 @@ struct SelectedColoursView: View {
                             .cornerRadius(8)
                     }
                     // .disabled(viewModel.filteredPaletteColourSelectItems.filter { $0.isSelected }.isEmpty)
-                    .alert("No colours were selected.", isPresented: $displayNoSelectedColoursAlert) {
+                    .alert(String(localized: "No colours were selected."), isPresented: $displayNoSelectedColoursAlert) {
                         Button("OK", role: .cancel) {}
                     }
-                    .alert("Are you sure you are finished selecting colours?", isPresented: $displayConfirmationSelectedColoursAlert) {
-                        Button("YES") {
+                    .alert(String(localized: "Are you sure you are finished selecting colours?"), isPresented: $displayConfirmationSelectedColoursAlert) {
+                        Button(String(localized: "YES")) {
                             isLoadingAfterColoursSelected = true
                             DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
                                 dismiss()
                             }
                         }
-                        Button("NO", role: .cancel) { }
+                        Button(String(localized: "NO"), role: .cancel) { }
                     }
                 }
             }

@@ -31,15 +31,12 @@
 		162896CE2CC5E203005A2399 /* badges.txt in Resources */ = {isa = PBXBuildFile; fileRef = 162896CD2CC5E203005A2399 /* badges.txt */; };
 		162896D12CC5E33A005A2399 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896D02CC5E33A005A2399 /* Badge.swift */; };
 		162896D32CC606C1005A2399 /* PaletteCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896D22CC606C1005A2399 /* PaletteCreationView.swift */; };
-		162896D52CC678F9005A2399 /* SelectPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896D42CC678F8005A2399 /* SelectPaletteView.swift */; };
 		162896D72CC6BA91005A2399 /* ColourGridItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896D62CC6BA91005A2399 /* ColourGridItem.swift */; };
 		1637C7122CCDC93B00B99812 /* GridLoadingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1637C7112CCDC93B00B99812 /* GridLoadingAnimation.swift */; };
-		1637C7172CCE7EE900B99812 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1637C7162CCE7EE900B99812 /* MessageView.swift */; };
-		166520732CC72A0500F2836E /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166520722CC72A0500F2836E /* CarouselView.swift */; };
-		166520762CC72BAD00F2836E /* ImageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166520752CC72BAC00F2836E /* ImageInputView.swift */; };
 		1665207A2CC7FA6A00F2836E /* UserPaletteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166520792CC7FA6A00F2836E /* UserPaletteViewModel.swift */; };
 		166DF25F2CD18C540048C0E0 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 166DF25E2CD18C540048C0E0 /* GoogleMobileAds */; };
 		16E3146F2CD2AFEA004509D7 /* DescriptiveProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E3146E2CD2AFE9004509D7 /* DescriptiveProgressView.swift */; };
+		16E314732CD2BBB2004509D7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 16E314722CD2BBB2004509D7 /* Localizable.xcstrings */; };
 		16ED0D232CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */; };
 		16ED0D252CBED1C500ADCA3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D242CBED1C500ADCA3B /* ContentView.swift */; };
 		16ED0D272CBED1C700ADCA3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16ED0D262CBED1C700ADCA3B /* Assets.xcassets */; };
@@ -102,16 +99,13 @@
 		162896CD2CC5E203005A2399 /* badges.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = badges.txt; sourceTree = "<group>"; };
 		162896D02CC5E33A005A2399 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		162896D22CC606C1005A2399 /* PaletteCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCreationView.swift; sourceTree = "<group>"; };
-		162896D42CC678F8005A2399 /* SelectPaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPaletteView.swift; sourceTree = "<group>"; };
 		162896D62CC6BA91005A2399 /* ColourGridItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourGridItem.swift; sourceTree = "<group>"; };
 		1637C7112CCDC93B00B99812 /* GridLoadingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLoadingAnimation.swift; sourceTree = "<group>"; };
-		1637C7162CCE7EE900B99812 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		1637C7182CCEC4DA00B99812 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		166520722CC72A0500F2836E /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
-		166520752CC72BAC00F2836E /* ImageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInputView.swift; sourceTree = "<group>"; };
 		166520792CC7FA6A00F2836E /* UserPaletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPaletteViewModel.swift; sourceTree = "<group>"; };
 		16E3146D2CD29ED2004509D7 /* Testing.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Testing.md; sourceTree = "<group>"; };
 		16E3146E2CD2AFE9004509D7 /* DescriptiveProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptiveProgressView.swift; sourceTree = "<group>"; };
+		16E314722CD2BBB2004509D7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		16ED0D1F2CBED1C500ADCA3B /* Pinselton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pinselton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReginaldKuenstlerApp.swift; sourceTree = "<group>"; };
 		16ED0D242CBED1C500ADCA3B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -173,15 +167,8 @@
 		1609D0022CD1673B00D3FCF8 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				1609D0052CD1676F00D3FCF8 /* Merriweather-Black.ttf */,
-				1609D0042CD1676F00D3FCF8 /* Merriweather-BlackItalic.ttf */,
-				1609D0092CD1676F00D3FCF8 /* Merriweather-Bold.ttf */,
-				1609D00B2CD1676F00D3FCF8 /* Merriweather-BoldItalic.ttf */,
-				1609D0032CD1676F00D3FCF8 /* Merriweather-Italic.ttf */,
-				1609D0062CD1676F00D3FCF8 /* Merriweather-Light.ttf */,
-				1609D0072CD1676F00D3FCF8 /* Merriweather-LightItalic.ttf */,
-				1609D0082CD1676F00D3FCF8 /* Merriweather-Regular.ttf */,
-				1609D00A2CD1676F00D3FCF8 /* OFL.txt */,
+				16E314712CD2BB90004509D7 /* Localization */,
+				16E314742CD2BF00004509D7 /* Fonts */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -212,7 +199,6 @@
 		166520742CC72B8E00F2836E /* PaletteAnalysisComparison */ = {
 			isa = PBXGroup;
 			children = (
-				166520752CC72BAC00F2836E /* ImageInputView.swift */,
 				162896832CC18515005A2399 /* ColourComparisonView.swift */,
 			);
 			path = PaletteAnalysisComparison;
@@ -234,6 +220,30 @@
 				16E3146E2CD2AFE9004509D7 /* DescriptiveProgressView.swift */,
 			);
 			path = Loading;
+			sourceTree = "<group>";
+		};
+		16E314712CD2BB90004509D7 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				16E314722CD2BBB2004509D7 /* Localizable.xcstrings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		16E314742CD2BF00004509D7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1609D0052CD1676F00D3FCF8 /* Merriweather-Black.ttf */,
+				1609D0042CD1676F00D3FCF8 /* Merriweather-BlackItalic.ttf */,
+				1609D0092CD1676F00D3FCF8 /* Merriweather-Bold.ttf */,
+				1609D00B2CD1676F00D3FCF8 /* Merriweather-BoldItalic.ttf */,
+				1609D0032CD1676F00D3FCF8 /* Merriweather-Italic.ttf */,
+				1609D0062CD1676F00D3FCF8 /* Merriweather-Light.ttf */,
+				1609D0072CD1676F00D3FCF8 /* Merriweather-LightItalic.ttf */,
+				1609D0082CD1676F00D3FCF8 /* Merriweather-Regular.ttf */,
+				1609D00A2CD1676F00D3FCF8 /* OFL.txt */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		16ED0D162CBED1C400ADCA3B = {
@@ -352,7 +362,6 @@
 			isa = PBXGroup;
 			children = (
 				16ED0D9B2CC1538800ADCA3B /* ImagePicker.swift */,
-				166520722CC72A0500F2836E /* CarouselView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -367,9 +376,7 @@
 				162896C72CC587FC005A2399 /* UserPaletteView.swift */,
 				162896CB2CC58FB5005A2399 /* ReginaldKuenstlerTabView.swift */,
 				162896D22CC606C1005A2399 /* PaletteCreationView.swift */,
-				162896D42CC678F8005A2399 /* SelectPaletteView.swift */,
 				162896D62CC6BA91005A2399 /* ColourGridItem.swift */,
-				1637C7162CCE7EE900B99812 /* MessageView.swift */,
 				1609D0172CD170E700D3FCF8 /* OnboardingView.swift */,
 			);
 			path = View;
@@ -465,6 +472,8 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				it,
 			);
 			mainGroup = 16ED0D162CBED1C400ADCA3B;
 			packageReferences = (
@@ -499,6 +508,7 @@
 				1609D0142CD1676F00D3FCF8 /* Merriweather-BoldItalic.ttf in Resources */,
 				1609D00F2CD1676F00D3FCF8 /* Merriweather-Light.ttf in Resources */,
 				16ED0D532CC0112B00ADCA3B /* colourmap.csv in Resources */,
+				16E314732CD2BBB2004509D7 /* Localizable.xcstrings in Resources */,
 				1609D0122CD1676F00D3FCF8 /* Merriweather-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,7 +534,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				166520732CC72A0500F2836E /* CarouselView.swift in Sources */,
 				162896CA2CC58A28005A2399 /* UserDefaultsHelper.swift in Sources */,
 				162896C62CC57C99005A2399 /* PaletteListItemView.swift in Sources */,
 				16ED0D562CC0170500ADCA3B /* ColourHelper.swift in Sources */,
@@ -540,7 +549,6 @@
 				162896842CC18515005A2399 /* ColourComparisonView.swift in Sources */,
 				1609D0182CD170E700D3FCF8 /* OnboardingView.swift in Sources */,
 				1628968B2CC1A6FD005A2399 /* UserPalette.swift in Sources */,
-				166520762CC72BAD00F2836E /* ImageInputView.swift in Sources */,
 				16ED0DA12CC162AC00ADCA3B /* VColour.swift in Sources */,
 				162896D32CC606C1005A2399 /* PaletteCreationView.swift in Sources */,
 				1665207A2CC7FA6A00F2836E /* UserPaletteViewModel.swift in Sources */,
@@ -551,9 +559,7 @@
 				16ED0DA32CC162CF00ADCA3B /* UIColor+Converter.swift in Sources */,
 				16ED0D9C2CC1538800ADCA3B /* ImagePicker.swift in Sources */,
 				162896CC2CC58FB5005A2399 /* ReginaldKuenstlerTabView.swift in Sources */,
-				1637C7172CCE7EE900B99812 /* MessageView.swift in Sources */,
 				1628968D2CC1A811005A2399 /* PaletteListViewModel.swift in Sources */,
-				162896D52CC678F9005A2399 /* SelectPaletteView.swift in Sources */,
 				16ED0D232CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift in Sources */,
 				16ED0D592CC0964B00ADCA3B /* KuenstlerViewModel.swift in Sources */,
 				16ED0D992CC152B200ADCA3B /* ColourPair.swift in Sources */,

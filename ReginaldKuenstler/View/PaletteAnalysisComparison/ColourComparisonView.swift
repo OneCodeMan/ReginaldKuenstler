@@ -176,7 +176,7 @@ struct ImageAnalysisInputView: View {
             }
             
             VStack {
-                Text("Select Photo") // TODO: Localize me
+                Text(String(localized: "Select Photo"))
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
                     .background(Color(#colorLiteral(red: 0.5647058824, green: 0.462745098, blue: 0.9058823529, alpha: 1)))
@@ -188,7 +188,7 @@ struct ImageAnalysisInputView: View {
                     }
                     .font(.defaultFontButton)
                 
-                Text("Analyze") // TODO: Localize me
+                Text(String(localized: "Analyze"))
                     .font(.defaultFontButton)
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
@@ -213,14 +213,14 @@ struct ImageAnalysisInputView: View {
                     }
                     // .disabled(!isImageSelected && !isLoading)
                     .opacity((!isImageSelected && !isLoading) ? 0.5 : 1)
-                    .alert("Please select an image to analyze.", isPresented: $displayAnalyzePressedNoImageInputAlert) {
-                        Button("OK") {}
+                    .alert(String(localized: "Please select an image to analyze."), isPresented: $displayAnalyzePressedNoImageInputAlert) {
+                        Button(String(localized: "OK")) {}
                     }
                     .alert(isPresented: $displayImageAlreadyAnalyzedAlert) {
                         Alert(
-                            title: Text("Image already analyzed"),
-                            message: Text("This image has already been analyzed."),
-                            dismissButton: .default(Text("OK"), action: {
+                            title: Text(String(localized: "Image already analyzed")),
+                            message: Text(String(localized: "This image has already been analyzed.")),
+                            dismissButton: .default(Text(String(localized: "OK")), action: {
                                 withAnimation {
                                     currentTabViewIndex = 1
                                 }
@@ -236,13 +236,12 @@ struct ImageAnalysisInputView: View {
             didImageSelectChange = true
         }
         .actionSheet(isPresented: $showSheet) {
-            // TODO: Localize me
-            ActionSheet(title: Text("Select Image"), message: Text("Please choose an option to select a photo"), buttons: [
-                .default(Text("Take Photo") ) {
+            ActionSheet(title: Text(String(localized: "Select Image")), message: Text(String(localized: "Please choose an option to select a photo")), buttons: [
+                .default(Text(String(localized: "Take Photo"))) {
                     self.sourceType = .camera
                     self.showImagePicker = true
                 },
-                .default(Text("Select from Library")) {
+                .default(Text(String(localized: "Select from Library"))) {
                     self.sourceType = .photoLibrary
                     self.showImagePicker = true
                 },
@@ -273,7 +272,7 @@ struct PaletteResults: View {
                 VStack(alignment: .center) {
                     Spacer()
                         .frame(height: 30)
-                    Text("Detected Colours") // TODO: Localize me
+                    Text(String(localized: "Detected Colours"))
                         .font(.defaultFontTitle)
                         .bold()
                     
@@ -295,7 +294,7 @@ struct PaletteResults: View {
                         Divider()
                         
                         VStack {
-                            Text("From Your Palette") // TODO: Localize me
+                            Text(String(localized: "From Your Palette"))
                                 .font(.defaultFontLargeTitle)
                                 .bold()
                                 .padding()

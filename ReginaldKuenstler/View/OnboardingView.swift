@@ -12,20 +12,17 @@ struct OnboardingView: View {
     var body: some View {
         VStack(alignment: .center) {
             
-            // TODO: Localize me
-            Text("Welcome to Pinselton")
+            Text(String(localized: "Welcome to Pinselton"))
                 .font(.defaultFontLargeTitle)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
             
-            // TODO: Localize me
-            Text("Have a great time painting! 😊")
+            Text(String(localized: "Have a great time painting! 😊"))
                 .font(.defaultFontCaption)
                 .fontWeight(.medium)
                 .padding()
-            
-            // TODO: Localize me
-            Text("Proceed")
+
+            Text(String(localized: "Proceed"))
                 .font(.defaultFontButton)
                 .frame(maxWidth: .infinity)
                 .frame(width: 100, height: 50)

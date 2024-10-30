@@ -18,7 +18,7 @@ struct DescriptiveProgressView: View {
                 VStack {
                     Spacer()
                     ProgressView() {
-                        Text("\(message)...")
+                        Text(String(localized: "\(message)..."))
                             .font(.defaultFontTitle)
                     }
                     .progressViewStyle(.circular)

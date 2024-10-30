@@ -31,7 +31,7 @@ struct UserPaletteView: View {
                 Text("")
                     .toolbar {
                         if isEditing {
-                            Button("Done") {
+                            Button(String(localized: "Done")) {
                                 withAnimation {
                                     isEditing.toggle()
                                     isJiggling.toggle()
@@ -39,9 +39,8 @@ struct UserPaletteView: View {
                             }
                             .font(.defaultFontButton)
                         } else {
-                            // TODO: Localize me
                             NavigationLink(destination: PaletteCreationView().environmentObject(userPaletteViewModel)) {
-                                Text("Add")
+                                Text(String(localized: "Add"))
                                     .font(.defaultFontCaption)
                             }
                         }
@@ -49,16 +48,14 @@ struct UserPaletteView: View {
                 
                 // State 1: User has no palette colors and is not searching
                 if userPaletteViewModel.userPaletteColours.isEmpty && searchText.isEmpty {
-                    // TODO: Localize me
-                    Text("You have no colours.")
+                    Text(String(localized: "You have no colours."))
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .multilineTextAlignment(.center)
                         .font(.defaultFontCaption)
                 
                 // State 2: User is searching but there are no results for the search term
                 } else if !userPaletteViewModel.userPaletteColours.isEmpty && !searchText.isEmpty && userPaletteViewModel.filteredUserPaletteColours.isEmpty {
-                    // TODO: Localize me
-                    Text("No results found for \"\(searchText)\".")
+                    Text(String(localized: "No results found for \"\(searchText)\"."))
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .multilineTextAlignment(.center)
                         .font(.defaultFontCaption)
@@ -116,13 +113,13 @@ struct UserPaletteView: View {
                     }
                 }
             }
-            .navigationTitle("Your Palette")
+            .navigationTitle(String(localized: "Your Palette"))
             .font(.defaultFontLargeTitle)
             .toolbar {
                 if isEditing {
                     // Add a toolbar item for the Clear All button
                     ToolbarItem(placement: .navigationBarLeading) {
-                        Button("Clear All", role: .destructive) {
+                        Button(String(localized: "Clear All"), role: .destructive) {
                             displayClearUserPaletteConfirmationAlert = true
                         }
                         .font(.defaultFontCaption)
@@ -134,24 +131,24 @@ struct UserPaletteView: View {
                 print("USERPALETTEVIEW -- FETCHING USERPALETTES FROM USERPALETTEVIEWMODEL")
                 self.userPaletteViewModel.fetchUserPalettes()
             }
-            .alert("Are you sure you want to delete this colour?", isPresented: $isPresentingConfirmation) {
-                Button("Delete", role: .destructive) {
+            .alert(String(localized: "Are you sure you want to delete this colour?"), isPresented: $isPresentingConfirmation) {
+                Button(String(localized: "Delete"), role: .destructive) {
                     withAnimation {
                         if let item = itemToDelete {
                             userPaletteViewModel.deletePaletteColourFromUserPalette(paletteColour: item.paletteColour, groupName: item.groupName)
                         }
                     }
                 }
-                Button("Cancel", role: .cancel) { isPresentingConfirmation = false }
+                Button(String(localized: "Cancel"), role: .cancel) { isPresentingConfirmation = false }
             }
-            .alert("Are you sure you want to clear your entire palette?", isPresented: $displayClearUserPaletteConfirmationAlert) {
-                Button("Yes", role: .destructive) {
+            .alert(String(localized: "Are you sure you want to clear your entire palette?"), isPresented: $displayClearUserPaletteConfirmationAlert) {
+                Button(String(localized: "Yes"), role: .destructive) {
                     withAnimation(.easeOut) {
                         isEditing = false
                         userPaletteViewModel.deleteAllColoursFromUserPalette()
                     }
                 }
-                Button("Cancel", role: .cancel) {
+                Button(String(localized: "Cancel"), role: .cancel) {
                     displayClearUserPaletteConfirmationAlert = false
                 }
                 .font(.defaultFontCaption)
