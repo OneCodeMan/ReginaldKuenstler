@@ -157,28 +157,38 @@ final class ColourHelper {
     static func groupIndividualColour(hexColour: String, colourName: String) -> String {
         let rgb = self.hexToRGB(hex: hexColour)
         let (r, g, b) = (rgb.r, rgb.g, rgb.b)
+        let groupNames: [String] = ["Red", "Green", "Blue", "Yellow", "Orange", "Pink", "Purple", "Black", "White", "Gray", "Brown"]
+        
+        // For straight up name matching.
+        for groupName in groupNames {
+            if colourName.contains(groupName) {
+                return groupName
+            }
+        }
+        
+        // For RGB string matching.
 
-        if (r > 200 && g < 100 && b < 100) || colourName.contains("Red") {
+        if (r > 200 && g < 100 && b < 100) {
             return "Red"
-        } else if (g > 200 && r < 100 && b < 100) || colourName.contains("Green") {
+        } else if (g > 200 && r < 100 && b < 100) {
             return "Green"
-        } else if (b > 200 && r < 100 && g < 100) || colourName.contains("Blue") {
+        } else if (b > 200 && r < 100 && g < 100) {
             return "Blue"
-        } else if (r > 200 && g > 200 && b < 100) || colourName.contains("Yellow") {
+        } else if (r > 200 && g > 200 && b < 100) {
             return "Yellow"
-        } else if (r > 200 && g > 100 && b < 100) || colourName.contains("Orange") {
+        } else if (r > 200 && g > 100 && b < 100) {
             return "Orange"
-        } else if (r > 200 && g < 100 && b > 200) || colourName.contains("Pink") {
+        } else if (r > 200 && g < 100 && b > 200) {
             return "Pink"
-        } else if (r < 100 && g < 100 && b > 200) || colourName.contains("Violet") {
-            return "Violet"
-        } else if (r < 50 && g < 50 && b < 50) || colourName.contains("Black") {
+        } else if (r < 100 && g < 100 && b > 200) {
+            return "Purple"
+        } else if (r < 50 && g < 50 && b < 50) {
             return "Black"
-        } else if (r > 200 && g > 200 && b > 200) || colourName.contains("White") {
+        } else if (r > 200 && g > 200 && b > 200) {
             return "White"
-        } else if abs(r - g) < 20 && abs(r - b) < 20 || colourName.contains("Gray") {
+        } else if abs(r - g) < 20 && abs(r - b) < 20 {
             return "Gray"
-        } else if (r > 100 && g < 100 && b < 100 && r < 200) || colourName.contains("Brown") {
+        } else if (r > 100 && g < 100 && b < 100 && r < 200) {
             return "Brown"
         } else {
             return "Other"

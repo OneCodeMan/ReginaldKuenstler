@@ -2,6 +2,9 @@
 
 # Design Questions // Next Steps
 
+- Palette Colour Lists
+    - Should be grouped RGB first, not alphabetically. Makes sense in this context.
+- 
 - UserPaletteView
     - How do we make it more obvious that the user can edit their palette?
 - ColourAnalysisView
@@ -47,11 +50,8 @@
 # BIG BATCH TO MVP
 
 ### Wave 1 to MVP (BULK!!)
-- [ ] Loading screen should have descriptive text on what is loading.
-    - Instead of `Loading..`, make it `Creating Palette...`, `Generating Swatch...`
-- [ ] Revisit colour grouper to first group by names and then by rgb. 2 separate if statements.
-- [ ] Update image analysis view to have updated user palette so it can analyze colours properly
 - [ ] Localize at least 2 strings.
+- [ ] Update image analysis view to have updated user palette so it can analyze colours properly
 
 ### Wave 2 to MVP -- Beat the spaghetti code allegations.
 - [ ] On another branch, one big code cleanup
@@ -81,6 +81,9 @@ Suggestions:
 
 ### history
 ### October 30, 2024
+- [x] Revisit colour grouper to first group by names and then by rgb. 2 separate if statements.
+- [x] Loading screen should have descriptive text on what is loading.
+    - Instead of `Loading..`, make it `Creating Palette...`, `Generating Swatch...`
 - [x] Revisit colour mapper so that it only fetches once on entire app run.
 - [x] Clean up UserDefaults palette part 1.
 
