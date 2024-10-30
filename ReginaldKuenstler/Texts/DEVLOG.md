@@ -1,15 +1,24 @@
 #  DEVLOG
 
 # Design Questions // Next Steps
-
 - Palette Colour Lists
     - Should be grouped RGB first, not alphabetically. Makes sense in this context.
-- 
 - UserPaletteView
     - How do we make it more obvious that the user can edit their palette?
+        - Long press on an item is synonymous to deleting apps on the iPhone, I assume user would make the connection.
+            - Bad assumption.
+    - Floating menu on the right of the screen. Each menu item is a circle of different colour.
+        - User can tap on any of these circles to quickscroll to a certain colour group of their palette. Instead of scrolling so much.
+- PaletteCreationView
+    - After `Save Selected Colours` tap, there should be a confirmation popup with info on colours selected.
+        - Same style as the palette colour lists.
+    - It would be cool to make the select state highlight overlay not blue, but the colour group highlight of that selected colour.
+        - e.g. user selects `Cadmium Red`, the select state background overlay is not blue, but rather a red.
+        - e.g. the select state for `Pastel green` would be a green background overlay
+        - e.g. for `Other` or other complicated scenarios, just use `.gray`
 - ColourAnalysisView
     - When user taps on a single colour in the Swatch, should there be a popup view with more details on that colour?
-        - e.g. similar colours to that, maybe the user can choose out of those alternatives and replace that swatch colour.
+        - e.g. similar colours to that selected single colour, maybe the user can choose out of those alternatives and replace that swatch colour.
     - If the user lacks a direct colour match, try to see if the user has a colour in the same group as that colour.
         - e.g. user has cadmium red, analysis detects alizarin crimson. `From Your Palette` shows `Cadmium Red`
             - but there should be an indicator that it is NOT a _DIRECT_ match, but rather, it is a _CLOSE_ match.
