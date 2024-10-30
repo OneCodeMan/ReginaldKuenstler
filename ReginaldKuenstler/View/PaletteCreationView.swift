@@ -7,9 +7,10 @@ struct PaletteColourSelectItem: Identifiable {
 }
 
 struct PaletteCreationView: View {
+    @EnvironmentObject var userPaletteViewModel: UserPaletteViewModel
     @Environment(\.presentationMode) var presentationMode
     
-    @ObservedObject var viewModel: CreateUserPaletteViewModel = CreateUserPaletteViewModel()
+    @StateObject var viewModel = CreateUserPaletteViewModel() // Initialize here
     
     // MARK: Search logic
     @State private var searchText: String = ""
@@ -47,6 +48,7 @@ struct PaletteCreationView: View {
                         List {
                             ForEach(Array(viewModel.groupedColourSelectItems.keys).sorted(), id: \.self) { groupName in
                                 GroupSectionView(groupName: groupName, colourItems: viewModel.groupedColourSelectItems[groupName] ?? [], viewModel: viewModel, displayColourAlreadyOwnedAlert: $displayColourAlreadyOwnedAlert)
+                                    .environmentObject(userPaletteViewModel)
                             }
                         }
                         .searchable(text: $searchText)
@@ -63,6 +65,7 @@ struct PaletteCreationView: View {
                 
                 // Display selected colors
                 SelectedColoursView(viewModel: viewModel, isLoadingAfterColoursSelected: $isLoadingAfterColoursSelected)
+                    .environmentObject(userPaletteViewModel)
                     .padding()
             }
             .navigationTitle("Create Palette")
@@ -81,6 +84,8 @@ struct PaletteCreationView: View {
                 }
             }
             .onAppear {
+                // viewModel = CreateUserPaletteViewModel(userPaletteViewModel: userPaletteViewModel)
+                
                 print("\nPALETTECREATIONVIEW -- FETCHING USERPALETTES FROM USERPALETTEVIEWMODEL")
                 viewModel.fetchUserPalettes()
             }
@@ -100,6 +105,7 @@ struct PaletteCreationView: View {
 }
 
 struct GroupSectionView: View {
+    @EnvironmentObject var userPaletteViewModel: UserPaletteViewModel
     var groupName: String
     var colourItems: [PaletteColourSelectItem]
     @ObservedObject var viewModel: CreateUserPaletteViewModel  // Pass viewModel here
@@ -114,7 +120,8 @@ struct GroupSectionView: View {
                     .padding([.top, .leading], 8)
                 
                 // Colour list
-                ColourGridView(colourItems: colourItems, viewModel: viewModel, displayColourAlreadyOwnedAlert: $displayColourAlreadyOwnedAlert)  // Pass viewModel to ColourGridView
+                ColourGridView(colourItems: colourItems, viewModel: viewModel, displayColourAlreadyOwnedAlert: $displayColourAlreadyOwnedAlert)
+                    .environmentObject(userPaletteViewModel)// Pass viewModel to ColourGridView
             }
             .listRowSeparator(.hidden)
         }
@@ -122,6 +129,7 @@ struct GroupSectionView: View {
 }
 
 struct ColourGridView: View {
+    @EnvironmentObject var userPaletteViewModel: UserPaletteViewModel
     var colourItems: [PaletteColourSelectItem]
     @ObservedObject var viewModel: CreateUserPaletteViewModel
     @Binding var displayColourAlreadyOwnedAlert: Bool
@@ -131,6 +139,7 @@ struct ColourGridView: View {
             ForEach(colourItems) { cI in
                 if let index = viewModel.filteredPaletteColourSelectItems.firstIndex(where: { $0.id == cI.id }) {
                     PaletteListItemView(paletteColourItem: $viewModel.filteredPaletteColourSelectItems[index])
+                        .environmentObject(userPaletteViewModel)
                         .onTapGesture {
                             toggleColourSelection(for: cI)
                         }
@@ -158,6 +167,7 @@ struct ColourGridView: View {
 }
 
 struct SelectedColoursView: View {
+    @EnvironmentObject var userPaletteViewModel: UserPaletteViewModel
     @ObservedObject var viewModel: CreateUserPaletteViewModel
     @Binding var isLoadingAfterColoursSelected: Bool
     
@@ -174,6 +184,7 @@ struct SelectedColoursView: View {
                 VStack {
                     if showGridLoading {
                         GridAnimationView()
+                            .environmentObject(userPaletteViewModel)
                     } else {
                         VStack {
                             Spacer()

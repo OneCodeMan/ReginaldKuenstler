@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserPaletteView: View {
-    @ObservedObject var userPaletteViewModel = UserPaletteViewModel()
+    @EnvironmentObject var userPaletteViewModel: UserPaletteViewModel
     
     // MARK: search logic
     @State var searchText: String = ""
@@ -39,7 +39,7 @@ struct UserPaletteView: View {
                             }
                             .font(.defaultFontButton)
                         } else {
-                            NavigationLink(destination: PaletteCreationView()) {
+                            NavigationLink(destination: PaletteCreationView().environmentObject(userPaletteViewModel)) {
                                 Text("Add")
                                     .font(.defaultFontCaption)
                             }
@@ -133,17 +133,14 @@ struct UserPaletteView: View {
             }
             .alert("Are you sure you want to delete this colour?", isPresented: $isPresentingConfirmation) {
                 Button("Delete", role: .destructive) {
-                    if let item = itemToDelete {
-                        withAnimation(.easeOut) {
+                    withAnimation {
+                        if let item = itemToDelete {
                             userPaletteViewModel.deletePaletteColourFromUserPalette(paletteColour: item.paletteColour, groupName: item.groupName)
                         }
                     }
                 }
-                Button("Cancel", role: .cancel) {
-                    isPresentingConfirmation = false
-                }
-                .font(.defaultFontTitle)
-            } // end of delete one colour alert
+                Button("Cancel", role: .cancel) { isPresentingConfirmation = false }
+            }
             .alert("Are you sure you want to clear your entire palette?", isPresented: $displayClearUserPaletteConfirmationAlert) {
                 Button("Yes", role: .destructive) {
                     withAnimation(.easeOut) {

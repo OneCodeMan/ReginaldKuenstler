@@ -14,10 +14,13 @@
 import SwiftUI
 
 struct ReginaldKuenstlerTabView: View {
-    @State var selectedTab: Int = 1
+    @EnvironmentObject var userPaletteViewModel: UserPaletteViewModel // Access the ViewModel
+
+    @State var selectedTab: Int = 0
     var body: some View {
         TabView(selection:  $selectedTab) {
             UserPaletteView()
+                .environmentObject(userPaletteViewModel)
                 .tag(0)
                 .tabItem {
                     Image(systemName: "paintpalette.fill")

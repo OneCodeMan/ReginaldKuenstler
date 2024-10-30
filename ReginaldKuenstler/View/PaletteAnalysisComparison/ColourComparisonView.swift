@@ -213,12 +213,8 @@ struct ImageAnalysisInputView: View {
                     }
                     // .disabled(!isImageSelected && !isLoading)
                     .opacity((!isImageSelected && !isLoading) ? 0.5 : 1)
-                    .alert(isPresented: $displayAnalyzePressedNoImageInputAlert) {
-                        Alert(
-                            title: Text("No Image Selected"),
-                            message: Text("Please select an image to analyze."),
-                            dismissButton: .default(Text("OK"))
-                        )
+                    .alert("Please select an image to analyze.", isPresented: $displayAnalyzePressedNoImageInputAlert) {
+                        Button("OK") {}
                     }
                     .alert(isPresented: $displayImageAlreadyAnalyzedAlert) {
                         Alert(
