@@ -70,7 +70,8 @@ class KuenstlerViewModel: ObservableObject {
                         
                         // Find nearest colour in the map
                         // print("passing colourMap of \(self.colourMap.count) items to converter..")
-                        let currentVColour: VColour = ColourHelper.findNearestColourInMap(withRgbValue: actualRGBCode, colourMap: ColourMapper.shared.colourMap)
+                        print("colourMap status, KuenstlerViewModel.performAnal, before we need it. --- \(ColourMapper.shared.colourMap.count) items")
+                        let currentVColour: VColour = ColourHelper.findNearestColourInMap(withRgbValue: actualRGBCode, colourMap: colourMap)
                         let estimatedHexCode: String = currentVColour.hexCode
                         let estimatedUIColour: UIColor = currentVColour.uiColour
                         let estimatedRGBTuple: RGBTuple = currentVColour.rgbCode

@@ -9,13 +9,12 @@ import SwiftUI
 
 @main
 struct ReginaldKuenstlerApp: App {
-    @StateObject private var userPaletteData = UserPaletteData()
+    // @StateObject private var colourMapper = ColourMapper()
     @StateObject private var userPaletteViewModel = UserPaletteViewModel()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(userPaletteData)
                 .environmentObject(userPaletteViewModel)
         }
     }

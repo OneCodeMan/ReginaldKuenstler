@@ -1,5 +1,7 @@
 #  DEVLOG
 
+## MIGHT GO DOWN A G.O.D
+
 # Design Questions // Next Steps
 - Big Picture UX
     - When user opens app not first time, should open to previous tab they were in.
@@ -67,7 +69,6 @@
 # BIG BATCH TO MVP
 
 ### Wave 1 to MVP (BULK!!)
-- [ ] BUGFIX: Unknown detected colours on app start and analysis is first action.
 - [ ] Update image analysis view to have updated user palette so it can analyze colours properly
 
 ### Wave 2 to MVP -- Beat the spaghetti code allegations.
@@ -97,6 +98,8 @@ Suggestions:
 
 ### history
 ### October 30, 2024
+- [x] BUGFIX: Unknown detected colours on app start and analysis is first action.
+    - Declare a shared instance of `ColourMapper` before any important view is loaded to populate `colourMap`.
 - [x] Set up Localization
 - [x] Localize at least 7 strings.
 - [x] Revisit colour grouper to first group by names and then by rgb. 2 separate if statements.

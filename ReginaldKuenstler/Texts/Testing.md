@@ -2,6 +2,17 @@
 
 To make sure the app still works as expected after changes.
 
+# User Palette Colours & Sample Input
+
+## Munch's Model Brigit
+- ...
+
+## Blue Starry Godly Sky
+- ..
+
+## Matiss green stipe
+- ..
+
 # Analyzer
 
 ## When user analyzes an image and gets to `Detected Colours`, and then updates their palette, the `From Your Palette` on `Detected Colours` should update accordingly.
