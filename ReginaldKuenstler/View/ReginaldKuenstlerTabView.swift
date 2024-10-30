@@ -26,6 +26,7 @@ struct ReginaldKuenstlerTabView: View {
                     Image(systemName: "paintpalette.fill")
                         .renderingMode(.template)
                         .foregroundColor(.red) // <2>
+                    // TODO: Localize me
                     Text("Your Palette")
                 }
                 .font(.defaultFontCaption)
@@ -36,6 +37,7 @@ struct ReginaldKuenstlerTabView: View {
                 .tabItem {
                     Image(systemName: "chart.bar.fill")
                         .renderingMode(.template)
+                    // TODO: Localize me
                     Text("Analyzer")
                 }
                 .font(.defaultFontCaption)

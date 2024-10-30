@@ -184,6 +184,7 @@ struct SelectedColoursView: View {
                 DescriptiveProgressView(message: "Setting up your palette")
             } else {
                 VStack {
+                    // TODO: Localize me
                     Text("Selected Colours:")
                         .font(.defaultFontCaption)
                     HStack {
@@ -204,6 +205,7 @@ struct SelectedColoursView: View {
                             displayNoSelectedColoursAlert = true
                         }
                     }) {
+                        // TODO: Localize me
                         Text("Save Selected Colours")
                             .padding()
                             .font(.defaultFontButton)

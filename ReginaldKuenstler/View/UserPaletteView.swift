@@ -39,6 +39,7 @@ struct UserPaletteView: View {
                             }
                             .font(.defaultFontButton)
                         } else {
+                            // TODO: Localize me
                             NavigationLink(destination: PaletteCreationView().environmentObject(userPaletteViewModel)) {
                                 Text("Add")
                                     .font(.defaultFontCaption)
@@ -48,6 +49,7 @@ struct UserPaletteView: View {
                 
                 // State 1: User has no palette colors and is not searching
                 if userPaletteViewModel.userPaletteColours.isEmpty && searchText.isEmpty {
+                    // TODO: Localize me
                     Text("You have no colours.")
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .multilineTextAlignment(.center)
@@ -55,6 +57,7 @@ struct UserPaletteView: View {
                 
                 // State 2: User is searching but there are no results for the search term
                 } else if !userPaletteViewModel.userPaletteColours.isEmpty && !searchText.isEmpty && userPaletteViewModel.filteredUserPaletteColours.isEmpty {
+                    // TODO: Localize me
                     Text("No results found for \"\(searchText)\".")
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .multilineTextAlignment(.center)

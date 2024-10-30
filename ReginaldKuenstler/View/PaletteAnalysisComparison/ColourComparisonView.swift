@@ -176,7 +176,7 @@ struct ImageAnalysisInputView: View {
             }
             
             VStack {
-                Text("Select photo")
+                Text("Select Photo") // TODO: Localize me
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
                     .background(Color(#colorLiteral(red: 0.5647058824, green: 0.462745098, blue: 0.9058823529, alpha: 1)))
@@ -188,7 +188,7 @@ struct ImageAnalysisInputView: View {
                     }
                     .font(.defaultFontButton)
                 
-                Text("Analyze")
+                Text("Analyze") // TODO: Localize me
                     .font(.defaultFontButton)
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
@@ -236,8 +236,9 @@ struct ImageAnalysisInputView: View {
             didImageSelectChange = true
         }
         .actionSheet(isPresented: $showSheet) {
+            // TODO: Localize me
             ActionSheet(title: Text("Select Image"), message: Text("Please choose an option to select a photo"), buttons: [
-                .default(Text("Take Photo")) {
+                .default(Text("Take Photo") ) {
                     self.sourceType = .camera
                     self.showImagePicker = true
                 },
@@ -272,7 +273,7 @@ struct PaletteResults: View {
                 VStack(alignment: .center) {
                     Spacer()
                         .frame(height: 30)
-                    Text("Detected Colours")
+                    Text("Detected Colours") // TODO: Localize me
                         .font(.defaultFontTitle)
                         .bold()
                     
@@ -294,7 +295,7 @@ struct PaletteResults: View {
                         Divider()
                         
                         VStack {
-                            Text("From Your Palette")
+                            Text("From Your Palette") // TODO: Localize me
                                 .font(.defaultFontLargeTitle)
                                 .bold()
                                 .padding()
