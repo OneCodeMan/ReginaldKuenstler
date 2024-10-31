@@ -39,6 +39,15 @@ struct ReginaldKuenstlerTabView: View {
                     Text(String(localized: "Analyzer"))
                 }
                 .font(.defaultFontCaption)
+            
+            // debug
+//            AveragePaletteView()
+//                .tag(2)
+//                .tabItem {
+//                    Image(systemName: "chart.bar.fill")
+//                        .renderingMode(.template)
+//                    Text(String(localized: "Average Palette"))
+//                }
         }
         .tint(.indigo)
     }

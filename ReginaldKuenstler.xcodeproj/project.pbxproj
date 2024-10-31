@@ -34,6 +34,7 @@
 		1637C7122CCDC93B00B99812 /* GridLoadingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1637C7112CCDC93B00B99812 /* GridLoadingAnimation.swift */; };
 		1665207A2CC7FA6A00F2836E /* UserPaletteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166520792CC7FA6A00F2836E /* UserPaletteViewModel.swift */; };
 		166DF25F2CD18C540048C0E0 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 166DF25E2CD18C540048C0E0 /* GoogleMobileAds */; };
+		166EDA142CD314F500E503E8 /* AveragePaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166EDA132CD314F500E503E8 /* AveragePaletteView.swift */; };
 		16E3146F2CD2AFEA004509D7 /* DescriptiveProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E3146E2CD2AFE9004509D7 /* DescriptiveProgressView.swift */; };
 		16E314732CD2BBB2004509D7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 16E314722CD2BBB2004509D7 /* Localizable.xcstrings */; };
 		16ED0D232CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */; };
@@ -101,6 +102,7 @@
 		1637C7112CCDC93B00B99812 /* GridLoadingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLoadingAnimation.swift; sourceTree = "<group>"; };
 		1637C7182CCEC4DA00B99812 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		166520792CC7FA6A00F2836E /* UserPaletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPaletteViewModel.swift; sourceTree = "<group>"; };
+		166EDA132CD314F500E503E8 /* AveragePaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AveragePaletteView.swift; sourceTree = "<group>"; };
 		16E3146D2CD29ED2004509D7 /* Testing.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Testing.md; sourceTree = "<group>"; };
 		16E3146E2CD2AFE9004509D7 /* DescriptiveProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptiveProgressView.swift; sourceTree = "<group>"; };
 		16E314722CD2BBB2004509D7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -187,19 +189,28 @@
 			path = Badges;
 			sourceTree = "<group>";
 		};
-		1637C7102CCDC93000B99812 /* Juice */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Juice;
-			sourceTree = "<group>";
-		};
 		166520742CC72B8E00F2836E /* PaletteAnalysisComparison */ = {
 			isa = PBXGroup;
 			children = (
 				162896832CC18515005A2399 /* ColourComparisonView.swift */,
 			);
 			path = PaletteAnalysisComparison;
+			sourceTree = "<group>";
+		};
+		166EDA112CD314C200E503E8 /* Experimental */ = {
+			isa = PBXGroup;
+			children = (
+				166EDA122CD314E800E503E8 /* AveragePalette */,
+			);
+			path = Experimental;
+			sourceTree = "<group>";
+		};
+		166EDA122CD314E800E503E8 /* AveragePalette */ = {
+			isa = PBXGroup;
+			children = (
+				166EDA132CD314F500E503E8 /* AveragePaletteView.swift */,
+			);
+			path = AveragePalette;
 			sourceTree = "<group>";
 		};
 		16E3146C2CD29EBE004509D7 /* Texts */ = {
@@ -267,9 +278,9 @@
 		16ED0D212CBED1C500ADCA3B /* ReginaldKuenstler */ = {
 			isa = PBXGroup;
 			children = (
+				166EDA112CD314C200E503E8 /* Experimental */,
 				1609D0022CD1673B00D3FCF8 /* Assets */,
 				1637C7182CCEC4DA00B99812 /* Info.plist */,
-				1637C7102CCDC93000B99812 /* Juice */,
 				16ED0D9D2CC1539600ADCA3B /* View */,
 				16ED0D9A2CC1537A00ADCA3B /* Components */,
 				16ED0D972CC152A000ADCA3B /* Model */,
@@ -543,6 +554,7 @@
 				16ED0DA82CC166E600ADCA3B /* Palette.swift in Sources */,
 				1609D0012CD1634700D3FCF8 /* UserPaletteData.swift in Sources */,
 				160278852CC9BD540048F4F8 /* WiggleModifier.swift in Sources */,
+				166EDA142CD314F500E503E8 /* AveragePaletteView.swift in Sources */,
 				162896842CC18515005A2399 /* ColourComparisonView.swift in Sources */,
 				1609D0182CD170E700D3FCF8 /* OnboardingView.swift in Sources */,
 				1628968B2CC1A6FD005A2399 /* UserPalette.swift in Sources */,
