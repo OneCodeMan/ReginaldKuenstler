@@ -71,9 +71,6 @@
 ------------------------------------------------------------------------------------------------------------------------
 # BIG BATCH TO MVP
 
-### Wave 1 to MVP (BULK!!)
-- [ ] Update image analysis view to have updated user palette so it can analyze colours properly
-
 ### Wave 2 to MVP -- Beat the spaghetti code allegations.
 - [ ] One big code cleanup
 
@@ -98,6 +95,11 @@ Suggestions:
 ### BULK
 
 ### history
+### October 31, 2024
+
+### Wave 1 to MVP (BULK!!)
+- [x] Update image analysis view to have updated user palette so it can analyze colours properly (i tried)
+
 ### October 30, 2024
 - [x] BUGFIX: Unknown detected colours on app start and analysis is first action.
     - Declare a shared instance of `ColourMapper` before any important view is loaded to populate `colourMap`.

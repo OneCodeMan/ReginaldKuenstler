@@ -27,8 +27,6 @@ struct ColourComparisonView: View {
     @State private var showImagePicker = false
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     
-    @State var views: [CarouselPage] = []
-    
     // MARK: Boolean view states
     @State private var disableScrollNoImageInput: Bool = true
     @State private var isImageSelected: Bool = false
@@ -247,8 +245,6 @@ struct ImageAnalysisInputView: View {
         }
     }
 }
-
-
 
 // second page in carousel
 struct PaletteResults: View {
