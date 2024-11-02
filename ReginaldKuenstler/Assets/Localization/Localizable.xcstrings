@@ -1,0 +1,126 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "%@..." : {
+
+    },
+    "Add" : {
+
+    },
+    "Analyze" : {
+
+    },
+    "Analyzer" : {
+
+    },
+    "Are you sure you are finished selecting colours?" : {
+
+    },
+    "Are you sure you want to cancel palette creation?" : {
+
+    },
+    "Are you sure you want to clear your entire palette?" : {
+
+    },
+    "Are you sure you want to delete this colour?" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Clear" : {
+
+    },
+    "Clear All" : {
+
+    },
+    "Create Palette" : {
+
+    },
+    "Delete" : {
+
+    },
+    "Detected Colours" : {
+
+    },
+    "Done" : {
+
+    },
+    "From Your Palette" : {
+
+    },
+    "Have a great time painting! 😊" : {
+
+    },
+    "Image already analyzed" : {
+
+    },
+    "NO" : {
+
+    },
+    "No colours were selected." : {
+
+    },
+    "No results found for \"%@\"." : {
+
+    },
+    "OK" : {
+
+    },
+    "Please choose an option to select a photo" : {
+
+    },
+    "Please select an image to analyze." : {
+
+    },
+    "Proceed" : {
+
+    },
+    "Save Selected Colours" : {
+
+    },
+    "Select from Library" : {
+
+    },
+    "Select Image" : {
+
+    },
+    "Select Images" : {
+
+    },
+    "Select Photo" : {
+
+    },
+    "Selected Colours:" : {
+
+    },
+    "Take Photo" : {
+
+    },
+    "This colour is already in your palette." : {
+
+    },
+    "This image has already been analyzed." : {
+
+    },
+    "Welcome to Pinselton" : {
+
+    },
+    "Yes" : {
+
+    },
+    "YES" : {
+
+    },
+    "You have no colours." : {
+
+    },
+    "Your Palette" : {
+
+    }
+  },
+  "version" : "1.0"
+}

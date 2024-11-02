@@ -7,6 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		160278852CC9BD540048F4F8 /* WiggleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160278842CC9BD540048F4F8 /* WiggleModifier.swift */; };
+		1609D0012CD1634700D3FCF8 /* UserPaletteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1609D0002CD1634700D3FCF8 /* UserPaletteData.swift */; };
+		1609D00C2CD1676F00D3FCF8 /* Merriweather-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1609D0032CD1676F00D3FCF8 /* Merriweather-Italic.ttf */; };
+		1609D00D2CD1676F00D3FCF8 /* Merriweather-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1609D0042CD1676F00D3FCF8 /* Merriweather-BlackItalic.ttf */; };
+		1609D00E2CD1676F00D3FCF8 /* Merriweather-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1609D0052CD1676F00D3FCF8 /* Merriweather-Black.ttf */; };
+		1609D00F2CD1676F00D3FCF8 /* Merriweather-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1609D0062CD1676F00D3FCF8 /* Merriweather-Light.ttf */; };
+		1609D0102CD1676F00D3FCF8 /* Merriweather-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1609D0072CD1676F00D3FCF8 /* Merriweather-LightItalic.ttf */; };
+		1609D0112CD1676F00D3FCF8 /* Merriweather-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1609D0082CD1676F00D3FCF8 /* Merriweather-Regular.ttf */; };
+		1609D0122CD1676F00D3FCF8 /* Merriweather-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1609D0092CD1676F00D3FCF8 /* Merriweather-Bold.ttf */; };
+		1609D0132CD1676F00D3FCF8 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1609D00A2CD1676F00D3FCF8 /* OFL.txt */; };
+		1609D0142CD1676F00D3FCF8 /* Merriweather-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1609D00B2CD1676F00D3FCF8 /* Merriweather-BoldItalic.ttf */; };
+		1609D0162CD1687300D3FCF8 /* UIFont+CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1609D0152CD1687300D3FCF8 /* UIFont+CustomFont.swift */; };
+		1609D0182CD170E700D3FCF8 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1609D0172CD170E700D3FCF8 /* OnboardingView.swift */; };
+		162896842CC18515005A2399 /* ColourComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896832CC18515005A2399 /* ColourComparisonView.swift */; };
+		162896892CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896882CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift */; };
+		1628968B2CC1A6FD005A2399 /* UserPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1628968A2CC1A6FD005A2399 /* UserPalette.swift */; };
+		162896C62CC57C99005A2399 /* PaletteListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896C52CC57C99005A2399 /* PaletteListItemView.swift */; };
+		162896C82CC587FC005A2399 /* UserPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896C72CC587FC005A2399 /* UserPaletteView.swift */; };
+		162896CA2CC58A28005A2399 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896C92CC58A28005A2399 /* UserDefaultsHelper.swift */; };
+		162896CC2CC58FB5005A2399 /* ReginaldKuenstlerTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896CB2CC58FB5005A2399 /* ReginaldKuenstlerTabView.swift */; };
+		162896CE2CC5E203005A2399 /* badges.txt in Resources */ = {isa = PBXBuildFile; fileRef = 162896CD2CC5E203005A2399 /* badges.txt */; };
+		162896D12CC5E33A005A2399 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896D02CC5E33A005A2399 /* Badge.swift */; };
+		162896D32CC606C1005A2399 /* PaletteCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896D22CC606C1005A2399 /* PaletteCreationView.swift */; };
+		162896D72CC6BA91005A2399 /* ColourGridItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896D62CC6BA91005A2399 /* ColourGridItem.swift */; };
+		1637C7122CCDC93B00B99812 /* GridLoadingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1637C7112CCDC93B00B99812 /* GridLoadingAnimation.swift */; };
+		1665207A2CC7FA6A00F2836E /* UserPaletteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166520792CC7FA6A00F2836E /* UserPaletteViewModel.swift */; };
+		166DF25F2CD18C540048C0E0 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 166DF25E2CD18C540048C0E0 /* GoogleMobileAds */; };
+		166EDA142CD314F500E503E8 /* AveragePaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166EDA132CD314F500E503E8 /* AveragePaletteView.swift */; };
+		16E3146F2CD2AFEA004509D7 /* DescriptiveProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E3146E2CD2AFE9004509D7 /* DescriptiveProgressView.swift */; };
+		16E314732CD2BBB2004509D7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 16E314722CD2BBB2004509D7 /* Localizable.xcstrings */; };
 		16ED0D232CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */; };
 		16ED0D252CBED1C500ADCA3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D242CBED1C500ADCA3B /* ContentView.swift */; };
 		16ED0D272CBED1C700ADCA3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16ED0D262CBED1C700ADCA3B /* Assets.xcassets */; };
@@ -17,8 +47,14 @@
 		16ED0D4E2CBED8B500ADCA3B /* SwiftVibrantium in Frameworks */ = {isa = PBXBuildFile; productRef = 16ED0D4D2CBED8B500ADCA3B /* SwiftVibrantium */; };
 		16ED0D512CBFFAC100ADCA3B /* ColourMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D502CBFFAC100ADCA3B /* ColourMapper.swift */; };
 		16ED0D532CC0112B00ADCA3B /* colourmap.csv in Resources */ = {isa = PBXBuildFile; fileRef = 16ED0D522CC0112A00ADCA3B /* colourmap.csv */; };
-		16ED0D562CC0170500ADCA3B /* ColourConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D552CC0170500ADCA3B /* ColourConverter.swift */; };
+		16ED0D562CC0170500ADCA3B /* ColourHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D552CC0170500ADCA3B /* ColourHelper.swift */; };
 		16ED0D592CC0964B00ADCA3B /* KuenstlerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D582CC0964B00ADCA3B /* KuenstlerViewModel.swift */; };
+		16ED0D992CC152B200ADCA3B /* ColourPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D982CC152B200ADCA3B /* ColourPair.swift */; };
+		16ED0D9C2CC1538800ADCA3B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D9B2CC1538800ADCA3B /* ImagePicker.swift */; };
+		16ED0DA12CC162AC00ADCA3B /* VColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0DA02CC162AC00ADCA3B /* VColour.swift */; };
+		16ED0DA32CC162CF00ADCA3B /* UIColor+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0DA22CC162CF00ADCA3B /* UIColor+Converter.swift */; };
+		16ED0DA62CC166D200ADCA3B /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0DA52CC166D200ADCA3B /* Artwork.swift */; };
+		16ED0DA82CC166E600ADCA3B /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0DA72CC166E600ADCA3B /* Palette.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +75,38 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		16ED0D1F2CBED1C500ADCA3B /* ReginaldKuenstler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReginaldKuenstler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		160278842CC9BD540048F4F8 /* WiggleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiggleModifier.swift; sourceTree = "<group>"; };
+		1609D0002CD1634700D3FCF8 /* UserPaletteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPaletteData.swift; sourceTree = "<group>"; };
+		1609D0032CD1676F00D3FCF8 /* Merriweather-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Italic.ttf"; sourceTree = "<group>"; };
+		1609D0042CD1676F00D3FCF8 /* Merriweather-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-BlackItalic.ttf"; sourceTree = "<group>"; };
+		1609D0052CD1676F00D3FCF8 /* Merriweather-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Black.ttf"; sourceTree = "<group>"; };
+		1609D0062CD1676F00D3FCF8 /* Merriweather-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Light.ttf"; sourceTree = "<group>"; };
+		1609D0072CD1676F00D3FCF8 /* Merriweather-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-LightItalic.ttf"; sourceTree = "<group>"; };
+		1609D0082CD1676F00D3FCF8 /* Merriweather-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Regular.ttf"; sourceTree = "<group>"; };
+		1609D0092CD1676F00D3FCF8 /* Merriweather-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Bold.ttf"; sourceTree = "<group>"; };
+		1609D00A2CD1676F00D3FCF8 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		1609D00B2CD1676F00D3FCF8 /* Merriweather-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-BoldItalic.ttf"; sourceTree = "<group>"; };
+		1609D0152CD1687300D3FCF8 /* UIFont+CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFont.swift"; sourceTree = "<group>"; };
+		1609D0172CD170E700D3FCF8 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		162896832CC18515005A2399 /* ColourComparisonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourComparisonView.swift; sourceTree = "<group>"; };
+		162896882CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserPaletteViewModel.swift; sourceTree = "<group>"; };
+		1628968A2CC1A6FD005A2399 /* UserPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPalette.swift; sourceTree = "<group>"; };
+		162896C52CC57C99005A2399 /* PaletteListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteListItemView.swift; sourceTree = "<group>"; };
+		162896C72CC587FC005A2399 /* UserPaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPaletteView.swift; sourceTree = "<group>"; };
+		162896C92CC58A28005A2399 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		162896CB2CC58FB5005A2399 /* ReginaldKuenstlerTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReginaldKuenstlerTabView.swift; sourceTree = "<group>"; };
+		162896CD2CC5E203005A2399 /* badges.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = badges.txt; sourceTree = "<group>"; };
+		162896D02CC5E33A005A2399 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
+		162896D22CC606C1005A2399 /* PaletteCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteCreationView.swift; sourceTree = "<group>"; };
+		162896D62CC6BA91005A2399 /* ColourGridItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourGridItem.swift; sourceTree = "<group>"; };
+		1637C7112CCDC93B00B99812 /* GridLoadingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLoadingAnimation.swift; sourceTree = "<group>"; };
+		1637C7182CCEC4DA00B99812 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		166520792CC7FA6A00F2836E /* UserPaletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPaletteViewModel.swift; sourceTree = "<group>"; };
+		166EDA132CD314F500E503E8 /* AveragePaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AveragePaletteView.swift; sourceTree = "<group>"; };
+		16E3146D2CD29ED2004509D7 /* Testing.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Testing.md; sourceTree = "<group>"; };
+		16E3146E2CD2AFE9004509D7 /* DescriptiveProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptiveProgressView.swift; sourceTree = "<group>"; };
+		16E314722CD2BBB2004509D7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		16ED0D1F2CBED1C500ADCA3B /* Pinselton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pinselton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReginaldKuenstlerApp.swift; sourceTree = "<group>"; };
 		16ED0D242CBED1C500ADCA3B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16ED0D262CBED1C700ADCA3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,9 +118,15 @@
 		16ED0D3F2CBED1C700ADCA3B /* ReginaldKuenstlerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReginaldKuenstlerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		16ED0D502CBFFAC100ADCA3B /* ColourMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourMapper.swift; sourceTree = "<group>"; };
 		16ED0D522CC0112A00ADCA3B /* colourmap.csv */ = {isa = PBXFileReference; lastKnownFileType = text; name = colourmap.csv; path = mapper/colourmap.csv; sourceTree = SOURCE_ROOT; };
-		16ED0D552CC0170500ADCA3B /* ColourConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourConverter.swift; sourceTree = "<group>"; };
+		16ED0D552CC0170500ADCA3B /* ColourHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourHelper.swift; sourceTree = "<group>"; };
 		16ED0D582CC0964B00ADCA3B /* KuenstlerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KuenstlerViewModel.swift; sourceTree = "<group>"; };
-		16ED0D5A2CC0972500ADCA3B /* Info.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Info.md; sourceTree = "<group>"; };
+		16ED0D5A2CC0972500ADCA3B /* DEVLOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DEVLOG.md; sourceTree = "<group>"; };
+		16ED0D982CC152B200ADCA3B /* ColourPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourPair.swift; sourceTree = "<group>"; };
+		16ED0D9B2CC1538800ADCA3B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		16ED0DA02CC162AC00ADCA3B /* VColour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VColour.swift; sourceTree = "<group>"; };
+		16ED0DA22CC162CF00ADCA3B /* UIColor+Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Converter.swift"; sourceTree = "<group>"; };
+		16ED0DA52CC166D200ADCA3B /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
+		16ED0DA72CC166E600ADCA3B /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				166DF25F2CD18C540048C0E0 /* GoogleMobileAds in Frameworks */,
 				16ED0D4E2CBED8B500ADCA3B /* SwiftVibrantium in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,6 +156,105 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		160278832CC9BD430048F4F8 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				160278842CC9BD540048F4F8 /* WiggleModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		1609D0022CD1673B00D3FCF8 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				16E314712CD2BB90004509D7 /* Localization */,
+				16E314742CD2BF00004509D7 /* Fonts */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		162896C42CC57C85005A2399 /* PaletteList */ = {
+			isa = PBXGroup;
+			children = (
+				162896C52CC57C99005A2399 /* PaletteListItemView.swift */,
+			);
+			path = PaletteList;
+			sourceTree = "<group>";
+		};
+		162896CF2CC5E324005A2399 /* Badges */ = {
+			isa = PBXGroup;
+			children = (
+				162896D02CC5E33A005A2399 /* Badge.swift */,
+			);
+			path = Badges;
+			sourceTree = "<group>";
+		};
+		166520742CC72B8E00F2836E /* PaletteAnalysisComparison */ = {
+			isa = PBXGroup;
+			children = (
+				162896832CC18515005A2399 /* ColourComparisonView.swift */,
+			);
+			path = PaletteAnalysisComparison;
+			sourceTree = "<group>";
+		};
+		166EDA112CD314C200E503E8 /* Experimental */ = {
+			isa = PBXGroup;
+			children = (
+				166EDA122CD314E800E503E8 /* AveragePalette */,
+			);
+			path = Experimental;
+			sourceTree = "<group>";
+		};
+		166EDA122CD314E800E503E8 /* AveragePalette */ = {
+			isa = PBXGroup;
+			children = (
+				166EDA132CD314F500E503E8 /* AveragePaletteView.swift */,
+			);
+			path = AveragePalette;
+			sourceTree = "<group>";
+		};
+		16E3146C2CD29EBE004509D7 /* Texts */ = {
+			isa = PBXGroup;
+			children = (
+				16ED0D5A2CC0972500ADCA3B /* DEVLOG.md */,
+				16E3146D2CD29ED2004509D7 /* Testing.md */,
+			);
+			path = Texts;
+			sourceTree = "<group>";
+		};
+		16E314702CD2AFF5004509D7 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				1637C7112CCDC93B00B99812 /* GridLoadingAnimation.swift */,
+				16E3146E2CD2AFE9004509D7 /* DescriptiveProgressView.swift */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
+		16E314712CD2BB90004509D7 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				16E314722CD2BBB2004509D7 /* Localizable.xcstrings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		16E314742CD2BF00004509D7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1609D0052CD1676F00D3FCF8 /* Merriweather-Black.ttf */,
+				1609D0042CD1676F00D3FCF8 /* Merriweather-BlackItalic.ttf */,
+				1609D0092CD1676F00D3FCF8 /* Merriweather-Bold.ttf */,
+				1609D00B2CD1676F00D3FCF8 /* Merriweather-BoldItalic.ttf */,
+				1609D0032CD1676F00D3FCF8 /* Merriweather-Italic.ttf */,
+				1609D0062CD1676F00D3FCF8 /* Merriweather-Light.ttf */,
+				1609D0072CD1676F00D3FCF8 /* Merriweather-LightItalic.ttf */,
+				1609D0082CD1676F00D3FCF8 /* Merriweather-Regular.ttf */,
+				1609D00A2CD1676F00D3FCF8 /* OFL.txt */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		16ED0D162CBED1C400ADCA3B = {
 			isa = PBXGroup;
 			children = (
@@ -95,7 +268,7 @@
 		16ED0D202CBED1C500ADCA3B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				16ED0D1F2CBED1C500ADCA3B /* ReginaldKuenstler.app */,
+				16ED0D1F2CBED1C500ADCA3B /* Pinselton.app */,
 				16ED0D2F2CBED1C700ADCA3B /* ReginaldKuenstlerTests.xctest */,
 				16ED0D392CBED1C700ADCA3B /* ReginaldKuenstlerUITests.xctest */,
 			);
@@ -105,14 +278,20 @@
 		16ED0D212CBED1C500ADCA3B /* ReginaldKuenstler */ = {
 			isa = PBXGroup;
 			children = (
+				166EDA112CD314C200E503E8 /* Experimental */,
+				1609D0022CD1673B00D3FCF8 /* Assets */,
+				1637C7182CCEC4DA00B99812 /* Info.plist */,
+				16ED0D9D2CC1539600ADCA3B /* View */,
+				16ED0D9A2CC1537A00ADCA3B /* Components */,
+				16ED0D972CC152A000ADCA3B /* Model */,
 				16ED0D572CC0905100ADCA3B /* ViewModel */,
 				16ED0D542CC016F000ADCA3B /* Util */,
 				16ED0D4F2CBFFAB800ADCA3B /* Data */,
-				16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */,
 				16ED0D242CBED1C500ADCA3B /* ContentView.swift */,
+				16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */,
 				16ED0D262CBED1C700ADCA3B /* Assets.xcassets */,
 				16ED0D282CBED1C700ADCA3B /* Preview Content */,
-				16ED0D5A2CC0972500ADCA3B /* Info.md */,
+				16E3146C2CD29EBE004509D7 /* Texts */,
 			);
 			path = ReginaldKuenstler;
 			sourceTree = "<group>";
@@ -145,6 +324,7 @@
 		16ED0D4F2CBFFAB800ADCA3B /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				162896CD2CC5E203005A2399 /* badges.txt */,
 				16ED0D522CC0112A00ADCA3B /* colourmap.csv */,
 				16ED0D502CBFFAC100ADCA3B /* ColourMapper.swift */,
 			);
@@ -154,7 +334,10 @@
 		16ED0D542CC016F000ADCA3B /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				16ED0D552CC0170500ADCA3B /* ColourConverter.swift */,
+				16ED0D552CC0170500ADCA3B /* ColourHelper.swift */,
+				16ED0DA22CC162CF00ADCA3B /* UIColor+Converter.swift */,
+				162896C92CC58A28005A2399 /* UserDefaultsHelper.swift */,
+				1609D0152CD1687300D3FCF8 /* UIFont+CustomFont.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -163,8 +346,48 @@
 			isa = PBXGroup;
 			children = (
 				16ED0D582CC0964B00ADCA3B /* KuenstlerViewModel.swift */,
+				162896882CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift */,
+				166520792CC7FA6A00F2836E /* UserPaletteViewModel.swift */,
+				1609D0002CD1634700D3FCF8 /* UserPaletteData.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		16ED0D972CC152A000ADCA3B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				162896CF2CC5E324005A2399 /* Badges */,
+				16ED0D982CC152B200ADCA3B /* ColourPair.swift */,
+				16ED0DA02CC162AC00ADCA3B /* VColour.swift */,
+				16ED0DA52CC166D200ADCA3B /* Artwork.swift */,
+				16ED0DA72CC166E600ADCA3B /* Palette.swift */,
+				1628968A2CC1A6FD005A2399 /* UserPalette.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		16ED0D9A2CC1537A00ADCA3B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				16ED0D9B2CC1538800ADCA3B /* ImagePicker.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		16ED0D9D2CC1539600ADCA3B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				16E314702CD2AFF5004509D7 /* Loading */,
+				160278832CC9BD430048F4F8 /* Modifiers */,
+				166520742CC72B8E00F2836E /* PaletteAnalysisComparison */,
+				162896C42CC57C85005A2399 /* PaletteList */,
+				162896C72CC587FC005A2399 /* UserPaletteView.swift */,
+				162896CB2CC58FB5005A2399 /* ReginaldKuenstlerTabView.swift */,
+				162896D22CC606C1005A2399 /* PaletteCreationView.swift */,
+				162896D62CC6BA91005A2399 /* ColourGridItem.swift */,
+				1609D0172CD170E700D3FCF8 /* OnboardingView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,9 +408,10 @@
 			name = ReginaldKuenstler;
 			packageProductDependencies = (
 				16ED0D4D2CBED8B500ADCA3B /* SwiftVibrantium */,
+				166DF25E2CD18C540048C0E0 /* GoogleMobileAds */,
 			);
 			productName = ReginaldKuenstler;
-			productReference = 16ED0D1F2CBED1C500ADCA3B /* ReginaldKuenstler.app */;
+			productReference = 16ED0D1F2CBED1C500ADCA3B /* Pinselton.app */;
 			productType = "com.apple.product-type.application";
 		};
 		16ED0D2E2CBED1C700ADCA3B /* ReginaldKuenstlerTests */ = {
@@ -256,10 +480,13 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				it,
 			);
 			mainGroup = 16ED0D162CBED1C400ADCA3B;
 			packageReferences = (
 				16ED0D4C2CBED8B500ADCA3B /* XCRemoteSwiftPackageReference "swift-vibrantium" */,
+				166DF25D2CD18C530048C0E0 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = 16ED0D202CBED1C500ADCA3B /* Products */;
 			projectDirPath = "";
@@ -278,8 +505,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				16ED0D2A2CBED1C700ADCA3B /* Preview Assets.xcassets in Resources */,
+				1609D00E2CD1676F00D3FCF8 /* Merriweather-Black.ttf in Resources */,
+				1609D00D2CD1676F00D3FCF8 /* Merriweather-BlackItalic.ttf in Resources */,
 				16ED0D272CBED1C700ADCA3B /* Assets.xcassets in Resources */,
+				1609D0112CD1676F00D3FCF8 /* Merriweather-Regular.ttf in Resources */,
+				162896CE2CC5E203005A2399 /* badges.txt in Resources */,
+				1609D0132CD1676F00D3FCF8 /* OFL.txt in Resources */,
+				1609D0102CD1676F00D3FCF8 /* Merriweather-LightItalic.ttf in Resources */,
+				1609D00C2CD1676F00D3FCF8 /* Merriweather-Italic.ttf in Resources */,
+				1609D0142CD1676F00D3FCF8 /* Merriweather-BoldItalic.ttf in Resources */,
+				1609D00F2CD1676F00D3FCF8 /* Merriweather-Light.ttf in Resources */,
 				16ED0D532CC0112B00ADCA3B /* colourmap.csv in Resources */,
+				16E314732CD2BBB2004509D7 /* Localizable.xcstrings in Resources */,
+				1609D0122CD1676F00D3FCF8 /* Merriweather-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,11 +542,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16ED0D562CC0170500ADCA3B /* ColourConverter.swift in Sources */,
+				162896CA2CC58A28005A2399 /* UserDefaultsHelper.swift in Sources */,
+				162896C62CC57C99005A2399 /* PaletteListItemView.swift in Sources */,
+				16ED0D562CC0170500ADCA3B /* ColourHelper.swift in Sources */,
+				162896892CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift in Sources */,
+				16ED0DA62CC166D200ADCA3B /* Artwork.swift in Sources */,
 				16ED0D512CBFFAC100ADCA3B /* ColourMapper.swift in Sources */,
+				162896C82CC587FC005A2399 /* UserPaletteView.swift in Sources */,
+				1637C7122CCDC93B00B99812 /* GridLoadingAnimation.swift in Sources */,
+				16E3146F2CD2AFEA004509D7 /* DescriptiveProgressView.swift in Sources */,
+				16ED0DA82CC166E600ADCA3B /* Palette.swift in Sources */,
+				1609D0012CD1634700D3FCF8 /* UserPaletteData.swift in Sources */,
+				160278852CC9BD540048F4F8 /* WiggleModifier.swift in Sources */,
+				166EDA142CD314F500E503E8 /* AveragePaletteView.swift in Sources */,
+				162896842CC18515005A2399 /* ColourComparisonView.swift in Sources */,
+				1609D0182CD170E700D3FCF8 /* OnboardingView.swift in Sources */,
+				1628968B2CC1A6FD005A2399 /* UserPalette.swift in Sources */,
+				16ED0DA12CC162AC00ADCA3B /* VColour.swift in Sources */,
+				162896D32CC606C1005A2399 /* PaletteCreationView.swift in Sources */,
+				1665207A2CC7FA6A00F2836E /* UserPaletteViewModel.swift in Sources */,
 				16ED0D252CBED1C500ADCA3B /* ContentView.swift in Sources */,
+				1609D0162CD1687300D3FCF8 /* UIFont+CustomFont.swift in Sources */,
+				162896D12CC5E33A005A2399 /* Badge.swift in Sources */,
+				162896D72CC6BA91005A2399 /* ColourGridItem.swift in Sources */,
+				16ED0DA32CC162CF00ADCA3B /* UIColor+Converter.swift in Sources */,
+				16ED0D9C2CC1538800ADCA3B /* ImagePicker.swift in Sources */,
+				162896CC2CC58FB5005A2399 /* ReginaldKuenstlerTabView.swift in Sources */,
 				16ED0D232CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift in Sources */,
 				16ED0D592CC0964B00ADCA3B /* KuenstlerViewModel.swift in Sources */,
+				16ED0D992CC152B200ADCA3B /* ColourPair.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,9 +737,10 @@
 				DEVELOPMENT_TEAM = HY3LPP8363;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ReginaldKuenstler/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"Pinselton would like to access your photo library.\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -486,7 +749,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = daveyg.ReginaldKuenstler;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Pinselton;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -504,9 +767,10 @@
 				DEVELOPMENT_TEAM = HY3LPP8363;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ReginaldKuenstler/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"Pinselton would like to access your photo library.\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -515,7 +779,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = daveyg.ReginaldKuenstler;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Pinselton;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -640,6 +904,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		166DF25D2CD18C530048C0E0 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.11.0;
+			};
+		};
 		16ED0D4C2CBED8B500ADCA3B /* XCRemoteSwiftPackageReference "swift-vibrantium" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ruipfcosta/swift-vibrantium";
@@ -651,6 +923,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		166DF25E2CD18C540048C0E0 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 166DF25D2CD18C530048C0E0 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
 		16ED0D4D2CBED8B500ADCA3B /* SwiftVibrantium */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 16ED0D4C2CBED8B500ADCA3B /* XCRemoteSwiftPackageReference "swift-vibrantium" */;

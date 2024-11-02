@@ -8,45 +8,68 @@
 import Foundation
 import UIKit
 
-// Has a dict of colour string names and their rgb/hex values
-final class ColourMapper {
+final class ColourMapper: ObservableObject {
+
+    // Data
+    private(set) var colourMap: [VColour] = []
     
-    // extract `colourmap.csv` and make a dict out of it
-    // dict = { "Cadmium Red": "#FF2210" }
-    var colourMap: [VColour] = []
-    func createColourMapFromCSV() -> [VColour] {
+    // Singleton instance
+    static let shared = ColourMapper()
+    
+    // Prevents external instantiation
+    private init() {
+        print("ColourMapper init called")
+        self.createColourMapFromCSV { cM in
+            self.colourMap = cM
+        }
+    }
+    
+    func createColourMapFromCSV(completion: @escaping ([VColour]) -> Void) {
+        print("creating colourMap from CSV.")
+        // Check if colourMap is already populated
+        if !colourMap.isEmpty {
+            completion(colourMap) // Return existing colourMap if already populated
+            return
+        }
+        
+        // Proceed to read the CSV and populate colourMap
         var coloursFromCSV: [VColour] = []
         
         guard let filePath = Bundle.main.path(forResource: "colourmap", ofType: "csv") else {
             print("CSV FILE NON-EXISTENT.")
-            return coloursFromCSV
+            completion(coloursFromCSV)
+            return
         }
         
-        // read from csv
-        do {
-            let csvData = try String(contentsOfFile: filePath, encoding: .utf8)
-            let rows = csvData.components(separatedBy: "\n")
-            
-            for row in rows {
-                let columns = row.components(separatedBy: ",")
+        DispatchQueue.global(qos: .background).async {
+            do {
+                let csvData = try String(contentsOfFile: filePath, encoding: .utf8)
+                let rows = csvData.components(separatedBy: "\n")
+                let rowsWithoutHeaders = rows.dropFirst()
                 
-                if columns.count == 2 {
-                    let rgbCode = ColourConverter.hexToRGB(hex: columns[1])
-                    let colour = VColour(name: columns[0], hexCode: columns[1], rgbCode: rgbCode)
-                    coloursFromCSV.append(colour)
+                for row in rowsWithoutHeaders {
+                    let columns = row.components(separatedBy: ",")
+                    
+                    if columns.count == 2 {
+                        let colourName = columns[0]
+                        let hexCode = columns[1]
+                        
+                        let rgbCode: RGBTuple = ColourHelper.hexToRGB(hex: hexCode)
+                        let uiColour: UIColor = UIColor(hex: hexCode)
+                        let colour = VColour(name: colourName, hexCode: hexCode, rgbCode: rgbCode, uiColour: uiColour)
+                        coloursFromCSV.append(colour)
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.colourMap = coloursFromCSV // Store the fetched colours
+                    completion(coloursFromCSV)
+                }
+            } catch {
+                print("Error reading CSV file: \(error)")
+                DispatchQueue.main.async {
+                    completion(coloursFromCSV) // Return empty array on error
                 }
             }
-        } catch {
-            print("Error reading CSV file: \(error)")
         }
-        print(coloursFromCSV)
-        self.colourMap = coloursFromCSV
-        return coloursFromCSV
     }
-}
-
-struct VColour {
-    var name: String = ""
-    var hexCode: String = ""
-    var rgbCode: RGBTuple = (r: 0, g: 0, b: 0)
 }

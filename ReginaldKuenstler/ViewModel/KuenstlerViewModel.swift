@@ -12,56 +12,124 @@ import SwiftVibrantium
 /**
  ViewModel responsible for taking image as input and producing a swatch as output
  */
-class KuenstlerViewModel {
+class KuenstlerViewModel: ObservableObject {
     
+    @Published var relevantColoursFromUserPalette: [VColour] = []
     
-    func performAnalOnImage(artwork: Artwork, completion: @escaping ([UIColor]) -> Void) {
-        var infoString = ""
-        var uiColours: [UIColor] = []
-        print("performing anal on \(artwork.title)")
-        Vibrant.from(artwork.image).getPalette() { palette in
-            let p = palette
-            let vibrant: String = p.Vibrant?.hex ?? ""
-            let darkVibrant: String = p.DarkVibrant?.hex ?? ""
-            let lightVibrant: String = p.LightVibrant?.hex ?? ""
-            let mutedVibrant: String = p.Muted?.hex ?? ""
-            let lightMuted: String = p.LightMuted?.hex ?? ""
-            let darkMuted: String = p.DarkMuted?.hex ?? ""
-            print("vibrant: \(vibrant);\n darkvibrant: \(darkVibrant);\n lightVibrant: \(lightVibrant); mutedVibrant: \(mutedVibrant); lightMuted: \(lightMuted); darkMuted: \(darkMuted)")
-            
-            // take input
-            let inputs = [vibrant, darkVibrant, lightVibrant, mutedVibrant, lightMuted, darkMuted]
-            var outputs: [VColour] = []
-            
-            let mapper = ColourMapper()
-            let colourMap = mapper.createColourMapFromCSV()
-            print("\n\n\n\n")
-            
-            // for every colour input
-            for inputColour in inputs {
-                // convert to rgb
-                let rgbInputTuple = ColourConverter.hexToRGB(hex: inputColour)
+    private var estimatedColours: [VColour] = []
+    private var coloursFromUserPalette: [VColour] = []
+    private var approximateUserMixes: [VColour] = []
+    
+    @Published var isLoading: Bool = false
+    
+    // private var userPaletteViewModel: UserPaletteViewModel
+    
+    init() {
+        self.getColoursFromUserPalette()
+    }
+    
+    @MainActor
+    func performAnalOnImage(artwork: Artwork, completion: @escaping (_ result: [ColourPair], [VColour]) -> Void) async throws {
+        let colourMap = ColourMapper.shared.colourMap
+        print("colourMap status from KuenstlerViewModel.performAnal --- \(colourMap.count) items")
+        self.isLoading = true
+        var colourPairs: [ColourPair] = []
+        self.relevantColoursFromUserPalette = []
+        self.estimatedColours = []
+        // print("Performing analysis on \(artwork.title)")
+        DispatchQueue.main.async {
+            Vibrant.from(artwork.image).getPalette() { palette in
+                let p = palette
+                let vibrant: Swatch? = p.Vibrant
+                let darkVibrant: Swatch? = p.DarkVibrant
+                let lightVibrant: Swatch? = p.LightVibrant
+                let mutedVibrant: Swatch? = p.Muted
+                let lightMuted: Swatch? = p.LightMuted
+                let darkMuted: Swatch? = p.DarkMuted
                 
-                // calculate nearest distance, output
-                let nearestColour = ColourConverter.findNearestColorFromRGBValue(rgbTuple: rgbInputTuple, colourMap: colourMap)
-                outputs.append(nearestColour)
-            }
-            
-            let inputOutputZip = zip(inputs, outputs)
-            
-            print("Analysis of \(artwork.title)")
-            
-            for (inputColour, outputColour) in inputOutputZip {
-                let outputCode = outputColour.rgbCode
-                let currentColour = UIColor(red: CGFloat(outputCode.r) / 255.0, green: CGFloat(outputCode.g) / 255.0, blue: CGFloat(outputCode.b) / 255.0, alpha: 1.0)
-                uiColours.append(currentColour)
+                // Take input
+                let inputs: [(String, Swatch?)] = [
+                    ("Vibrant", vibrant),
+                    ("Dark Vibrant", darkVibrant),
+                    ("Light Vibrant", lightVibrant),
+                    ("Muted Vibrant", mutedVibrant),
+                    ("Light Muted", lightMuted),
+                    ("Dark Muted", darkMuted)
+                ]
                 
-                let yap = "Vibrant took the input as \(inputColour), which corresponds to \(outputColour.name) (hex code: \(outputColour.hexCode))\nThe UIColor for \(outputColour.name) is: \(currentColour)\n\n"
-                infoString += yap
-                print(yap)
+                // Loop through each input
+                for (colourType, swatchInput) in inputs {
+                    if let swatchInput = swatchInput {
+                        // Make an ActualColourInfo
+                        let actualHex: String = swatchInput.hex
+                        let actualUIColour: UIColor = swatchInput.uiColor
+                        let actualRGBCode: RGBTuple = ColourHelper.hexToRGB(hex: actualHex)
+                        
+                        // ColourPair component 1
+                        let actualColourInfo = ColourInfo(hexCode: actualHex, rgbCode: actualRGBCode, uiColour: actualUIColour)
+                        
+                        // Find nearest colour in the map
+                        // print("passing colourMap of \(self.colourMap.count) items to converter..")
+                        print("colourMap status, KuenstlerViewModel.performAnal, before we need it. --- \(ColourMapper.shared.colourMap.count) items")
+                        let currentVColour: VColour = ColourHelper.findNearestColourInMap(withRgbValue: actualRGBCode, colourMap: colourMap)
+                        let estimatedHexCode: String = currentVColour.hexCode
+                        let estimatedUIColour: UIColor = currentVColour.uiColour
+                        let estimatedRGBTuple: RGBTuple = currentVColour.rgbCode
+                        
+                        self.estimatedColours.append(currentVColour)
+                        
+                        // ColourPair component 2
+                        let estimatedColourInfo = ColourInfo(hexCode: estimatedHexCode, rgbCode: estimatedRGBTuple, uiColour: estimatedUIColour)
+                        
+                        // Create a ColourPair
+                        let colourPair = ColourPair(name: currentVColour.name, type: colourType, actualColourInfo: actualColourInfo, estimatedColourInfo: estimatedColourInfo)
+                        
+                        // Add ColourPair to array
+                        colourPairs.append(colourPair)
+                    }
+                }
+                // print("--KünstlerViewModel analysis has been performed, colourPairs has \(colourPairs.count) elements")
+                // print(self.coloursFromUserPalette)
+                // print(self.estimatedColours)
+                let paletteIntersectionUserAndEstimate = self.determinePaletteIntersection(paletteOne: self.coloursFromUserPalette, paletteTwo: self.estimatedColours)
+                
+                let approximateColours: [VColour] = [] // ColourHelper.findBestMixesForColours(targetColours: self.estimatedColours, userPalette: self.coloursFromUserPalette)
+                
+                self.approximateUserMixes = approximateColours
+                self.relevantColoursFromUserPalette = paletteIntersectionUserAndEstimate + approximateColours
+                
+//                print("--KünstlerViewModel, relevantColoursFromUserPalette: \(self.relevantColoursFromUserPalette.count) elements")
+//                print("\n\(self.relevantColoursFromUserPalette.count) elements.\n\n")
+                
+                self.isLoading = false
+                completion(colourPairs, self.relevantColoursFromUserPalette)
             }
-            print("printing uiColours within callback: \(uiColours)")
-            completion(uiColours)
         }
     }
+    
+    // MARK: User Palette
+    private func getColoursFromUserPalette() {
+        if UserDefaultsHelper.isKeyPresentInUserDefaults(key: UserPaletteConstants.userPalettesKey) {
+            if let userPaletteFromUserDefaults = UserDefaults.standard.dictionary(forKey: UserPaletteConstants.userPalettesKey) as? [String: String]  {
+                // convert UserPalette to list of VColours
+                for (name, hexCode) in userPaletteFromUserDefaults {
+                    let generatedVColour = VColour(name: name, hexCode: hexCode)
+                    self.coloursFromUserPalette.append(generatedVColour)
+                }
+                
+            }
+        }
+    }
+    
+    // takes two palettes and tells you where they overlap.
+    // VColour for now, use Palette for later.
+    private func determinePaletteIntersection(paletteOne: [VColour], paletteTwo: [VColour]) -> [VColour] {
+        let interesectedPalette = paletteOne.filter { paletteTwo.contains($0) }
+        return interesectedPalette
+    }
+    
+    // TODO: DO THIS
+    //    private func determineBestMixFromUserPalette() {
+    //        let (bestMix, bestDeltaE) = ColourHelper.determineBestMixFromUserPalette(userPalette: self.coloursFromUserPalette, missingColor: missingColor)
+    //    }
 }
