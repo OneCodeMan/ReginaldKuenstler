@@ -25,7 +25,7 @@ struct PaletteColour: Identifiable, Equatable {
     // used for display
     var hexCode: String
     var uiColour: UIColor = .yellow // TODO: create this out of init?
-    var rgbCode: RGBTuple = (r: 0, g: 0, b: 0) // TODO: create a default value and reference that. DRY.
+    var rgbCode: RGBTuple = RGBTuple(r: 0, g: 0, b: 0) // TODO: create a default value and reference that. DRY.
     
     // user info
     var isUserFavorite: Bool = false
@@ -63,6 +63,23 @@ struct Palette {
     var colours: [PaletteColour] = []
 }
 
+/**
+ Has a list of artworks `artworks`,
+ the `entirePalette` (all colours needed to make all artworks combined),
+ the minimum # of colours `minimumPalette` needed to make those paintings (a set(entirePalette))
+ */
+// TODO: Later this should have "essentialPalette"
+struct MultipleArtworksPalette {
+    var artworks: [Artwork] = []
+    var minimumPalette: [PaletteColour] = []
+    var entirePalette: [PaletteColour] = []
+    
+    var essentialPalette: [PaletteColour] = [] // most frequent colours
+    var collectionCounter: [(PaletteColour, Int)] = []
+}
+
+
+// MARK: MOCK DATA
 extension Palette {
     static let mockPalette: [PaletteColour] = [
         PaletteColour(colourName: "Midnight Blue", hexCode: "#191970"),

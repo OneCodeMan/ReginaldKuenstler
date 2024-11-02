@@ -16,7 +16,7 @@ import SwiftUI
 struct ReginaldKuenstlerTabView: View {
     @EnvironmentObject var userPaletteViewModel: UserPaletteViewModel // Access the ViewModel
 
-    @State var selectedTab: Int = 0
+    @State var selectedTab: Int = 2
     var body: some View {
         TabView(selection:  $selectedTab) {
             UserPaletteView()
@@ -40,14 +40,14 @@ struct ReginaldKuenstlerTabView: View {
                 }
                 .font(.defaultFontCaption)
             
-            // debug
-//            AveragePaletteView()
-//                .tag(2)
-//                .tabItem {
-//                    Image(systemName: "chart.bar.fill")
-//                        .renderingMode(.template)
-//                    Text(String(localized: "Average Palette"))
-//                }
+            // NEW FEATURES 0.2
+            AveragePaletteView()
+                .tag(2)
+                .tabItem {
+                    Image(systemName: "chart.bar.fill")
+                        .renderingMode(.template)
+                    Text(String(localized: "Average Palette"))
+                }
         }
         .tint(.indigo)
     }

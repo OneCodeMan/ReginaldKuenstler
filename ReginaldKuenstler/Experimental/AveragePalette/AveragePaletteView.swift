@@ -2,38 +2,100 @@ import SwiftUI
 import PhotosUI
 
 struct AveragePaletteView: View {
+    @ObservedObject var viewModel = AveragePaletteViewModel()
     @State private var images: [UIImage] = [] // Array to hold selected images
     @State private var isPickerPresented = false
-    
-    var columns = [
-        GridItem(.adaptive(minimum: 100)) // Adjust the size as needed
+
+    var rows = [
+        GridItem(.flexible()) // Adjust the size as needed
     ]
-    
+
     var body: some View {
-        VStack {
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 10) {
-                    ForEach(images, id: \.self) { image in
-                        Image(uiImage: image)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 100)
-                            .cornerRadius(8)
+        ScrollView {
+            VStack {
+                
+                // images
+                VStack {
+                    
+                    ScrollView(.horizontal) {
+                        LazyHGrid(rows: rows, spacing: 10) {
+                            ForEach(images, id: \.self) { image in
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(minHeight: 200)
+                                    .cornerRadius(8)
+                                    .unredacted()
+                            }
+                        }
+                        .padding()
+                    } // end of scrollview
+                    .frame(minHeight: 400, maxHeight: 450)
+                    .redacted(reason: .placeholder)
+                }
+                
+                // anal
+                
+                Divider()
+                
+                if viewModel.isLoading {
+                    ProgressView("Analyzing images...")
+                } else {
+                    ScrollView(.horizontal) {
+                        LazyHGrid(rows: rows, spacing: 10) {
+                            ForEach(viewModel.paletteResults.indices, id: \.self) { index in
+                                VStack {
+                                    Section(header: Text("Palette for Image \(index + 1)")) {
+                                        ForEach(viewModel.paletteResults[index]) { colour in
+                                            HStack {
+                                                Text(colour.colourName)
+                                                    .frame(width: 100, alignment: .leading)
+                                                Rectangle()
+                                                    .fill(Color(colour.uiColour))
+                                                    .frame(width: 30, height: 30)
+                                                    .cornerRadius(5)
+                                            }
+                                        }
+                                    } // end of Section
+                                    .unredacted()
+                                } // end of VStack
+                                .padding()
+                                Divider().frame(width: 2)
+                            } // end of ForEach
+                        }
+                        .padding(8)
+                        
+//                        Spacer()
+//                            .frame(height: 10)
+                        
+                    }
+                    .redacted(reason: .placeholder)
+                    
+                    
+                } // end oof if statement
+
+                Button("Select Images") {
+                    isPickerPresented.toggle()
+                }
+                .padding()
+                .sheet(isPresented: $isPickerPresented) {
+                    PHPickerViewControllerWrapper(images: $images)
+                }
+
+                Button("Analyze") {
+                    Task {
+                        await viewModel.analyzeImages(images: images)
                     }
                 }
                 .padding()
-            }
-            
-            Button("Select Images") {
-                isPickerPresented.toggle()
-            }
-            .padding()
-            .sheet(isPresented: $isPickerPresented) {
-                PHPickerViewControllerWrapper(images: $images)
+
             }
         }
+        
     }
 }
+
+
 
 struct PHPickerViewControllerWrapper: UIViewControllerRepresentable {
     @Binding var images: [UIImage]

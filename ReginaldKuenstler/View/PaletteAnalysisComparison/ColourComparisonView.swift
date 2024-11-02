@@ -77,7 +77,7 @@ struct ColourComparisonView: View {
         // Reset palette strings
         paletteString = ""
         personalPaletteString = ""
-        let artwork = Artwork(image: img, title: imgTitle)
+        let artwork = ArtworkInput(image: img, title: imgTitle)
         
         Task {
             try await viewModel.performAnalOnImage(artwork: artwork) { colourPairs, relevantColoursFromUserPalette in

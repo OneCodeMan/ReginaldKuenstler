@@ -24,14 +24,19 @@ class KuenstlerViewModel: ObservableObject {
     
     // private var userPaletteViewModel: UserPaletteViewModel
     
+    // MARK: multi-select
+    // [ Artwork1: [ColourPair1(), ColourPair2(), ... , ColourPair6()], Artwork2: [ColourPair()], Artwork3: []]
+    @Published var multipleArtworks: [Artwork] = []
+    @Published var averagePaletteForMultipleArtworks: MultipleArtworksPalette = MultipleArtworksPalette()
+    
     init() {
         self.getColoursFromUserPalette()
     }
     
     @MainActor
-    func performAnalOnImage(artwork: Artwork, completion: @escaping (_ result: [ColourPair], [VColour]) -> Void) async throws {
+    func performAnalOnImage(artwork: ArtworkInput, completion: @escaping (_ result: [ColourPair], [VColour]) -> Void) async throws {
         let colourMap = ColourMapper.shared.colourMap
-        print("colourMap status from KuenstlerViewModel.performAnal --- \(colourMap.count) items")
+        // print("colourMap status from KuenstlerViewModel.performAnal --- \(colourMap.count) items")
         self.isLoading = true
         var colourPairs: [ColourPair] = []
         self.relevantColoursFromUserPalette = []
@@ -70,7 +75,7 @@ class KuenstlerViewModel: ObservableObject {
                         
                         // Find nearest colour in the map
                         // print("passing colourMap of \(self.colourMap.count) items to converter..")
-                        print("colourMap status, KuenstlerViewModel.performAnal, before we need it. --- \(ColourMapper.shared.colourMap.count) items")
+                        // print("colourMap status, KuenstlerViewModel.performAnal, before we need it. --- \(ColourMapper.shared.colourMap.count) items")
                         let currentVColour: VColour = ColourHelper.findNearestColourInMap(withRgbValue: actualRGBCode, colourMap: colourMap)
                         let estimatedHexCode: String = currentVColour.hexCode
                         let estimatedUIColour: UIColor = currentVColour.uiColour
@@ -104,6 +109,50 @@ class KuenstlerViewModel: ObservableObject {
                 self.isLoading = false
                 completion(colourPairs, self.relevantColoursFromUserPalette)
             }
+        }
+    }
+    
+    func performAnalOnArtworks(artworkInputs: [ArtworkInput], completion: @escaping (_ result: MultipleArtworksPalette) -> Void) async throws {
+        DispatchQueue.main.async {
+            self.isLoading = true
+        }
+        
+        var artworks: [Artwork] = []
+        var entirePalette: [PaletteColour] = []
+        var minimumPalette: [PaletteColour] = []
+        for (i, artwork) in artworkInputs.enumerated() {
+            try await performAnalOnImage(artwork: artwork) { colourPairs, _ in
+                let artworkName = "Artwork \(i + 1)"
+                let artwork = Artwork(artworkInput: artwork, title: artworkName, colourPairs: colourPairs)
+                artworks.append(artwork)
+                
+                for pair in colourPairs {
+                    let currentPaletteColour: PaletteColour = PaletteColour(colourName: pair.name, hexCode: pair.estimatedColourInfo.hexCode)
+                    entirePalette.append(currentPaletteColour)
+                }
+                
+            }
+        }
+        
+        DispatchQueue.main.async {
+            self.averagePaletteForMultipleArtworks = MultipleArtworksPalette(artworks: artworks, minimumPalette: minimumPalette, entirePalette: entirePalette)
+        }
+
+        completion(self.averagePaletteForMultipleArtworks)
+        prettyPrintArtworksData()
+        
+    }
+    
+    private func prettyPrintArtworksData() {
+        print("KuenstlerViewModel average palette: \(multipleArtworks.count) items.\n\n")
+        
+        for artwork in multipleArtworks {
+            print("\n\n----------------------------------------\n")
+            print("Title: \(artwork.title)")
+            for pair in artwork.colourPairs {
+                print("Estimated Colour: \(pair.estimatedColourInfo.hexCode)\n")
+            }
+            print("\n\n----------------------------------------\n")
         }
     }
     

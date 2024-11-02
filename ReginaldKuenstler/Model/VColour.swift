@@ -17,7 +17,7 @@ struct VColour: Equatable {
     
     var name: String = ""
     var hexCode: String = ""
-    var rgbCode: RGBTuple = (r: 0, g: 0, b: 0)
+    var rgbCode: RGBTuple = RGBTuple(r: 0, g: 0, b: 0)
     var uiColour: UIColor = UIColor.yellow
     
     init() {

@@ -46,7 +46,7 @@ final class ColourHelper {
     static func findNearestColourInMap(withRgbValue inputRGBTuple: RGBTuple, colourMap: [VColour]) -> VColour {
         guard !colourMap.isEmpty else {
             print("--findNearestColourInMap: COLOUR MAP IS EMPTY. Returning default colour.")
-            return VColour(name: "Unknown", hexCode: "#000000", rgbCode: (0, 0, 0), uiColour: UIColor.black)
+            return VColour(name: "Unknown", hexCode: "#000000", rgbCode: RGBTuple(r: 0, g: 0, b: 0), uiColour: UIColor.black)
         }
         
         var nearestColour = VColour()
@@ -226,8 +226,8 @@ final class ColourHelper {
         
         return VColour(
             name: colourMixName,
-            hexCode: ColourHelper.rgbToHex(mixedRGB),
-            rgbCode: mixedRGB,
+            hexCode: ColourHelper.rgbToHex(RGBTuple(mixedRGB)),
+            rgbCode: RGBTuple(mixedRGB),
             uiColour: UIColor(
                 red: CGFloat(mixedRGB.r) / 255.0,
                 green: CGFloat(mixedRGB.g) / 255.0,
@@ -257,8 +257,8 @@ final class ColourHelper {
             
             return VColour(
                 name: "MixedColor",
-                hexCode: ColourHelper.rgbToHex(mixedRGB),
-                rgbCode: mixedRGB,
+                hexCode: ColourHelper.rgbToHex(RGBTuple(mixedRGB)),
+                rgbCode: RGBTuple(mixedRGB),
                 uiColour: UIColor(
                     red: CGFloat(mixedR) / 255.0,
                     green: CGFloat(mixedG) / 255.0,

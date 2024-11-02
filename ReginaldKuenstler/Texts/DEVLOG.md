@@ -35,6 +35,22 @@
         - Accept UIImage as input and detect with SwiftVibrantium
         
 # CASE STUDY -- A UI/UX Perspective
+ TODO
+
+# Main Challenges
+
+*What is the problem we're trying to solve?*
+This is the most important q from a product dev perspective. Never neglect this part.
+
+*What is the best way to take user input in this context?*
+- They take pics of their paints.
+- There is a catalog in app consisting directly of the products of specific brands (W&N, VG, MM)
+
+*How do we create the best data model for the palette detector?*
+i.e. how do we make sure that it analyzes all possible hex codes that "Cadmium Red" can be?
+
+*How do we optimize the image analyzer?*
+so much shit to think about
 
 
 # Personal Diary
@@ -69,7 +85,7 @@
 - Should the imageview itself be tappable to open imagepicker menu?
 
 ------------------------------------------------------------------------------------------------------------------------
-# BIG BATCH TO MVP
+# TO PRODUCT MVP
 
 ### Wave 2 to MVP -- Beat the spaghetti code allegations.
 - [ ] One big code cleanup
@@ -91,7 +107,17 @@ And you should be done.
 
 Suggestions:
 - Should we add a floating bottom right button on UserPalette to toggle Edit view? Is long press not obvious enough?
+------------------------------------------------------------------------------------------------------------------------
 
+# Wave 2
+That new new
+- [ ] AveragePalette, multi-select.
+- [ ] Palette of the Greats
+- [ ] Take in other forms of input for colour.
+- [ ] Better colour mapper data
+    - https://color-hex.com/color-names.html
+------------------------------------------------------------------------------------------------------------------------
+# Wave 1
 ### BULK
 
 ### history
