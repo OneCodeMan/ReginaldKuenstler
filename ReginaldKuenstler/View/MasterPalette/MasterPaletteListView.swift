@@ -9,7 +9,24 @@ import SwiftUI
 
 struct MasterPaletteListView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            ScrollView {
+                ForEach(MasterPaletteConstants.masterPalettes, id: \.self) { masterPalette in
+                    NavigationLink(destination: MasterPaletteDetailView(images: masterPalette.imageStrings)) {
+                        HStack {
+                            Rectangle()
+                                .fill(.orange)
+                                .cornerRadius(4)
+                                .frame(width: 30, height: 30)
+                            VStack {
+                                Text(masterPalette.artistName)
+                                    .font(.defaultFontTitle)
+                            }
+                        }
+                    } // ForEach
+                }
+            }
+        }
     }
 }
 

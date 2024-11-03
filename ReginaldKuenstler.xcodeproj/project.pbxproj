@@ -41,6 +41,7 @@
 		16A6C4A22CD6F921003C50FA /* MasterPaletteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A6C4A12CD6F921003C50FA /* MasterPaletteDetailView.swift */; };
 		16A6C4A42CD6F94B003C50FA /* MasterPaletteConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A6C4A32CD6F94B003C50FA /* MasterPaletteConstants.swift */; };
 		16A6C4A62CD70354003C50FA /* MasterPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A6C4A52CD70354003C50FA /* MasterPaletteView.swift */; };
+		16A6C4A82CD72465003C50FA /* MasterPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A6C4A72CD72465003C50FA /* MasterPalette.swift */; };
 		16E3146F2CD2AFEA004509D7 /* DescriptiveProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E3146E2CD2AFE9004509D7 /* DescriptiveProgressView.swift */; };
 		16E314732CD2BBB2004509D7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 16E314722CD2BBB2004509D7 /* Localizable.xcstrings */; };
 		16ED0D232CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */; };
@@ -115,6 +116,7 @@
 		16A6C4A12CD6F921003C50FA /* MasterPaletteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPaletteDetailView.swift; sourceTree = "<group>"; };
 		16A6C4A32CD6F94B003C50FA /* MasterPaletteConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPaletteConstants.swift; sourceTree = "<group>"; };
 		16A6C4A52CD70354003C50FA /* MasterPaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPaletteView.swift; sourceTree = "<group>"; };
+		16A6C4A72CD72465003C50FA /* MasterPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPalette.swift; sourceTree = "<group>"; };
 		16E3146D2CD29ED2004509D7 /* Testing.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Testing.md; sourceTree = "<group>"; };
 		16E3146E2CD2AFE9004509D7 /* DescriptiveProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptiveProgressView.swift; sourceTree = "<group>"; };
 		16E314722CD2BBB2004509D7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 				16ED0DA52CC166D200ADCA3B /* ArtworkInput.swift */,
 				16ED0DA72CC166E600ADCA3B /* Palette.swift */,
 				1628968A2CC1A6FD005A2399 /* UserPalette.swift */,
+				16A6C4A72CD72465003C50FA /* MasterPalette.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				16ED0D562CC0170500ADCA3B /* ColourHelper.swift in Sources */,
 				162896892CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift in Sources */,
 				16ED0DA62CC166D200ADCA3B /* ArtworkInput.swift in Sources */,
+				16A6C4A82CD72465003C50FA /* MasterPalette.swift in Sources */,
 				16ED0D512CBFFAC100ADCA3B /* ColourMapper.swift in Sources */,
 				162896C82CC587FC005A2399 /* UserPaletteView.swift in Sources */,
 				1637C7122CCDC93B00B99812 /* GridLoadingAnimation.swift in Sources */,

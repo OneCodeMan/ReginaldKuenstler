@@ -31,19 +31,27 @@ struct MasterPaletteConstants {
     
     static let masterPaletteImageStrings = [
         hopperImageStrings,
-        johansenImageStrings,
+        // johansenImageStrings,
         siemiradzkiImageStrings,
         gentileschiImageStrings,
         caravaggioImageStrings,
         goyaImageStrings,
         vanGoghImageStrings,
         // munchImageStrings,
-        botticeliImageStrings,
+        // botticeliImageStrings,
         
         // picassoImageStrings,
         // sargentImageStrings,
         
         // ... new down here
+    ]
+    
+    static let masterPalettes: [MasterPalette] = [
+        MasterPalette(imageStrings: hopperImageStrings, artistName: "Edward Hopper"),
+        MasterPalette(imageStrings: siemiradzkiImageStrings, artistName: "Siemiradzki"),
+        MasterPalette(imageStrings: gentileschiImageStrings, artistName: "Gentileschi"),
+        MasterPalette(imageStrings: goyaImageStrings, artistName: "Francisco Goya"),
+        MasterPalette(imageStrings: vanGoghImageStrings, artistName: "Van Gogh"),
     ]
     
 }

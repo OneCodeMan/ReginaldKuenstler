@@ -49,7 +49,7 @@ struct ReginaldKuenstlerTabView: View {
 //                    Text(String(localized: "Multi-select"))
 //                }
             
-            MasterPaletteView()
+            MasterPaletteListView()
                 .tag(2)
                 .tabItem {
                     Image(systemName: "figure.dance")
