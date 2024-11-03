@@ -113,9 +113,22 @@ Suggestions:
 That new new
 - [ ] AveragePalette, multi-select.
 - [ ] Palette of the Greats
-- [ ] Take in other forms of input for colour.
 - [ ] Better colour mapper data
     - https://color-hex.com/color-names.html
+    
+- [ ] User Input
+
+## Resources
+### user input
+
+https://www.montmarte.com/collections/oil-pastels
+- possibly can scrape, look at colours under "additional details" each page.
+
+https://www.winsornewton.com/en-ca/collections/artists-oil?sort_by=title-ascending
+https://www.winsornewton.com/en-ca/collections/cotman-watercolour
+- load entire thing
+
+
 ------------------------------------------------------------------------------------------------------------------------
 # Wave 1
 ### BULK
