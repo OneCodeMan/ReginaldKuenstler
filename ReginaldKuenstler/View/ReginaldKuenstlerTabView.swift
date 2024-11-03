@@ -44,9 +44,9 @@ struct ReginaldKuenstlerTabView: View {
             AveragePaletteView()
                 .tag(2)
                 .tabItem {
-                    Image(systemName: "chart.bar.fill")
+                    Image(systemName: "chart.bar.doc.horizontal")
                         .renderingMode(.template)
-                    Text(String(localized: "Average Palette"))
+                    Text(String(localized: "Multi-select"))
                 }
         }
         .tint(.indigo)

@@ -45,11 +45,17 @@ struct AveragePaletteView: View {
                         LazyHGrid(rows: rows, spacing: 10) {
                             ForEach(viewModel.paletteResults.indices, id: \.self) { index in
                                 VStack {
-                                    Section(header: Text("Palette for Image \(index + 1)")) {
+                                    Image(uiImage: images[index])
+                                        .resizable()
+                                        .frame(width: 90, height: 60)
+                                        .scaledToFill()
+                                        .padding()
+                                    Section {
                                         ForEach(viewModel.paletteResults[index]) { colour in
                                             HStack {
                                                 Text(colour.colourName)
                                                     .frame(width: 100, alignment: .leading)
+                                                
                                                 Rectangle()
                                                     .fill(Color(colour.uiColour))
                                                     .frame(width: 30, height: 30)
@@ -57,8 +63,8 @@ struct AveragePaletteView: View {
                                             }
                                         }
                                     } // end of Section
-                                    .unredacted()
                                 } // end of VStack
+                                .unredacted()
                                 .padding()
                                 Divider().frame(width: 2)
                             } // end of ForEach
@@ -94,7 +100,6 @@ struct AveragePaletteView: View {
         
     }
 }
-
 
 
 struct PHPickerViewControllerWrapper: UIViewControllerRepresentable {
