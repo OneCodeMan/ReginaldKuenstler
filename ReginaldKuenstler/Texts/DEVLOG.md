@@ -110,11 +110,17 @@ Suggestions:
 ------------------------------------------------------------------------------------------------------------------------
 
 # Wave 2
+## (November 1, 2024 -- ????)
+
 That new new
-- [ ] AveragePalette, multi-select.
+- [ ] Multi-select.
+    - [ ] Add the Minimum Palette.
+    - [ ] Add most common colours
 - [ ] Palette of the Greats
     - [ ] List View
+        - [ ] Style List View
     - [ ] Detail View
+        - [ ] Add AveragePalette to bottom of DetailView
 - [ ] Better colour mapper data
     - https://color-hex.com/color-names.html
     
