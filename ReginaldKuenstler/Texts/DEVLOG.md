@@ -113,6 +113,8 @@ Suggestions:
 That new new
 - [ ] AveragePalette, multi-select.
 - [ ] Palette of the Greats
+    - [ ] List View
+    - [ ] Detail View
 - [ ] Better colour mapper data
     - https://color-hex.com/color-names.html
     
