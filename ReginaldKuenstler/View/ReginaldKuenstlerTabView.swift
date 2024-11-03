@@ -41,12 +41,20 @@ struct ReginaldKuenstlerTabView: View {
                 .font(.defaultFontCaption)
             
             // NEW FEATURES 0.2
-            AveragePaletteView()
+//            AveragePaletteView()
+//                .tag(2)
+//                .tabItem {
+//                    Image(systemName: "chart.bar.doc.horizontal")
+//                        .renderingMode(.template)
+//                    Text(String(localized: "Multi-select"))
+//                }
+            
+            MasterPaletteView()
                 .tag(2)
                 .tabItem {
-                    Image(systemName: "chart.bar.doc.horizontal")
+                    Image(systemName: "figure.dance")
                         .renderingMode(.template)
-                    Text(String(localized: "Multi-select"))
+                    Text(String(localized: "Masters"))
                 }
         }
         .tint(.indigo)

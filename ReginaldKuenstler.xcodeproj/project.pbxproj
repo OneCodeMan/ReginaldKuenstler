@@ -37,6 +37,10 @@
 		166EDA142CD314F500E503E8 /* AveragePaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166EDA132CD314F500E503E8 /* AveragePaletteView.swift */; };
 		16A6C49B2CD6D49F003C50FA /* ObjectInstance+CountFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A6C49A2CD6D49F003C50FA /* ObjectInstance+CountFrequency.swift */; };
 		16A6C49D2CD6DFE9003C50FA /* AveragePaletteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A6C49C2CD6DFE9003C50FA /* AveragePaletteViewModel.swift */; };
+		16A6C4A02CD6F811003C50FA /* MasterPaletteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A6C49F2CD6F811003C50FA /* MasterPaletteListView.swift */; };
+		16A6C4A22CD6F921003C50FA /* MasterPaletteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A6C4A12CD6F921003C50FA /* MasterPaletteDetailView.swift */; };
+		16A6C4A42CD6F94B003C50FA /* MasterPaletteConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A6C4A32CD6F94B003C50FA /* MasterPaletteConstants.swift */; };
+		16A6C4A62CD70354003C50FA /* MasterPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A6C4A52CD70354003C50FA /* MasterPaletteView.swift */; };
 		16E3146F2CD2AFEA004509D7 /* DescriptiveProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E3146E2CD2AFE9004509D7 /* DescriptiveProgressView.swift */; };
 		16E314732CD2BBB2004509D7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 16E314722CD2BBB2004509D7 /* Localizable.xcstrings */; };
 		16ED0D232CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0D222CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift */; };
@@ -107,6 +111,10 @@
 		166EDA132CD314F500E503E8 /* AveragePaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AveragePaletteView.swift; sourceTree = "<group>"; };
 		16A6C49A2CD6D49F003C50FA /* ObjectInstance+CountFrequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObjectInstance+CountFrequency.swift"; sourceTree = "<group>"; };
 		16A6C49C2CD6DFE9003C50FA /* AveragePaletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AveragePaletteViewModel.swift; sourceTree = "<group>"; };
+		16A6C49F2CD6F811003C50FA /* MasterPaletteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPaletteListView.swift; sourceTree = "<group>"; };
+		16A6C4A12CD6F921003C50FA /* MasterPaletteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPaletteDetailView.swift; sourceTree = "<group>"; };
+		16A6C4A32CD6F94B003C50FA /* MasterPaletteConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPaletteConstants.swift; sourceTree = "<group>"; };
+		16A6C4A52CD70354003C50FA /* MasterPaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPaletteView.swift; sourceTree = "<group>"; };
 		16E3146D2CD29ED2004509D7 /* Testing.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Testing.md; sourceTree = "<group>"; };
 		16E3146E2CD2AFE9004509D7 /* DescriptiveProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptiveProgressView.swift; sourceTree = "<group>"; };
 		16E314722CD2BBB2004509D7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -215,6 +223,16 @@
 				166EDA132CD314F500E503E8 /* AveragePaletteView.swift */,
 			);
 			path = AveragePalette;
+			sourceTree = "<group>";
+		};
+		16A6C49E2CD6F808003C50FA /* MasterPalette */ = {
+			isa = PBXGroup;
+			children = (
+				16A6C49F2CD6F811003C50FA /* MasterPaletteListView.swift */,
+				16A6C4A12CD6F921003C50FA /* MasterPaletteDetailView.swift */,
+				16A6C4A52CD70354003C50FA /* MasterPaletteView.swift */,
+			);
+			path = MasterPalette;
 			sourceTree = "<group>";
 		};
 		16E3146C2CD29EBE004509D7 /* Texts */ = {
@@ -331,6 +349,7 @@
 				162896CD2CC5E203005A2399 /* badges.txt */,
 				16ED0D522CC0112A00ADCA3B /* colourmap.csv */,
 				16ED0D502CBFFAC100ADCA3B /* ColourMapper.swift */,
+				16A6C4A32CD6F94B003C50FA /* MasterPaletteConstants.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -383,6 +402,7 @@
 		16ED0D9D2CC1539600ADCA3B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				16A6C49E2CD6F808003C50FA /* MasterPalette */,
 				16E314702CD2AFF5004509D7 /* Loading */,
 				160278832CC9BD430048F4F8 /* Modifiers */,
 				166520742CC72B8E00F2836E /* PaletteAnalysisComparison */,
@@ -557,6 +577,7 @@
 				162896C82CC587FC005A2399 /* UserPaletteView.swift in Sources */,
 				1637C7122CCDC93B00B99812 /* GridLoadingAnimation.swift in Sources */,
 				16E3146F2CD2AFEA004509D7 /* DescriptiveProgressView.swift in Sources */,
+				16A6C4A02CD6F811003C50FA /* MasterPaletteListView.swift in Sources */,
 				16ED0DA82CC166E600ADCA3B /* Palette.swift in Sources */,
 				16A6C49B2CD6D49F003C50FA /* ObjectInstance+CountFrequency.swift in Sources */,
 				1609D0012CD1634700D3FCF8 /* UserPaletteData.swift in Sources */,
@@ -567,18 +588,21 @@
 				1628968B2CC1A6FD005A2399 /* UserPalette.swift in Sources */,
 				16ED0DA12CC162AC00ADCA3B /* VColour.swift in Sources */,
 				162896D32CC606C1005A2399 /* PaletteCreationView.swift in Sources */,
+				16A6C4A22CD6F921003C50FA /* MasterPaletteDetailView.swift in Sources */,
 				1665207A2CC7FA6A00F2836E /* UserPaletteViewModel.swift in Sources */,
 				16ED0D252CBED1C500ADCA3B /* ContentView.swift in Sources */,
 				1609D0162CD1687300D3FCF8 /* UIFont+CustomFont.swift in Sources */,
 				162896D12CC5E33A005A2399 /* Badge.swift in Sources */,
 				162896D72CC6BA91005A2399 /* ColourGridItem.swift in Sources */,
 				16ED0DA32CC162CF00ADCA3B /* UIColor+Converter.swift in Sources */,
+				16A6C4A62CD70354003C50FA /* MasterPaletteView.swift in Sources */,
 				16ED0D9C2CC1538800ADCA3B /* ImagePicker.swift in Sources */,
 				162896CC2CC58FB5005A2399 /* ReginaldKuenstlerTabView.swift in Sources */,
 				16ED0D232CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift in Sources */,
 				16ED0D592CC0964B00ADCA3B /* KuenstlerViewModel.swift in Sources */,
 				16ED0D992CC152B200ADCA3B /* ColourPair.swift in Sources */,
 				16A6C49D2CD6DFE9003C50FA /* AveragePaletteViewModel.swift in Sources */,
+				16A6C4A42CD6F94B003C50FA /* MasterPaletteConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
