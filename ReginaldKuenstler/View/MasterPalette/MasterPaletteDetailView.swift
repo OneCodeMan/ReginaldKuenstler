@@ -24,24 +24,43 @@ struct MasterPaletteDetailView: View {
     
     let rows = [GridItem(.flexible(minimum: UIScreen.main.bounds.width))]
     
+    // MARK: Dismiss state
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
-        ScrollView(.horizontal) {
-            LazyHGrid(rows: rows, spacing: 0) {
-                ForEach(images, id: \.self) { image in
-                    Image(image)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(minWidth: UIScreen.main.bounds.width ,maxWidth: .infinity, minHeight: UIScreen.main.bounds.height) // Fill most of the screen
-                        .clipped()
+        NavigationStack {
+            ScrollView(.horizontal) {
+                LazyHGrid(rows: rows, spacing: 0) {
+                    ForEach(images, id: \.self) { image in
+                        Image(image)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(minWidth: UIScreen.main.bounds.width ,maxWidth: .infinity, minHeight: UIScreen.main.bounds.height) // Fill most of the screen
+                            .clipped()
+                    }
+                }
+            }
+            .scrollIndicators(.hidden)
+            .edgesIgnoringSafeArea(.all) // Makes images fill edge to edge
+            .navigationBarBackButtonHidden(true) // hide the back button
+            .toolbar(.hidden, for: .tabBar)
+            .toolbar {
+                // Add a toolbar item for the cancel button
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        self.dismiss()
+                    } label: {
+                        HStack {
+                            Image(systemName: "chevron.backward")
+                            .aspectRatio(contentMode: .fit)
+                            .foregroundColor(.white)
+                        }
+                    }
                 }
             }
         }
-        .edgesIgnoringSafeArea(.all) // Makes images fill edge to edge
-        .toolbar(.hidden, for: .tabBar)
-        .statusBarHidden()
-        .onAppear {
-            
-        }
+        .statusBar(hidden: true)
+        
     }
     
 }

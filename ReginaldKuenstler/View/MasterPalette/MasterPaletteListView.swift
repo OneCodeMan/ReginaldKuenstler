@@ -26,7 +26,8 @@ struct MasterPaletteListView: View {
                     } // ForEach
                 }
             }
-        }
+        } // end of Nav Stack
+        .statusBar(hidden: true)
     }
 }
 
