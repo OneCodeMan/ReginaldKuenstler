@@ -102,6 +102,10 @@ extension Palette {
         PaletteColour(colourName: "Sienna", hexCode: "#A0522D"),
         PaletteColour(colourName: "Cobalt Blue", hexCode: "#0047AB"),
         PaletteColour(colourName: "Cadmium Red", hexCode: "#D22B2B"),
-        PaletteColour(colourName: "Cadmium Yellow", hexCode: "#FDDA0D")
+        PaletteColour(colourName: "Cadmium Yellow", hexCode: "#FDDA0D"),
+        PaletteColour(colourName: "Example Colour", hexCode: "#FDDA00"),
+        PaletteColour(colourName: "Example Colour1", hexCode: "#BDDA0D"),
+        PaletteColour(colourName: "Example Colour2", hexCode: "#0DDA0D"),
+        PaletteColour(colourName: "Example Colour3", hexCode: "#FBBA0D")
     ])
 }

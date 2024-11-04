@@ -67,19 +67,56 @@ struct MasterPaletteDetailView: View {
 
 struct PaletteOfGreatView: View {
     var minimumPalette: Palette
+    @State var artistName: String = "Placeholder"
+    @State var isFullScreen: Bool = false
+    
+    // MARK: Fullscreen states for view
+    private let columns = Array(repeating: GridItem(.flexible()), count: 3)
+
     var body: some View {
-        VStack {
-            // Bottom HStack
-            HStack(alignment: .bottom) {
-                ForEach(minimumPalette.colours, id: \.self) { pc in 
-                    SingularPaletteItemView(paletteColour: pc)
-                }
+        VStack(alignment: .center) {
+            if self.isFullScreen {
+                ScrollView {
+                    VStack {
+                        Spacer()
+                        Text("The \(artistName) Palette")
+                            .font(.defaultFontLargeTitle)
+                            .padding(.bottom, 8)
+                            .foregroundStyle(.black)
+                        LazyVGrid(columns: self.columns) {
+                            ForEach(minimumPalette.colours, id: \.self) { pc in
+                                SingularPaletteItemView(paletteColour: pc)
+                            }
+                        }
+                        
+                    }// .frame(minWidth: UIScreen.main.bounds.width)
+                    
+                }.frame(minWidth: UIScreen.main.bounds.width)
                 
-            } // HStack
-            .frame(height: 50)
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(Color.white.opacity(0.4))
+               
+            } else {
+                // NOT fullscreen
+                
+                // Bottom HStack
+                HStack(alignment: .bottom) {
+                    ForEach(Array(minimumPalette.colours.prefix(upTo: 6)), id: \.self) { pc in
+                        SingularPaletteItemView(paletteColour: pc)
+                    }
+                    
+                } // HStack
+                .frame(maxWidth: .infinity)
+                .frame(height: 50)
+                .padding()
+                
+            }
+             // end of else
+            
+        }
+        .background(isFullScreen ? Color.white.opacity(0.9) : Color.white.opacity(0.4))
+        .onTapGesture {
+            withAnimation {
+                self.isFullScreen.toggle()
+            }
         }
         // VSTACK
     }

@@ -70,6 +70,7 @@ struct UserPaletteListItemView: View {
  */
 struct SingularPaletteItemView: View {
     @State var paletteColour: PaletteColour
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         VStack(alignment: .center) {
@@ -79,6 +80,7 @@ struct SingularPaletteItemView: View {
                 .frame(height: 40)
             
             Text(paletteColour.colourName)
+                .foregroundStyle(colorScheme == .light ? .black : .whiteTextLightMode1)
                 .bold()
                 .font(.system(size: 12.0))
                 .allowsTightening(true)
