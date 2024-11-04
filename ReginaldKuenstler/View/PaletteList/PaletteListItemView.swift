@@ -65,3 +65,28 @@ struct UserPaletteListItemView: View {
     }
 }
 
+/**
+ for palette of the greats
+ */
+struct SingularPaletteItemView: View {
+    @State var paletteColour: PaletteColour
+    
+    var body: some View {
+        VStack(alignment: .center) {
+            Circle()
+                .stroke(.gray, lineWidth: 2)
+                .fill(Color(paletteColour.uiColour))
+                .frame(height: 40)
+            
+            Text(paletteColour.colourName)
+                .bold()
+                .font(.system(size: 12.0))
+                .allowsTightening(true)
+                .minimumScaleFactor(0.8)
+                .lineLimit(2)
+                .padding(.top, 3)
+                .frame(width: 40)
+        }
+        .padding(.top, 8) // Overall padding
+    }
+}

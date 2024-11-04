@@ -12,7 +12,7 @@ import SwiftUI
  Information on what to display to the user.
   PaletteColours are made of VColours from the map.
  */
-struct PaletteColour: Identifiable, Equatable {
+struct PaletteColour: Identifiable, Equatable, Hashable {
     static func == (lhs: PaletteColour, rhs: PaletteColour) -> Bool {
         (lhs.colourName == rhs.colourName) &&
         (lhs.hexCode == rhs.hexCode)
@@ -53,6 +53,12 @@ struct PaletteColour: Identifiable, Equatable {
         self.isUserOwned = false
     }
     
+    init() {
+        self.colourName = "Default Init Colour Name"
+        self.hexCode = "#191970" // midnight blue
+        self.isUserOwned = false
+    }
+    
     mutating func toggleIsUserOwned() {
         self.isUserOwned.toggle()
     }
@@ -61,6 +67,16 @@ struct PaletteColour: Identifiable, Equatable {
 struct Palette {
     var title: String = ""
     var colours: [PaletteColour] = []
+    
+    init() {
+        self.title = "Initial Palette Title"
+        self.colours = Palette.mockPalette.colours
+    }
+    
+    init(title: String, colours: [PaletteColour]) {
+        self.title = title
+        self.colours = colours
+    }
 }
 
 /**
@@ -81,12 +97,11 @@ struct MultipleArtworksPalette {
 
 // MARK: MOCK DATA
 extension Palette {
-    static let mockPalette: [PaletteColour] = [
+    static let mockPalette: Palette = Palette(title: "mock palette 1", colours: [
         PaletteColour(colourName: "Midnight Blue", hexCode: "#191970"),
         PaletteColour(colourName: "Sienna", hexCode: "#A0522D"),
         PaletteColour(colourName: "Cobalt Blue", hexCode: "#0047AB"),
         PaletteColour(colourName: "Cadmium Red", hexCode: "#D22B2B"),
-        PaletteColour(colourName: "Cadmium Yellow", hexCode: "##FDDA0D")
-        
-    ]
+        PaletteColour(colourName: "Cadmium Yellow", hexCode: "#FDDA0D")
+    ])
 }
