@@ -18,16 +18,30 @@ class AveragePaletteViewModel: ObservableObject {
     func analyzeImages(images: [UIImage]) async {
         self.isLoading = true
         self.paletteResults = [] // Clear previous results
+        self.minimumPalette.colours = []
 
         for image in images {
             await analyzeImage(image)
         }
+        
+        self.generateMinimumPalette()
 
         self.isLoading = false
     }
     
     func generateMinimumPalette() {
+        // TODO: counter for most reoccurring colours if any.
+        let paletteResultsFlatMapped: [PaletteColour] = self.paletteResults.flatMap { $0 }
+        let paletteResultsNoDupes: [PaletteColour] = Array(Set(paletteResultsFlatMapped))
+        let minPalette: Palette = Palette(title: "Multi-select Palette", colours: paletteResultsNoDupes)
         
+        // like python's Collections counter
+        let counterDict: [UUID: Int] = Dictionary(grouping: paletteResultsFlatMapped, by: { $0.id })
+            .mapValues { $0.count }
+        // cross check with paletteResultsNoDupes? the UUIDs?
+        let mostToLeastOccurringPaletteColours: [(UUID, Int)] = counterDict.sorted { $0.value > $1.value }
+        
+        self.minimumPalette = minPalette
     }
 
     private func analyzeImage(_ image: UIImage) async {
@@ -61,17 +75,9 @@ class AveragePaletteViewModel: ObservableObject {
 
                 self.paletteResults.append(palettesForImage) // Store palettes for the image
                 
-                // TODO: counter for most reoccurring colours if any.
-                let paletteResultsFlatMapped: [PaletteColour] = palettesForImage.compactMap { $0 }
-                let paletteResultsNoDupes: [PaletteColour] = Array(Set(paletteResultsFlatMapped))
-                let minPalette: Palette = Palette(title: "Multi-select Palette", colours: paletteResultsNoDupes)
-                
-                self.minimumPalette = minPalette
-                
-                
                 // TODO: what does this do?
                 continuation.resume()
             }
         }
-    }
+    } // end of func analyzeImage()
 }

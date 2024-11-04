@@ -102,7 +102,7 @@ struct MultiSelectViewModel: View {
                 }
 
                 Button("Analyze") {
-                    self.displayMinimumPalette.toggle()
+                    self.displayMinimumPalette = true
                     Task {
                         await viewModel.analyzeImages(images: images)
                     }

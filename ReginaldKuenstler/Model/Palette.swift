@@ -79,6 +79,7 @@ struct Palette {
     }
 }
 
+
 /**
  Has a list of artworks `artworks`,
  the `entirePalette` (all colours needed to make all artworks combined),
