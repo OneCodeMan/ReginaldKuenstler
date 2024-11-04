@@ -25,7 +25,11 @@ extension Font {
         return Font.custom("Merriweather-Bold", size: 20.0)
     }
     
+    static var defaultFontTitle2: Font {
+        return Font.custom("Merriweather-Bold", size: 22.0)
+    }
+    
     static var defaultFontLargeTitle: Font {
-        return Font.custom("Merriweather-Bold", size: 24.0)
+        return Font.custom("Merriweather-Bold", size: 30.0)
     }
 }

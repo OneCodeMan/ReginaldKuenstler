@@ -30,8 +30,15 @@ struct MasterPaletteListView: View {
                                 }
                             }
                         }
-                    }
-                } // ForEach
+                    } // HStack
+                }
+                .background(
+                    Image(masterPalette.imageStrings[0])
+                        .resizable()
+                        .scaledToFill() // Ensures the image fills the VStack
+                        .edgesIgnoringSafeArea(.all)
+                        .opacity(0.2)
+                ) //Navlink
             }
             .navigationTitle(Text(String(localized: "Palette of the Greats")))
         } // end of Nav Stack
