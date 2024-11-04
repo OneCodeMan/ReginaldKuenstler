@@ -120,6 +120,7 @@ That new new
         - [ ] Style List View
     - [ ] Detail View
         - [x] Add AveragePalette to bottom of DetailView
+        - [ ] What if we enable auto scroll?
         - [ ] Add real data
             - We should hard-code it... It's gonna be the same images all the time and we'd be doing the same calcs all the time..
     - [ ] All assets filled.
