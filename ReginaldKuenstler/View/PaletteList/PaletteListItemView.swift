@@ -72,22 +72,29 @@ struct SingularPaletteItemView: View {
     @State var paletteColour: PaletteColour
     @Environment(\.colorScheme) var colorScheme
     
+    var circleHeight: CGFloat = 40.0
+    
+    @State var omitColourName: Bool = false
+    
     var body: some View {
         VStack(alignment: .center) {
             Circle()
                 .stroke(.gray, lineWidth: 2)
                 .fill(Color(paletteColour.uiColour))
-                .frame(height: 40)
+                .frame(height: circleHeight)
             
-            Text(paletteColour.colourName)
-                .foregroundStyle(colorScheme == .light ? .black : .whiteTextLightMode1)
-                .bold()
-                .font(.system(size: 12.0))
-                .allowsTightening(true)
-                .minimumScaleFactor(0.8)
-                .lineLimit(2)
-                .padding(.top, 3)
-                .frame(width: 40)
+            if !omitColourName {
+                Text(paletteColour.colourName)
+                    .foregroundStyle(colorScheme == .light ? .black : .whiteTextLightMode1)
+                    .bold()
+                    .font(.system(size: 12.0))
+                    .allowsTightening(true)
+                    .minimumScaleFactor(0.8)
+                    .lineLimit(2)
+                    .padding(.top, 3)
+                    .frame(width: 40)
+            }
+            
         }
         .padding(.top, 8) // Overall padding
     }

@@ -1,7 +1,7 @@
 import SwiftUI
 import PhotosUI
 
-struct MultiSelectViewModel: View {
+struct MultiSelectView: View {
     @ObservedObject var viewModel = AveragePaletteViewModel()
     @State private var images: [UIImage] = [] // Array to hold selected images
     @State private var isPickerPresented: Bool = false
@@ -162,6 +162,6 @@ struct PHPickerViewControllerWrapper: UIViewControllerRepresentable {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MultiSelectViewModel()
+        MultiSelectView()
     }
 }

@@ -54,7 +54,7 @@ struct PaletteColour: Identifiable, Equatable, Hashable {
     }
     
     init() {
-        self.colourName = "Default Init Colour Name"
+        self.colourName = "Midnight Blue (default init)"
         self.hexCode = "#191970" // midnight blue
         self.isUserOwned = false
     }

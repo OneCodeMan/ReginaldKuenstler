@@ -18,6 +18,7 @@ import SwiftUI
  Horizontal Images carousel
  */
 struct MasterPaletteDetailView: View {
+    @ObservedObject var viewModel = AveragePaletteViewModel()
     @State var images: [String] = MasterPaletteConstants.hopperImageStrings
     let rows = [GridItem(.flexible(minimum: UIScreen.main.bounds.width))]
     

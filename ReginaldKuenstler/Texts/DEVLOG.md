@@ -114,13 +114,14 @@ Suggestions:
 
 That new new
 - [ ] Multi-select.
-    - [ ] Add the Minimum Palette, showing the most common colours at beginning.
+    - [ ] Show the most common colours at beginning.
 - [ ] Palette of the Greats
     - [ ] List View
         - [ ] Style List View
     - [ ] Detail View
         - [x] Add AveragePalette to bottom of DetailView
         - [ ] Add real data
+            - We should hard-code it... It's gonna be the same images all the time and we'd be doing the same calcs all the time..
     - [ ] All assets filled.
 - [ ] Better colour mapper data
     - https://color-hex.com/color-names.html
@@ -137,12 +138,16 @@ https://www.winsornewton.com/en-ca/collections/artists-oil?sort_by=title-ascendi
 https://www.winsornewton.com/en-ca/collections/cotman-watercolour
 - load entire thing
 
+### History
+November 4, 2024
+    - [x] Add the Minimum Palette
+
 
 ------------------------------------------------------------------------------------------------------------------------
 # Wave 1
 ### BULK
-
 ### history
+
 ### October 31, 2024
 
 ### Wave 1 to MVP (BULK!!)

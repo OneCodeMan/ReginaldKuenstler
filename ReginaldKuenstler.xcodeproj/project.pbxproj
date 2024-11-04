@@ -34,7 +34,7 @@
 		1637C7122CCDC93B00B99812 /* GridLoadingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1637C7112CCDC93B00B99812 /* GridLoadingAnimation.swift */; };
 		1665207A2CC7FA6A00F2836E /* UserPaletteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166520792CC7FA6A00F2836E /* UserPaletteViewModel.swift */; };
 		166DF25F2CD18C540048C0E0 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 166DF25E2CD18C540048C0E0 /* GoogleMobileAds */; };
-		166EDA142CD314F500E503E8 /* MultiSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166EDA132CD314F500E503E8 /* MultiSelectViewModel.swift */; };
+		166EDA142CD314F500E503E8 /* MultiSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166EDA132CD314F500E503E8 /* MultiSelectView.swift */; };
 		16A6C49B2CD6D49F003C50FA /* ObjectInstance+CountFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A6C49A2CD6D49F003C50FA /* ObjectInstance+CountFrequency.swift */; };
 		16A6C49D2CD6DFE9003C50FA /* AveragePaletteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A6C49C2CD6DFE9003C50FA /* AveragePaletteViewModel.swift */; };
 		16A6C4A02CD6F811003C50FA /* MasterPaletteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A6C49F2CD6F811003C50FA /* MasterPaletteListView.swift */; };
@@ -109,7 +109,7 @@
 		1637C7112CCDC93B00B99812 /* GridLoadingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLoadingAnimation.swift; sourceTree = "<group>"; };
 		1637C7182CCEC4DA00B99812 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		166520792CC7FA6A00F2836E /* UserPaletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPaletteViewModel.swift; sourceTree = "<group>"; };
-		166EDA132CD314F500E503E8 /* MultiSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectViewModel.swift; sourceTree = "<group>"; };
+		166EDA132CD314F500E503E8 /* MultiSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectView.swift; sourceTree = "<group>"; };
 		16A6C49A2CD6D49F003C50FA /* ObjectInstance+CountFrequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObjectInstance+CountFrequency.swift"; sourceTree = "<group>"; };
 		16A6C49C2CD6DFE9003C50FA /* AveragePaletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AveragePaletteViewModel.swift; sourceTree = "<group>"; };
 		16A6C49F2CD6F811003C50FA /* MasterPaletteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPaletteListView.swift; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 		166EDA122CD314E800E503E8 /* AveragePalette */ = {
 			isa = PBXGroup;
 			children = (
-				166EDA132CD314F500E503E8 /* MultiSelectViewModel.swift */,
+				166EDA132CD314F500E503E8 /* MultiSelectView.swift */,
 			);
 			path = AveragePalette;
 			sourceTree = "<group>";
@@ -586,7 +586,7 @@
 				16A6C49B2CD6D49F003C50FA /* ObjectInstance+CountFrequency.swift in Sources */,
 				1609D0012CD1634700D3FCF8 /* UserPaletteData.swift in Sources */,
 				160278852CC9BD540048F4F8 /* WiggleModifier.swift in Sources */,
-				166EDA142CD314F500E503E8 /* MultiSelectViewModel.swift in Sources */,
+				166EDA142CD314F500E503E8 /* MultiSelectView.swift in Sources */,
 				162896842CC18515005A2399 /* ColourComparisonView.swift in Sources */,
 				1609D0182CD170E700D3FCF8 /* OnboardingView.swift in Sources */,
 				1628968B2CC1A6FD005A2399 /* UserPalette.swift in Sources */,
