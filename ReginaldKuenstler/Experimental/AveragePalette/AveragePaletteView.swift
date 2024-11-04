@@ -4,7 +4,9 @@ import PhotosUI
 struct AveragePaletteView: View {
     @ObservedObject var viewModel = AveragePaletteViewModel()
     @State private var images: [UIImage] = [] // Array to hold selected images
-    @State private var isPickerPresented = false
+    @State private var isPickerPresented: Bool = false
+    
+    @State private var displayMinimumPalette: Bool = false
 
     var rows = [
         GridItem(.flexible()) // Adjust the size as needed
@@ -71,11 +73,21 @@ struct AveragePaletteView: View {
                         }
                         .padding(8)
                         
-//                        Spacer()
-//                            .frame(height: 10)
-                        
                     }
                     .redacted(reason: .placeholder)
+                    
+                    if displayMinimumPalette {
+                        // Minimum Palette view
+                        VStack {
+                            Text("Minimum Palette")
+                                .font(.defaultFontLargeTitle)
+                            HStack {
+                                PaletteOfGreatView(minimumPalette: Palette(), shouldOmitTitle: true)
+                            }
+                        }
+                        .padding()
+                        .unredacted()
+                    }
                     
                     
                 } // end oof if statement
@@ -89,6 +101,7 @@ struct AveragePaletteView: View {
                 }
 
                 Button("Analyze") {
+                    self.displayMinimumPalette.toggle()
                     Task {
                         await viewModel.analyzeImages(images: images)
                     }

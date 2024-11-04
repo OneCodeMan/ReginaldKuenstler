@@ -114,13 +114,14 @@ Suggestions:
 
 That new new
 - [ ] Multi-select.
-    - [ ] Add the Minimum Palette.
-    - [ ] Add most common colours
+    - [ ] Add the Minimum Palette, showing the most common colours at beginning.
 - [ ] Palette of the Greats
     - [ ] List View
         - [ ] Style List View
     - [ ] Detail View
-        - [ ] Add AveragePalette to bottom of DetailView
+        - [x] Add AveragePalette to bottom of DetailView
+        - [ ] Add real data
+    - [ ] All assets filled.
 - [ ] Better colour mapper data
     - https://color-hex.com/color-names.html
     

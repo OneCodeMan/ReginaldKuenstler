@@ -70,6 +70,9 @@ struct PaletteOfGreatView: View {
     @State var artistName: String = "Placeholder"
     @State var isFullScreen: Bool = false
     
+    var shouldOmitTitle: Bool = false
+    @Environment(\.colorScheme) var colorScheme
+    
     // MARK: Fullscreen states for view
     private let columns = Array(repeating: GridItem(.flexible()), count: 3)
 
@@ -79,10 +82,13 @@ struct PaletteOfGreatView: View {
                 ScrollView {
                     VStack {
                         Spacer()
-                        Text("The \(artistName) Palette")
-                            .font(.defaultFontLargeTitle)
-                            .padding(.bottom, 8)
-                            .foregroundStyle(.black)
+                        if !shouldOmitTitle {
+                            Text("The \(artistName) Palette")
+                                .font(.defaultFontLargeTitle)
+                                .padding(.bottom, 8)
+                                .foregroundStyle(colorScheme == .dark ? .white : .black)
+                        }
+                        
                         LazyVGrid(columns: self.columns) {
                             ForEach(minimumPalette.colours, id: \.self) { pc in
                                 SingularPaletteItemView(paletteColour: pc)
@@ -112,7 +118,7 @@ struct PaletteOfGreatView: View {
              // end of else
             
         }
-        .background(isFullScreen ? Color.white.opacity(0.9) : Color.white.opacity(0.4))
+        .background(!shouldOmitTitle ? (isFullScreen ? Color.white.opacity(0.9) : Color.white.opacity(0.4)) : Color.black)
         .onTapGesture {
             withAnimation {
                 self.isFullScreen.toggle()
