@@ -129,8 +129,10 @@ That new new
     
 - [ ] User Input
 
-## Resources
+## Resources // R&D
+
 ### user input
+Make a CoreML model to detect images? take a stab at it?
 
 https://www.montmarte.com/collections/oil-pastels
 - possibly can scrape, look at colours under "additional details" each page.
