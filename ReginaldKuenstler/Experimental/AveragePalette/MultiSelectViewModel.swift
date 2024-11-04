@@ -1,7 +1,7 @@
 import SwiftUI
 import PhotosUI
 
-struct AveragePaletteView: View {
+struct MultiSelectViewModel: View {
     @ObservedObject var viewModel = AveragePaletteViewModel()
     @State private var images: [UIImage] = [] // Array to hold selected images
     @State private var isPickerPresented: Bool = false
@@ -82,7 +82,8 @@ struct AveragePaletteView: View {
                             Text("Minimum Palette")
                                 .font(.defaultFontLargeTitle)
                             HStack {
-                                PaletteOfGreatView(minimumPalette: Palette(), shouldOmitTitle: true)
+                                let paletteToDisplay = viewModel.minimumPalette.colours.isEmpty ? Palette() : viewModel.minimumPalette
+                                PaletteOfGreatView(minimumPalette: paletteToDisplay, shouldOmitTitle: true)
                             }
                         }
                         .padding()
@@ -161,6 +162,6 @@ struct PHPickerViewControllerWrapper: UIViewControllerRepresentable {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        AveragePaletteView()
+        MultiSelectViewModel()
     }
 }

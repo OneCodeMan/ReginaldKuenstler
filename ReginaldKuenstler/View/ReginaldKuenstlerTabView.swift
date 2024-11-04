@@ -41,7 +41,7 @@ struct ReginaldKuenstlerTabView: View {
                 .font(.defaultFontCaption)
             
             // NEW FEATURES 0.2
-            AveragePaletteView()
+            MultiSelectViewModel()
                 .tag(2)
                 .tabItem {
                     Image(systemName: "chart.bar.doc.horizontal")

@@ -73,7 +73,7 @@ struct Palette {
         self.colours = Palette.mockPalette.colours
     }
     
-    init(title: String, colours: [PaletteColour]) {
+    init(title: String = "", colours: [PaletteColour]) {
         self.title = title
         self.colours = colours
     }

@@ -13,6 +13,7 @@ import SwiftVibrantium
 class AveragePaletteViewModel: ObservableObject {
     @Published var paletteResults: [[PaletteColour]] = [] // Array to hold the palettes for each image
     @Published var isLoading: Bool = false
+    @Published var minimumPalette: Palette = Palette(colours: [])
 
     func analyzeImages(images: [UIImage]) async {
         self.isLoading = true
@@ -23,6 +24,10 @@ class AveragePaletteViewModel: ObservableObject {
         }
 
         self.isLoading = false
+    }
+    
+    func generateMinimumPalette() {
+        
     }
 
     private func analyzeImage(_ image: UIImage) async {
@@ -55,6 +60,16 @@ class AveragePaletteViewModel: ObservableObject {
                 }
 
                 self.paletteResults.append(palettesForImage) // Store palettes for the image
+                
+                // TODO: counter for most reoccurring colours if any.
+                let paletteResultsFlatMapped: [PaletteColour] = palettesForImage.compactMap { $0 }
+                let paletteResultsNoDupes: [PaletteColour] = Array(Set(paletteResultsFlatMapped))
+                let minPalette: Palette = Palette(title: "Multi-select Palette", colours: paletteResultsNoDupes)
+                
+                self.minimumPalette = minPalette
+                
+                
+                // TODO: what does this do?
                 continuation.resume()
             }
         }
