@@ -118,7 +118,7 @@ That new new
 - [ ] Palette of the Greats
     - [x] All assets filled.
     - [ ] Detail View
-        - [ ] Add nationaltiy
+        - [ ] Add nationality
         - [x] Add AveragePalette to bottom of DetailView
         - [ ] Information on: Artist nationality; birth date to death date
         - [ ] Add real avg. palette data

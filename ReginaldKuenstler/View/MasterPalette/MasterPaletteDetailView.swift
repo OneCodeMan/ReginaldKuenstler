@@ -112,7 +112,7 @@ struct MasterPaletteDetailView: View {
 struct PaletteOfGreatView: View {
     var minimumPalette: Palette
     @State var artistName: String = "Placeholder"
-    @State var isFullScreen: Bool = false
+    @Binding var isFullScreen: Bool
     
     var shouldOmitTitle: Bool = false
     @Environment(\.colorScheme) var colorScheme
@@ -150,8 +150,7 @@ struct PaletteOfGreatView: View {
                 // Bottom HStack
                 HStack(alignment: .bottom) {
                     ForEach(Array(minimumPalette.colours.prefix(upTo: 6)), id: \.self) { pc in
-                        SingularPaletteItemView(paletteColour: pc)
-                            .opacity(0.2)
+                        SingularPaletteItemView(paletteColour: pc, circleOpacity: 0.2, omitColourName: true)
                     }
                     
                 } // HStack
@@ -163,7 +162,7 @@ struct PaletteOfGreatView: View {
              // end of else
             
         }
-        .background(!shouldOmitTitle ? (isFullScreen ? Color.white.opacity(0.9) : Color.white.opacity(0.4)) : Color.black)
+        .background(!shouldOmitTitle ? (isFullScreen ? Color.white.opacity(0.9) : Color.white.opacity(0.15)) : Color.black)
         .onTapGesture {
             withAnimation {
                 self.isFullScreen.toggle()

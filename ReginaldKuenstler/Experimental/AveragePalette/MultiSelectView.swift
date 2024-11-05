@@ -83,7 +83,7 @@ struct MultiSelectView: View {
                                 .font(.defaultFontLargeTitle)
                             HStack {
                                 let paletteToDisplay = viewModel.minimumPalette.colours.isEmpty ? Palette() : viewModel.minimumPalette
-                                // PaletteOfGreatView(minimumPalette: paletteToDisplay, shouldOmitTitle: true
+                                MinimumPaletteView(minimumPalette: paletteToDisplay, shouldOmitTitle: true)
                             }
                         }
                         .padding()
@@ -159,6 +159,71 @@ struct PHPickerViewControllerWrapper: UIViewControllerRepresentable {
         }
     }
 }
+
+struct MinimumPaletteView: View {
+    var minimumPalette: Palette
+    @State var artistName: String = "Placeholder"
+    @State var isFullScreen: Bool = false
+    
+    var shouldOmitTitle: Bool = false
+    @Environment(\.colorScheme) var colorScheme
+    
+    // MARK: Fullscreen states for view
+    private let columns = Array(repeating: GridItem(.flexible()), count: 3)
+
+    var body: some View {
+        VStack(alignment: .center) {
+            if self.isFullScreen {
+                ScrollView {
+                    VStack {
+                        Spacer()
+                        if !shouldOmitTitle {
+                            Text("The \(artistName) Palette")
+                                .font(.defaultFontLargeTitle)
+                                .padding(.bottom, 8)
+                                .foregroundStyle(colorScheme == .dark ? .white : .black)
+                        }
+                        
+                        LazyVGrid(columns: self.columns) {
+                            ForEach(minimumPalette.colours, id: \.self) { pc in
+                                SingularPaletteItemView(paletteColour: pc)
+                            }
+                        }
+                        
+                    }// .frame(minWidth: UIScreen.main.bounds.width)
+                    
+                }.frame(minWidth: UIScreen.main.bounds.width)
+                
+               
+            } else {
+                // NOT fullscreen
+                
+                // Bottom HStack
+                HStack(alignment: .bottom) {
+                    ForEach(Array(minimumPalette.colours.prefix(upTo: 6)), id: \.self) { pc in
+                        SingularPaletteItemView(paletteColour: pc)
+                            .opacity(0.2)
+                    }
+                    
+                } // HStack
+                .frame(maxWidth: .infinity)
+                .frame(height: 50)
+                .padding()
+                
+            }
+             // end of else
+            
+        }
+        .background(!shouldOmitTitle ? (isFullScreen ? Color.white.opacity(0.9) : Color.white.opacity(0.4)) : Color.black)
+        .onTapGesture {
+            withAnimation {
+                self.isFullScreen.toggle()
+            }
+        }
+        // VSTACK
+    }
+}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

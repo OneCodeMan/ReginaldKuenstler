@@ -73,6 +73,7 @@ struct SingularPaletteItemView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var circleHeight: CGFloat = 40.0
+    @State var circleOpacity: CGFloat = 1.0
     
     @State var omitColourName: Bool = false
     
@@ -82,6 +83,7 @@ struct SingularPaletteItemView: View {
                 .stroke(.gray, lineWidth: 2)
                 .fill(Color(paletteColour.uiColour))
                 .frame(height: circleHeight)
+                .opacity(circleOpacity)
             
             if !omitColourName {
                 Text(paletteColour.colourName)
