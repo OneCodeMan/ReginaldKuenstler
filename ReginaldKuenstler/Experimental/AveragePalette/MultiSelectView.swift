@@ -83,7 +83,7 @@ struct MultiSelectView: View {
                                 .font(.defaultFontLargeTitle)
                             HStack {
                                 let paletteToDisplay = viewModel.minimumPalette.colours.isEmpty ? Palette() : viewModel.minimumPalette
-                                PaletteOfGreatView(minimumPalette: paletteToDisplay, shouldOmitTitle: true)
+                                // PaletteOfGreatView(minimumPalette: paletteToDisplay, shouldOmitTitle: true
                             }
                         }
                         .padding()

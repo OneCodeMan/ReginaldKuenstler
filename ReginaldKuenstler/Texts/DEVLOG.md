@@ -117,15 +117,11 @@ That new new
     - [ ] Show the most common colours at beginning.
 - [ ] Palette of the Greats
     - [x] All assets filled.
-    - [ ] Add nationaltiy
-    - [ ] List View
-        - [ ] Style List View Item
-            - [ ] Add portrait of each artist.
     - [ ] Detail View
+        - [ ] Add nationaltiy
         - [x] Add AveragePalette to bottom of DetailView
         - [ ] Information on: Artist nationality; birth date to death date
-        - [ ] What if we enable auto scroll?
-        - [ ] Add real data
+        - [ ] Add real avg. palette data
             - We should hard-code it... It's gonna be the same images all the time and we'd be doing the same calcs all the time..
 - [ ] Better colour mapper data
     - https://color-hex.com/color-names.html
@@ -144,8 +140,15 @@ https://www.winsornewton.com/en-ca/collections/artists-oil?sort_by=title-ascendi
 https://www.winsornewton.com/en-ca/collections/cotman-watercolour
 - load entire thing
 
-### History
-November 4, 2024
+# History
+## November 5, 2024
+PogS
+    - [x] What if we enable auto scroll?
+    - [x] List View
+        - [x] Style List View Item
+            - [x] Add portrait of each artist.
+
+## November 4, 2024
     - [x] Add the Minimum Palette
 
 

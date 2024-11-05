@@ -17,6 +17,7 @@ import SwiftUI
 /*
  Horizontal Images carousel
  */
+
 struct MasterPaletteDetailView: View {
     @ObservedObject var viewModel = AveragePaletteViewModel()
     @State var images: [String] = MasterPaletteConstants.hopperImageStrings
@@ -25,41 +26,83 @@ struct MasterPaletteDetailView: View {
     // MARK: Dismiss state
     @Environment(\.dismiss) var dismiss
     
+    // MARK: States for auto-scrolling
+    @State var enableAutoscrollShenanigans: Bool = true
+    
+    @State var isPaletteInformationFullScreen: Bool = false
+    
     var body: some View {
         NavigationStack {
             ZStack {
-                ScrollView(.horizontal) {
-                    LazyHGrid(rows: rows, spacing: 0) {
-                        ForEach(images, id: \.self) { image in
-                            Image(image)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(minWidth: UIScreen.main.bounds.width, maxWidth: .infinity, minHeight: UIScreen.main.bounds.height) // Fill most of the screen
-                                .clipped()
-                        }
-                    }
-                }
-                .edgesIgnoringSafeArea(.all) // Makes images fill edge to edge
-                .navigationBarBackButtonHidden(true) // hide the back button
-                .toolbar(.hidden, for: .tabBar)
-                .toolbar {
-                    // Add a toolbar item for the cancel button
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button {
-                            self.dismiss()
-                        } label: {
-                            HStack {
-                                Image(systemName: "chevron.backward")
-                                    .aspectRatio(contentMode: .fit)
-                                    .foregroundColor(.white)
+                ScrollViewReader { proxy in
+                    ScrollView(.horizontal) {
+                        LazyHGrid(rows: rows, spacing: 0) {
+                            ForEach(images.indices, id: \.self) { index in
+                                Image(images[index])
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(minWidth: UIScreen.main.bounds.width, maxWidth: .infinity, minHeight: UIScreen.main.bounds.height)
+                                    .clipped()
+                                    .id(index)
                             }
                         }
                     }
+                    .onTapGesture {
+                        self.enableAutoscrollShenanigans = false
+                    }
+                    .onAppear {
+                        // TODO: lmfao
+                        // Scroll a bit to the next image
+                        if enableAutoscrollShenanigans {
+                            
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                withAnimation(.smooth(duration: 4.0)) {
+                                    proxy.scrollTo(0, anchor: .center)
+                                }
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                    withAnimation(.smooth(duration: 4.0)) {
+                                        proxy.scrollTo(0, anchor: .trailing)
+                                    }
+                                    
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                        withAnimation(.easeOut(duration: 4.0)) {
+                                            proxy.scrollTo(1, anchor: .leading)
+                                            
+                                            // self.startautomaticscrolling = true
+                                        }
+                                    }
+                                    
+                                }
+                            }
+                            
+                        }
+                        
+                    }
+                }
+                .edgesIgnoringSafeArea(.all)
+                .navigationBarBackButtonHidden(true)
+                .toolbar(.hidden, for: .tabBar)
+                .toolbar {
+                    if !isPaletteInformationFullScreen {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button {
+                                self.dismiss()
+                            } label: {
+                                HStack {
+                                    Image(systemName: "chevron.backward")
+                                        .aspectRatio(contentMode: .fit)
+                                        .foregroundColor(.white)
+                                }
+                            }
+                        }
+                    }
+                    
                 }
                 
-                
             } // ZStack
-            .overlay(PaletteOfGreatView(minimumPalette: Palette.mockPalette), alignment: .bottom)
+            .overlay(PaletteOfGreatView(minimumPalette: Palette.mockPalette, isFullScreen: $isPaletteInformationFullScreen), alignment: .bottom)
         }
         .statusBar(hidden: true)
     }
@@ -108,6 +151,7 @@ struct PaletteOfGreatView: View {
                 HStack(alignment: .bottom) {
                     ForEach(Array(minimumPalette.colours.prefix(upTo: 6)), id: \.self) { pc in
                         SingularPaletteItemView(paletteColour: pc)
+                            .opacity(0.2)
                     }
                     
                 } // HStack
