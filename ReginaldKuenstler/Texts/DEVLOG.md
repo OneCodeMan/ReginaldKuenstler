@@ -116,14 +116,17 @@ That new new
 - [ ] Multi-select.
     - [ ] Show the most common colours at beginning.
 - [ ] Palette of the Greats
+    - [x] All assets filled.
+    - [ ] Add nationaltiy
     - [ ] List View
-        - [ ] Style List View
+        - [ ] Style List View Item
+            - [ ] Add portrait of each artist.
     - [ ] Detail View
         - [x] Add AveragePalette to bottom of DetailView
+        - [ ] Information on: Artist nationality; birth date to death date
         - [ ] What if we enable auto scroll?
         - [ ] Add real data
             - We should hard-code it... It's gonna be the same images all the time and we'd be doing the same calcs all the time..
-    - [ ] All assets filled.
 - [ ] Better colour mapper data
     - https://color-hex.com/color-names.html
     

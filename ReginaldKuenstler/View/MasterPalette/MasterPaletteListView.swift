@@ -15,11 +15,14 @@ struct MasterPaletteListView: View {
         NavigationStack {
             List(MasterPaletteConstants.masterPalettes, id: \.self) { masterPalette in
                 NavigationLink(destination: MasterPaletteDetailView(images: masterPalette.imageStrings)) {
-                    HStack {
-                        Rectangle()
-                            .fill(.orange)
+                    HStack(alignment: .top) {
+                        Image(masterPalette.imageStrings[0])
+                            .resizable()
+                            .scaledToFit()
                             .cornerRadius(4)
-                            .frame(width: 70, height: 70)
+                            .frame(width: 120, height: 90)
+                            .padding(.trailing)
+                        
                         VStack(alignment: .center) {
                             Text(masterPalette.artistName)
                                 .font(.defaultFontTitle)
@@ -32,8 +35,9 @@ struct MasterPaletteListView: View {
                         }
                     } // HStack
                 }
+                .frame(maxHeight: 90, alignment: .top) // Enforce height limit to 70 and align top
                 .background(
-                    Image(masterPalette.imageStrings[0])
+                    Image(masterPalette.imageStrings[1])
                         .resizable()
                         .scaledToFill() // Ensures the image fills the VStack
                         .edgesIgnoringSafeArea(.all)
