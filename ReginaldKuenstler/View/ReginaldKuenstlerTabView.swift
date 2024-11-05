@@ -16,7 +16,7 @@ import SwiftUI
 struct ReginaldKuenstlerTabView: View {
     @EnvironmentObject var userPaletteViewModel: UserPaletteViewModel // Access the ViewModel
 
-    @State var selectedTab: Int = 3
+    @State var selectedTab: Int = 2
     var body: some View {
         TabView(selection:  $selectedTab) {
             UserPaletteView()
@@ -41,21 +41,21 @@ struct ReginaldKuenstlerTabView: View {
                 .font(.defaultFontCaption)
             
             // NEW FEATURES 0.2
-//            MultiSelectView()
-//                .tag(2)
-//                .tabItem {
-//                    Image(systemName: "chart.bar.doc.horizontal")
-//                        .renderingMode(.template)
-//                    Text(String(localized: "Multi-select"))
-//                }
-            
-            MasterPaletteListView()
-                .tag(3)
+            MultiSelectView()
+                .tag(2)
                 .tabItem {
-                    Image(systemName: "figure.dance")
+                    Image(systemName: "chart.bar.doc.horizontal")
                         .renderingMode(.template)
-                    Text(String(localized: "Masters"))
+                    Text(String(localized: "Multi-select"))
                 }
+            
+//            MasterPaletteListView()
+//                .tag(3)
+//                .tabItem {
+//                    Image(systemName: "figure.dance")
+//                        .renderingMode(.template)
+//                    Text(String(localized: "Masters"))
+//                }
         }
         .tint(.indigo)
     }

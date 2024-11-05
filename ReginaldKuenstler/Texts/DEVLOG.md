@@ -113,10 +113,14 @@ Suggestions:
 ## (November 1, 2024 -- ????)
 
 That new new
+
+### Wave 2.1
 - [ ] Multi-select.
+    - [ ] The individual palette breakdown for each image, make that a detail view for the images themselves
+    - [ ] Group the colours in MinimumPalette like we do in colour selection
+    - [ ] Top left button on each image to delete them from the list.
     - [ ] Show the most common colours at beginning.
 - [ ] Palette of the Greats
-    - [x] All assets filled.
     - [ ] Detail View
         - [ ] Add nationality
         - [x] Add AveragePalette to bottom of DetailView
@@ -125,8 +129,18 @@ That new new
             - We should hard-code it... It's gonna be the same images all the time and we'd be doing the same calcs all the time..
 - [ ] Better colour mapper data
     - https://color-hex.com/color-names.html
-    
-- [ ] User Input
+
+### Wave 2.2
+- [ ] An Attempt At Better User Input
+
+### Wave 2.3
+- [ ] ???
+- [ ] ???
+- [ ] ???
+- [ ] ???
+- [ ] ???
+- [ ] ??
+
 
 ## Resources // R&D
 
@@ -143,6 +157,7 @@ https://www.winsornewton.com/en-ca/collections/cotman-watercolour
 # History
 ## November 5, 2024
 PogS
+    - [x] All assets filled.
     - [x] What if we enable auto scroll?
     - [x] List View
         - [x] Style List View Item
