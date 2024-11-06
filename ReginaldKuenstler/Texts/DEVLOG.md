@@ -161,6 +161,32 @@ That new new
 ## Resources // R&D
 
 ### user input
+
+### Catalog
+
+Scrape this website for all colours
+https://sensuallogic.com/artistcolordata
+
+Our colourMap will look like this:
+```
+[
+"Black": [RGB1, RGB2, RGB3, RGB4],
+"Burnt Umber": [RGB1, RGB2, RGB3, RGB4],
+...
+]
+```
+
+Notes:
+- When we iterate through colours, we'll consider multiple RGB values for one.
+  - Then later, we could narrow the input down to the brand maybe.
+- Find a way to make colourMap store which store the RGB info is from, or make a separate colourMap for this. `brandMap`
+- On text detection, try to detect the brand, and narrow
+
+
+--------
+
+
+
 Text recognition
 https://medium.com/@jakir/text-recognition-or-ocr-using-vision-framework-ios-swiftui-b9c5df36ec32
 
@@ -389,4 +415,6 @@ how to use userdefaults or swiftdata to store custom palette
 
 Might need this:
 https://www.hackingwithswift.com/quick-start/concurrency/how-to-use-mainactor-to-run-code-on-the-main-queue
+
+
 
