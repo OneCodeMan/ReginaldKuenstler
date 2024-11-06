@@ -28,7 +28,7 @@ struct CreatePaletteWithPhotosView: View {
                     }
             }
             
-            Text("Recognized Text:")
+            Text("Recognized Colours:")
                 .font(.headline)
                 .padding(.top)
             
@@ -73,7 +73,7 @@ struct CreatePaletteWithPhotosView: View {
             }
             
             if let results = request.results as? [VNRecognizedTextObservation] {
-                let colourMap = ColourMapper.shared
+                let colourMap = ColourMapper.shared.colourMap
                 recognizedText = results.compactMap { observation in
                     observation.topCandidates(1).first?.string
                 }.joined(separator: "\n")
@@ -92,7 +92,7 @@ struct CreatePaletteWithPhotosView: View {
                     let sanitizedLine = line.lowercased().trimmingCharacters(in: .whitespaces)
                     
                     // if we found a colour name that our colourMap recognizes.
-                    if colourMap.colourMap.contains(where: { $0.name.lowercased().trimmingCharacters(in: .whitespaces) == sanitizedLine }) {
+                    if colourMap.contains(where: { $0.name.lowercased().trimmingCharacters(in: .whitespaces) == sanitizedLine }) {
                         print("HIP HIP HURRAY!!!: \(sanitizedLine)")
                         arrayOfDetectedColourStrings.append(sanitizedLine)
                     } else {
@@ -105,8 +105,24 @@ struct CreatePaletteWithPhotosView: View {
                 print("Number of hip-hip-hurrays: \(arrayOfDetectedColourStrings.count)\n")
                 print("Hip-hip-hurrays:\n \(arrayOfDetectedColourStrings)")
                 
+                var detectedPaletteColours: [PaletteColour] = []
                 // then make VColours out of `arrayOfDetectedColourStrings`
+                for detectedColourString in arrayOfDetectedColourStrings {
+                    if let vColourIndex = colourMap.firstIndex(where: { $0.name.lowercased() == detectedColourString }) {
+                        let targetVColour: VColour = colourMap[vColourIndex]
+                        let generatedPaletteColour: PaletteColour = PaletteColour(fromVColour: targetVColour)
+                        detectedPaletteColours.append(generatedPaletteColour)
+                    } else {
+                        print("VColour Index not found .errorrrrrr")
+                    }
+                    
+                }
                 
+                print("Detected palette colours:\n\n")
+                for pc in detectedPaletteColours {
+                    print(pc.colourName, pc.hexCode)
+                }
+                print("\n\n")
                 
                 
             } else {
