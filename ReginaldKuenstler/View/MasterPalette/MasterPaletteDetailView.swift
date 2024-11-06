@@ -28,8 +28,9 @@ struct MasterPaletteDetailView: View {
     
     // MARK: States for auto-scrolling
     @State var enableAutoscrollShenanigans: Bool = true
-    
     @State var isPaletteInformationFullScreen: Bool = false
+    
+    @State var currentIndexCarousel: Int = 0
     
     var body: some View {
         NavigationStack {
@@ -102,7 +103,7 @@ struct MasterPaletteDetailView: View {
                 }
                 
             } // ZStack
-            .overlay(PaletteOfGreatView(minimumPalette: Palette.mockPalette, isFullScreen: $isPaletteInformationFullScreen), alignment: .bottom)
+            .overlay(PaletteOfGreatView(minimumPalette: Palette.mockPalette, isFullScreen: $isPaletteInformationFullScreen, currentIndexScrollView: $currentIndexCarousel), alignment: .bottom)
         }
         .statusBar(hidden: true)
     }
@@ -113,6 +114,7 @@ struct PaletteOfGreatView: View {
     var minimumPalette: Palette
     @State var artistName: String = "Placeholder"
     @Binding var isFullScreen: Bool
+    @Binding var currentIndexScrollView: Int
     
     var shouldOmitTitle: Bool = false
     @Environment(\.colorScheme) var colorScheme
