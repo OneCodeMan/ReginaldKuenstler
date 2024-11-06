@@ -34,6 +34,9 @@
     "Cancel" : {
 
     },
+    "Capture Photo" : {
+
+    },
     "Clear" : {
 
     },
@@ -91,6 +94,9 @@
     "Proceed" : {
 
     },
+    "Recognized Text:" : {
+
+    },
     "Save Selected Colours" : {
 
     },
@@ -110,6 +116,9 @@
 
     },
     "Take Photo" : {
+
+    },
+    "Tap to select or capture an image" : {
 
     },
     "The %@ Palette" : {

@@ -62,6 +62,7 @@
 		16ED0DA32CC162CF00ADCA3B /* UIColor+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0DA22CC162CF00ADCA3B /* UIColor+Converter.swift */; };
 		16ED0DA62CC166D200ADCA3B /* ArtworkInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0DA52CC166D200ADCA3B /* ArtworkInput.swift */; };
 		16ED0DA82CC166E600ADCA3B /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0DA72CC166E600ADCA3B /* Palette.swift */; };
+		16FAFE502CDBA87D00B71771 /* CreateUserPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAFE4F2CDBA87D00B71771 /* CreateUserPaletteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,8 @@
 		16ED0DA22CC162CF00ADCA3B /* UIColor+Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Converter.swift"; sourceTree = "<group>"; };
 		16ED0DA52CC166D200ADCA3B /* ArtworkInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkInput.swift; sourceTree = "<group>"; };
 		16ED0DA72CC166E600ADCA3B /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
+		16FAFE4F2CDBA87D00B71771 /* CreateUserPaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserPaletteView.swift; sourceTree = "<group>"; };
+		16FAFE512CDBAA8300B71771 /* INPUTDATA.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = INPUTDATA.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +245,7 @@
 			children = (
 				16ED0D5A2CC0972500ADCA3B /* DEVLOG.md */,
 				16E3146D2CD29ED2004509D7 /* Testing.md */,
+				16FAFE512CDBAA8300B71771 /* INPUTDATA.md */,
 			);
 			path = Texts;
 			sourceTree = "<group>";
@@ -405,6 +409,7 @@
 		16ED0D9D2CC1539600ADCA3B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				16FAFE4E2CDBA86F00B71771 /* CreateUserPalette */,
 				16A6C49E2CD6F808003C50FA /* MasterPalette */,
 				16E314702CD2AFF5004509D7 /* Loading */,
 				160278832CC9BD430048F4F8 /* Modifiers */,
@@ -417,6 +422,14 @@
 				1609D0172CD170E700D3FCF8 /* OnboardingView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		16FAFE4E2CDBA86F00B71771 /* CreateUserPalette */ = {
+			isa = PBXGroup;
+			children = (
+				16FAFE4F2CDBA87D00B71771 /* CreateUserPaletteView.swift */,
+			);
+			path = CreateUserPalette;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -574,6 +587,7 @@
 				162896CA2CC58A28005A2399 /* UserDefaultsHelper.swift in Sources */,
 				162896C62CC57C99005A2399 /* PaletteListItemView.swift in Sources */,
 				16ED0D562CC0170500ADCA3B /* ColourHelper.swift in Sources */,
+				16FAFE502CDBA87D00B71771 /* CreateUserPaletteView.swift in Sources */,
 				162896892CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift in Sources */,
 				16ED0DA62CC166D200ADCA3B /* ArtworkInput.swift in Sources */,
 				16A6C4A82CD72465003C50FA /* MasterPalette.swift in Sources */,

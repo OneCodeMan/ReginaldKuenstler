@@ -127,11 +127,17 @@ That new new
         - [ ] Information on: Artist nationality; birth date to death date
         - [ ] Add real avg. palette data
             - We should hard-code it... It's gonna be the same images all the time and we'd be doing the same calcs all the time..
-- [ ] Better colour mapper data
-    - https://color-hex.com/color-names.html
+        - [] More data
+            - [ ] https://en.wikipedia.org/wiki/Zinaida_Serebriakova
+            - [ ] https://www.tumblr.com/tagged/ettore%20tito
 
 ### Wave 2.2
 - [ ] An Attempt At Better User Input
+    - [ ] Can we recognize text given an image?
+    - [ ] Can we extract the text we want?
+...
+- [ ] Better colour mapper data
+    - https://color-hex.com/color-names.html
 
 ### Wave 2.3
 - [ ] ???
@@ -145,7 +151,15 @@ That new new
 ## Resources // R&D
 
 ### user input
+Text recognition
+https://medium.com/@jakir/text-recognition-or-ocr-using-vision-framework-ios-swiftui-b9c5df36ec32
+
+
 Make a CoreML model to detect images? take a stab at it?
+
+https://medium.com/@ssbrswm/how-to-create-a-coreml-model-with-the-createml-app-d9a84d626b58
+https://developer.apple.com/documentation/coreml/getting-a-core-ml-model
+https://apple.github.io/coremltools/docs-guides/source/introductory-quickstart.html
 
 https://www.montmarte.com/collections/oil-pastels
 - possibly can scrape, look at colours under "additional details" each page.
