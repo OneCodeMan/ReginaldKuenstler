@@ -24,31 +24,39 @@ struct CreatePaletteWithPhotosView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(height: 300)
+                
             } else {
-                Text("Tap to select or capture an image")
-                    .padding()
-                    .foregroundColor(.gray)
-                    .frame(height: 300)
-                    .background(Color.secondary.opacity(0.1))
-                    .cornerRadius(8)
-                    .onTapGesture {
-                        showImagePicker = true
-                    }
+                VStack {
+                    Text("Tap to select or capture an image")
+                        .padding()
+                        .foregroundColor(.gray)
+                        .frame(height: 300)
+                        .background(Color.secondary.opacity(0.1))
+                        .cornerRadius(8)
+                        .onTapGesture {
+                            showImagePicker = true
+                        }
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 16)
+                                .strokeBorder(style: StrokeStyle(lineWidth: 4, dash: [10], dashPhase: 0.0))
+                        )
+                }
+                
             }
             
-            Text("Recognized Colours:")
-                .font(.headline)
-                .padding(.top)
+//            Text("Recognized Colours:")
+//                .font(.headline)
+//                .padding(.top)
+//            
+//            ScrollView {
+//                Text(recognizedText.isEmpty ? "No text recognized" : recognizedText)
+//                    .padding()
+//                    .background(Color.secondary.opacity(0.1))
+//                    .cornerRadius(8)
+//            }
+//            .frame(height: 200)
             
-            ScrollView {
-                Text(recognizedText.isEmpty ? "No text recognized" : recognizedText)
-                    .padding()
-                    .background(Color.secondary.opacity(0.1))
-                    .cornerRadius(8)
-            }
-            .frame(height: 200)
-            
-            HStack {
+            VStack {
                 Button("Select from Library") {
                     showImagePicker = true
                 }
@@ -178,29 +186,48 @@ struct CreatePaletteWithPhotosView: View {
 
 // MARK: Palette Creation Confirmation View
 struct PaletteCreationConfirmationView: View {
-    @Environment(\.dismiss) var dismiss
+    
+    // MARK: State variables
     @Binding var paletteColours: [PaletteColour]
     var saveColoursToUserPalette: () -> ()
+    
+    // MARK: VGrid logic
+    let columns = Array(repeating: GridItem(.flexible()), count: 3)
+    
+    // MARK: Booleans for dismissing/presenting alerts
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
-        ScrollView {
-            if !paletteColours.isEmpty {
-                ForEach(paletteColours, id: \.self) { pc in
-                    SingularPaletteItemView(paletteColour: pc)
-                }
-            } else {
-                Text("NO PALETTE COLOURS DETECTED")
-            }
-            
-            // TODO: save the palette to user defaults
+        NavigationStack {
             VStack {
-                Button("Save to user defaults") {
-                    self.saveColoursToUserPalette()
+                if !paletteColours.isEmpty {
+                    List {
+                        LazyVGrid(columns: columns) {
+                            ForEach(paletteColours, id: \.self) { pc in
+                                SingularPaletteItemView(paletteColour: pc)
+                            }
+                        }
+                    }
+                    
+                } else {
+                    Text("NO PALETTE COLOURS DETECTED")
                 }
-                Button("Dismiss") {
-                    self.dismiss()
+                
+                VStack {
+                    Button("Save to user defaults") {
+                        self.saveColoursToUserPalette()
+                        self.dismiss()
+                    }
+                    .padding()
+                    Button("Try Again") {
+                        self.dismiss()
+                    }
+                    .padding()
                 }
             }
+            .navigationTitle(Text(String(localized: "Add Colours to Palette")))
         }
+        
     }
 }
 

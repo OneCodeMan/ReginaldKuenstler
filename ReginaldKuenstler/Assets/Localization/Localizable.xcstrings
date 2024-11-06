@@ -10,6 +10,9 @@
     "Add" : {
 
     },
+    "Add Colours to Palette" : {
+
+    },
     "Analyze" : {
 
     },
@@ -50,9 +53,6 @@
 
     },
     "Detected Colours" : {
-
-    },
-    "Dismiss" : {
 
     },
     "Done" : {
@@ -100,9 +100,6 @@
     "Proceed" : {
 
     },
-    "Recognized Colours:" : {
-
-    },
     "Save Selected Colours" : {
 
     },
@@ -137,6 +134,9 @@
 
     },
     "This image has already been analyzed." : {
+
+    },
+    "Try Again" : {
 
     },
     "Welcome to Pinselton" : {

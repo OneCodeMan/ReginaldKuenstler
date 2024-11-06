@@ -130,14 +130,24 @@ That new new
         - [] More data
             - [ ] https://en.wikipedia.org/wiki/Zinaida_Serebriakova
             - [ ] https://www.tumblr.com/tagged/ettore%20tito
+- [ ] An Attempt At Better User Input #1
+    - [ ] Be able to detect misspellings//missing letters?
+    - [ ] Add multi-select image option like Instagram.
+- [ ] An Attempt At Better User Input #2
+    - [ ] Create in-app "catalog", scraped data of INDIVIDUAL PAINTS and SETS
+...
+- [ ] Improve current colour mapper data
+    - https://color-hex.com/color-names.html
+- [ ] Re-design colour mapper to consumerist-facing
+    - [ ] Extract the colours from the product catalogs themselves, build mapper with that.
+        - [ ] From W&N, Mont Marte, etc.
+...
+- [ ] A better loading screen
+    - The progression of an artwork being drawn and coloured.
+        - Going from partially to fully coloured.
+    - Ideally 2-3 of these.
 
 ### Wave 2.2
-- [ ] An Attempt At Better User Input
-    - [x] Can we recognize text given an image?
-    - [x] Can we extract the text we want?
-...
-- [ ] Better colour mapper data
-    - https://color-hex.com/color-names.html
 
 ### Wave 2.3
 - [ ] ???
@@ -169,6 +179,17 @@ https://www.winsornewton.com/en-ca/collections/cotman-watercolour
 - load entire thing
 
 # History
+
+## November 6, 2024
+- [ ] Multi-select
+
+- [ ] Palette of the Greats
+
+- [x] Better User Input #1 : Text Recognition and Matching
+    - [x] Can we recognize text given an image?
+    - [x] Can we extract the text we want?
+    - [x] If we can detect an exact match of text on a line, we got it.
+
 ## November 5, 2024
 PogS
     - [x] All assets filled.
