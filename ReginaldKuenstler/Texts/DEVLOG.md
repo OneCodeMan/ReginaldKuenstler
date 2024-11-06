@@ -130,11 +130,30 @@ That new new
         - [] More data
             - [ ] https://en.wikipedia.org/wiki/Zinaida_Serebriakova
             - [ ] https://www.tumblr.com/tagged/ettore%20tito
+- [ ] ColourComparisonView & Widget
+    - [ ] Add Widget of last generated swatch
+            
 - [ ] An Attempt At Better User Input #1
+    - [ ] Matching conditions
+        - [ ] If brand info available and matching colour name, point them to a brand and the colour.
+        - [ ] If brand info not available, point to any matching colour name.
+        - [ ] If brand info not available && if matching colour name not available.. map to nearest hex in map.
+            - [ ] or if brand info available but no matching colour name.
     - [ ] Be able to detect misspellings//missing letters?
     - [ ] Add multi-select image option like Instagram.
 - [ ] An Attempt At Better User Input #2
-    - [ ] Create in-app "catalog", scraped data of INDIVIDUAL PAINTS and SETS
+    - [ ] Create in-app "catalog", scraped data of INDIVIDUAL PAINTS
+    - [ ] Read from catalog.json, and parse
+    - [ ] Make VColour objects or something else out of those catalog items
+
+- [ ] Better User Input Attempt #3
+    Ultimately in any of these scenarios, they are parsed to the same thing.
+    - [ ] Multi-select images. 3 types of input
+        - #1. [image] Colour names (with brands)
+        - #2. [in-app] Catalog of products (scraped data [includes sets])
+        - #3. [in-app] Literal colours in app like our original.
+        - BONUS: #4. [image] actual colours???
+    
 ...
 - [ ] Improve current colour mapper data
     - https://color-hex.com/color-names.html
