@@ -120,11 +120,11 @@ That new new
     - [ ] Group the colours in MinimumPalette like we do in colour selection
     - [ ] Top left button on each image to delete them from the list.
     - [ ] Show the most common colours at beginning.
+...
 - [ ] Palette of the Greats
     - [ ] Detail View
-        - [ ] Add nationality
         - [x] Add AveragePalette to bottom of DetailView
-        - [ ] Information on: Artist nationality; birth date to death date
+        - [ ] Information on: birth date to death date
         - [ ] Add real avg. palette data
             - We should hard-code it... It's gonna be the same images all the time and we'd be doing the same calcs all the time..
         
