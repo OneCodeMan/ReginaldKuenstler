@@ -1,6 +1,7 @@
 import SwiftUI
 import Vision
 import PhotosUI
+import Foundation
 
 struct CreatePaletteWithPhotosView: View {
     @State private var recognizedText: String = ""
@@ -72,11 +73,42 @@ struct CreatePaletteWithPhotosView: View {
             }
             
             if let results = request.results as? [VNRecognizedTextObservation] {
+                let colourMap = ColourMapper.shared
                 recognizedText = results.compactMap { observation in
                     observation.topCandidates(1).first?.string
                 }.joined(separator: "\n")
                 
-                print(recognizedText)
+                // RAW TEXT
+                // print(recognizedText)
+                
+                // Try to extract text
+                
+                // separate recognizedText at newLine
+                let recognizedTextSplit = recognizedText.split(whereSeparator: \.isNewline)
+                
+                var arrayOfDetectedColourStrings: [String] = []
+                
+                for line in recognizedTextSplit {
+                    let sanitizedLine = line.lowercased().trimmingCharacters(in: .whitespaces)
+                    
+                    // if we found a colour name that our colourMap recognizes.
+                    if colourMap.colourMap.contains(where: { $0.name.lowercased().trimmingCharacters(in: .whitespaces) == sanitizedLine }) {
+                        print("HIP HIP HURRAY!!!: \(sanitizedLine)")
+                        arrayOfDetectedColourStrings.append(sanitizedLine)
+                    } else {
+                        print("NOOOOO: \(sanitizedLine)")
+                    }
+                }
+                
+                arrayOfDetectedColourStrings = arrayOfDetectedColourStrings.uniqued()
+                
+                print("Number of hip-hip-hurrays: \(arrayOfDetectedColourStrings.count)\n")
+                print("Hip-hip-hurrays:\n \(arrayOfDetectedColourStrings)")
+                
+                // then make VColours out of `arrayOfDetectedColourStrings`
+                
+                
+                
             } else {
                 recognizedText = "No text found"
             }

@@ -63,6 +63,7 @@
 		16ED0DA62CC166D200ADCA3B /* ArtworkInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0DA52CC166D200ADCA3B /* ArtworkInput.swift */; };
 		16ED0DA82CC166E600ADCA3B /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED0DA72CC166E600ADCA3B /* Palette.swift */; };
 		16FAFE502CDBA87D00B71771 /* CreateUserPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAFE4F2CDBA87D00B71771 /* CreateUserPaletteView.swift */; };
+		16FAFE542CDBBA0F00B71771 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 16FAFE532CDBBA0F00B71771 /* Algorithms */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16FAFE542CDBBA0F00B71771 /* Algorithms in Frameworks */,
 				166DF25F2CD18C540048C0E0 /* GoogleMobileAds in Frameworks */,
 				16ED0D4E2CBED8B500ADCA3B /* SwiftVibrantium in Frameworks */,
 			);
@@ -451,6 +453,7 @@
 			packageProductDependencies = (
 				16ED0D4D2CBED8B500ADCA3B /* SwiftVibrantium */,
 				166DF25E2CD18C540048C0E0 /* GoogleMobileAds */,
+				16FAFE532CDBBA0F00B71771 /* Algorithms */,
 			);
 			productName = ReginaldKuenstler;
 			productReference = 16ED0D1F2CBED1C500ADCA3B /* Pinselton.app */;
@@ -529,6 +532,7 @@
 			packageReferences = (
 				16ED0D4C2CBED8B500ADCA3B /* XCRemoteSwiftPackageReference "swift-vibrantium" */,
 				166DF25D2CD18C530048C0E0 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				16FAFE522CDBBA0F00B71771 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
 			);
 			productRefGroup = 16ED0D202CBED1C500ADCA3B /* Products */;
 			projectDirPath = "";
@@ -970,6 +974,14 @@
 				kind = branch;
 			};
 		};
+		16FAFE522CDBBA0F00B71771 /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -982,6 +994,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 16ED0D4C2CBED8B500ADCA3B /* XCRemoteSwiftPackageReference "swift-vibrantium" */;
 			productName = SwiftVibrantium;
+		};
+		16FAFE532CDBBA0F00B71771 /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16FAFE522CDBBA0F00B71771 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -14,3 +14,11 @@ func countFrequencies<T: Hashable>(array: [T]) -> [T: Int] {
     }
     return frequencyDict
 }
+
+// Remove duplicates
+public extension Array where Element: Hashable {
+    func uniqued() -> [Element] {
+        var seen = Set<Element>()
+        return filter { seen.insert($0).inserted }
+    }
+}
