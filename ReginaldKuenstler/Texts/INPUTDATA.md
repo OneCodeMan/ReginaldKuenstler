@@ -336,3 +336,99 @@ Series/Série 1
 37 ml C 1.25 US fl 0z
 5E52
 ```
+
+
+## Image 4
+Cray-Pas
+
+```
+NOOOOO: brun
+NOOOOO: viriaian hue
+NOOOOO: * light purple
+NOOOOO: pourpre clair
+HIP HIP HURRAY!!!: olive green
+NOOOOO: vert.olive
+NOOOOO: green gray
+NOOOOO: vert gris
+NOOOOO: 6 84517432787411
+NOOOOO: braun -
+NOOOOO: marron
+NOOOOO: 08451443721242
+NOOOOO: chromoxidgrun imit
+NOOOOO: serde esmeralda imit
+NOOOOO: 084514 3280618
+NOOOOO: purpur licht
+NOOOOO: púrpura claro
+NOOOOO: 84517157215713
+NOOOOO: clivgrün
+NOOOOO: verde oliva
+NOOOOO: 54577 32801
+NOOOOO: gringrau
+NOOOOO: verde gris
+NOOOOO: prussian blue
+NOOOOO: bleu de prusse
+NOOOOO: preussischolau
+NOOOOO: azul de prusia
+NOOOOO: vandyke brown
+NOOOOO: brun van dyck
+NOOOOO: vandyckbraun
+NOOOOO: pardo van dyke
+NOOOOO: tini cenite
+HIP HIP HURRAY!!!: gray
+NOOOOO: gris
+NOOOOO: grau
+NOOOOO: gris
+NOOOOO: tosa
+NOOOOO: rosa
+NOOOOO: 184514 327931,
+NOOOOO: purpur
+NOOOOO: púrpura
+NOOOOO: y purple
+NOOOOO: • pourpre
+NOOOOO: 19642e144578110
+NOOOOO: pressionist
+NOOOOO: yelrow orange
+NOOOOO: gello orange
+NOOOOO: jaune orangé
+NOOOOO: amarillo naranja
+NOOOOO: cerulean blue
+NOOOOO: bleu céruléum
+NOOOOO: 01845143721814
+NOOOOO: colinblau
+NOOOOO: azul ceruleo
+NOOOOO: 0 84511 3279
+NOOOOO: salmon pink
+NOOOOO: rose saumon
+NOOOOO: lachsrosa
+NOOOOO: rosa salmon
+NOOOOO: 010
+NOOOOO: p/06
+NOOOOO: vermilion hue
+NOOOOO: cho en chin
+HIP HIP HURRAY!!!: orange
+HIP HIP HURRAY!!!: orange
+NOOOOO: 10
+NOOOOO: • p/06:
+NOOOOO: 01184511 327909
+NOOOOO: zinnober imit
+NOOOOO: 0184511 3278
+NOOOOO: naranja
+NOOOOO: jaune
+NOOOOO: vert jaunatre
+NOOOOO: sm 28222442231
+NOOOOO: sub esos
+NOOOOO: amarillo
+NOOOOO: verde amarillento
+NOOOOO: sub esoi.:
+Number of hip-hip-hurrays: 3
+
+Hip-hip-hurrays:
+ ["olive green", "gray", "orange"]
+Detected palette colours:
+
+
+Olive Green #808000
+Gray #808080
+Orange #FFA500
+
+```

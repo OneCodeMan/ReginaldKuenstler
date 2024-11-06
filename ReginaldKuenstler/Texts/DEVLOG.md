@@ -186,6 +186,9 @@ That new new
 Scrape this website for all colours
 https://sensuallogic.com/artistcolordata
 
+this too:
+https://artistpigments.org/mediums/oil_pastel
+
 Our colourMap will look like this:
 ```
 [

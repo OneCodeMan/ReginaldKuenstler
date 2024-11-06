@@ -3,6 +3,9 @@ import Vision
 import PhotosUI
 import Foundation
 
+/**
+ MARK: V0.2
+ */
 struct CreatePaletteWithPhotosView: View {
     @EnvironmentObject var userPaletteViewModel: UserPaletteViewModel
 
@@ -44,17 +47,17 @@ struct CreatePaletteWithPhotosView: View {
                 
             }
             
-//            Text("Recognized Colours:")
-//                .font(.headline)
-//                .padding(.top)
-//            
-//            ScrollView {
-//                Text(recognizedText.isEmpty ? "No text recognized" : recognizedText)
-//                    .padding()
-//                    .background(Color.secondary.opacity(0.1))
-//                    .cornerRadius(8)
-//            }
-//            .frame(height: 200)
+            Text("Recognized Colours:")
+                .font(.headline)
+                .padding(.top)
+            
+            ScrollView {
+                Text(recognizedText.isEmpty ? "No text recognized" : recognizedText)
+                    .padding()
+                    .background(Color.secondary.opacity(0.1))
+                    .cornerRadius(8)
+            }
+            .frame(height: 200)
             
             VStack {
                 Button("Select from Library") {
@@ -106,6 +109,7 @@ struct CreatePaletteWithPhotosView: View {
             }
             
             if let results = request.results as? [VNRecognizedTextObservation] {
+                // TODO: replace with v0.2 map
                 let colourMap = ColourMapper.shared.colourMap
                 recognizedText = results.compactMap { observation in
                     observation.topCandidates(1).first?.string
