@@ -4,6 +4,8 @@ import PhotosUI
 import Foundation
 
 struct CreatePaletteWithPhotosView: View {
+    @EnvironmentObject var userPaletteViewModel: UserPaletteViewModel
+
     @State private var recognizedText: String = ""
     @State private var showImagePicker = false
     @State private var showCamera = false
@@ -64,7 +66,19 @@ struct CreatePaletteWithPhotosView: View {
         }
         .sheet(isPresented: $displayPaletteCreationConfirmation) {
             PaletteCreationConfirmationView(paletteColours: $detectedPaletteColours) {
-                print("hi")
+
+                // remove duplicates between userpalette and newcolours before adding colours to userpalette
+                let coloursToSave = detectedPaletteColours.reduce(into: [String: String]()) { result, item in
+                    // if userPalette already has current detected colour, do not add it to user palette again.
+                    if userPaletteViewModel.userPaletteColours.contains(where: { $0.colourName.lowercased() == item.colourName.lowercased() }) {
+                        print("NOT ADDING \(item.colourName) because userPalette already has it.")
+                    } else {
+                        result[item.colourName] = item.hexCode
+                    }
+                    
+                }
+                
+                userPaletteViewModel.saveUserPaletteColours(coloursToSave)
             }
         }
         .fullScreenCover(isPresented: $showCamera) {

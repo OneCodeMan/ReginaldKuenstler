@@ -133,8 +133,8 @@ That new new
 
 ### Wave 2.2
 - [ ] An Attempt At Better User Input
-    - [ ] Can we recognize text given an image?
-    - [ ] Can we extract the text we want?
+    - [x] Can we recognize text given an image?
+    - [x] Can we extract the text we want?
 ...
 - [ ] Better colour mapper data
     - https://color-hex.com/color-names.html

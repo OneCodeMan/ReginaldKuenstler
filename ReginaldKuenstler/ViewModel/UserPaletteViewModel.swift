@@ -43,6 +43,7 @@ class UserPaletteViewModel: ObservableObject {
     }
     
     func saveUserPaletteColours(_ newColours: [String: String]) {
+        // TODO: remove duplicates
         let combinedPalette = userPaletteColoursDictionary.merging(newColours) { $1 }
         UserDefaults.standard.set(combinedPalette, forKey: UserPaletteConstants.userPalettesKey)
         self.userPaletteColours = combinedPalette.map { PaletteColour(colourName: $0.key, hexCode: $0.value) }
