@@ -116,7 +116,6 @@ That new new
 
 ### Wave 2.1
 - [ ] Multi-select.
-    - [ ] The individual palette breakdown for each image, make that a detail view for the images themselves
     - [ ] Group the colours in MinimumPalette like we do in colour selection
     - [ ] Top left button on each image to delete them from the list.
     - [ ] Show the most common colours at beginning.
@@ -230,6 +229,7 @@ https://www.winsornewton.com/en-ca/collections/cotman-watercolour
 
 ## November 6, 2024
 - [ ] Multi-select
+    - [x] The individual palette breakdown for each image, make that a detail view for the images themselves
 
 - [ ] Palette of the Greats
     - [x] More data
