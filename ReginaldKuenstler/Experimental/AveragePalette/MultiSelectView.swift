@@ -7,6 +7,11 @@ struct MultiSelectView: View {
     @State private var isPickerPresented: Bool = false
     
     @State private var displayMinimumPalette: Bool = false
+    @State private var displayPaletteResults: Bool = false
+    
+    @State private var indexOfTappedImage: Int = 0
+    
+    @Environment(\.dismiss) var dismiss
 
     var rows = [
         GridItem(.flexible()) // Adjust the size as needed
@@ -21,13 +26,20 @@ struct MultiSelectView: View {
                     
                     ScrollView(.horizontal) {
                         LazyHGrid(rows: rows, spacing: 10) {
-                            ForEach(images, id: \.self) { image in
+                            ForEach(Array(images.enumerated()), id: \.offset) { index, image in
                                 Image(uiImage: image)
                                     .resizable()
                                     .scaledToFit()
                                     .frame(minHeight: 200)
                                     .cornerRadius(8)
                                     .unredacted()
+                                    .onTapGesture {
+                                        if displayMinimumPalette {
+                                            self.displayPaletteResults = true
+                                            self.indexOfTappedImage = index
+                                        }
+                                        
+                                    }
                             }
                         }
                         .padding()
@@ -43,38 +55,38 @@ struct MultiSelectView: View {
                 if viewModel.isLoading {
                     ProgressView("Analyzing images...")
                 } else {
-                    ScrollView(.horizontal) {
-                        LazyHGrid(rows: rows, spacing: 10) {
-                            ForEach(viewModel.paletteResults.indices, id: \.self) { index in
-                                VStack {
-                                    Image(uiImage: images[index])
-                                        .resizable()
-                                        .frame(width: 90, height: 60)
-                                        .scaledToFill()
-                                        .padding()
-                                    Section {
-                                        ForEach(viewModel.paletteResults[index]) { colour in
-                                            HStack {
-                                                Text(colour.colourName)
-                                                    .frame(width: 100, alignment: .leading)
-                                                
-                                                Rectangle()
-                                                    .fill(Color(colour.uiColour))
-                                                    .frame(width: 30, height: 30)
-                                                    .cornerRadius(5)
-                                            }
-                                        }
-                                    } // end of Section
-                                } // end of VStack
-                                .unredacted()
-                                .padding()
-                                Divider().frame(width: 2)
-                            } // end of ForEach
-                        }
-                        .padding(8)
-                        
-                    }
-                    .redacted(reason: .placeholder)
+//                    ScrollView(.horizontal) {
+//                        LazyHGrid(rows: rows, spacing: 10) {
+//                            ForEach(viewModel.paletteResults.indices, id: \.self) { index in
+//                                VStack {
+//                                    Image(uiImage: images[index])
+//                                        .resizable()
+//                                        .frame(width: 90, height: 60)
+//                                        .scaledToFill()
+//                                        .padding()
+//                                    Section {
+//                                        ForEach(viewModel.paletteResults[index]) { colour in
+//                                            HStack {
+//                                                Text(colour.colourName)
+//                                                    .frame(width: 100, alignment: .leading)
+//                                                
+//                                                Rectangle()
+//                                                    .fill(Color(colour.uiColour))
+//                                                    .frame(width: 30, height: 30)
+//                                                    .cornerRadius(5)
+//                                            }
+//                                        }
+//                                    } // end of Section
+//                                } // end of VStack
+//                                .unredacted()
+//                                .padding()
+//                                Divider().frame(width: 2)
+//                            } // end of ForEach
+//                        }
+//                        .padding(8)
+//                        
+//                    }
+//                    .redacted(reason: .placeholder)
                     
                     if displayMinimumPalette {
                         // Minimum Palette view
@@ -110,8 +122,50 @@ struct MultiSelectView: View {
                 .padding()
 
             }
+            .sheet(isPresented: $displayPaletteResults) {
+                PaletteResultsView(paletteResults: $viewModel.paletteResults[indexOfTappedImage], image: $images[indexOfTappedImage])
+            }
         }
         
+    }
+}
+
+struct PaletteResultsView: View {
+    @Binding var paletteResults: [PaletteColour]
+    @Binding var image: UIImage
+    var rows = [
+        GridItem(.flexible()) // Adjust the size as needed
+    ]
+    
+    var body: some View {
+        VStack {
+            LazyHGrid(rows: rows, spacing: 10) {
+                VStack {
+                    Image(uiImage: image)
+                        .resizable()
+                        .frame(width: 90, height: 60)
+                        .scaledToFill()
+                        .padding()
+                    Section {
+                        ForEach(paletteResults, id: \.self) { pc in
+                            HStack {
+                                Text(pc.colourName)
+                                    .frame(width: 100, alignment: .leading)
+                                
+                                Rectangle()
+                                    .fill(Color(pc.uiColour))
+                                    .frame(width: 30, height: 30)
+                                    .cornerRadius(5)
+                            }
+                        }
+                    } // end of Section
+                } // end of VStack
+                .unredacted()
+                .padding()
+             // end of ForEach
+            }
+            .padding(8)
+        }
     }
 }
 
