@@ -127,11 +127,11 @@ That new new
         - [ ] Information on: Artist nationality; birth date to death date
         - [ ] Add real avg. palette data
             - We should hard-code it... It's gonna be the same images all the time and we'd be doing the same calcs all the time..
-        - [] More data
-            - [ ] https://en.wikipedia.org/wiki/Zinaida_Serebriakova
-            - [ ] https://www.tumblr.com/tagged/ettore%20tito
+        
 - [ ] ColourComparisonView & Widget
     - [ ] Add Widget of last generated swatch
+        How do we store that data?
+        https://www.createwithswift.com/adding-a-widget-to-a-swiftui-app/
             
 - [ ] An Attempt At Better User Input #1
     - [ ] Matching conditions
@@ -232,6 +232,8 @@ https://www.winsornewton.com/en-ca/collections/cotman-watercolour
 - [ ] Multi-select
 
 - [ ] Palette of the Greats
+    - [x] More data
+    - [x] https://www.tumblr.com/tagged/ettore%20tito
 
 - [x] Better User Input #1 : Text Recognition and Matching
     - [x] Can we recognize text given an image?

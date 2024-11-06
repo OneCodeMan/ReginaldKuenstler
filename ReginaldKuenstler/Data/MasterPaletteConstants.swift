@@ -29,6 +29,9 @@ struct MasterPaletteConstants {
     static let hopperImageStrings = ["hopper_portrait", "hopper0", "hopper1", "hopper2", "hopper3", "hopper4", "hopper5", "hopper6", "hopper7", "hopper8", "hopper9", "hopper10", "hopper11", "hopper12", "hopper13"]
     static let johansenImageStrings = ["johansen_portrait", "johansen0", "johansen1", "johansen2", "johansen3", "johansen4", "johansen5"]
     
+    // new new
+    static let titoImageStrings = ["tito0", "tito1", "tito2", "tito3", "tito4", "tito5", "tito6", "tito7", "tito8", "tito9", "tito10", "tito11", "tito12"]
+    
     static let masterPaletteImageStrings = [
         hopperImageStrings,
         siemiradzkiImageStrings,
@@ -56,6 +59,8 @@ struct MasterPaletteConstants {
         MasterPalette(imageStrings: siemiradzkiImageStrings, artistName: "Henryk Siemiradzki"),
         MasterPalette(imageStrings: gentileschiImageStrings, artistName: "Artemisia Gentileschi"),
         MasterPalette(imageStrings: johansenImageStrings, artistName: "Viggo Johansen"),
+        MasterPalette(imageStrings: titoImageStrings, artistName: "Tito Ettore"),
+        
         
         // TODO: these ones need assets.
         
