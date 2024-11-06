@@ -8,6 +8,28 @@
 import Foundation
 import UIKit
 
+
+// MARK: V0.2
+final class ColourCatalog: ObservableObject {
+    
+    // Data
+    private(set) var colourMap: [VColour] = []
+    
+    // Singleton instance
+    static let shared = ColourCatalog()
+    
+    // Prevents external instantiation
+    private init() {
+        print("ColourCatalog init called")
+//        self.createColourMapFromCSV { cM in
+//            self.colourMap = cM
+//        }
+    }
+}
+
+
+
+// MARK: V 0.1 colour map.
 final class ColourMapper: ObservableObject {
 
     // Data

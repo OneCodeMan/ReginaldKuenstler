@@ -160,8 +160,7 @@ struct CreatePaletteWithPhotosView: View {
                     print(pc.colourName, pc.hexCode)
                 }
                 print("\n\n")
-                
-                // TODO: get to a confirmation view with the colours
+
                 self.detectedPaletteColours = detectedPaletteColours
                 displayPaletteCreationConfirmation = true
                 
