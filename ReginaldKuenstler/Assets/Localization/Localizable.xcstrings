@@ -52,6 +52,9 @@
     "Detected Colours" : {
 
     },
+    "Dismiss" : {
+
+    },
     "Done" : {
 
     },
@@ -76,6 +79,9 @@
     "No colours were selected." : {
 
     },
+    "NO PALETTE COLOURS DETECTED" : {
+
+    },
     "No results found for \"%@\"." : {
 
     },
@@ -98,6 +104,9 @@
 
     },
     "Save Selected Colours" : {
+
+    },
+    "Save to user defaults" : {
 
     },
     "Select from Library" : {

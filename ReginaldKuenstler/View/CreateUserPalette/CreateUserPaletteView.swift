@@ -9,6 +9,12 @@ struct CreatePaletteWithPhotosView: View {
     @State private var showCamera = false
     @State private var selectedImage: UIImage?
     
+    // MARK: State to track user input converted to palette colours
+    @State var detectedPaletteColours: [PaletteColour] = []
+    
+    // MARK: Alert states
+    @State var displayPaletteCreationConfirmation: Bool = false
+    
     var body: some View {
         VStack {
             if let image = selectedImage {
@@ -55,6 +61,11 @@ struct CreatePaletteWithPhotosView: View {
         .padding()
         .sheet(isPresented: $showImagePicker) {
             CreatePaletteImagePicker(selectedImage: $selectedImage, onImagePicked: recognizeText)
+        }
+        .sheet(isPresented: $displayPaletteCreationConfirmation) {
+            PaletteCreationConfirmationView(paletteColours: $detectedPaletteColours) {
+                print("hi")
+            }
         }
         .fullScreenCover(isPresented: $showCamera) {
             CameraCaptureView(selectedImage: $selectedImage, onImageCaptured: recognizeText)
@@ -124,6 +135,12 @@ struct CreatePaletteWithPhotosView: View {
                 }
                 print("\n\n")
                 
+                // TODO: get to a confirmation view with the colours
+                self.detectedPaletteColours = detectedPaletteColours
+                displayPaletteCreationConfirmation = true
+                
+                // Saving palette to userdefaults handled by modal logic.
+                
                 
             } else {
                 recognizedText = "No text found"
@@ -145,6 +162,35 @@ struct CreatePaletteWithPhotosView: View {
     }
 }
 
+// MARK: Palette Creation Confirmation View
+struct PaletteCreationConfirmationView: View {
+    @Environment(\.dismiss) var dismiss
+    @Binding var paletteColours: [PaletteColour]
+    var saveColoursToUserPalette: () -> ()
+    var body: some View {
+        ScrollView {
+            if !paletteColours.isEmpty {
+                ForEach(paletteColours, id: \.self) { pc in
+                    SingularPaletteItemView(paletteColour: pc)
+                }
+            } else {
+                Text("NO PALETTE COLOURS DETECTED")
+            }
+            
+            // TODO: save the palette to user defaults
+            VStack {
+                Button("Save to user defaults") {
+                    self.saveColoursToUserPalette()
+                }
+                Button("Dismiss") {
+                    self.dismiss()
+                }
+            }
+        }
+    }
+}
+
+// MARK: Image picker helper for SwiftUI
 // Image picker helper for SwiftUI
 struct CreatePaletteImagePicker: UIViewControllerRepresentable {
     @Binding var selectedImage: UIImage?
@@ -192,6 +238,7 @@ struct CreatePaletteImagePicker: UIViewControllerRepresentable {
     }
 }
 
+// MARK: Camera capture helper
 // Camera capture helper for SwiftUI
 struct CameraCaptureView: UIViewControllerRepresentable {
     @Binding var selectedImage: UIImage?
