@@ -53,14 +53,14 @@ struct MasterPaletteConstants {
     // TODO: add minimum palette
     static let masterPalettes: [MasterPalette] = [
         MasterPalette(imageStrings: vanGoghImageStrings, artistName: "Van Gogh", lifespan: "1853 – 1890", minimumPalette: HardcodedGreatsPaletteData.vanGoghPalette),
-        MasterPalette(imageStrings: munchImageStrings, artistName: "Edvard Munch", lifespan: "1863 – 1944", minimumPalette: Palette()),
-        MasterPalette(imageStrings: hopperImageStrings, artistName: "Edward Hopper", lifespan: "1882 – 1967", minimumPalette: Palette()),
-        MasterPalette(imageStrings: goyaImageStrings, artistName: "Francisco Goya", lifespan: "1746 – 1828", minimumPalette: Palette()),
-        MasterPalette(imageStrings: caravaggioImageStrings, artistName: "Caravaggio", lifespan: "1571 – 1610", minimumPalette: Palette()),
-        MasterPalette(imageStrings: siemiradzkiImageStrings, artistName: "Henryk Siemiradzki", lifespan: "1843 – 1902", minimumPalette: Palette()),
-        MasterPalette(imageStrings: gentileschiImageStrings, artistName: "Artemisia Gentileschi", lifespan: "1593 – 1656", minimumPalette: Palette()),
-        MasterPalette(imageStrings: johansenImageStrings, artistName: "Viggo Johansen", lifespan: "1851 – 1935", minimumPalette: Palette()),
-        MasterPalette(imageStrings: titoImageStrings, artistName: "Tito Ettore", lifespan: "1859 – 1941", minimumPalette: Palette()),
+        MasterPalette(imageStrings: munchImageStrings, artistName: "Edvard Munch", lifespan: "1863 – 1944", minimumPalette: HardcodedGreatsPaletteData.munchPalette),
+        MasterPalette(imageStrings: hopperImageStrings, artistName: "Edward Hopper", lifespan: "1882 – 1967", minimumPalette: HardcodedGreatsPaletteData.hopperPalette),
+        MasterPalette(imageStrings: goyaImageStrings, artistName: "Francisco Goya", lifespan: "1746 – 1828", minimumPalette: HardcodedGreatsPaletteData.goyaPalette),
+        MasterPalette(imageStrings: caravaggioImageStrings, artistName: "Caravaggio", lifespan: "1571 – 1610", minimumPalette: HardcodedGreatsPaletteData.caravaggioPalette),
+        MasterPalette(imageStrings: siemiradzkiImageStrings, artistName: "Henryk Siemiradzki", lifespan: "1843 – 1902", minimumPalette: HardcodedGreatsPaletteData.siemiradzkiPalette),
+        MasterPalette(imageStrings: gentileschiImageStrings, artistName: "Artemisia Gentileschi", lifespan: "1593 – 1656", minimumPalette: HardcodedGreatsPaletteData.gentileschiPalette),
+        MasterPalette(imageStrings: johansenImageStrings, artistName: "Viggo Johansen", lifespan: "1851 – 1935", minimumPalette: HardcodedGreatsPaletteData.johansenPalette),
+        MasterPalette(imageStrings: titoImageStrings, artistName: "Tito Ettore", lifespan: "1859 – 1941", minimumPalette: HardcodedGreatsPaletteData.titoPalette),
         
         
         // TODO: these ones need assets.

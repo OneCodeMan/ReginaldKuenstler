@@ -60,6 +60,22 @@ struct MasterPaletteDetailView: View {
                         self.enableAutoscrollShenanigans = false
                     }
                     .onAppear {
+                        
+                        // NOTE: this is for debugging when u wanna fill the hardcodedgreatspalettedata
+//                        Task {
+//                            var imagesToAnalyze: [UIImage] = []
+//                            for imageString in masterPalette.imageStrings {
+//                                if let generatedImage = UIImage(named: imageString) {
+//                                    imagesToAnalyze.append(generatedImage)
+//                                } else {
+//                                    print("could not generate image")
+//                                }
+//                            }
+//                            
+//                            await viewModel.analyzeImages(images: imagesToAnalyze)
+//                        }
+                        
+                        
                         // MARK: Scrolling onAppear stuff
                         // TODO: lmfao
                         // Scroll a bit to the next image
