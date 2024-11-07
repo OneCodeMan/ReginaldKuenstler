@@ -20,7 +20,7 @@ import SwiftUI
 
 struct MasterPaletteDetailView: View {
     @ObservedObject var viewModel = AveragePaletteViewModel()
-    @State var images: [String] = MasterPaletteConstants.hopperImageStrings
+    @State var masterPalette: MasterPalette = MasterPaletteConstants.masterPalettes[0]
     let rows = [GridItem(.flexible(minimum: UIScreen.main.bounds.width))]
     
     // MARK: Dismiss state
@@ -38,13 +38,21 @@ struct MasterPaletteDetailView: View {
                 ScrollViewReader { proxy in
                     ScrollView(.horizontal) {
                         LazyHGrid(rows: rows, spacing: 0) {
-                            ForEach(images.indices, id: \.self) { index in
-                                Image(images[index])
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(minWidth: UIScreen.main.bounds.width, maxWidth: .infinity, minHeight: UIScreen.main.bounds.height)
-                                    .clipped()
-                                    .id(index)
+                            ForEach(masterPalette.imageStrings.indices, id: \.self) { index in
+                                
+                                ZStack {
+//                                    if index == 0 {
+//                                        Text(masterPalette.lifespan)
+//                                            .font(.system(size: 50.0))
+//                                    }
+                                    Image(masterPalette.imageStrings[index])
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(minWidth: UIScreen.main.bounds.width, maxWidth: .infinity, minHeight: UIScreen.main.bounds.height)
+                                        .clipped()
+                                        .id(index)
+                                }
+                                
                             }
                         }
                     }
@@ -103,7 +111,7 @@ struct MasterPaletteDetailView: View {
                 }
                 
             } // ZStack
-            .overlay(PaletteOfGreatView(minimumPalette: Palette.mockPalette, isFullScreen: $isPaletteInformationFullScreen, currentIndexScrollView: $currentIndexCarousel), alignment: .bottom)
+            .overlay(PaletteOfGreatView(minimumPalette: Palette.mockPalette, artistName: $masterPalette.artistName, isFullScreen: $isPaletteInformationFullScreen, currentIndexScrollView: $currentIndexCarousel), alignment: .bottom)
         }
         .statusBar(hidden: true)
     }
@@ -112,7 +120,7 @@ struct MasterPaletteDetailView: View {
 
 struct PaletteOfGreatView: View {
     var minimumPalette: Palette
-    @State var artistName: String = "Placeholder"
+    @Binding var artistName: String
     @Binding var isFullScreen: Bool
     @Binding var currentIndexScrollView: Int
     
@@ -132,7 +140,8 @@ struct PaletteOfGreatView: View {
                             Text("The \(artistName) Palette")
                                 .font(.defaultFontLargeTitle)
                                 .padding(.bottom, 8)
-                                .foregroundStyle(colorScheme == .dark ? .white : .black)
+                                .foregroundStyle(colorScheme == .light ? Color.black : Color.white)
+                            
                         }
                         
                         LazyVGrid(columns: self.columns) {
@@ -142,6 +151,7 @@ struct PaletteOfGreatView: View {
                         }
                         
                     }// .frame(minWidth: UIScreen.main.bounds.width)
+                    .padding()
                     
                 }.frame(minWidth: UIScreen.main.bounds.width)
                 
@@ -164,9 +174,9 @@ struct PaletteOfGreatView: View {
              // end of else
             
         }
-        .background(!shouldOmitTitle ? (isFullScreen ? Color.white.opacity(0.9) : Color.white.opacity(0.15)) : Color.black)
+        .background(colorScheme == .light ? (isFullScreen ? Color.white.opacity(0.9) : Color.white.opacity(0.15)) : (isFullScreen ? Color.black.opacity(0.9) : Color.black.opacity(0.15)))
         .onTapGesture {
-            withAnimation {
+            withAnimation(.easeOut(duration: 1.0)) {
                 self.isFullScreen.toggle()
             }
         }

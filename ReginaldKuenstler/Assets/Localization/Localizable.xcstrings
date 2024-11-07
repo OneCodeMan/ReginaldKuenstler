@@ -16,9 +16,6 @@
     "Analyze" : {
 
     },
-    "Analyzer" : {
-
-    },
     "Analyzing images..." : {
 
     },
@@ -58,6 +55,9 @@
     "Done" : {
 
     },
+    "Duplicate colours will be removed." : {
+
+    },
     "From Your Palette" : {
 
     },
@@ -67,10 +67,10 @@
     "Image already analyzed" : {
 
     },
-    "Minimum Palette" : {
+    "Masters" : {
 
     },
-    "Multi-select" : {
+    "Minimum Palette" : {
 
     },
     "NO" : {

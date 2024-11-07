@@ -165,6 +165,11 @@ That new new
 
 ## Resources // R&D
 
+## Palette of the greats
+scrolling behaviour
+https://stackoverflow.com/questions/78789315/how-to-infinitely-loop-and-move-image-in-swiftui-in-intervals
+https://stackoverflow.com/questions/70630776/get-first-visible-index-from-lazyhstack-in-swiftui
+
 ### user input
 
 ### Catalog

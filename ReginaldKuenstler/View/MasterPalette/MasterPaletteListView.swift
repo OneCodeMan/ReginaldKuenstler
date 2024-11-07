@@ -14,7 +14,7 @@ struct MasterPaletteListView: View {
     var body: some View {
         NavigationStack {
             List(MasterPaletteConstants.masterPalettes, id: \.self) { masterPalette in
-                NavigationLink(destination: MasterPaletteDetailView(images: masterPalette.imageStrings)) {
+                NavigationLink(destination: MasterPaletteDetailView(masterPalette: masterPalette)) {
                     HStack(alignment: .top) {
                         Image(masterPalette.imageStrings[0])
                             .resizable()
