@@ -133,7 +133,8 @@ That new new
         https://www.createwithswift.com/adding-a-widget-to-a-swiftui-app/
 ...
 - [ ] An Attempt At Better User Input #1
-    - [ ] Merge the colour maps
+    - [x] Merge the colour maps
+    - [ ] On "Detected Colours", mark colours user already has
     - [ ] Add multi-select image option like Instagram.
     - [ ] On "Detected Colours"/"Add to Palette", allow user to add/delete colours.
     - [ ] Be able to detect misspellings//missing letters
