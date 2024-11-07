@@ -126,39 +126,16 @@ That new new
         - [ ] Information on: birth date to death date
         - [ ] Add real avg. palette data
             - We should hard-code it... It's gonna be the same images all the time and we'd be doing the same calcs all the time..
-        
+...
 - [ ] ColourComparisonView & Widget
     - [ ] Add Widget of last generated swatch
         How do we store that data?
         https://www.createwithswift.com/adding-a-widget-to-a-swiftui-app/
-            
+...
 - [ ] An Attempt At Better User Input #1
-    - [ ] Matching conditions
-        - [ ] If brand info available and matching colour name, point them to a brand and the colour.
-        - [ ] If brand info not available, point to any matching colour name.
-        - [ ] If brand info not available && if matching colour name not available.. map to nearest hex in map.
-            - [ ] or if brand info available but no matching colour name.
+    - [ ] If no matching catalog colour, refer to colour map v0.1
     - [ ] Be able to detect misspellings//missing letters?
     - [ ] Add multi-select image option like Instagram.
-- [ ] An Attempt At Better User Input #2
-    - [ ] Create in-app "catalog", scraped data of INDIVIDUAL PAINTS
-    - [ ] Read from catalog.json, and parse
-    - [ ] Make VColour objects or something else out of those catalog items
-
-- [ ] Better User Input Attempt #3
-    Ultimately in any of these scenarios, they are parsed to the same thing.
-    - [ ] Multi-select images. 3 types of input
-        - #1. [image] Colour names (with brands)
-        - #2. [in-app] Catalog of products (scraped data [includes sets])
-        - #3. [in-app] Literal colours in app like our original.
-        - BONUS: #4. [image] actual colours???
-    
-...
-- [ ] Improve current colour mapper data
-    - https://color-hex.com/color-names.html
-- [ ] Re-design colour mapper to consumerist-facing
-    - [ ] Extract the colours from the product catalogs themselves, build mapper with that.
-        - [ ] From W&N, Mont Marte, etc.
 ...
 - [ ] A better loading screen
     - The progression of an artwork being drawn and coloured.
@@ -166,6 +143,12 @@ That new new
     - Ideally 2-3 of these.
 
 ### Wave 2.2
+- [ ] ???
+- [ ] ???
+- [ ] ???
+- [ ] ???
+- [ ] ???
+- [ ] ??
 
 ### Wave 2.3
 - [ ] ???
@@ -226,6 +209,15 @@ https://www.winsornewton.com/en-ca/collections/cotman-watercolour
 - load entire thing
 
 # History
+
+## November 7, 2024
+- [x] Re-design colour mapper to consumerist-facing
+    - [x] Extract the colours from the product catalogs themselves, build mapper with that.
+        - [x] From W&N, Mont Marte, etc.
+- [x] An Attempt At Better User Input #2
+    - [x] Create in-app "catalog", scraped data of INDIVIDUAL PAINTS
+    - [x] Read from catalog.json, and parse
+    - [x] Make VColour objects or something else out of those catalog items
 
 ## November 6, 2024
 - [ ] Multi-select

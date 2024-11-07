@@ -147,8 +147,8 @@ struct CreatePaletteWithPhotosView: View {
                 // then make VColours out of `arrayOfDetectedColourStrings`
                 for detectedColourString in arrayOfDetectedColourStrings {
                     if let catalogColourIndex = colourMap.firstIndex(where: { $0.name.lowercased() == detectedColourString }) {
-                        let targetCatalogColour: CatalogColour = colourMap[catalogColourIndex]
-                        let generatedPaletteColour: PaletteColour = PaletteColour(fromCatalogColour: targetCatalogColour)
+                        let targetVColour: VColour = colourMap[catalogColourIndex]
+                        let generatedPaletteColour: PaletteColour = PaletteColour(fromVColour: targetVColour)
                         detectedPaletteColours.append(generatedPaletteColour)
                     } else {
                         print("VColour Index not found .errorrrrrr")

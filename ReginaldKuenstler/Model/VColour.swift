@@ -59,6 +59,13 @@ struct VColour: Equatable {
         
     }
     
+    init(name: String, rgbValue: [Int]) {
+        self.name = name
+        self.rgbCode = RGBTuple(r: rgbValue[0], g: rgbValue[1], b: rgbValue[3])
+        self.hexCode = ColourHelper.rgbToHex(self.rgbCode)
+        self.uiColour = UIColor.init(hex: self.hexCode)
+    }
+    
     init(name: String, hexCode: String, rgbCode: RGBTuple, uiColour: UIColor) {
         self.name = name
         self.hexCode = hexCode

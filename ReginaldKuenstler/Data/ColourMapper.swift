@@ -20,7 +20,7 @@ struct CatalogColour: Codable, Identifiable {
 final class ColourCatalog: ObservableObject {
     
     // Data
-    private(set) var colourMap: [CatalogColour] = []
+    private(set) var colourMap: [VColour] = []
     
     // Singleton instance
     static let shared = ColourCatalog()
@@ -33,7 +33,7 @@ final class ColourCatalog: ObservableObject {
         }
     }
     
-    func createColourMapFromCatalogJSON(completion: @escaping ([CatalogColour]) -> Void) {
+    func createColourMapFromCatalogJSON(completion: @escaping ([VColour]) -> Void) {
         print("creating colourMap from JSON.")
         if !colourMap.isEmpty {
             completion(colourMap) // Return existing colourMap if already populated
@@ -52,12 +52,23 @@ final class ColourCatalog: ObservableObject {
            let data = try Data(contentsOf: url)
         
             // Decode the JSON data into [CatalogColour]
-            let catalog = try JSONDecoder().decode([CatalogColour].self, from: data)
+           let catalog: [CatalogColour] = try JSONDecoder().decode([CatalogColour].self, from: data)
+           var colours: [VColour] = []
+           
+           for colour in catalog {
+               if colour.rgb.count == 3 {
+                   let generatedVColour = VColour(name: colour.name, rgbValue: colour.rgb)
+                   colours.append(generatedVColour)
+               } else {
+                   print("Strangerly, RGB count not 3.")
+               }
+               
+           }
             
             // Update the colourMap and call the completion handler
             DispatchQueue.main.async {
-                self.colourMap = catalog
-                completion(catalog)
+                self.colourMap = colours
+                completion(colours)
             }
            } catch {
                       print("Error decoding JSON: \(error)")
