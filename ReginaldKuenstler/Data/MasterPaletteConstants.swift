@@ -86,5 +86,21 @@ struct MasterPalette: Hashable, Equatable {
     // 1925 - 2022
     var lifespan: String = ""
     var minimumPalette: Palette
+    
+    init(imageStrings: [String], artistName: String, artistPortraitString: String = "", lifespan: String, minimumPalette: Palette) {
+        self.imageStrings = imageStrings
+        self.artistName = artistName
+        self.artistPortraitString = artistPortraitString
+        self.lifespan = lifespan
+        self.minimumPalette = minimumPalette
+    }
+    
+    init(oldMasterPalette: MasterPalette, updatedPalette: Palette) {
+        self.imageStrings = oldMasterPalette.imageStrings
+        self.artistName = oldMasterPalette.artistName
+        self.artistPortraitString = oldMasterPalette.artistPortraitString
+        self.lifespan = oldMasterPalette.lifespan
+        self.minimumPalette = updatedPalette
+    }
 }
 

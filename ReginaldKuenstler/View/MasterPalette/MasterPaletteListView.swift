@@ -11,7 +11,9 @@ struct MasterPaletteListView: View {
     var body: some View {
         NavigationStack {
             List(MasterPaletteConstants.masterPalettes, id: \.self) { masterPalette in
-                NavigationLink(destination: MasterPaletteDetailView(masterPalette: masterPalette)) {
+                // TODO: UpdatedPalette
+                var newMasterPalette = MasterPalette(oldMasterPalette: masterPalette, updatedPalette: Palette())
+                NavigationLink(destination: MasterPaletteDetailView(masterPalette: newMasterPalette)) {
                     HStack(alignment: .top) {
                         Image(masterPalette.imageStrings[0])
                             .resizable()
@@ -21,11 +23,11 @@ struct MasterPaletteListView: View {
                             .padding(.trailing)
                         
                         VStack(alignment: .center) {
-                            Text(masterPalette.artistName)
+                            Text(newMasterPalette.artistName)
                                 .font(.defaultFontTitle)
                             
                             HStack(alignment: .center) {
-                                ForEach(Array(masterPalette.minimumPalette.colours.prefix(upTo: 5)), id: \.self) { pc in
+                                ForEach(Array(newMasterPalette.minimumPalette.colours.prefix(upTo: 5)), id: \.self) { pc in
                                     SingularPaletteItemView(paletteColour: pc, circleHeight: 20, omitColourName: true)
                                 }
                             }
@@ -34,7 +36,7 @@ struct MasterPaletteListView: View {
                 }
                 .frame(maxHeight: 90, alignment: .top) // Enforce height limit to 70 and align top
                 .background(
-                    Image(masterPalette.imageStrings[1])
+                    Image(newMasterPalette.imageStrings[1])
                         .resizable()
                         .scaledToFill() // Ensures the image fills the VStack
                         .edgesIgnoringSafeArea(.all)
