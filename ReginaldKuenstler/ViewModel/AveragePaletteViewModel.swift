@@ -42,6 +42,8 @@ class AveragePaletteViewModel: ObservableObject {
         let mostToLeastOccurringPaletteColours: [(UUID, Int)] = counterDict.sorted { $0.value > $1.value }
         
         self.minimumPalette = minPalette
+        // TODO: COPY AND PASTE THE RESULTS OF THESE TO GREATS CONSTANTS
+        print(minPalette)
     }
 
     private func analyzeImage(_ image: UIImage) async {
