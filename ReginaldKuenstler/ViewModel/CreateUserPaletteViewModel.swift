@@ -28,7 +28,7 @@ class CreateUserPaletteViewModel: ObservableObject {
     
     @MainActor
     func fetchPaletteColours() async throws {
-        let colourMap = ColourMapperOG.shared.colourMap
+        let colourMap = ColourMapper.shared.colourMap
         print("CreateUserPaletteViewModel -- fetching palette colours, colourMap has \(colourMap.count) items")
         let paletteColours: [PaletteColour] = colourMap.map { PaletteColour(fromVColour: $0) }
             

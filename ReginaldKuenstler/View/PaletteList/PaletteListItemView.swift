@@ -77,6 +77,8 @@ struct SingularPaletteItemView: View {
     
     @State var omitColourName: Bool = false
     
+    @State var isUserOwned: Bool = false
+    
     var body: some View {
         VStack(alignment: .center) {
             Circle()
@@ -95,9 +97,12 @@ struct SingularPaletteItemView: View {
                     .lineLimit(2)
                     .padding(.top, 3)
                     .frame(width: 40)
+                    .strikethrough(isUserOwned)
             }
             
         }
+        .background(isUserOwned ? .gray : .clear)
+        .opacity(isUserOwned ? 0.2 : 1.0)
         .padding(.top, 8) // Overall padding
     }
 }

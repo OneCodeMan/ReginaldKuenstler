@@ -115,30 +115,12 @@ Suggestions:
 That new new
 
 ### Wave 2.1
-- [ ] Multi-select.
-    - [ ] Group the colours in MinimumPalette like we do in colour selection
-    - [ ] Top left button on each image to delete them from the list.
-    - [ ] Show the most common colours at beginning.
 ...
-- [ ] Palette of the Greats
-    - [ ] Detail View
-        - [ ] Use multi-select view and print statements to get MinimumPalette info for each.
-            - We should hard-code it... It's gonna be the same images all the time and we'd be doing the same calcs all the time..
-        - [x] Add AveragePalette to bottom of DetailView
-        - [ ] Information on: birth date to death date
-        
-...
-- [ ] ColourComparisonView & Widget
-    - [ ] Add Widget of last generated swatch
-        How do we store that data?
-        https://www.createwithswift.com/adding-a-widget-to-a-swiftui-app/
-...
-- [ ] An Attempt At Better User Input #1
-    - [x] Merge the colour maps
-    - [ ] On "Detected Colours", mark colours user already has
-    - [ ] Add multi-select image option like Instagram.
-    - [ ] On "Detected Colours"/"Add to Palette", allow user to add/delete colours.
-    - [ ] Be able to detect misspellings//missing letters
+Flow
+- [ ] On UserPaletteView top right bar button "Add", should give options between catalog or image input.
+    - [ ] Add `ActionSheet` with two buttons, one leading to OG Palette Creation, the other leading to image input.
+    - [ ] Both sheets have a top left exit button, that's the only way they get dismissed.
+    - [ ] On dismiss, user palette view is presented to user again.
 ...
 - [ ] A better loading screen
     - The progression of an artwork being drawn and coloured.
@@ -146,10 +128,28 @@ That new new
     - Ideally 2-3 of these.
         - Munch prelim
         - Matisse prelim
+        - Matisse woman
+...
+Image Swatch Analysis
+    - [ ] Add multi-select image option like Instagram.
+    - [ ] The "swatch" we have will be the "minimum palette"
+...
+- Multi-select.
+    - [ ] Top left button on each image to delete them from the list.
+    - [ ] Fix button states on different states.
+...
+- [ ] Palette of the Greats
+    - [ ] Finish Minimum Palette View
+...
+- [ ] ColourComparisonView & Widget
+    - [ ] Add Widget of some swatch
+...
+- [ ] Website!!
 
 ### Wave 2.2
-- [ ] ???
-- [ ] ???
+- [ ] Palette of the Greats
+    - [ ] Information on: birth date to death date
+- [ ] Multi-selectGroup the colours in MinimumPalette like we do in colour selection
 - [ ] ???
 - [ ] ???
 - [ ] ???
@@ -221,6 +221,9 @@ https://www.winsornewton.com/en-ca/collections/cotman-watercolour
 # History
 
 ## November 7, 2024
+- [x] Detected Colours Page (An Attempt At Better User Input #1)
+    - [x] Merge the colour maps
+    - [x] On "Detected Colours", mark colours user already has
 - [x] BUGFIX: Some hex codes are over 255. Do it in Go. clean the catalog. not the sanitized data.
 - [x] Re-design colour mapper to consumerist-facing
     - [x] Extract the colours from the product catalogs themselves, build mapper with that.
@@ -244,6 +247,7 @@ https://www.winsornewton.com/en-ca/collections/cotman-watercolour
     - [x] If we can detect an exact match of text on a line, we got it.
 
 ## November 5, 2024
+        - [x] Add AveragePalette to bottom of DetailView
 PogS
     - [x] All assets filled.
     - [x] What if we enable auto scroll?

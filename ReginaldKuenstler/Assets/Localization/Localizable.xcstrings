@@ -16,6 +16,9 @@
     "Analyze" : {
 
     },
+    "Analyzer" : {
+
+    },
     "Analyzing images..." : {
 
     },
@@ -35,6 +38,9 @@
 
     },
     "Capture Photo" : {
+
+    },
+    "Catalog Select" : {
 
     },
     "Clear" : {
@@ -65,6 +71,9 @@
 
     },
     "Image already analyzed" : {
+
+    },
+    "Image Input" : {
 
     },
     "Masters" : {

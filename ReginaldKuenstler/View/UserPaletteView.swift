@@ -22,6 +22,11 @@ struct UserPaletteView: View {
     @State private var isPresentingConfirmation: Bool = false
     @State private var displayClearUserPaletteConfirmationAlert: Bool = false
     
+    // MARK: Sheets and modals
+    @State private var displayActionSheetInputTypes: Bool = false
+    @State private var displayImageInputSheet: Bool = false
+    @State private var displayCatalogSelectInputSheet: Bool = false
+    
     // MARK: Selected item for deletion
     @State private var itemToDelete: (paletteColour: PaletteColour, groupName: String)?
     
@@ -39,10 +44,15 @@ struct UserPaletteView: View {
                             }
                             .font(.defaultFontButton)
                         } else {
-                            NavigationLink(destination: PaletteCreationView().environmentObject(userPaletteViewModel)) {
-                                Text(String(localized: "Add"))
-                                    .font(.defaultFontCaption)
+                            // TODO: Change to also include multi-select. Have an alert up
+                            Button(String(localized: "Add")) {
+                                displayActionSheetInputTypes = true
                             }
+                            .font(.defaultFontButton)
+//                            NavigationLink(destination: CreatePaletteWithPhotosView().environmentObject(userPaletteViewModel)) {
+//                                Text(String(localized: "Add"))
+//                                    .font(.defaultFontCaption)
+//                            }
                         }
                     }
                 
@@ -141,10 +151,33 @@ struct UserPaletteView: View {
                 }
                 Button(String(localized: "Cancel"), role: .cancel) { isPresentingConfirmation = false }
             }
+            .actionSheet(isPresented: $displayActionSheetInputTypes) {
+                ActionSheet(title: Text(String(localized: "Select Image")), 
+                            message: Text(String(localized: "Please choose an option to select a photo")),
+                            buttons: [
+                                .default(Text(String(localized: "Image Input"))) {
+                                    displayImageInputSheet = true
+                                },
+                                .default(Text(String(localized: "Catalog Select"))) {
+                                   displayCatalogSelectInputSheet = true
+                                },
+                                .cancel()
+                            ]
+                        )
+            }
+            .sheet(isPresented: $displayImageInputSheet, content: {
+                CreatePaletteWithPhotosView()
+                    .interactiveDismissDisabled()
+            })
+            .sheet(isPresented: $displayCatalogSelectInputSheet, content: {
+                PaletteCreationView()
+                    .interactiveDismissDisabled()
+            })
             .alert(String(localized: "Are you sure you want to clear your entire palette?"), isPresented: $displayClearUserPaletteConfirmationAlert) {
                 Button(String(localized: "Yes"), role: .destructive) {
                     withAnimation(.easeOut) {
                         isEditing = false
+                        isJiggling = false
                         userPaletteViewModel.deleteAllColoursFromUserPalette()
                     }
                 }

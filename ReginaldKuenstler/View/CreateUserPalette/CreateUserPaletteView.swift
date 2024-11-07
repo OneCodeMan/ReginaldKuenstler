@@ -19,82 +19,109 @@ struct CreatePaletteWithPhotosView: View {
     
     // MARK: Alert states
     @State var displayPaletteCreationConfirmation: Bool = false
+    @State var displayCancelPaletteCreationAlert: Bool = false
+    
+    // MARK: Booleans for dismissing/presenting alerts
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        VStack {
-            if let image = selectedImage {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 300)
-                
-            } else {
-                VStack {
-                    Text("Tap to select or capture an image")
-                        .padding()
-                        .foregroundColor(.gray)
-                        .frame(height: 300)
-                        .background(Color.secondary.opacity(0.1))
-                        .cornerRadius(8)
-                        .onTapGesture {
-                            showImagePicker = true
-                        }
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 16)
-                                .strokeBorder(style: StrokeStyle(lineWidth: 4, dash: [10], dashPhase: 0.0))
-                        )
-                }
-                
-            }
-            
-//            Text("Recognized Colours:")
-//                .font(.headline)
-//                .padding(.top)
-//            
-//            ScrollView {
-//                Text(recognizedText.isEmpty ? "No text recognized" : recognizedText)
-//                    .padding()
-//                    .background(Color.secondary.opacity(0.1))
-//                    .cornerRadius(8)
-//            }
-//            .frame(height: 200)
-            
+        NavigationStack {
             VStack {
-                Button("Select from Library") {
-                    showImagePicker = true
-                }
-                .padding()
-                
-                Button("Capture Photo") {
-                    showCamera = true
-                }
-                .padding()
-            }
-        }
-        .padding()
-        .sheet(isPresented: $showImagePicker) {
-            CreatePaletteImagePicker(selectedImage: $selectedImage, onImagePicked: recognizeText)
-        }
-        .sheet(isPresented: $displayPaletteCreationConfirmation) {
-            PaletteCreationConfirmationView(paletteColours: $detectedPaletteColours) {
-
-                // remove duplicates between userpalette and newcolours before adding colours to userpalette
-                let coloursToSave = detectedPaletteColours.reduce(into: [String: String]()) { result, item in
-                    // if userPalette already has current detected colour, do not add it to user palette again.
-                    if userPaletteViewModel.userPaletteColours.contains(where: { $0.colourName.lowercased() == item.colourName.lowercased() }) {
-                        print("NOT ADDING \(item.colourName) because userPalette already has it.")
-                    } else {
-                        result[item.colourName] = item.hexCode
+                if let image = selectedImage {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 300)
+                    
+                } else {
+                    VStack {
+                        Text("Tap to select or capture an image")
+                            .padding()
+                            .foregroundColor(.gray)
+                            .frame(height: 300)
+                            .background(Color.secondary.opacity(0.1))
+                            .cornerRadius(8)
+                            .onTapGesture {
+                                showImagePicker = true
+                            }
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 16)
+                                    .strokeBorder(style: StrokeStyle(lineWidth: 4, dash: [10], dashPhase: 0.0))
+                            )
                     }
                     
                 }
                 
-                userPaletteViewModel.saveUserPaletteColours(coloursToSave)
+    //            Text("Recognized Colours:")
+    //                .font(.headline)
+    //                .padding(.top)
+    //
+    //            ScrollView {
+    //                Text(recognizedText.isEmpty ? "No text recognized" : recognizedText)
+    //                    .padding()
+    //                    .background(Color.secondary.opacity(0.1))
+    //                    .cornerRadius(8)
+    //            }
+    //            .frame(height: 200)
+                
+                VStack {
+                    Button("Select from Library") {
+                        showImagePicker = true
+                    }
+                    .padding()
+                    
+                    Button("Capture Photo") {
+                        showCamera = true
+                    }
+                    .padding()
+                }
+            }
+            .padding()
+            .toolbar {
+                // Add a toolbar item for the cancel button
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(String(localized: "Cancel"), role: .destructive) {
+                        displayCancelPaletteCreationAlert = true
+                    }
+                    .font(.defaultFontCaption)
+                }
+            }
+            .alert(String(localized: "Are you sure you want to cancel palette creation?"), isPresented: $displayCancelPaletteCreationAlert) {
+                Button(String(localized: "YES")) {
+                    self.dismiss()
+                }
+                .font(.defaultFontTitle)
+                Button(String(localized: "NO"), role: .cancel) { }.font(.defaultFontTitle)
+                
+            }
+            .sheet(isPresented: $showImagePicker) {
+                CreatePaletteImagePicker(selectedImage: $selectedImage, onImagePicked: recognizeText)
+            }
+            .sheet(isPresented: $displayPaletteCreationConfirmation) {
+                PaletteCreationConfirmationView(paletteColours: $detectedPaletteColours, userPaletteColours: $userPaletteViewModel.userPaletteColours) {
+
+                    // remove duplicates between userpalette and newcolours before adding colours to userpalette
+                    let coloursToSave = detectedPaletteColours.reduce(into: [String: String]()) { result, item in
+                        // if userPalette already has current detected colour, do not add it to user palette again.
+                        if userPaletteViewModel.userPaletteColours.contains(where: { $0.colourName.lowercased() == item.colourName.lowercased() }) {
+                            print("NOT ADDING \(item.colourName) because userPalette already has it.")
+                        } else {
+                            result[item.colourName] = item.hexCode
+                        }
+                        
+                    }
+                    
+                    userPaletteViewModel.saveUserPaletteColours(coloursToSave)
+                    withAnimation {
+                        self.dismiss()
+                    }
+                }
+            }
+            .fullScreenCover(isPresented: $showCamera) {
+                CameraCaptureView(selectedImage: $selectedImage, onImageCaptured: recognizeText)
             }
         }
-        .fullScreenCover(isPresented: $showCamera) {
-            CameraCaptureView(selectedImage: $selectedImage, onImageCaptured: recognizeText)
-        }
+        
     }
     
     // Text recognition function
@@ -193,8 +220,8 @@ struct PaletteCreationConfirmationView: View {
     
     // MARK: State variables
     @Binding var paletteColours: [PaletteColour]
+    @Binding var userPaletteColours: [PaletteColour]
     var saveColoursToUserPalette: () -> ()
-    
     // MARK: VGrid logic
     let columns = Array(repeating: GridItem(.flexible()), count: 3)
     
@@ -209,7 +236,7 @@ struct PaletteCreationConfirmationView: View {
                     List {
                         LazyVGrid(columns: columns) {
                             ForEach(paletteColours, id: \.self) { pc in
-                                SingularPaletteItemView(paletteColour: pc)
+                                SingularPaletteItemView(paletteColour: pc, isUserOwned: userPaletteColours.contains(where: { $0.colourName == pc.colourName }))
                             }
                         }
                     }
@@ -221,7 +248,10 @@ struct PaletteCreationConfirmationView: View {
                 VStack {
                     Button("Save to user defaults") {
                         self.saveColoursToUserPalette()
-                        self.dismiss()
+                        withAnimation {
+                            self.dismiss()
+                        }
+                        
                     }
                     .padding()
                     Button("Try Again") {
