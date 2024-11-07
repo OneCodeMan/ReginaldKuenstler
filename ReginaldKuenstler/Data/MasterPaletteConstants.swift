@@ -52,7 +52,7 @@ struct MasterPaletteConstants {
     // TODO: Add nationality
     // TODO: add minimum palette
     static let masterPalettes: [MasterPalette] = [
-        MasterPalette(imageStrings: vanGoghImageStrings, artistName: "Van Gogh", lifespan: "1853 – 1890", minimumPalette: Palette()),
+        MasterPalette(imageStrings: vanGoghImageStrings, artistName: "Van Gogh", lifespan: "1853 – 1890", minimumPalette: HardcodedGreatsPaletteData.vanGoghPalette),
         MasterPalette(imageStrings: munchImageStrings, artistName: "Edvard Munch", lifespan: "1863 – 1944", minimumPalette: Palette()),
         MasterPalette(imageStrings: hopperImageStrings, artistName: "Edward Hopper", lifespan: "1882 – 1967", minimumPalette: Palette()),
         MasterPalette(imageStrings: goyaImageStrings, artistName: "Francisco Goya", lifespan: "1746 – 1828", minimumPalette: Palette()),

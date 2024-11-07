@@ -20,6 +20,7 @@
 		1609D0142CD1676F00D3FCF8 /* Merriweather-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1609D00B2CD1676F00D3FCF8 /* Merriweather-BoldItalic.ttf */; };
 		1609D0162CD1687300D3FCF8 /* UIFont+CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1609D0152CD1687300D3FCF8 /* UIFont+CustomFont.swift */; };
 		1609D0182CD170E700D3FCF8 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1609D0172CD170E700D3FCF8 /* OnboardingView.swift */; };
+		16282ACA2CDD74AB00CE4D3F /* HardcodedGreatsPaletteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16282AC92CDD74AB00CE4D3F /* HardcodedGreatsPaletteData.swift */; };
 		162896842CC18515005A2399 /* ColourComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896832CC18515005A2399 /* ColourComparisonView.swift */; };
 		162896892CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162896882CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift */; };
 		1628968B2CC1A6FD005A2399 /* UserPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1628968A2CC1A6FD005A2399 /* UserPalette.swift */; };
@@ -98,6 +99,7 @@
 		1609D00B2CD1676F00D3FCF8 /* Merriweather-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-BoldItalic.ttf"; sourceTree = "<group>"; };
 		1609D0152CD1687300D3FCF8 /* UIFont+CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFont.swift"; sourceTree = "<group>"; };
 		1609D0172CD170E700D3FCF8 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		16282AC92CDD74AB00CE4D3F /* HardcodedGreatsPaletteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardcodedGreatsPaletteData.swift; sourceTree = "<group>"; };
 		162896832CC18515005A2399 /* ColourComparisonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourComparisonView.swift; sourceTree = "<group>"; };
 		162896882CC1A6CD005A2399 /* CreateUserPaletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserPaletteViewModel.swift; sourceTree = "<group>"; };
 		1628968A2CC1A6FD005A2399 /* UserPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPalette.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				16FAFE552CDBDE8700B71771 /* colourmap.csv */,
 				162896CD2CC5E203005A2399 /* badges.txt */,
 				16A6C4A32CD6F94B003C50FA /* MasterPaletteConstants.swift */,
+				16282AC92CDD74AB00CE4D3F /* HardcodedGreatsPaletteData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				162896CC2CC58FB5005A2399 /* ReginaldKuenstlerTabView.swift in Sources */,
 				16ED0D232CBED1C500ADCA3B /* ReginaldKuenstlerApp.swift in Sources */,
 				16ED0D592CC0964B00ADCA3B /* KuenstlerViewModel.swift in Sources */,
+				16282ACA2CDD74AB00CE4D3F /* HardcodedGreatsPaletteData.swift in Sources */,
 				16ED0D992CC152B200ADCA3B /* ColourPair.swift in Sources */,
 				16A6C49D2CD6DFE9003C50FA /* AveragePaletteViewModel.swift in Sources */,
 				16A6C4A42CD6F94B003C50FA /* MasterPaletteConstants.swift in Sources */,

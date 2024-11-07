@@ -60,9 +60,6 @@ struct MasterPaletteDetailView: View {
                         self.enableAutoscrollShenanigans = false
                     }
                     .onAppear {
-                        
-                        // MARK: ViewModel get average palette
-                        
                         // MARK: Scrolling onAppear stuff
                         // TODO: lmfao
                         // Scroll a bit to the next image
@@ -116,7 +113,7 @@ struct MasterPaletteDetailView: View {
                 
             } // ZStack
             // TODO: minimum palette...
-            .overlay(PaletteOfGreatView(minimumPalette: Palette.mockPalette, artistName: $masterPalette.artistName, isFullScreen: $isPaletteInformationFullScreen, currentIndexScrollView: $currentIndexCarousel), alignment: .bottom)
+            .overlay(PaletteOfGreatView(minimumPalette: $masterPalette.minimumPalette, artistName: $masterPalette.artistName, isFullScreen: $isPaletteInformationFullScreen, currentIndexScrollView: $currentIndexCarousel), alignment: .bottom)
         }
         .statusBar(hidden: true)
     }
@@ -124,7 +121,7 @@ struct MasterPaletteDetailView: View {
 
 
 struct PaletteOfGreatView: View {
-    var minimumPalette: Palette
+    @Binding var minimumPalette: Palette
     @Binding var artistName: String
     @Binding var isFullScreen: Bool
     @Binding var currentIndexScrollView: Int
@@ -159,15 +156,16 @@ struct PaletteOfGreatView: View {
                     .padding()
                     
                 }.frame(minWidth: UIScreen.main.bounds.width)
-                
                
             } else {
                 // NOT fullscreen
                 
                 // Bottom HStack
                 HStack(alignment: .bottom) {
-                    ForEach(Array(minimumPalette.colours.prefix(upTo: 6)), id: \.self) { pc in
-                        SingularPaletteItemView(paletteColour: pc, circleOpacity: 0.2, omitColourName: true)
+                    if minimumPalette.colours.count >= 5 {
+                        ForEach(Array(minimumPalette.colours.prefix(upTo: 6)), id: \.self) { pc in
+                            SingularPaletteItemView(paletteColour: pc, circleOpacity: 0.2, omitColourName: true)
+                        }
                     }
                     
                 } // HStack

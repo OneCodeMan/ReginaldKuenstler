@@ -126,7 +126,6 @@ That new new
 - [ ] Palette of the Greats
     - [ ] Finish Minimum Palette View
 ...
-...
 Flow
 - [ ] On Image Swatch Analysis,
     - [ ] Enable multi-select images

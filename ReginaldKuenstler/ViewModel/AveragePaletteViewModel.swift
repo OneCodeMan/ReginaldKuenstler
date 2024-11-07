@@ -46,7 +46,14 @@ class AveragePaletteViewModel: ObservableObject {
         self.minimumPalette = generatedMinimumPalette
         // TODO: COPY AND PASTE THE RESULTS OF THESE TO GREATS CONSTANTS
         print("\n\n")
-        print(minPalette)
+        print("Palette(title: \"Multi-select Palette\", colours: [")
+
+        for colour in minPaletteColours {
+            print("    Pinselton.PaletteColour(colourName: \"\(colour.colourName)\", hexCode: \"\(colour.hexCode)\"),")
+        }
+
+        print("])")
+
         print("\n\n")
     }
 
