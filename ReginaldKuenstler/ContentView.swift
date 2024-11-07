@@ -13,6 +13,7 @@ struct ContentView: View {
     
     // by doing this here, we populate the map for the entire app cycle
     @StateObject private var colourMapper: ColourMapper = ColourMapper.shared
+    @StateObject private var colourCatalog: ColourCatalog = ColourCatalog.shared
     
     var body: some View {
         if hasCompletedOnboarding {

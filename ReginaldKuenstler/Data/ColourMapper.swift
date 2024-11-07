@@ -34,12 +34,13 @@ final class ColourCatalog: ObservableObject {
     }
     
     func createColourMapFromCatalogJSON(completion: @escaping ([CatalogColour]) -> Void) {
+        print("creating colourMap from JSON.")
         if !colourMap.isEmpty {
             completion(colourMap) // Return existing colourMap if already populated
             return
         }
         
-// Load the JSON data from a file named `catalog.json` in the bundle
+        // Load the JSON data from a file named `catalog.json` in the bundle
        guard let url = Bundle.main.url(forResource: "catalog", withExtension: "json") else {
            print("Could not find catalog.json file.")
            completion([])
@@ -50,18 +51,18 @@ final class ColourCatalog: ObservableObject {
            // Read the data from the file
            let data = try Data(contentsOf: url)
         
-        // Decode the JSON data into [CatalogColour]
-        let catalog = try JSONDecoder().decode([CatalogColour].self, from: data)
-        
-        // Update the colourMap and call the completion handler
-        DispatchQueue.main.async {
-            self.colourMap = catalog
-            completion(catalog)
-        }
-       } catch {
-                  print("Error decoding JSON: \(error)")
-                  completion([]) // Return an empty array in case of error
-              }
+            // Decode the JSON data into [CatalogColour]
+            let catalog = try JSONDecoder().decode([CatalogColour].self, from: data)
+            
+            // Update the colourMap and call the completion handler
+            DispatchQueue.main.async {
+                self.colourMap = catalog
+                completion(catalog)
+            }
+           } catch {
+                      print("Error decoding JSON: \(error)")
+                      completion([]) // Return an empty array in case of error
+                  }
     }
 }
 

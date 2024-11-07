@@ -47,17 +47,17 @@ struct CreatePaletteWithPhotosView: View {
                 
             }
             
-            Text("Recognized Colours:")
-                .font(.headline)
-                .padding(.top)
-            
-            ScrollView {
-                Text(recognizedText.isEmpty ? "No text recognized" : recognizedText)
-                    .padding()
-                    .background(Color.secondary.opacity(0.1))
-                    .cornerRadius(8)
-            }
-            .frame(height: 200)
+//            Text("Recognized Colours:")
+//                .font(.headline)
+//                .padding(.top)
+//            
+//            ScrollView {
+//                Text(recognizedText.isEmpty ? "No text recognized" : recognizedText)
+//                    .padding()
+//                    .background(Color.secondary.opacity(0.1))
+//                    .cornerRadius(8)
+//            }
+//            .frame(height: 200)
             
             VStack {
                 Button("Select from Library") {
@@ -124,6 +124,7 @@ struct CreatePaletteWithPhotosView: View {
                 let recognizedTextSplit = recognizedText.split(whereSeparator: \.isNewline)
                 
                 var arrayOfDetectedColourStrings: [String] = []
+                print(colourMap)
                 
                 for line in recognizedTextSplit {
                     let sanitizedLine = line.lowercased().trimmingCharacters(in: .whitespaces)
