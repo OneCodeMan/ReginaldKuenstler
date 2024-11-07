@@ -115,6 +115,11 @@ Suggestions:
 That new new
 
 ### Wave 2.1
+Flow
+- [ ] Colour Comparison
+    - [ ] Figure out flow for individual and multiple images
+    - [ ] Implement flow for individual and multiple images
+...
 - [ ] A better loading screen
     - The progression of an artwork being drawn and coloured.
         - Going from partially to fully coloured.
@@ -125,27 +130,10 @@ That new new
 ...
 - [ ] Create Website!!
 ...
-Flow
-- [ ] Colour Comparison
-    - [ ] Figure out flow for individual and multiple images
-    - [ ] Implement flow for individual and multiple images
-...
-Image Swatch Analysis
-    - [ ] How do we handle non-direct matches? Like a list of similar colours?
-    - [ ] Add multi-select image option like Instagram.
-    - [ ] The "swatch" we have will be the "minimum palette" ???
-...
-- Multi-select.
-    - [ ] Top left button on each image to delete them from the list.
-    - [ ] Fix button states on different states.
-...
 - [ ] ColourComparisonView & Widget
     - [ ] Add Widget of some swatch
 
 ### Wave 2.2
-- [ ] Palette of the Greats
-    - [ ] Information on: birth date to death date
-- [ ] Multi-selectGroup the colours in MinimumPalette like we do in colour selection
 - [ ] ???
 - [ ] ???
 - [ ] ???
@@ -158,6 +146,11 @@ Image Swatch Analysis
 - [ ] ???
 - [ ] ???
 - [ ] ??
+
+### Nice to haves
+- [ ] Palette of the Greats
+    - [ ] Information on: birth date to death date
+- [ ] Multi-selectGroup the colours in MinimumPalette like we do in colour selection
 
 
 ## Resources // R&D
