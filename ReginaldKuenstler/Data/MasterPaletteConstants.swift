@@ -50,16 +50,17 @@ struct MasterPaletteConstants {
     ]
     
     // TODO: Add nationality
+    // TODO: add minimum palette
     static let masterPalettes: [MasterPalette] = [
-        MasterPalette(imageStrings: vanGoghImageStrings, artistName: "Van Gogh", lifespan: "1853 – 1890"),
-        MasterPalette(imageStrings: munchImageStrings, artistName: "Edvard Munch", lifespan: "1863 – 1944"),
-        MasterPalette(imageStrings: hopperImageStrings, artistName: "Edward Hopper", lifespan: "1882 – 1967"),
-        MasterPalette(imageStrings: goyaImageStrings, artistName: "Francisco Goya", lifespan: "1746 – 1828"),
-        MasterPalette(imageStrings: caravaggioImageStrings, artistName: "Caravaggio", lifespan: "1571 – 1610"),
-        MasterPalette(imageStrings: siemiradzkiImageStrings, artistName: "Henryk Siemiradzki", lifespan: "1843 – 1902"),
-        MasterPalette(imageStrings: gentileschiImageStrings, artistName: "Artemisia Gentileschi", lifespan: "1593 – 1656"),
-        MasterPalette(imageStrings: johansenImageStrings, artistName: "Viggo Johansen", lifespan: "1851 – 1935"),
-        MasterPalette(imageStrings: titoImageStrings, artistName: "Tito Ettore", lifespan: "1859 – 1941"),
+        MasterPalette(imageStrings: vanGoghImageStrings, artistName: "Van Gogh", lifespan: "1853 – 1890", minimumPalette: Palette()),
+        MasterPalette(imageStrings: munchImageStrings, artistName: "Edvard Munch", lifespan: "1863 – 1944", minimumPalette: Palette()),
+        MasterPalette(imageStrings: hopperImageStrings, artistName: "Edward Hopper", lifespan: "1882 – 1967", minimumPalette: Palette()),
+        MasterPalette(imageStrings: goyaImageStrings, artistName: "Francisco Goya", lifespan: "1746 – 1828", minimumPalette: Palette()),
+        MasterPalette(imageStrings: caravaggioImageStrings, artistName: "Caravaggio", lifespan: "1571 – 1610", minimumPalette: Palette()),
+        MasterPalette(imageStrings: siemiradzkiImageStrings, artistName: "Henryk Siemiradzki", lifespan: "1843 – 1902", minimumPalette: Palette()),
+        MasterPalette(imageStrings: gentileschiImageStrings, artistName: "Artemisia Gentileschi", lifespan: "1593 – 1656", minimumPalette: Palette()),
+        MasterPalette(imageStrings: johansenImageStrings, artistName: "Viggo Johansen", lifespan: "1851 – 1935", minimumPalette: Palette()),
+        MasterPalette(imageStrings: titoImageStrings, artistName: "Tito Ettore", lifespan: "1859 – 1941", minimumPalette: Palette()),
         
         
         // TODO: these ones need assets.
@@ -70,3 +71,20 @@ struct MasterPaletteConstants {
     ]
     
 }
+
+struct MasterPalette: Hashable, Equatable {
+    static func == (lhs: MasterPalette, rhs: MasterPalette) -> Bool {
+        lhs.artistName == rhs.artistName &&
+        lhs.imageStrings.sorted() == rhs.imageStrings.sorted() &&
+        lhs.lifespan == rhs.lifespan
+    }
+    
+    var imageStrings: [String] = []
+    var artistName: String = ""
+    var artistPortraitString: String = ""
+    
+    // 1925 - 2022
+    var lifespan: String = ""
+    var minimumPalette: Palette
+}
+

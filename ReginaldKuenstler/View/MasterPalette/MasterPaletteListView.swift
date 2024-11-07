@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct MasterPaletteListView: View {
-    
-    @State var palettePreview: Palette = Palette.mockPalette
-
     var body: some View {
         NavigationStack {
             List(MasterPaletteConstants.masterPalettes, id: \.self) { masterPalette in
@@ -28,7 +25,7 @@ struct MasterPaletteListView: View {
                                 .font(.defaultFontTitle)
                             
                             HStack(alignment: .center) {
-                                ForEach(Array(palettePreview.colours.prefix(upTo: 5)), id: \.self) { pc in
+                                ForEach(Array(masterPalette.minimumPalette.colours.prefix(upTo: 5)), id: \.self) { pc in
                                     SingularPaletteItemView(paletteColour: pc, circleHeight: 20, omitColourName: true)
                                 }
                             }

@@ -84,7 +84,7 @@ struct PaletteColour: Identifiable, Equatable, Hashable {
     }
 }
 
-struct Palette {
+struct Palette: Hashable {
     var title: String = ""
     var colours: [PaletteColour] = []
     

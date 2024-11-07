@@ -60,6 +60,10 @@ struct MasterPaletteDetailView: View {
                         self.enableAutoscrollShenanigans = false
                     }
                     .onAppear {
+                        
+                        // MARK: ViewModel get average palette
+                        
+                        // MARK: Scrolling onAppear stuff
                         // TODO: lmfao
                         // Scroll a bit to the next image
                         if enableAutoscrollShenanigans {
@@ -111,6 +115,7 @@ struct MasterPaletteDetailView: View {
                 }
                 
             } // ZStack
+            // TODO: minimum palette...
             .overlay(PaletteOfGreatView(minimumPalette: Palette.mockPalette, artistName: $masterPalette.artistName, isFullScreen: $isPaletteInformationFullScreen, currentIndexScrollView: $currentIndexCarousel), alignment: .bottom)
         }
         .statusBar(hidden: true)
