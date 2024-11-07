@@ -165,11 +165,11 @@ struct UserPaletteView: View {
                             ]
                         )
             }
-            .sheet(isPresented: $displayImageInputSheet, content: {
+            .sheet(isPresented: $displayImageInputSheet, onDismiss: { userPaletteViewModel.fetchUserPalettes() }, content: {
                 CreatePaletteWithPhotosView()
                     .interactiveDismissDisabled()
             })
-            .sheet(isPresented: $displayCatalogSelectInputSheet, content: {
+            .sheet(isPresented: $displayCatalogSelectInputSheet, onDismiss: { userPaletteViewModel.fetchUserPalettes() }, content: {
                 PaletteCreationView()
                     .interactiveDismissDisabled()
             })
