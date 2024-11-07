@@ -64,6 +64,7 @@
 		16FAFE502CDBA87D00B71771 /* CreateUserPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAFE4F2CDBA87D00B71771 /* CreateUserPaletteView.swift */; };
 		16FAFE542CDBBA0F00B71771 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 16FAFE532CDBBA0F00B71771 /* Algorithms */; };
 		16FAFE562CDBDE8700B71771 /* colourmap.csv in Resources */ = {isa = PBXBuildFile; fileRef = 16FAFE552CDBDE8700B71771 /* colourmap.csv */; };
+		16FAFE722CDC444B00B71771 /* catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = 16FAFE712CDC444B00B71771 /* catalog.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,7 +145,8 @@
 		16ED0DA72CC166E600ADCA3B /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		16FAFE4F2CDBA87D00B71771 /* CreateUserPaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserPaletteView.swift; sourceTree = "<group>"; };
 		16FAFE512CDBAA8300B71771 /* INPUTDATA.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = INPUTDATA.md; sourceTree = "<group>"; };
-		16FAFE552CDBDE8700B71771 /* colourmap.csv */ = {isa = PBXFileReference; lastKnownFileType = file; name = colourmap.csv; path = tools/colourmap.csv; sourceTree = SOURCE_ROOT; };
+		16FAFE552CDBDE8700B71771 /* colourmap.csv */ = {isa = PBXFileReference; lastKnownFileType = text; name = colourmap.csv; path = tools/colourmap.csv; sourceTree = SOURCE_ROOT; };
+		16FAFE712CDC444B00B71771 /* catalog.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = catalog.json; path = tools/catalog/catalog.json; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -354,9 +356,10 @@
 		16ED0D4F2CBFFAB800ADCA3B /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				16ED0D502CBFFAC100ADCA3B /* ColourMapper.swift */,
+				16FAFE712CDC444B00B71771 /* catalog.json */,
 				16FAFE552CDBDE8700B71771 /* colourmap.csv */,
 				162896CD2CC5E203005A2399 /* badges.txt */,
-				16ED0D502CBFFAC100ADCA3B /* ColourMapper.swift */,
 				16A6C4A32CD6F94B003C50FA /* MasterPaletteConstants.swift */,
 			);
 			path = Data;
@@ -556,6 +559,7 @@
 				16ED0D272CBED1C700ADCA3B /* Assets.xcassets in Resources */,
 				1609D0112CD1676F00D3FCF8 /* Merriweather-Regular.ttf in Resources */,
 				162896CE2CC5E203005A2399 /* badges.txt in Resources */,
+				16FAFE722CDC444B00B71771 /* catalog.json in Resources */,
 				1609D0132CD1676F00D3FCF8 /* OFL.txt in Resources */,
 				1609D0102CD1676F00D3FCF8 /* Merriweather-LightItalic.ttf in Resources */,
 				16FAFE562CDBDE8700B71771 /* colourmap.csv in Resources */,
