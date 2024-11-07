@@ -9236,6 +9236,10 @@ for panel in panels:
             # Parse the RGB values
             try:
                 rgb_values = tuple(map(int, rgb_values.split(',')))
+                r = 255 if rgb_values[0] > 255 else rgb_values[0]
+                g = 255 if rgb_values[1] > 255 else rgb_values[1]
+                b = 255 if rgb_values[2] > 255 else rgb_values[2]
+                rgb_values = (r, g, b)
             except ValueError:
                 continue  # Skip invalid rows
 

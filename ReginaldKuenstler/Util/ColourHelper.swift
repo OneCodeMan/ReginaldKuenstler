@@ -31,7 +31,11 @@ final class ColourHelper {
     
     // Convert RGB to hex string
     static func rgbToHex(_ rgb: RGBTuple) -> String {
-        return String(format: "#%02X%02X%02X", rgb.r, rgb.g, rgb.b)
+        let hexVersion = String(format: "#%02X%02X%02X", rgb.r, rgb.g, rgb.b)
+        if hexVersion.count != 7 {
+            print("something is wrong with \(hexVersion). \nrgb:\(rgb)")
+        }
+        return hexVersion
     }
 
     // Calculate Euclidean distance between two RGB values

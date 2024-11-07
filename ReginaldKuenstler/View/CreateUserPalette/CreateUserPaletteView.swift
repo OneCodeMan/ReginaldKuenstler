@@ -109,8 +109,8 @@ struct CreatePaletteWithPhotosView: View {
             }
             
             if let results = request.results as? [VNRecognizedTextObservation] {
-                // TODO: replace with v0.2 map
-                let colourMap = ColourCatalog.shared.colourMap
+                let colourMap = ColourMapper.shared.colourMap
+                // let colourMap = ColourCatalog.shared.colourMap
                 recognizedText = results.compactMap { observation in
                     observation.topCandidates(1).first?.string
                 }.joined(separator: "\n")
@@ -156,7 +156,7 @@ struct CreatePaletteWithPhotosView: View {
                     
                 }
                 
-                print("Detected palette colours:\n\n")
+                print("Detected palette colours (\(detectedPaletteColours.count) items):\n\n")
                 for pc in detectedPaletteColours {
                     print(pc.colourName, pc.hexCode)
                 }
@@ -204,6 +204,7 @@ struct PaletteCreationConfirmationView: View {
     var body: some View {
         NavigationStack {
             VStack {
+                Text("Duplicate colours will be removed.")
                 if !paletteColours.isEmpty {
                     List {
                         LazyVGrid(columns: columns) {

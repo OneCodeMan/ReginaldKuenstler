@@ -12,8 +12,9 @@ struct ContentView: View {
     @EnvironmentObject var userPaletteViewModel: UserPaletteViewModel // Injected from the environment
     
     // by doing this here, we populate the map for the entire app cycle
-    @StateObject private var colourMapper: ColourMapper = ColourMapper.shared
+    @StateObject private var colourMapperOG: ColourMapperOG = ColourMapperOG.shared
     @StateObject private var colourCatalog: ColourCatalog = ColourCatalog.shared
+    @StateObject private var colourMapper: ColourMapper = ColourMapper.shared
     
     var body: some View {
         if hasCompletedOnboarding {

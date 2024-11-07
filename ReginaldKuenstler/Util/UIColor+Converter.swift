@@ -15,7 +15,8 @@ extension UIColor {
         if hexSanitized.hasPrefix("#") {
             hexSanitized.remove(at: hexSanitized.startIndex)
         }
-
+        
+        // print("hex: \(hexSanitized)")
         // Ensure valid hex length
         assert(hexSanitized.count == 6, "Invalid HEX code")
 

@@ -15,6 +15,25 @@ struct CatalogColour: Codable, Identifiable {
     let rgb: [Int]
 }
 
+final class ColourMapper: ObservableObject {
+    private(set) var colourMap: [VColour] = []
+    static let shared = ColourMapper()
+    
+    private init() {
+        print("ColourMapper init called")
+        
+        // Wait for both OG and Catalog to finish loading
+        ColourMapperOG.shared.createColourMapFromCSV { ogMap in
+            ColourCatalog.shared.createColourMapFromCatalogJSON { catalogMap in
+                let combinedMap = (ogMap + catalogMap).uniqued()
+                DispatchQueue.main.async {
+                    self.colourMap = combinedMap
+                    print("ColourMapper combined colourMap: \(self.colourMap)")
+                }
+            }
+        }
+    }
+}
 
 // MARK: V0.2
 final class ColourCatalog: ObservableObject {
@@ -80,13 +99,13 @@ final class ColourCatalog: ObservableObject {
 
 
 // MARK: V 0.1 colour map.
-final class ColourMapper: ObservableObject {
+final class ColourMapperOG: ObservableObject {
 
     // Data
     private(set) var colourMap: [VColour] = []
     
     // Singleton instance
-    static let shared = ColourMapper()
+    static let shared = ColourMapperOG()
     
     // Prevents external instantiation
     private init() {

@@ -133,14 +133,17 @@ That new new
         https://www.createwithswift.com/adding-a-widget-to-a-swiftui-app/
 ...
 - [ ] An Attempt At Better User Input #1
-    - [ ] If no matching catalog colour, refer to colour map v0.1
-    - [ ] Be able to detect misspellings//missing letters?
+    - [ ] Merge the colour maps
     - [ ] Add multi-select image option like Instagram.
+    - [ ] On "Detected Colours"/"Add to Palette", allow user to add/delete colours.
+    - [ ] Be able to detect misspellings//missing letters
 ...
 - [ ] A better loading screen
     - The progression of an artwork being drawn and coloured.
         - Going from partially to fully coloured.
     - Ideally 2-3 of these.
+        - Munch prelim
+        - Matisse prelim
 
 ### Wave 2.2
 - [ ] ???
@@ -211,6 +214,7 @@ https://www.winsornewton.com/en-ca/collections/cotman-watercolour
 # History
 
 ## November 7, 2024
+- [x] BUGFIX: Some hex codes are over 255. Do it in Go. clean the catalog. not the sanitized data.
 - [x] Re-design colour mapper to consumerist-facing
     - [x] Extract the colours from the product catalogs themselves, build mapper with that.
         - [x] From W&N, Mont Marte, etc.

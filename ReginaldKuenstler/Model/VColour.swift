@@ -43,7 +43,7 @@ struct V2Colour: Equatable {
 }
 
 
-struct VColour: Equatable {
+struct VColour: Equatable, Hashable {
     
     static func == (lhs: VColour, rhs: VColour) -> Bool {
         lhs.name == rhs.name &&
@@ -61,9 +61,14 @@ struct VColour: Equatable {
     
     init(name: String, rgbValue: [Int]) {
         self.name = name
-        self.rgbCode = RGBTuple(r: rgbValue[0], g: rgbValue[1], b: rgbValue[3])
+        self.rgbCode = RGBTuple(r: rgbValue[0], g: rgbValue[1], b: rgbValue[2])
         self.hexCode = ColourHelper.rgbToHex(self.rgbCode)
         self.uiColour = UIColor.init(hex: self.hexCode)
+//        print("\n\n\n\n")
+//        print("name: \(name)")
+//        print("rgbValue: \(rgbValue)")
+//        print("hexCode: \(self.hexCode)")
+//        print("\n\n\n")
     }
     
     init(name: String, hexCode: String, rgbCode: RGBTuple, uiColour: UIColor) {

@@ -45,7 +45,7 @@ class AveragePaletteViewModel: ObservableObject {
     }
 
     private func analyzeImage(_ image: UIImage) async {
-        let colourMap = ColourMapper.shared.colourMap
+        let colourMap = ColourMapperOG.shared.colourMap
         // Placeholder to store Palette objects for a single image
         var palettesForImage: [PaletteColour] = []
 
