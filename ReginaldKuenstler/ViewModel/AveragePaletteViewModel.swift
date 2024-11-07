@@ -45,7 +45,7 @@ class AveragePaletteViewModel: ObservableObject {
     }
 
     private func analyzeImage(_ image: UIImage) async {
-        let colourMap = ColourMapperOG.shared.colourMap
+        let colourMap = ColourMapper.shared.colourMap
         // Placeholder to store Palette objects for a single image
         var palettesForImage: [PaletteColour] = []
 
@@ -69,6 +69,7 @@ class AveragePaletteViewModel: ObservableObject {
                         let currentVColour = ColourHelper.findNearestColourInMap(withRgbValue: swatchRGB, colourMap: colourMap)
                         let paletteColour = PaletteColour(fromVColour: currentVColour)
                         // let paletteColour = PaletteColour(colourName: name, hexCode: swatch.hex)
+                        // TODO: do not add paletteColour if it's already in any of the other palettes.
                         palettesForImage.append(paletteColour)
                     }
                 }

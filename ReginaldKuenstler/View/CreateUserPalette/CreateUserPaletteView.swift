@@ -124,7 +124,7 @@ struct CreatePaletteWithPhotosView: View {
                 let recognizedTextSplit = recognizedText.split(whereSeparator: \.isNewline)
                 
                 var arrayOfDetectedColourStrings: [String] = []
-                print(colourMap)
+                // print(colourMap)
                 
                 for line in recognizedTextSplit {
                     let sanitizedLine = line.lowercased().trimmingCharacters(in: .whitespaces)

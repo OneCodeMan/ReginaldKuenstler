@@ -122,10 +122,11 @@ That new new
 ...
 - [ ] Palette of the Greats
     - [ ] Detail View
+        - [ ] Use multi-select view and print statements to get MinimumPalette info for each.
+            - We should hard-code it... It's gonna be the same images all the time and we'd be doing the same calcs all the time..
         - [x] Add AveragePalette to bottom of DetailView
         - [ ] Information on: birth date to death date
-        - [ ] Add real avg. palette data
-            - We should hard-code it... It's gonna be the same images all the time and we'd be doing the same calcs all the time..
+        
 ...
 - [ ] ColourComparisonView & Widget
     - [ ] Add Widget of last generated swatch

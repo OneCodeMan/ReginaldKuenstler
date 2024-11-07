@@ -28,7 +28,7 @@ final class ColourMapper: ObservableObject {
                 let combinedMap = (ogMap + catalogMap).uniqued()
                 DispatchQueue.main.async {
                     self.colourMap = combinedMap
-                    print("ColourMapper combined colourMap: \(self.colourMap)")
+                    // print("ColourMapper combined colourMap: \(self.colourMap)")
                 }
             }
         }

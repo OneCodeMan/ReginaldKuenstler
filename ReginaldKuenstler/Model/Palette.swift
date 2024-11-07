@@ -14,6 +14,7 @@ import SwiftUI
  */
 struct PaletteColour: Identifiable, Equatable, Hashable {
     static func == (lhs: PaletteColour, rhs: PaletteColour) -> Bool {
+        (lhs.id == rhs.id) &&
         (lhs.colourName == rhs.colourName) &&
         (lhs.hexCode == rhs.hexCode)
     }
