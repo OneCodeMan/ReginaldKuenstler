@@ -21,6 +21,7 @@ struct PaletteColour: Identifiable, Equatable, Hashable {
     var id = UUID()
     
     var colourName: String
+    private var colourBrand: String?
     
     // used for display
     var hexCode: String
@@ -52,6 +53,25 @@ struct PaletteColour: Identifiable, Equatable, Hashable {
         self.rgbCode = vColour.rgbCode
         self.isUserOwned = false
     }
+    
+    init(fromCatalogColour catalogColour: CatalogColour, isUserOwned: Bool = false) {
+        self.colourName = catalogColour.name
+        self.colourBrand = catalogColour.brand
+        
+        if catalogColour.rgb.count == 3 {
+            self.rgbCode = RGBTuple(r: catalogColour.rgb[0], g: catalogColour.rgb[1], b: catalogColour.rgb[2])
+            self.hexCode = ColourHelper.rgbToHex(rgbCode)
+            self.uiColour = UIColor.init(hex: hexCode)
+            self.isUserOwned = isUserOwned
+        } else {
+            self.rgbCode = RGBTuple(r: 0, g: 0, b: 0)
+            self.hexCode = ColourHelper.rgbToHex(rgbCode)
+            self.uiColour = UIColor.init(hex: hexCode)
+            self.isUserOwned = isUserOwned
+        }
+        
+    }
+    
     
     init() {
         self.colourName = "Midnight Blue (default init)"

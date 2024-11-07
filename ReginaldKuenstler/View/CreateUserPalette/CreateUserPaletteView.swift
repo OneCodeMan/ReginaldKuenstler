@@ -110,7 +110,7 @@ struct CreatePaletteWithPhotosView: View {
             
             if let results = request.results as? [VNRecognizedTextObservation] {
                 // TODO: replace with v0.2 map
-                let colourMap = ColourMapper.shared.colourMap
+                let colourMap = ColourCatalog.shared.colourMap
                 recognizedText = results.compactMap { observation in
                     observation.topCandidates(1).first?.string
                 }.joined(separator: "\n")
@@ -145,9 +145,9 @@ struct CreatePaletteWithPhotosView: View {
                 var detectedPaletteColours: [PaletteColour] = []
                 // then make VColours out of `arrayOfDetectedColourStrings`
                 for detectedColourString in arrayOfDetectedColourStrings {
-                    if let vColourIndex = colourMap.firstIndex(where: { $0.name.lowercased() == detectedColourString }) {
-                        let targetVColour: VColour = colourMap[vColourIndex]
-                        let generatedPaletteColour: PaletteColour = PaletteColour(fromVColour: targetVColour)
+                    if let catalogColourIndex = colourMap.firstIndex(where: { $0.name.lowercased() == detectedColourString }) {
+                        let targetCatalogColour: CatalogColour = colourMap[catalogColourIndex]
+                        let generatedPaletteColour: PaletteColour = PaletteColour(fromCatalogColour: targetCatalogColour)
                         detectedPaletteColours.append(generatedPaletteColour)
                     } else {
                         print("VColour Index not found .errorrrrrr")
