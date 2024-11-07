@@ -33,6 +33,7 @@ struct MultiSelectView: View {
                                     .frame(minHeight: 200)
                                     .cornerRadius(8)
                                     .unredacted()
+                                    .disabled(!displayMinimumPalette)
                                     .onTapGesture {
                                         if displayMinimumPalette {
                                             self.displayPaletteResults = true
@@ -114,10 +115,10 @@ struct MultiSelectView: View {
                 }
 
                 Button("Analyze") {
-                    self.displayMinimumPalette = true
                     Task {
                         await viewModel.analyzeImages(images: images)
                     }
+                    self.displayMinimumPalette = true
                 }
                 .padding()
 
@@ -143,8 +144,8 @@ struct PaletteResultsView: View {
                 VStack {
                     Image(uiImage: image)
                         .resizable()
-                        .frame(width: 90, height: 60)
                         .scaledToFill()
+                        .frame(width: 500, height: 550)
                         .padding()
                     Section {
                         ForEach(paletteResults, id: \.self) { pc in

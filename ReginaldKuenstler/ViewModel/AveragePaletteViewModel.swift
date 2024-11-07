@@ -41,9 +41,13 @@ class AveragePaletteViewModel: ObservableObject {
         // cross check with paletteResultsNoDupes? the UUIDs?
         let mostToLeastOccurringPaletteColours: [(UUID, Int)] = counterDict.sorted { $0.value > $1.value }
         
-        self.minimumPalette = minPalette
+        let minPaletteColours: [PaletteColour] = removeDuplicatePaletteColours(minPalette.colours)
+        let generatedMinimumPalette: Palette = Palette(title: "Multi-select Palette", colours: minPaletteColours)
+        self.minimumPalette = generatedMinimumPalette
         // TODO: COPY AND PASTE THE RESULTS OF THESE TO GREATS CONSTANTS
+        print("\n\n")
         print(minPalette)
+        print("\n\n")
     }
 
     private func analyzeImage(_ image: UIImage) async {
@@ -83,4 +87,15 @@ class AveragePaletteViewModel: ObservableObject {
             }
         }
     } // end of func analyzeImage()
+    
+    func removeDuplicatePaletteColours(_ colours: [PaletteColour]) -> [PaletteColour] {
+        var uniqueColours = [PaletteColour]()
+        for colour in colours {
+            if !uniqueColours.contains(where: { $0.colourName ==  colour.colourName}) {
+                uniqueColours.append(colour)
+            }
+        }
+        return uniqueColours
+    }
 }
+
