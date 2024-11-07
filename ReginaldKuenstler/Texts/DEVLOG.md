@@ -123,13 +123,12 @@ That new new
         - Matisse prelim
         - Matisse woman
 ...
-- [ ] Palette of the Greats
-    - [ ] Finish Minimum Palette View
+- [ ] Create Website!!
 ...
 Flow
-- [ ] On Image Swatch Analysis,
-    - [ ] Enable multi-select images
-    - [ ] Handle individual and multiple image input
+- [ ] Colour Comparison
+    - [ ] Figure out flow for individual and multiple images
+    - [ ] Implement flow for individual and multiple images
 ...
 Image Swatch Analysis
     - [ ] How do we handle non-direct matches? Like a list of similar colours?
@@ -142,8 +141,6 @@ Image Swatch Analysis
 ...
 - [ ] ColourComparisonView & Widget
     - [ ] Add Widget of some swatch
-...
-- [ ] Website!!
 
 ### Wave 2.2
 - [ ] Palette of the Greats
@@ -226,6 +223,8 @@ https://www.winsornewton.com/en-ca/collections/cotman-watercolour
 ## November 8, 2024
 
 ## November 7, 2024
+- [x] Palette of the Greats
+    - [x] Finish Minimum Palette View
 - [x] Update colour comparison to use updated mapper if it's not already
 - [x] On UserPaletteView top right bar button "Add", should give options between catalog or image input.
     - [x] Add `ActionSheet` with two buttons, one leading to OG Palette Creation, the other leading to image input.
@@ -244,10 +243,10 @@ https://www.winsornewton.com/en-ca/collections/cotman-watercolour
     - [x] Make VColour objects or something else out of those catalog items
 
 ## November 6, 2024
-- [ ] Multi-select
+- [x] Multi-select
     - [x] The individual palette breakdown for each image, make that a detail view for the images themselves
 
-- [ ] Palette of the Greats
+- [x] Palette of the Greats
     - [x] More data
     - [x] https://www.tumblr.com/tagged/ettore%20tito
 
