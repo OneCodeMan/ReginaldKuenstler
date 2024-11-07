@@ -115,13 +115,6 @@ Suggestions:
 That new new
 
 ### Wave 2.1
-...
-Flow
-- [ ] On UserPaletteView top right bar button "Add", should give options between catalog or image input.
-    - [ ] Add `ActionSheet` with two buttons, one leading to OG Palette Creation, the other leading to image input.
-    - [ ] Both sheets have a top left exit button, that's the only way they get dismissed.
-    - [ ] On dismiss, user palette view is presented to user again.
-...
 - [ ] A better loading screen
     - The progression of an artwork being drawn and coloured.
         - Going from partially to fully coloured.
@@ -130,16 +123,23 @@ Flow
         - Matisse prelim
         - Matisse woman
 ...
+- [ ] Palette of the Greats
+    - [ ] Finish Minimum Palette View
+...
+...
+Flow
+- [ ] On Image Swatch Analysis,
+    - [ ] Enable multi-select images
+    - [ ] Handle individual and multiple image input
+...
 Image Swatch Analysis
+    - [ ] How do we handle non-direct matches? Like a list of similar colours?
     - [ ] Add multi-select image option like Instagram.
-    - [ ] The "swatch" we have will be the "minimum palette"
+    - [ ] The "swatch" we have will be the "minimum palette" ???
 ...
 - Multi-select.
     - [ ] Top left button on each image to delete them from the list.
     - [ ] Fix button states on different states.
-...
-- [ ] Palette of the Greats
-    - [ ] Finish Minimum Palette View
 ...
 - [ ] ColourComparisonView & Widget
     - [ ] Add Widget of some swatch
@@ -220,7 +220,18 @@ https://www.winsornewton.com/en-ca/collections/cotman-watercolour
 
 # History
 
+## November 10, 2024
+
+## November 9, 2024
+
+## November 8, 2024
+
 ## November 7, 2024
+- [x] Update colour comparison to use updated mapper if it's not already
+- [x] On UserPaletteView top right bar button "Add", should give options between catalog or image input.
+    - [x] Add `ActionSheet` with two buttons, one leading to OG Palette Creation, the other leading to image input.
+    - [x] Both sheets have a top left exit button, that's the only way they get dismissed.
+    - [x] On dismiss, user palette view is presented to user again. With updated data.
 - [x] Detected Colours Page (An Attempt At Better User Input #1)
     - [x] Merge the colour maps
     - [x] On "Detected Colours", mark colours user already has

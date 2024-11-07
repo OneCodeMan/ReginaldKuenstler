@@ -35,7 +35,7 @@ class KuenstlerViewModel: ObservableObject {
     
     @MainActor
     func performAnalOnImage(artwork: ArtworkInput, completion: @escaping (_ result: [ColourPair], [VColour]) -> Void) async throws {
-        let colourMap = ColourMapperOG.shared.colourMap
+        let colourMap = ColourMapper.shared.colourMap
         // print("colourMap status from KuenstlerViewModel.performAnal --- \(colourMap.count) items")
         self.isLoading = true
         var colourPairs: [ColourPair] = []
