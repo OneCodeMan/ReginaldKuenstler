@@ -117,15 +117,24 @@ Suggestions:
 # Wave 2
 ## (November 1, 2024 -- ????)
 
+### Resource allocation
+
+Saturday (Nov 9): 
+90% onboarding; 10% website
+Entire onboarding flow.
+Favicon, iPhone frame dims, privacy policy, nav bar maybe.
+
+Sunday (Nov 10):
+Flow or rest day.
+
 That new new
 
 ### Wave 2.1
 - [ ] Website
+    - [ ] Add favicon
     - [ ] Style the website
         - [ ] Nav bar styling
-    - [ ] Remove placeholder screenshots
-        - [ ] 3 features
-        - [ ] iPhone frame
+        - [ ] Fix the iPhone frame dimensions
     ..
     - [ ] Privacy Policy Page
     ..
@@ -142,10 +151,16 @@ A warm welcome.
 Show us which paints you have.
 Show us what you want to paint.
 We recommend you which paints to use.
+Happy painting!
 https://dribbble.com/shots/21060070-Onboarding-mobile-app-for-BOXXY
     
 ### Wave 2.2
 - [ ] Bugfixes and pixel pushing and fine details.
+..
+- [ ] Website
+    - [ ] Remove placeholder screenshots
+        - [ ] 3 features
+        - [ ] iPhone frame
     
 ### Wave 2.3 - Publish
 - [ ] Publish app
