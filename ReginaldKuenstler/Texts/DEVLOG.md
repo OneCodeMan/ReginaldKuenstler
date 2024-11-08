@@ -55,6 +55,11 @@ so much shit to think about
 
 # Personal Diary
 
+## Socials
+https://x.com/pinseltonapp
+https://www.instagram.com/pinselton.app
+
+
 ## Backlog
 - For missed connections, estimate the mixes of colour one would need to make that colour from the palette.
 - Given an input of about 7 images, generate the least amount of colours needed to make a palette.
@@ -115,37 +120,34 @@ Suggestions:
 That new new
 
 ### Wave 2.1
+- [ ] Website
+    - [ ] Style the website completely.
+    - [ ] Remove placeholder links
+    - [ ] Remove placeholder assets
+    - [ ] Privacy Policy Page
+...
 Flow
 - [ ] Colour Comparison
     - [ ] Figure out flow for individual and multiple images
     - [ ] Implement flow for individual and multiple images
 ...
-- [ ] A better loading screen
-    - The progression of an artwork being drawn and coloured.
-        - Going from partially to fully coloured.
-    - Ideally 2-3 of these.
-        - Munch prelim
-        - Matisse prelim
-        - Matisse woman
-...
-- [ ] Create Website!!
-...
-- [ ] ColourComparisonView & Widget
-    - [ ] Add Widget of some swatch
-
+Onoarding View
+- [ ] it's better
+    
 ### Wave 2.2
-- [ ] ???
-- [ ] ???
-- [ ] ???
-- [ ] ??
+- [ ] Bugfixes and pixel pushing and fine details.
+    
+### Wave 2.3 - Publish
+- [ ] Publish app
+- [ ] Publish website
 
-### Wave 2.3
-- [ ] ???
-- [ ] ???
-- [ ] ???
-- [ ] ???
-- [ ] ???
-- [ ] ??
+### Wave 2.4
+- [ ] Socials
+    - [ ] 3 demo videos + 2 photos
+    - [ ] ProductHunt page
+- [ ] Fastlane basic
+
+......
 
 ### Nice to haves
 - [ ] Palette of the Greats
@@ -214,6 +216,15 @@ https://www.winsornewton.com/en-ca/collections/cotman-watercolour
 ## November 9, 2024
 
 ## November 8, 2024
+...
+- [x] Create Socials!!
+    - [x] Pinselton.app domain name
+...
+- [x] Socials/marketing
+    - [x] IG made
+    - [x] Email made
+    - [x] Create Website!!
+    - [x] Create Twitter
 
 ## November 7, 2024
 - [x] Palette of the Greats
