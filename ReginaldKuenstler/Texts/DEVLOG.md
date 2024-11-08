@@ -138,6 +138,11 @@ Flow
 ...
 Onoarding View
 - [ ] it's better
+A warm welcome.
+Show us which paints you have.
+Show us what you want to paint.
+We recommend you which paints to use.
+https://dribbble.com/shots/21060070-Onboarding-mobile-app-for-BOXXY
     
 ### Wave 2.2
 - [ ] Bugfixes and pixel pushing and fine details.
@@ -156,7 +161,6 @@ Onoarding View
         - [ ] Producthunt
         - [ ] App store button
         - [ ] QR code
-
 ......
 
 ### Nice to haves
