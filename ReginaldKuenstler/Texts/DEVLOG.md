@@ -121,10 +121,15 @@ That new new
 
 ### Wave 2.1
 - [ ] Website
-    - [ ] Style the website completely.
-    - [ ] Remove placeholder links
-    - [ ] Remove placeholder assets
+    - [ ] Style the website
+        - [ ] Nav bar styling
+    - [ ] Remove placeholder screenshots
+        - [ ] 3 features
+        - [ ] iPhone frame
+    ..
     - [ ] Privacy Policy Page
+    ..
+    - [ ] Pixel pushing
 ...
 Flow
 - [ ] Colour Comparison
@@ -146,6 +151,11 @@ Onoarding View
     - [ ] 3 demo videos + 2 photos
     - [ ] ProductHunt page
 - [ ] Fastlane basic
+- [ ] Website
+    - [ ] Remove placeholder links
+        - [ ] Producthunt
+        - [ ] App store button
+        - [ ] QR code
 
 ......
 
